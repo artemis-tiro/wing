@@ -1,0 +1,5 @@
+@yield('header')
+@yield('topmenu')
+@yield('pan')
+@yield('content')
+@yield('footer')
