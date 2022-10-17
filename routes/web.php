@@ -30,6 +30,8 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/', "App\Http\Controllers\
 Route::any('/logout', "App\Http\Controllers\TopController@logout");
 //log
 Route::any('/log', "App\Http\Controllers\TopController@log");
+//mypage
+Route::middleware(['auth:sanctum', 'verified'])->any('/mypage', "App\Http\Controllers\TopController@mypage");
 
 //tiro
 Route::middleware(['auth:sanctum', 'verified'])->any('/tiro', "App\Http\Controllers\TiroController@top");
@@ -39,21 +41,25 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/tiro/nari/{team}', "App\H
 
 //admin
 Route::middleware(['auth:sanctum', 'verified'])->any('/admin', "App\Http\Controllers\AdminController@top");
+Route::middleware(['auth:sanctum', 'verified'])->any('/admin/inputer', "App\Http\Controllers\AdminController@inputer");
 Route::middleware(['auth:sanctum', 'verified'])->any('/admin/newinputer', "App\Http\Controllers\AdminController@newInputer");
 Route::middleware(['auth:sanctum', 'verified'])->any('/admin/editinputer/{id}/{action}', "App\Http\Controllers\AdminController@editInputer");
 Route::middleware(['auth:sanctum', 'verified'])->any('/admin/inputer/{id}', "App\Http\Controllers\AdminController@inputerDetail");
+Route::middleware(['auth:sanctum', 'verified'])->any('/admin/client', "App\Http\Controllers\AdminController@client");
 Route::middleware(['auth:sanctum', 'verified'])->any('/admin/newclient', "App\Http\Controllers\AdminController@newClient");
 Route::middleware(['auth:sanctum', 'verified'])->any('/admin/editclient/{id}/{action}', "App\Http\Controllers\AdminController@editClient");
-Route::middleware(['auth:sanctum', 'verified'])->any('/admin/client/{id}', "App\Http\Controllers\AdminController@clientDetail");
 
 //inputer
-Route::middleware(['auth:sanctum', 'verified'])->any('/inputer', "App\Http\Controllers\InputerController@top");
+Route::middleware(['auth:sanctum', 'verified'])->any('/input', "App\Http\Controllers\InputController@top");
 
 //client
-Route::middleware(['auth:sanctum', 'verified'])->any('/client', "App\Http\Controllers\ClientController@top");
+Route::middleware(['auth:sanctum', 'verified'])->any('/client/newmise/{id}', "App\Http\Controllers\ClientController@newMise");
+Route::middleware(['auth:sanctum', 'verified'])->any('/client/{id}', "App\Http\Controllers\ClientController@top");
+Route::middleware(['auth:sanctum', 'verified'])->any('/client/{id}/{mise}', "App\Http\Controllers\ClientController@mise");
 
 //therapist
 Route::middleware(['auth:sanctum', 'verified'])->any('/therapist', "App\Http\Controllers\TherapistController@top");
+
 
 /*
 

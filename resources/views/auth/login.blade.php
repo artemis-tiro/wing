@@ -196,6 +196,7 @@
             </div>
 
             {{ Form::open(['url' => url('/login')]) }}
+            <input type="checkbox" name="remember" style="display:none;" checked>
                 @if ($errors->any())
                     @foreach ($errors->all() as $error)
                         <p style="color:red;">{{ $error }}</p>

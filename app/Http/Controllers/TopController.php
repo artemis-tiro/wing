@@ -18,7 +18,7 @@ class TopController extends Controller{
             case 'admin':
                 return redirect('/admin');
             case 'inputer':
-                return redirect('/inputer');
+                return redirect('/input');
             case 'client':
                 return redirect('/client');
             case 'therapist':
@@ -41,21 +41,24 @@ class TopController extends Controller{
         $path = storage_path("../resources/views/log.blade.php");
         if($request->input('action')=='del'){
             \File::delete($path);
-            \File::append($path, "　　<a href='".url('log?action=del')."'>ログ削除</a>　　<a href='".url('log')."'>更新</a>　　<a href='".url('tiro')."'>tiroトップ</a>　　\n\n");
+            //\File::append($path, "　　<a href='".url('log?action=del')."'>ログ削除</a>　　<a href='".url('log')."'>更新</a>　　<a href='".url('tiro')."'>tiroトップ</a>　　\n\n");
             //\File::append($path, "");
-            Log::info('log削除しました');//★★★log★★★
+            //Log::info('log削除しました');//★★★log★★★
             return back();
         }
         return nl2br(view('log'));
     }
 
+    // mypage
+    public function mypage(){
+        return view ('mypage', [
+       ]);
+    }
 
 
-    /***** memo ************************
 
+/***** ticket ************************
 
-
-
-    *****************************/
+*****************************/
 
 }

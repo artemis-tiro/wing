@@ -12,7 +12,7 @@ use App\Models\Inputer;
 use App\Models\Client;
 use App\Models\Mise;
 
-class InputerController extends Controller{
+class InputController extends Controller{
 
     //権限チェック
     public function levelCheck($id=null){
@@ -46,16 +46,11 @@ class InputerController extends Controller{
         if($ng = $this->levelCheck()) return $ng;
 
         //inputer一覧
-        $inputerList = user::inputerList(Auth::user()->team);
+        $zenMiseList = mise::zenMiseList(Auth::user()->team);
 
-        //client一覧
-        $clientList = user::clientList(Auth::user()->team);
-
-        return view ('inputer_top', [
-            'inputerList' => $inputerList,
-            'clientList' => $clientList,
-            'newInputerError' => session('newInputerError'),
-            'newClientError' => session('newClientError'),
+        return view ('input_top', [
+            'zenMiseList' => $zenMiseList,
+            'error' => session('error'),
        ]);
     }
 

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use Log;
+use Illuminate\Validation\Rule;
+
 use App\Models\User;
 
 class TiroController extends Controller{
@@ -50,8 +52,8 @@ class TiroController extends Controller{
 
         //バリデーション
         $rulus = [
-            'login_id' => 'required | regex:/^[a-zA-Z0-9]+$/ | unique:users,name',
-            'pass' => 'required | min:4 | regex:/^[[a-zA-Z0-9]+$/',
+            'login_id' => ['required','regex:/^[a-zA-Z0-9]+$/',Rule::unique('users','name')->whereNull('deleted_at')],
+            //'pass' => 'required | min:4 | regex:/^[[a-zA-Z0-9]+$/',
             'memo' => '',
         ];
         $message = [

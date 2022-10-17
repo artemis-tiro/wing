@@ -118,7 +118,8 @@ class User extends Authenticatable
         //インサート
         $user = new user();
         $user->name = $input['login_id'];
-        $user->password = Hash::make($input['pass']);
+        // $user->password = Hash::make($input['pass']);
+        $user->password = Hash::make($input['login_id']);
         $user->access_level = $level;
         $user->team = $team;
         $saveResult = $user->save();

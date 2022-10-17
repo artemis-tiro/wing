@@ -1,6 +1,7 @@
 @extends('common.layout')
 @include('common.header')
-@include('common.topmenu')
+@include('common.topbar')
+@include('common.sidemenu')
 @include('common.pan')
 
 @section('content')
@@ -8,110 +9,36 @@
     $teamName = App\Models\user::teamName(auth()->user()->team);
 ?>
 
-        <h1>{{$teamName}}トップページ</h1>
-        <h2>メンバー一覧</h2>
-        <table>
-            <tr>
-                <td></td>
-                <td>名前</td>
-                <td>権限</td>
-                <td>状態</td>
-                <!-- <td>メモ</td> -->
-            </tr>
-            @foreach($inputerList as $i)
-            <?php 
-                 $level = $i->access_level=='admin'?'管理者':'メンバー'; 
-                 $action2 = $i->access_level=='admin'?'toInputer':'toAdmin'; 
-                 $active = $i->active?'アクティブ':'停止中'; 
-                 $action = $i->active?'stop':'go'; 
-                 $actionComment = $i->active?'停止':'再開'; 
-            ?>
-            <tr>
-                <td>{{$loop->index+1}}</td>
-                <td><a href="{{url('/admin/inputer/'.$i->id)}}">{{$i->name}}</a></td>
-                <td>{{$level}}</td>
-                <td>{{$active}}</td>
-                <!--
-                <td>
-                    {{ Form::open(['url' => url('/admin/editinputer/'.$i->id.'/memo')]) }}
-                    {{ Form::text('memo'.$i->id, $i->memo)}}
-                    {{ Form::submit('メモ')}}
-                    {{ Form::close() }}
-                </td>
-                -->
-                <td><a href="{{url('/admin/editinputer')}}/{{$i->id}}/{{$action}}">{{$actionComment}}</a></td>
-                <td><a href="{{url('/admin/editinputer')}}/{{$i->id}}/{{$action2}}">権限切り替え</a></td>
-                <td><a href="{{url('/admin/editinputer')}}/{{$i->id}}/del">削除</a></td>
-            </tr>
-            @endforeach
-        </table>
+                <h1 class="h2">{{$teamName}}管理者トップページ</h1>
 
+                <div class="card my-4">
+                    <!-- カードのタイトル -->
+                    <h2 class="card-header h5">売上</h2>
+                    <!-- カードの要素 -->
+                    <div class="card-body table-responsive text-nowrap">
+                        本日、前日、今月、先月の売上が表示されます。<br>
+                        （フェーズ2以降）
+                    </div>
+                </div>
 
-        <h2>メンバー新規作成</h2>
-        <p>{!! nl2br(e($newInputerError)) !!}</p>
-        {{ Form::open(['url' => url('/admin/newinputer')]) }}
-        <label>ログインID
-        {{ Form::text('login_id', null)}}
-        </label></br>
-        
-        <label>パスワード
-        {{ Form::text('pass', null)}}
-        </label></br>
+                <div class="card my-4 mb-5">
+                    <!-- カードのタイトル -->
+                    <h2 class="card-header h5">メンバー管理</h2>
+                    <!-- カードの要素 -->
+                    <div class="card-body">
+                        メンバーの稼働状況が確認できます。<br>
+                        （フェーズ2以降）<br><br>
+                        <a class="btn btn-sm btn-info" href="{{url('/admin/inputer')}}">メンバー管理画面へ</a></td>
+                    </div>
+                </div>
 
-        <label>本名
-        {{ Form::text('name', null)}}
-        </label></br>
-        
-        {{ Form::submit('新規作成')}}
-        {{ Form::close() }}
-
-
-        <h2>クライアント一覧</h2>
-        <table>
-            <tr>
-                <td></td>
-                <td>代表者</td>
-                <td>状態</td>
-                <td>店舗数</td>
-                <td>メイン店舗</td>
-            </tr>
-            @foreach($clientList as $c)
-            <?php 
-                 $level = $c->access_level=='admin'?'管理者':'メンバー'; 
-                 $active = $c->active?'アクティブ':'停止中'; 
-                 $action = $c->active?'stop':'go'; 
-                 $actionComment = $c->active?'停止':'再開'; 
-            ?>
-            <tr>
-                <td>{{$loop->index+1}}</td>
-                <td><a href="{{url('/admin/client/'.$i->id)}}">{{$c->name}}</a></td>
-                <td>{{$active}}</td>
-                <td><a href="{{url('/admin/editclient')}}/{{$c->id}}/{{$action}}">{{$actionComment}}</a></td>
-                <td><a href="{{url('/admin/editclient')}}/{{$c->id}}/del">削除</a></td>
-            </tr>
-            @endforeach
-        </table>
-
-
-        <h2>クライアント新規作成</h2>
-        <p>{!! nl2br(e($newClientError)) !!}</p>
-        {{ Form::open(['url' => url('/admin/newclient')]) }}
-        <label>ログインID
-        {{ Form::text('login_id', null)}}
-        </label></br>
-        
-        <label>パスワード
-        {{ Form::text('pass', null)}}
-        </label></br>
-
-        <label>代表者指名
-        {{ Form::text('name', null)}}
-        </label></br>
-        
-        {{ Form::submit('新規作成')}}
-        {{ Form::close() }}
-
-
+                <div class="card my-4 mb-5">
+                    <!-- カードのタイトル -->
+                    <h2 class="card-header h5">クライアント管理</h2>
+                    <!-- カードの要素 -->
+                    <div class="card-body">
+                        <a class="btn btn-sm btn-info" href="{{url('/admin/client')}}">クライアント管理画面へ</a></td>
+                    </div>
+                </div>
 
 @stop
-@include('common.footer')
