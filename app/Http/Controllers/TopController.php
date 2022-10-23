@@ -18,11 +18,11 @@ class TopController extends Controller{
             case 'admin':
                 return redirect('/admin');
             case 'inputer':
-                return redirect('/input');
+                return redirect('/i');
             case 'client':
-                return redirect('/client');
+                return redirect('/c');
             case 'therapist':
-                return redirect('/therapist');
+                return redirect('/t');
         }
 
         //どの権限も持ってなかったらログアウト
@@ -58,7 +58,10 @@ class TopController extends Controller{
 
 
 /***** ticket ************************
-
+本当に削除しますか？のモーダル
+セラピストログイン
+アカウント新規作成後に〇〇が新規作成されましたのメッセージ
+ネクストアクションのナビ（料金システムを登録して下さい、給料システムを設定してください。）
 *****************************/
 
 }

@@ -213,6 +213,14 @@ class User extends Authenticatable
         return true;
     }
 
+    //loginId追加
+    public static function addDetail($list){
+        foreach($list as $i){
+            $user = user::find($i->id);
+            $i->loginId = $user->name;
+        }
+    }
+
 
 }
 

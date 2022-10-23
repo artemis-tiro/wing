@@ -13,11 +13,13 @@ use App\Models\User;
 use App\Models\Inputer;
 use App\Models\Client;
 use App\Models\Mise;
+use App\Models\Room;
+use App\Models\Therapist;
 
 class ClientController extends Controller{
 
     //権限チェック
-    public function levelCheck($id){
+    public function levelCheck($clientId, $miseId=null, $therapistId=null){
         //権限チェック
         if(!in_array(Auth::user()->access_level, [
             //アクセスできる権限
@@ -27,11 +29,11 @@ class ClientController extends Controller{
         ])) return redirect('/');
 
         //他teamのデータ参照
-        if($id && !user::teamCheck($id, Auth::user()->team)) return redirect('/');
+        if(!user::teamCheck($clientId, Auth::user()->team)) return redirect('/');
 
-        //他ホーナーのデータ参照
+        //他オーナーのデータ参照
         if(Auth::user()->access_level=='client'){
-            if(Auth::user()->id != $id) return redirect('/');
+            if(Auth::user()->id != $clientId) return redirect('/');
         }
 
         //アクティブではない
@@ -43,6 +45,12 @@ class ClientController extends Controller{
         if(!user::teamActiveCheck(Auth::user()->team)){
             return view ('error', ['mess'=>'teamが停止されています。']);
         }
+
+        //miseが存在しない、クライアントの物ではない
+        if($miseId && !mise::authCheck($clientId, $miseId)) return redirect('/');
+
+        //therapistが存在しない、クライアントの物ではない
+        if($therapistId && !therapist::authCheck($miseId, $therapistId)) return redirect('/');
 
         return null;
     }
@@ -58,20 +66,17 @@ class ClientController extends Controller{
         //マイmise一覧
         $myMiseList = mise::myMiseList($id);
 
-        //全mise一覧
-        $zenMiseList = mise::zenMiseList(Auth::user()->team);
+        //room情報添付
+        room::addDetail($myMiseList);
 
-        return view ('client_top', [
+        //therapist情報添付
+        therapist::addDetail($myMiseList);
+
+        return view ('client', [
             'client' => $client,
             'myMiseList' => $myMiseList,
-            'zenMiseList' => $zenMiseList,
        ]);
     }
-
-
-
-
-    
 
     //mise新規作成
     public function newMise(Request $request, $id){
@@ -95,6 +100,7 @@ class ClientController extends Controller{
         ];
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();
+
         //mise作成
         $errro = mise::miseCreate($request->input(), $id);
         if($errro) return back()->with(['error' => $errro])->withInput();
@@ -102,119 +108,122 @@ class ClientController extends Controller{
         return back();
     }
 
-    //inputer削除、停止、再開
-    public function editInputer(Request $request, $id, $action){
+    //mise
+    public function mise($clientId, $miseId){
         //権限チェック
-        if($ng = $this->levelCheck()) return $ng;
+        if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
 
-        switch($action){
-            case 'go':
-                user::toActive($id);
-                break;
-            case 'stop':
-                user::toStop($id);
-                break;
-            case 'memo':
-                user::memo($id, $request->input('memo'.$id));
-                break;
-            case 'del':
-                user::del($id);
-                inputer::del($id);
-                break;
-            case 'toInputer':
-                user::toInputer($id);
-                break;
-            case 'toAdmin':
-                user::toAdmin($id);
-                break;
-        }
+        //client情報
+        $client = client::detail($clientId);
 
-        return back();
-    }
+        //mise情報
+        $mise = mise::detail($miseId);
 
-    //inputer詳細
-    public function inputerDetail($id){
-        //権限チェック
-        if($ng = $this->levelCheck()) return $ng;
+        //therapistリスト
+        $therapistList = therapist::List($miseId);
 
-        $inputerDetail = inputer::detail($id);
-        return view ('admin_inputer_detail', [
-            'inputerDetail' => $inputerDetail,
-            'user' => user::find($id),
+        return view ('mise', [
+            'client' => $client,
+            'mise' => $mise,
+            'therapistList' => $therapistList,
        ]);
     }
 
-
-
-    //client新規作成
-    public function newClient(Request $request){
+    //thrapist新規作成
+    public function newTherapist(Request $request, $clientId, $miseId){
         //権限チェック
-        if($ng = $this->levelCheck()) return $ng;
+        if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
 
         //バリデーション
         $rulus = [
-            'login_id' => ['required','regex:/^[a-zA-Z0-9]+$/',Rule::unique('users','name')->whereNull('deleted_at')],
-            'pass' => 'required | min:4 | regex:/^[[a-zA-Z0-9]+$/',
-            'name' => 'required',
+            'business_name' => ['required', Rule::unique('therapist','business_name')->whereNull('deleted_at')],
+            'login_id' => ['required','regex:/^[0-9a-zA-Z\\-\\_]+$/', Rule::unique('users','name')->whereNull('deleted_at')],
+            //'pass' => 'required | min:4 | regex:/^[[a-zA-Z0-9]+$/',
         ];
         $message = [
+            'business_name.required' => '源氏名を入力してください。',
+            'business_name.unique' => '登録されている源氏名です。',
             'login_id.required' => 'ログインIDを入力してください。',
-            'login_id.regex' => 'ログインIDは半角英数字で入力して下さい。',
+            'login_id.regex' => 'ログインIDに使えるのはは「半角英数字、ハイフン、アンダースコア」のみです。',
             'login_id.unique' => 'このログインIDは存在します。',
             'pass.required' => 'パスワードを入力してください。',
             'pass.min' => 'パスワードは4文字以上で入力してください。',
             'pass.regex' => 'パスワードは半角英数字で入力して下さい。',
-            'name.required' => '本名を入力してください。',
         ];
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();
 
         //user作成
-        $result = user::userCreate($request->input(), 'client');
+        $result = user::userCreate($request->input(), 'therapist');
         if($result['error']) return back()->with(['error' => $result['error']])->withInput();
 
-        //inputer作成
-        $error = client::clientCreate($request->input(), $result['id']);
+        //therapist作成
+        $error = therapist::therapistCreate($request->input(), $result['id'], $miseId);
         if($error) return back()->with(['error' => $error])->withInput();
 
         return back();
     }
-
-    //client削除、停止、再開
-    public function editClient(Request $request, $id, $action){
+    
+    //therapist
+    public function therapist($clientId, $miseId, $therapistId){
         //権限チェック
-        if($ng = $this->levelCheck()) return $ng;
+        if($ng = $this->levelCheck($clientId, $miseId, $therapistId)) return $ng;
 
-        switch($action){
-            case 'go':
-                user::toActive($id);
-                break;
-            case 'stop':
-                user::toStop($id);
-                break;
-            case 'memo':
-                user::memo($id, $request->input('memo'.$id));
-                break;
-            case 'del':
-                user::del($id);
-                clietn::del($id);
-                break;
-        }
+        //client情報
+        $client = client::detail($clientId);
 
-        return back();
-    }
+        //mise情報
+        $mise = mise::detail($miseId);
 
-    //client詳細
-    public function clientDetail($id){
-        //権限チェック
-        if($ng = $this->levelCheck()) return $ng;
+        //therapist情報
+        $therapist = therapist::detail($therapistId);
 
-        $clientDetail = client::detail($id);
-        return view ('admin_inputer_detail', [
-            'inputerDetail' => $inputerDetail,
-            'user' => user::find($id),
+        return view ('mise_therapist', [
+            'client' => $client,
+            'mise' => $mise,
+            'therapist' => $therapist,
        ]);
     }
+
+    //料金システム
+    public function price(Request $request, $clientId, $miseId){
+        //権限チェック
+        if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
+
+        if($request->input()){
+            //バリデーション
+            $rulus = [
+                'business_name' => ['required', Rule::unique('therapist','business_name')->whereNull('deleted_at')],
+                'login_id' => ['required','regex:/^[0-9a-zA-Z\\-\\_]+$/', Rule::unique('users','name')->whereNull('deleted_at')],
+                //'pass' => 'required | min:4 | regex:/^[[a-zA-Z0-9]+$/',
+            ];
+            $message = [
+                'business_name.required' => '源氏名を入力してください。',
+                'business_name.unique' => '登録されている源氏名です。',
+                'login_id.required' => 'ログインIDを入力してください。',
+                'login_id.regex' => 'ログインIDに使えるのはは「半角英数字、ハイフン、アンダースコア」のみです。',
+                'login_id.unique' => 'このログインIDは存在します。',
+                'pass.required' => 'パスワードを入力してください。',
+                'pass.min' => 'パスワードは4文字以上で入力してください。',
+                'pass.regex' => 'パスワードは半角英数字で入力して下さい。',
+            ];
+            $validator = Validator::make($request->all(), $rulus, $message);
+            if($validator->fails()) return back()->withErrors($validator)->withInput();
+        }
+
+        //client情報
+        $client = client::detail($clientId);
+
+        //mise情報
+        $mise = mise::detail($miseId);
+
+        return view ('mise_price', [
+            'client' => $client,
+            'mise' => $mise,
+       ]);
+    }
+    
+
 
 
 }

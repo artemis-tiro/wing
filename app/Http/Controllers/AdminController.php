@@ -85,14 +85,14 @@ class AdminController extends Controller{
 
         //バリデーション
         $rulus = [
-            'login_id' => ['required','regex:/^[a-zA-Z0-9]+$/',Rule::unique('users','name')->whereNull('deleted_at')],
+            'login_id' => ['required','regex:/^[0-9a-zA-Z\\-\\_]+$/',Rule::unique('users','name')->whereNull('deleted_at')],
             //'login_id' => 'required | regex:/^[a-zA-Z0-9]+$/ | unique:users,name',
             //'pass' => 'required | min:4 | regex:/^[[a-zA-Z0-9]+$/',
             'name' => 'required',
         ];
         $message = [
             'login_id.required' => 'ログインIDを入力してください。',
-            'login_id.regex' => 'ログインIDは半角英数字で入力して下さい。',
+            'login_id.regex' => 'ログインIDに使えるのはは「半角英数字、ハイフン、アンダースコア」のみです。',
             'login_id.unique' => 'このログインIDは存在します。',
             'pass.required' => 'パスワードを入力してください。',
             'pass.min' => 'パスワードは4文字以上で入力してください。',
@@ -164,13 +164,13 @@ class AdminController extends Controller{
 
         //バリデーション
         $rulus = [
-            'login_id' => ['required','regex:/^[a-zA-Z0-9]+$/',Rule::unique('users','name')->whereNull('deleted_at')],
+            'login_id' => ['required','regex:/^[0-9a-zA-Z\\-\\_]+$/',Rule::unique('users','name')->whereNull('deleted_at')],
             //'pass' => 'required | min:4 | regex:/^[[a-zA-Z0-9]+$/',
             'name' => 'required',
         ];
         $message = [
             'login_id.required' => 'ログインIDを入力してください。',
-            'login_id.regex' => 'ログインIDは半角英数字で入力して下さい。',
+            'login_id.regex' => 'ログインIDに使えるのはは「半角英数字、ハイフン、アンダースコア」のみです。',
             'login_id.unique' => 'このログインIDは存在します。',
             'pass.required' => 'パスワードを入力してください。',
             'pass.min' => 'パスワードは4文字以上で入力してください。',

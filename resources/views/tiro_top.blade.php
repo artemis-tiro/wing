@@ -14,6 +14,10 @@
                     <h2 class="card-header h5">チーム一覧</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
+                        {{--
+                        {{bcrypt('tiro2222')}}
+                        <p>{{password_verify($nowpassword,'dbのpassword')}}</p>
+                        --}}
                         <!-- テーブル -->
                         <table class="table table-hover">
                             <thead>

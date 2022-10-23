@@ -50,17 +50,31 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/admin/newclient', "App\Ht
 Route::middleware(['auth:sanctum', 'verified'])->any('/admin/editclient/{id}/{action}', "App\Http\Controllers\AdminController@editClient");
 
 //inputer
-Route::middleware(['auth:sanctum', 'verified'])->any('/input', "App\Http\Controllers\InputController@top");
+Route::middleware(['auth:sanctum', 'verified'])->any('/i', "App\Http\Controllers\InputController@top");
 
 //client
-Route::middleware(['auth:sanctum', 'verified'])->any('/client/newmise/{id}', "App\Http\Controllers\ClientController@newMise");
-Route::middleware(['auth:sanctum', 'verified'])->any('/client/{id}', "App\Http\Controllers\ClientController@top");
-Route::middleware(['auth:sanctum', 'verified'])->any('/client/{id}/{mise}', "App\Http\Controllers\ClientController@mise");
+Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}', "App\Http\Controllers\ClientController@top");
+Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/newmise', "App\Http\Controllers\ClientController@newMise");
+Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}', "App\Http\Controllers\ClientController@mise");
+Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/newtherapist', "App\Http\Controllers\ClientController@newTherapist");
+Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/price', "App\Http\Controllers\ClientController@price");
+Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/back', "App\Http\Controllers\ClientController@back");
+Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/{therapistId}', "App\Http\Controllers\ClientController@therapist");
 
 //therapist
-Route::middleware(['auth:sanctum', 'verified'])->any('/therapist', "App\Http\Controllers\TherapistController@top");
+Route::middleware(['auth:sanctum', 'verified'])->any('/t', "App\Http\Controllers\TherapistController@top");
+
+/*
+admin
+client
+input
+therapist
+mise
+kokyaku
+back
 
 
+*/
 /*
 
 Route::middleware([

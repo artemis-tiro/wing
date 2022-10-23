@@ -19,7 +19,8 @@ class mise extends Model
     public static function miseCreate($input, $id){
         //インサート
         $mise = new mise($input);
-        $mise->client = $id;
+        $mise->client_id = $id;
+        $mise->team_id = Auth::user()->team;
         $result = $mise->save();
 
         //インサート失敗時
@@ -30,32 +31,32 @@ class mise extends Model
 
     //my店舗一覧
     public static function myMiseList($id){
-        $myMiseList = mise::where('client', $id)
+        $myMiseList = mise::where('client_id', $id)
             ->get();
         return $myMiseList;
     }
 
     //全mise一覧
     public static function zenMiseList($team){
-        $zenMiseList = mise::join('users', 'mise.client', '=', 'users.id')
-            ->where('users.team', $team)
+        $zenMiseList = mise::where('team_id', $team)
             ->get();
         return $zenMiseList;
     }
 
-    // mise詳細
-    public static function detail($id){
-        $inputer = inputer::find($id);
-        return $inputer;
-    }
+    //権限チェック
+    public static function authCheck($clientId, $miseId){
+        $mise = mise::find($miseId);
+        if(!$mise) return false;
+        if($mise->client_id != $clientId) return false;
 
-    //削除
-    public static function del($id){
-        $inputer = inputer::find($id);
-        if($inputer) $inputer->delete();
         return true;
     }
 
+    // mise情報
+    public static function detail($id){
+        $mise = mise::find($id);
+        return $mise;
+    }
 
 
 

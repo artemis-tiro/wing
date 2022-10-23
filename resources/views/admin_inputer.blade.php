@@ -4,7 +4,7 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item active">メンバー管理</li>
+<li class="breadcrumb-item active">メンバー一覧</li>
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
     $teamName = App\Models\user::teamName(auth()->user()->team);
 ?>
 
-                <h1 class="h2">メンバー管理</h1>
+                <h1 class="h2">メンバー一覧</h1>
 
                 <div class="card my-4">
                     <!-- カードのタイトル -->

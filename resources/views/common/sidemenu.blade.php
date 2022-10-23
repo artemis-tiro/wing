@@ -4,7 +4,7 @@
   $path = request()->path();
   $c1 = '';
   if($path=='tiro'||$path=='admin') $c1 = 'active';
-  $c2 = strpos($path,'input') === 0?'active':'';
+  $c2 = strpos($path,'i') === 0?'active':'';
   $c3 = strpos($path,'admin/inputer') === 0?'active':'';
   $c4 = strpos($path,'admin/client') === 0?'active':'';
   $c5 = strpos($path,'mypage') === 0?'active':'';
@@ -37,7 +37,7 @@
 
                         <!-- カテゴリ2 -->
                         <li class="nav-item">
-                          <a class="nav-link {{$c2}}" aria-current="page" href="{{url("/input")}}">
+                          <a class="nav-link {{$c2}}" aria-current="page" href="{{url("/i")}}">
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 width="24"
                                 height="24" 
@@ -71,7 +71,7 @@
                                 <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
                                 <polyline points="13 2 13 9 20 9"></polyline>
                             </svg>
-                            <span class="ml-2">メンバー管理</span>
+                            <span class="ml-2">メンバー一覧</span>
                           </a>
                         </li>
 
@@ -91,7 +91,7 @@
                                 <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
                                 <polyline points="13 2 13 9 20 9"></polyline>
                             </svg>
-                            <span class="ml-2">クライアント管理</span>
+                            <span class="ml-2">クライアント一覧</span>
                           </a>
                         </li>
 

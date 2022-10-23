@@ -4,7 +4,7 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item active">クライアント管理</li>
+<li class="breadcrumb-item active">クライアント一覧</li>
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
     $teamName = App\Models\user::teamName(auth()->user()->team);
 ?>
 
-                <h1 class="h2">クライアント管理</h1>
+                <h1 class="h2">クライアント一覧</h1>
 
                 <div class="card my-4">
                     <!-- カードのタイトル -->
@@ -46,9 +46,9 @@
 
                                 <tr>
                                     <th>{{$loop->index+1}}</th>
-                                    <td><a href="{{url('/client/'.$c->id)}}">{{$c->name}}</a></td>
-                                    <td>2</td>
-                                    <td>aroma Luna</td>
+                                    <td><a href="{{url('/c/'.$c->id)}}">{{$c->name}}</a></td>
+                                    <td>-</td>
+                                    <td>-</td>
                                     <td>{{$active}}</td>
                                     <td><a class="btn btn-sm btn-info" href="{{url('/admin/editclient')}}/{{$c->id}}/{{$action}}">{{$actionComment}}</a></td>
                                     <td><a class="btn btn-sm btn-danger" href="{{url('/admin/editclient')}}/{{$c->id}}/del">削除</a></td>

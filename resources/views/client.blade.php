@@ -9,11 +9,47 @@
 
 @section('content')
 
-                <h1 class="h2">{{$client->name}}様トップページ</h1>
+                <h1 class="h2">{{$client->name}}様店舗一覧</h1>
 
                 <div class="card my-4">
                     <!-- カードのタイトル -->
-                    <h2 class="card-header h5">店舗一覧</h2>
+                    <h2 class="card-header h5">売上</h2>
+                    <!-- カードの要素 -->
+                    <div class="card-body table-responsive text-nowrap">
+                        <!-- テーブル -->
+                        <table class="table table-hover">
+                            <thead>
+                                <!-- カテゴリ -->
+                                <tr>
+                                    <th ></th>
+                                    <th >店名</th>
+                                    <th  title="Tooltip on right">今月売上</th>
+                                    <th  title="Tooltip on right">先月売上</th>
+                                    <th  title="直近30日間の一部屋辺り">平均純利</th>
+                                    <th  title="直近30日間の一部屋辺り">平均来客</th>
+                                    <th  title="直近30日間の一部屋辺り">平均出勤</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                @foreach($myMiseList as $i)
+                                    <th>{{$loop->index+1}}</th>
+                                    <td><a href="{{url('/c/'.$client->id.'/'.$i->id)}}">{{$i->name}}</a></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card my-4">
+                    <!-- カードのタイトル -->
+                    <h2 class="card-header h5">データ</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
                         <!-- テーブル -->
@@ -43,20 +79,13 @@
 
                                 <tr>
                                     <th>{{$loop->index+1}}</th>
-                                    <td><a href="{{url('/admin/inputer/'.$i->id)}}">{{$i->name}}</a></td>
-                                    <td>{{$level}}</td>
-                                    <td><a class="btn btn-sm btn-info" href="{{url('/admin/editinputer')}}/{{$i->id}}/{{$action2}}">権限切り替え</a></td>
+                                    <td><a href="{{url('/c/'.$client->id.'/'.$i->id)}}">{{$i->name}}</a></td>
+                                    <td>{{$i->area}}</td>
+                                    <td>{{$i->room->count()}}</td>
+                                    <td>{{$i->therapist->count()}}</td>
                                     <td>{{$active}}</td>
-                                    <!--
-                                    <td>
-                                        {{ Form::open(['url' => url('/admin/editinputer/'.$i->id.'/memo')]) }}
-                                        {{ Form::text('memo'.$i->id, $i->memo)}}
-                                        {{ Form::submit('メモ')}}
-                                        {{ Form::close() }}
-                                    </td>
-                                    -->
-                                    <td><a class="btn btn-sm btn-info" href="{{url('/admin/editinputer')}}/{{$i->id}}/{{$action}}">{{$actionComment}}</a></td>
-                                    <td><a class="btn btn-sm btn-danger" href="{{url('/admin/editinputer')}}/{{$i->id}}/del">削除</a></td>
+                                    <td><a class="btn btn-sm btn-info" href="#">{{$actionComment}}</a></td>
+                                    <td><a class="btn btn-sm btn-danger" href="#">削除</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -70,7 +99,7 @@
                     <!-- カードの要素 -->
                     <div class="card-body">
                         @include('common.error')
-                        {{ Form::open(['url' => url('/client/newmise/'.$client->id),'class'=>'form-horizontal']) }}
+                        {{ Form::open(['url' => url('/c/'.$client->id.'/newmise'),'class'=>'form-horizontal']) }}
                         <label class="row text-nowrap mb-4 text-end">
                             <div class="col-sm-2 lh2 text-end">店名 *</div>
                             <div class="col-sm-10">
