@@ -71,6 +71,7 @@ class AdminController extends Controller{
 
         //client一覧
         $clientList = user::clientList(Auth::user()->team);
+        client::addDetail($clientList);
 
         return view ('admin_client', [
             'clientList' => $clientList,

@@ -46,9 +46,9 @@
 
                                 <tr>
                                     <th>{{$loop->index+1}}</th>
-                                    <td><a href="{{url('/c/'.$c->id)}}">{{$c->name}}</a></td>
-                                    <td>-</td>
-                                    <td>-</td>
+                                    <td><a href="{{url('/c/'.$c->id)}}">{{$c->client->name}}</a></td>
+                                    <td>{{$c->miseCount}}</td>
+                                    <td>{{$c->miseMain}}</td>
                                     <td>{{$active}}</td>
                                     <td><a class="btn btn-sm btn-info" href="{{url('/admin/editclient')}}/{{$c->id}}/{{$action}}">{{$actionComment}}</a></td>
                                     <td><a class="btn btn-sm btn-danger" href="{{url('/admin/editclient')}}/{{$c->id}}/del">削除</a></td>

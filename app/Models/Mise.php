@@ -58,6 +58,18 @@ class mise extends Model
         return $mise;
     }
 
+    // miseカウント
+    public static function miseCount($clientId){
+        $num = mise::where('client_id', $clientId)->count();
+        return $num;
+    }
+
+    // メイン店舗
+    public static function miseMain($clientId){
+        $main = mise::where('client_id', $clientId)->first()->name;
+        return $main;
+    }
+
 
 
 

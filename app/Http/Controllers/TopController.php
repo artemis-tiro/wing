@@ -55,6 +55,12 @@ class TopController extends Controller{
        ]);
     }
 
+    // mypage
+    public function test(){
+        return view ('test', [
+       ]);
+    }
+
 
 
 /***** ticket ************************
@@ -62,6 +68,11 @@ class TopController extends Controller{
 セラピストログイン
 アカウント新規作成後に〇〇が新規作成されましたのメッセージ
 ネクストアクションのナビ（料金システムを登録して下さい、給料システムを設定してください。）
+ヒアリングシートもフォームで入力してもらう。
+セラピストもログインできる。
+シフト管理。
+Twitter自動投稿。
+メンエスランキング等自動更新。
 *****************************/
 
 }

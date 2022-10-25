@@ -69,15 +69,7 @@
                     <h2 class="card-header h5">チーム新規作成</h2>
                     <!-- カードの要素 -->
                     <div class="card-body">
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+                        @include('common.error')
                         {{ Form::open(['url' => url('/tiro/newadmin'),'class'=>'form-horizontal']) }}
                         {{ Form::hidden('action','insert')}}
                         <label class="row text-nowrap mb-4 text-end">

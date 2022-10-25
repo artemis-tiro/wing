@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\user;
+use App\Models\msie;
 
 class client extends Model
 {
@@ -42,6 +43,15 @@ class client extends Model
         return true;
     }
 
+    //client詳細を追加
+    public static function addDetail($clientList){
+        foreach($clientList as $c){
+            $c->client = client::find($c->id);
+            $c->miseCount = mise::miseCount($c->id);
+            $c->miseMain = mise::miseMain($c->id);
+        }
+        return null;
+    }
 
 
 }

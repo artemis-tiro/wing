@@ -64,6 +64,9 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/{th
 //therapist
 Route::middleware(['auth:sanctum', 'verified'])->any('/t', "App\Http\Controllers\TherapistController@top");
 
+//test
+Route::middleware(['auth:sanctum', 'verified'])->any('/test', "App\Http\Controllers\TopController@test");
+
 /*
 admin
 client
