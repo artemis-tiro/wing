@@ -224,8 +224,8 @@ class User extends Authenticatable
     //パスワード更新
     public static function passwordUpdate($id,$newPassword){
         $user = user::find($id);
-        $user->password = $user->$newPassword;
-        $user->save();
-        return true;
+        $user->password = $newPassword;
+        $result = $user->save();
+        return $result;
     }
 }
