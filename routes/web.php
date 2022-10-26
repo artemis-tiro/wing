@@ -31,7 +31,8 @@ Route::any('/logout', "App\Http\Controllers\TopController@logout");
 //log
 Route::any('/log', "App\Http\Controllers\TopController@log");
 //mypage
-Route::middleware(['auth:sanctum', 'verified'])->any('/mypage', "App\Http\Controllers\TopController@mypage");
+Route::middleware(['auth:sanctum', 'verified'])->any('/mypage', "App\Http\Controllers\MypageController@mypage");
+Route::middleware(['auth:sanctum', 'verified'])->any('/mypage/newpassword', "App\Http\Controllers\MypageController@newpassword");
 
 //tiro
 Route::middleware(['auth:sanctum', 'verified'])->any('/tiro', "App\Http\Controllers\TiroController@top");
@@ -51,6 +52,9 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/admin/editclient/{id}/{ac
 
 //inputer
 Route::middleware(['auth:sanctum', 'verified'])->any('/i', "App\Http\Controllers\InputController@top");
+Route::middleware(['auth:sanctum', 'verified'])->any('/i/therapist', "App\Http\Controllers\InputController@therapist");
+Route::middleware(['auth:sanctum', 'verified'])->any('/i/yoyaku', "App\Http\Controllers\InputController@yoyaku");
+Route::middleware(['auth:sanctum', 'verified'])->any('/i/cal', "App\Http\Controllers\InputController@cal");
 
 //client
 Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}', "App\Http\Controllers\ClientController@top");

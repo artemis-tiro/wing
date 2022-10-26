@@ -66,7 +66,8 @@ class mise extends Model
 
     // メイン店舗
     public static function miseMain($clientId){
-        $main = mise::where('client_id', $clientId)->first()->name;
+        $mise = mise::where('client_id', $clientId)->first();
+        $main = $mise? $mise->name: '';
         return $main;
     }
 
