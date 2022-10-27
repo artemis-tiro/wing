@@ -55,7 +55,10 @@
                                 <tr><td colspan='2' class="text-center form-text">＋ 行追加 ＋</td></tr>
                             </tbody>
                         </table>
-                        <br>
+
+                        <hr><br>
+
+                        <h3 class="h5">割引</h3>
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -96,7 +99,7 @@
                         </table>
                         <br>
 
-                        <h3 class="h5">クレーム時の割引対応許可</h3>
+                        <h3 class="h5">クレーム時に割引対応の許可</h3>
                         <label class="form-check form-check-label">
                             {{ Form::checkbox('name', null, false, ['class'=>'form-check-input'])}}
                             クレーム対応時に1,000円の割引を許可（やむを得ない場合に限る）

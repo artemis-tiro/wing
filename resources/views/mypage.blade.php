@@ -35,9 +35,7 @@
                         {{ Form::open(['url' => url('/mypage/newpassword')]) }}
 
                         @include('common.validator')
-                        
                         @include('common.error')
-
                         @include('common.success')
 
                         <!-- 新しいパスワード入力 -->

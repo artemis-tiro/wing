@@ -73,6 +73,7 @@ class TopController extends Controller{
 シフト管理。
 Twitter自動投稿。
 メンエスランキング等自動更新。
+
 *****************************/
 
 }
