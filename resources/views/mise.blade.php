@@ -94,6 +94,14 @@
                             </div>
                         </label>
 
+                        <label class="row text-nowrap mb-4">
+                            <span class="col-sm-2 lh2">給料形態 *</span>
+                            <div class="col-sm-10">
+                                {{ Form::text('back_name', 'default', ['class'=>'form-control pass', 'required'=>'required'])}}
+                                <div class="form-text">まずはdefault固定です。</div>
+                            </div>
+                        </label>
+
                         {{ Form::submit('新規作成',["class"=>"m-2 btn btn-info"])}}
                         {{ Form::close() }}
                     </div>

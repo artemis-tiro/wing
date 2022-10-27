@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Inputer;
 use App\Models\Client;
 use App\Models\Mise;
+use App\Models\Therapist;
 
 class InputController extends Controller{
 
@@ -45,7 +46,7 @@ class InputController extends Controller{
         //権限チェック
         if($ng = $this->levelCheck()) return $ng;
 
-        //inputer一覧
+        // 店舗一覧
         $zenMiseList = mise::zenMiseList(Auth::user()->team);
 
         return view ('input_top', [
@@ -54,5 +55,41 @@ class InputController extends Controller{
        ]);
     }
 
+    //セラピスト一覧ページ
+    public function therapist($miseId){
+        //権限チェック
+        if($ng = $this->levelCheck()) return $ng;
 
+        // 店舗情報
+        $mise = mise::detail($miseId);
+
+        // セラピスト一覧
+        $zenTherapistList = therapist::zenTherapistList($miseId);
+
+        return view ('input_therapist', [
+            'mise' => $mise,
+            'zenTherapistList' => $zenTherapistList,
+            'error' => session('error'),
+        ]);
+    }
+
+    //予約一覧ページ
+    public function yoyaku($therapistId){
+        //権限チェック
+        if($ng = $this->levelCheck()) return $ng;
+
+        // 店舗情報
+        $mise = mise::detail($miseId);
+
+        // セラピスト一覧
+        $yoyakuList = yoyaku::yoyakuList($miseId);
+
+        return view ('input_reservation', [
+            'mise' => $mise,
+            'yoyakuList' => $yoyakuList,
+            'error' => session('error'),
+        ]);
+    }
+
+    
 }

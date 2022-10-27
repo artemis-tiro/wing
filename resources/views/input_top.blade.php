@@ -28,20 +28,21 @@
                                     <th scope="col"></th>
                                     <th scope="col">店舗名</th>
                                     <th scope="col">地域</th>
-                                    <th scope="col">出勤数</th>
+                                    <th scope="col">出勤人数</th>
                                     <th scope="col">待機中</th>
                                     <th scope="col">接客中</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($zenMiseList as $i)
+                                @foreach($zenMiseList as $m)
+
                                 <tr>
                                     <th>{{$loop->index+1}}</th>
-                                    <td><a href="{{url('/admin/inputer/'.$i->id)}}">{{$i->name}}</a></td>
-                                    <td>{{$i->area}}</td>
-                                    <td>5人</a></td>
-                                    <td>3人</a></td>
-                                    <td>2人</a></td>
+                                    <td><a href="{{url('/i/'.$m->id)}}">{{$m->name}}</a></td>
+                                    <td>{{$m->area}}</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
                                 </tr>
                                 @endforeach
                             </tbody>

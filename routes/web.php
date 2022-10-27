@@ -52,9 +52,9 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/admin/editclient/{id}/{ac
 
 //inputer
 Route::middleware(['auth:sanctum', 'verified'])->any('/i', "App\Http\Controllers\InputController@top");
-Route::middleware(['auth:sanctum', 'verified'])->any('/i/therapist', "App\Http\Controllers\InputController@therapist");
-Route::middleware(['auth:sanctum', 'verified'])->any('/i/yoyaku', "App\Http\Controllers\InputController@yoyaku");
-Route::middleware(['auth:sanctum', 'verified'])->any('/i/cal', "App\Http\Controllers\InputController@cal");
+Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}', "App\Http\Controllers\InputController@therapist");
+Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}', "App\Http\Controllers\InputController@yoyaku");
+Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/cal', "App\Http\Controllers\InputController@cal");
 
 //client
 Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}', "App\Http\Controllers\ClientController@top");

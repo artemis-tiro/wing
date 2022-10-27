@@ -22,6 +22,7 @@ class therapist extends Model
         $therapist->id = $id;
         $therapist->business_name = $input['business_name'];
         $therapist->mise_id = $miseId;
+        $therapist->back_name = $input['back_name'];
         $result = $therapist->save();
 
         //インサート失敗時
@@ -39,7 +40,7 @@ class therapist extends Model
         return null;
     }
 
-    //therapist一覧
+    //myセラピスト一覧
     public static function List($miseId){
         $therapistList = therapist::where('mise_id', $miseId)
             ->get();
@@ -62,7 +63,11 @@ class therapist extends Model
         return $therapist;
     }
 
-
-
+    // セラピスト一覧
+    public static function zenTherapistList($miseId){
+        $therapistList = therapist::where('mise_id', $miseId)
+            ->get();
+        return $therapistList;
+    }
 
 }

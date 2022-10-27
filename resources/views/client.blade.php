@@ -108,7 +108,7 @@
                         </label>
 
                         <label class="row text-nowrap mb-4 text-end">
-                            <div class="col-sm-2 lh2 text-end">ヨミガナ</div>
+                            <div class="col-sm-2 lh2 text-end">フリガナ</div>
                             <div class="col-sm-10">
                                 {{ Form::text('yomi', null, ['class'=>'form-control'])}}
                             </div>

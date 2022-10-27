@@ -228,4 +228,12 @@ class User extends Authenticatable
         $result = $user->save();
         return $result;
     }
+
+    //mise一覧
+    public static function miseList($team){
+        $miseList = user::where('access_level', 'therapist')
+            ->where('team', $team)
+            ->get();
+        return $miseList;
+    }
 }
