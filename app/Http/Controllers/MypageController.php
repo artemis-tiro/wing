@@ -20,7 +20,8 @@ class MypageController extends Controller{
 
         return view ('mypage', [
             'testKnsu'=>'これはtestです。',
-//            'message' => session('message'),
+            'error' => session('error'),
+            'message' => session('message'),
        ]);
     }
 
@@ -57,7 +58,6 @@ class MypageController extends Controller{
         $rulus = [
             'newpassword' => ['required' , 'min:4' , 'regex:/^[[a-zA-Z0-9-_]+$/'],
             'checkpassword' => ['required' , 'same:newpassword'],
-            // 'nowpassword' => ['required' , Hash::check(Hash::make($request->nowpassword), Auth::user()->password)],
         ];
         $message = [
             'newpassword.required' => 'パスワードを入力してください。',
@@ -69,24 +69,28 @@ class MypageController extends Controller{
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();
 
+        Log::info('----------------------------------------');
+        Log::info('ハッシュチェック前');
+        Log::info(Auth::user()->password);
+
 
         // 現在設定してるパスワードと同じか
         // Hashチェック
-        $result = Hash::check(Hash::make($request->nowpassword), Auth::user()->password);
+        $result = Hash::check($request->nowpassword, Auth::user()->password);
+        // $result = Hash::check(Hash::make($request->nowpassword), Auth::user()->password);
         if(!$result) return back()->with(['error' => 'パスワードが違います。'])->withInput();
 
-        // パスワードを変更
-        $result = user::passwordUpdate($result['id'],$result['newpassword']);
 
-        
+        // パスワードを変更
+        $result = user::passwordUpdate(Auth::user()->id,Hash::make($request->newpassword));
+        if($result){
+            return back()->with(['message' => 'パスワードが変更されました。']);
+        }else{
+            return back()->with(['error' => 'パスワードが変更されませんでした。']);
+        }
+
         return back();
 
-        if(!Auth::user()->password){
-            return view ('error', ['mess'=>'アカウントが停止されています。']);
-        }
-        
-        return view ('mypage', [
-       ]);
     }
 
 }
