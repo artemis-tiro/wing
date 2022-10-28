@@ -5,6 +5,7 @@
 @include('common.pan')
 @section('pan2')
 <li class="breadcrumb-item"><a href="{{url("/i")}}">店舗一覧</a></li>
+<li class="breadcrumb-item active">{{$therapist->id}}</li>
 @stop
 
 @section('content')
@@ -32,60 +33,39 @@
                                     <th scope="col">指名</th>
                                     <th scope="col">顧客名</th>
                                     <th scope="col">電話番号</th>
-                                    <th scope="col">顧客名</th>
-                                    <th scope="col">顧客名</th>
+                                    <!-- ボタン用 -->
+                                    <!-- 権限者のみ可視化 -->
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
-                            <!-- <tbody>
-                                {{-- @foreach($zenMiseList as $i) --}}
-                                <tr>
-                                    {{-- <th>{{$loop->index+1}}</th> --}}
-                                    {{-- <td><a href="{{url('/admin/inputer/'.$i->id)}}">{{$i->name}}</a></td> --}}
-                                    {{-- <td>{{$i->area}}</td> --}}
-                                    <td>5人</a></td>
-                                    <td>3人</a></td>
-                                    <td>2人</a></td>
-                                </tr>
-                                {{-- @endforeach --}}
-                            </tbody> -->
-
                             <tbody>
+                                @foreach($yoyakuList as $y)
                                 <tr>
-                                <th scope="row">接客終了</th>
-                                <td>13:00~15:30</td>
-                                <td>90分</td>
-                                <td>本指名</td>
-                                <td>吉田様</td>
-                                <td>09087459966</td>
-                                <td><a href="#" class="btn btn-sm btn-info">修正</a></td>
-                                <td><a href="#" class="btn btn-sm btn-danger">削除</a></td>
+                                    <th>{{$loop->index+1}}</th>
+                                    <td>ステ</a></td>
+                                    <td>時間</a></td>
+                                    <td>{{$y->price_id_list}}</td>
+                                    <td>{{$y->simei}}</td>
+                                    <td>電話</a></td>
+                                    <td></a></td>
+                                    <td></a></td>
                                 </tr>
-                                <tr>
-                                <th scope="row">接客終了</th>
-                                <td>15:50~17:20</td>
-                                <td>90分</td>
-                                <td>本指名</td>
-                                <td>吉田様</td>
-                                <td>09087459966</td>
-                                <td><a href="#" class="btn btn-sm btn-info">修正</a></td>
-                                <td><a href="#" class="btn btn-sm btn-danger">削除</a></td>
-                                </tr>
-                                <tr>
-                                <th scope="row">接客中</th>
-                                <td>17:40~18:40</td>
-                                <td>60分</td>
-                                <td>本指名</td>
-                                <td>吉田様</td>
-                                <td>09087459966</td>
-                                <td><a href="#" class="btn btn-sm btn-info">修正</a></td>
-                                <td><a href="#" class="btn btn-sm btn-danger">削除</a></td>
-                                </tr>
+                                @endforeach
                             </tbody>
-
-
                         </table>
                     </div>
                 </div>
+
+
+
+
+                <!-- 予約リストから１レコードずつ抽出 -->
+                <!-- 下記をセラピストIDで全て -->
+
+                <!-- simei price_id_list kokyaku_id(でname) kokyaku_id(でtel) (コースの金額？) -->
+                <!-- visit_day price_id_list(でprice1) -->
+
 
                 <!-- コピペ用 -->
                 <div class="card my-4">
@@ -93,7 +73,7 @@
                     <h2 class="card-header h5">コピペ用</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
-                        {{-- {{ Form::textarea('copy', ['class'=>'form-style'])}} --}}
+
                     </div>
                 </div>
 
@@ -108,249 +88,175 @@
                     <!-- フォームの開始 -->
                     {{ Form::open(['url' => url('/mypage/reservation')]) }}
 
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                    @include('common.error')
 
                     <!-- 開始時間 -->
-                    <div class="row">
-                        <div class="col-auto">
-                            <h6 class="ml-3">開始日時</h6>
+                    <label class="row text-nowrap mb-4 text-end">
+                        <div class="col-sm-2 lh2 text-end">開始時間 *</div>
+                        <div class="col-sm-1">
+                            {{ Form::radio('today', null, ['class'=>'form-check-input', 'required'=>'required'])}}
+                            本日
                         </div>
-                        <div class="col-auto form-check">
-                            {{-- {{ Form::radio('todaytime', ['class'=>'form-check-input'])}} --}}
-
-                            <label for="">本日</label>
+                        <div class="col-sm-1">
+                            {{ Form::radio('anyday', null, ['class'=>'form-check-input', 'required'=>'required'])}}
                         </div>
-                        <div class="col-auto form-check">
-                            {{-- {{ Form::radio('anytime', ['class'=>'form-check-input'])}} --}}
-                            
-                            {{-- {{ Form::text('anydays', ['class'=>'form-check-input'])}} --}}
-                            
-
+                        <div class="col-sm-1 lh2">
+                            {{ Form::text('anytime', null, ['class'=>'form-control', 'required'=>'required'])}}
                         </div>
-                        <div class="col-auto form-check">
-                            <label for="">時間</label>
-                            {{-- {{ Form::text('time', ['class'=>'form-check-input'])}} --}}
-                            
+                        <div class="col-sm-2 lh2">時間</div>
+                        <div class="col-sm-1">
+                            {{ Form::text('time', null, ['class'=>'form-control', 'required'=>'required'])}}
                         </div>
-                    </div>
+                    </label>
 
                     <!-- 顧客名 -->
-                    <div class="row">
-                        <div class="col-auto">
-                            <h6 class="ml-3">顧客名</h6>
+                    <label class="row text-nowrap mb-4 text-end">
+                        <div class="col-sm-2 lh2 text-end">顧客名 *</div>
+                        <div class="col-sm-10">
+                            {{ Form::text('name', null, ['class'=>'form-control', 'required'=>'required'])}}
                         </div>
-                        <div class="col-auto form-check">                      
-                            {{-- {{ Form::text('clientname', ['class'=>'form-check-input' , 'placeholder'=>'山田太郎'])}} --}}
-                            
-                            
-                        </div>
-                    </div>
+                    </label>
 
                     <!-- 電話番号 -->
-                    <div class="row">
-                        <div class="col-auto">
-                            <h6 class="ml-3">電話番号</h6>
+                    <label class="row text-nowrap mb-4 text-end">
+                        <div class="col-sm-2 lh2 text-end">電話番号 *</div>
+                        <div class="col-sm-10">
+                            {{ Form::text('tel', null, ['class'=>'form-control', 'required'=>'required'])}}
                         </div>
-                        <div class="col-auto form-check">    
-                            {{-- {{ Form::text('name', ['class'=>'form-style', 'placeholder'=>'09077973244'])}} --}}
-                            
-
-                        </div>
-                    </div>
+                    </label>
 
                     <!-- メール -->
-                    <div class="row">
-                        <div class="col-auto">
-                            <h6 class="ml-3">Email</h6>
+                    <label class="row text-nowrap mb-4 text-end">
+                        <div class="col-sm-2 lh2 text-end">Email *</div>
+                        <div class="col-sm-10">
+                            {{ Form::text('mail', null, ['class'=>'form-control', 'required'=>'required'])}}
                         </div>
-                        <div class="ml-4 col-auto form-check">
-                            {{-- {{ Form::text('Email', ['class'=>'form-style', 'placeholder'=>'oooo@pppp'])}} --}}
-                            
-
-                        </div>
-                    </div>
+                    </label>
 
                     <!-- 来店 -->
-                    <div class="row">
-                        <div class="col-auto">
-                            <h6 class="ml-3">来店</h6>
+                    <label class="row text-nowrap mb-4 text-end">
+                        <div class="col-sm-2 lh2 text-end">来店 *</div>
+                        <div class="col-sm-1">
+                            {{ Form::radio('first', null, ['class'=>'form-control', 'required'=>'required'])}}
+                            新規
                         </div>
-                        <div class="col-auto form-check">
-                            {{-- {{ Form::radio('newguest', ['class'=>'form-style']) }} --}}
-                            
-
-                            <label for="">新規</label>
+                        <div class="col-sm-1">
+                            {{ Form::radio('again', null, ['class'=>'form-control', 'required'=>'required'])}}
+                            リピーター
                         </div>
-                        <div class="col-auto form-check">
-                            {{-- {{ Form::radio('repeater', ['class'=>'form-style']) }} --}}
-                            
-
-                            <label for="">リピーター</label>
-                        </div>
-                    </div>
+                    </label>
 
                     <!-- コース -->
-                    <div class="row">
-                        <div class="col-auto">
-                            <h6 class="ml-3">コース</h6>
+                    <label class="row text-nowrap mb-4 text-end">
+                        <div class="col-sm-2 lh2 text-end">コース *</div>
+                        <div class="col-sm-1">
+                            {{ Form::radio('normal', null, ['class'=>'form-control'])}}
+                            ノーマル
                         </div>
-                        <div class="ml-3 col-auto form-check">
-                            {{-- {{ Form::radio('normal', ['class'=>'form-style']) }} --}}
-                            
-
-                            <label for="">ノーマル</label>
+                        <div class="col-sm-1">
+                            {{ Form::radio('executive', null, ['class'=>'form-control'])}}
+                            エグゼクティブ
                         </div>
-                        <div class="col-auto form-check">
-                            {{-- {{ Form::radio('executive', ['class'=>'form-style']) }} --}}
-                            
-
-                            <label for="">エグゼクティブ</label>
-                        </div>
-                    </div>
+                    </label>
 
                     <!-- 時間 -->
-                    <div class="row">
-                        <div class="col-auto">
-                            <h6 class="ml-3">時間</h6>
+                    <label class="row text-nowrap mb-4 text-end">
+                        <div class="col-sm-2 lh2 text-end">時間 *</div>
+                        <div class="col-sm-1">
+                            {{ Form::radio('time1', null, ['class'=>'form-control'])}}
+                            60分
                         </div>
-                        <div class="col-auto form-check">
-                            {{-- {{ Form::radio('course1', ['class'=>'form-style']) }} --}}
-                            
-
-                            <label for="">60分</label>
+                        <div class="col-sm-1">
+                            {{ Form::radio('time2', null, ['class'=>'form-control'])}}
+                            90分
                         </div>
-                        <div class="col-auto form-check">
-                            {{-- {{ Form::radio('course2', ['class'=>'form-style']) }} --}}
-                            
-
-                            <label for="">90分</label>
+                        <div class="col-sm-1">
+                            {{ Form::radio('time3', null, ['class'=>'form-control'])}}
+                            120分
                         </div>
-                        <div class="col-auto form-check">
-                            {{-- {{ Form::radio('course3', ['class'=>'form-style']) }} --}}
-                            
-
-                            <label for="">120分</label>
+                        <div class="col-sm-1">
+                            {{ Form::radio('time4', null, ['class'=>'form-control'])}}
+                            150分
                         </div>
-                        <div class="col-auto form-check">
-                            {{-- {{ Form::radio('course4', ['class'=>'form-style']) }} --}}
-                            
-
-                            <label for="">150分</label>
+                        <div class="col-sm-1">
+                            {{ Form::radio('time5', null, ['class'=>'form-control'])}}
+                            180分
                         </div>
-                        <div class="col-auto form-check">
-                            {{-- {{ Form::radio('course5', ['class'=>'form-style']) }} --}}
-                            
-
-                            <label for="">180分</label>
-                        </div>
-                    </div>
+                    </label>
 
                     <!-- 自動割引 -->
-                    <div class="row">
-                        <div class="col-auto">
-                            <h6 class="ml-3">自動割引</h6>
+                    <label class="row text-nowrap mb-4 text-end">
+                        <div class="col-sm-2 lh2 text-end">自動割引 *</div>
+                        <div class="col-sm-1">
+                            {{ Form::radio('sell', null, ['class'=>'form-check-input', 'id'=>'formRadioCheckedDisabled'])}}
+                            <label class="form-check-label" for="formRadioCheckedDisabled">
+                                -2000円(全コース2000円オフ)
+                            </label>
                         </div>
-                        <div class="col-auto">
-                            <label for="">-2000円(全コース2000円オフ)</label>
-                        </div>
-                    </div>
+                    </label>
 
                     <!-- 指名 -->
-                    <div class="row">
-                        <div class="col-auto">
-                            <h6 class="ml-3">指名</h6>
+                    <label class="row text-nowrap mb-4 text-end">
+                        <div class="col-sm-2 lh2 text-end">指名 *</div>
+                        <div class="col-sm-1">
+                            {{ Form::radio('simei', null, ['class'=>'form-control'])}}
+                            本指名
                         </div>
-                        <div class="col-auto form-check">
-                            {{-- {{ Form::radio('choose', ['class'=>'form-style']) }} --}}
-
-                            <label for="">本指名</label>
+                        <div class="col-sm-1">
+                            {{ Form::radio('netsimei', null, ['class'=>'form-control'])}}
+                            ネット指名
                         </div>
-                        <div class="col-auto form-check">
-                            {{-- {{ Form::radio('netchoose', ['class'=>'form-style']) }} --}}
-                            
-
-                            <label for="">ネット指名</label>
+                        <div class="col-sm-1">
+                            {{ Form::radio('free', null, ['class'=>'form-control'])}}
+                            フリー
                         </div>
-                        <div class="col-auto form-check">
-                            {{-- {{ Form::radio('free', ['class'=>'form-style']) }} --}}
-                            
-
-                            <label for="">フリー</label>
-                        </div>
-                    </div>
+                    </label>
 
                     <!-- オプション -->
-                    <div class="row">
-                        <div class="col-auto">
-                            <h6 class="ml-3">オプション</h6>
+                    <label class="row text-nowrap mb-4 text-end">
+                        <div class="col-sm-2 lh2 text-end">オプション *</div>
+                        <div class="col-sm-1">
+                            {{ Form::radio('option1', null, ['class'=>'form-control'])}}
+                            DR
                         </div>
-                        <div class="ml-3 col-auto form-check">
-                            {{-- {{ Form::radio('option1', ['class'=>'form-style']) }} --}}
-                            
-
-                            <label for="">DR</label>
+                        <div class="col-sm-1">
+                            {{ Form::radio('option2', null, ['class'=>'form-control'])}}
+                            衣装
                         </div>
-                        <div class="col-auto form-check">
-                            {{-- {{ Form::radio('option2', ['class'=>'form-style']) }} --}}
-                            
-
-                            <label for="">衣装</label>
-                        </div> 
-                        <div class="ml-3 col-auto form-check">
-                            {{-- {{ Form::radio('option3', ['class'=>'form-style']) }} --}}
-                            
-
-                            <label for="">MB</label>
+                        <div class="col-sm-1">
+                            {{ Form::radio('option3', null, ['class'=>'form-control'])}}
+                            MB
                         </div>
-                        <div class="col-auto form-check">
-                            {{-- {{ Form::radio('option4', ['class'=>'form-style']) }} --}}
-                            
-
-                            <label for="">オイル</label>
+                        <div class="col-sm-1">
+                            {{ Form::radio('option4', null, ['class'=>'form-control'])}}
+                            オイル
                         </div>
-                        <div class="ml-3 col-auto form-check">
-                            {{-- {{ Form::radio('option5', ['class'=>'form-style']) }} --}}
-                            
-
-                            <label for="">ヘッドスパ</label>
+                        <div class="col-sm-1">
+                            {{ Form::radio('option5', null, ['class'=>'form-control'])}}
+                            ヘッドスパ
                         </div>
-
-                    </div>
+                    </label>
 
                     <!-- 追加割引 -->
-                    <div class="row">
-                        <div class="col-auto">
-                            <h6 class="ml-3">追加割引</h6>
+                    <label class="row text-nowrap mb-4 text-end">
+                        <div class="col-sm-2 lh2 text-end">追加割引 *</div>
+                        <div class="col-sm-2">
+                            {{ Form::text('discount', null, ['class'=>'form-control', 'required'=>'required'])}}
                         </div>
-                        <div class="col-auto form-check">
-                            {{-- {{ Form::text('maney', ['class'=>'form-style', 'placeholder'=>'金額']) }} -- }}
-
-                            <label for="">円</label>
-
-                            {{-- {{ Form::text('cause', ['class'=>'form-style', 'placeholder'=>'理由']) }} -- }}
-
+                        <div class="col-sm-2 lh2">理由</div>
+                        <div class="col-sm-2">
+                            {{ Form::text('discount', null, ['class'=>'form-control', 'required'=>'required'])}}
                         </div>
-                    </div>
+                    </label>
 
                     <!-- メモ -->
-                    <div class="row">
-                        <div class="col-auto">
-                            <h6 class="ml-3">メモ</h6>
-                        </div>
-                        <div class="ml-4 col-auto">
-                            {{-- {{ Form::text('memo', ['class'=>'form-style', 'placeholder'=>'その他']) }} --}}
-
-                        </div>
-                    </div>
-
+                    <label class="row text-nowrap mb-4">
+                            <span class="col-sm-2 lh2">メモ</span>
+                            <div class="col-sm-10">
+                                {{ Form::textarea('memo', null, ['class'=>'form-control', 'required'=>'required'])}}
+                            </div>
+                    </label>
+                    
                     <!-- 送信ボタン -->
                     {{ Form::submit('新規予約',["class"=>"m-2 btn btn-info"])}}
 

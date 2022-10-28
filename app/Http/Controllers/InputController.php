@@ -12,6 +12,7 @@ use App\Models\Inputer;
 use App\Models\Client;
 use App\Models\Mise;
 use App\Models\Therapist;
+use App\Models\Yoyaku;
 
 class InputController extends Controller{
 
@@ -79,13 +80,13 @@ class InputController extends Controller{
         if($ng = $this->levelCheck()) return $ng;
 
         // 店舗情報
-        $mise = mise::detail($miseId);
+        $therapistId = mise::detail($therapistId);
 
-        // セラピスト一覧
-        $yoyakuList = yoyaku::yoyakuList($miseId);
+        // 予約一覧
+        $yoyakuList = yoyaku::yoyakuList($therapistId);
 
         return view ('input_reservation', [
-            'mise' => $mise,
+            'therapist' => $therapistId,
             'yoyakuList' => $yoyakuList,
             'error' => session('error'),
         ]);

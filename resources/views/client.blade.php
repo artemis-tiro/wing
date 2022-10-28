@@ -11,6 +11,7 @@
 
                 <h1 class="h2">{{$client->name}}様店舗一覧</h1>
 
+                <!-- 売上一覧 -->
                 <div class="card my-4">
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">売上</h2>
@@ -47,6 +48,7 @@
                     </div>
                 </div>
 
+                <!-- データ一覧 -->
                 <div class="card my-4">
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">データ</h2>
@@ -93,6 +95,7 @@
                     </div>
                 </div>
 
+                <!-- 店舗新規作成フォーム -->
                 <div class="card my-4 mb-5">
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">店舗新規作成</h2>

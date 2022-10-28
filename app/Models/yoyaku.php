@@ -15,8 +15,8 @@ class yoyaku extends Model
     protected $guarded = [''];
 
     // 予約一覧
-    public static function yoyakuList($miseId){
-        $yoyakuList = yoyaku::where('mise_id', $miseId)
+    public static function yoyakuList($therapistId){
+        $yoyakuList = yoyaku::where('therapist_id', $therapistId)
         ->get();
         return $yoyakuList;
     }
