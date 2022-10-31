@@ -25,15 +25,15 @@ class yoyaku extends Model
     public static function yoyakuCreate($input, $id, $miseId){
         //インサート
         $yoyaku = new yoyaku();
-        $yoyaku->id = $id;
         $yoyaku->mise_id = $miseId;
-        $yoyaku->therapist_id = $therapistId;
+        $yoyaku->therapist_id = $id;
+        $yoyaku->kokyaku_id = $inputerId;
         $yoyaku->inputer_id = $inputerId;
-        $yoyaku->price_id_list = $priceId;
-        $yoyaku->visit_day = $visitDay;
-        $yoyaku->simei = $simei;
-        $yoyaku->waribiki = $waribiki;
-        $yoyaku->back_name = $input['back_name'];
+        $yoyaku->price_id_list = $input['plan'];
+        $yoyaku->back_id_list = $input['plan'];
+        $yoyaku->visit_day = $input['start_day'];
+        $yoyaku->simei = $input['simei'];
+        $yoyaku->waribiki = $input['discount_many'];
         $result = $yoyaku->save();
 
         //インサート失敗時
@@ -41,36 +41,5 @@ class yoyaku extends Model
 
         return null;
     }
-
-    //therapist詳細を追加
-    // public static function addDetail($miseList){
-    //     foreach($miseList as $m){
-    //         $m->therapist = therapist::where('mise_id', $m->id)
-    //             ->get();
-    //     }
-    //     return null;
-    // }
-
-    //権限チェック
-    // public static function authCheck($miseId, $therapistId){
-    //     $therapist = therapist::find($therapistId);
-    //     if(!$therapist) return false;
-    //     if($therapist->mise_id != $miseId) return false;
-
-    //     return true;
-    // }
-
-    // therapist情報
-    // public static function detail($id){
-    //     $therapist = therapist::find($id);
-    //     return $therapist;
-    // }
-
-    // セラピスト一覧
-    // public static function zenTherapistList($miseId){
-    //     $therapistList = therapist::where('mise_id', $miseId)
-    //         ->get();
-    //     return $therapistList;
-    // }
-
+    
 }
