@@ -22,12 +22,13 @@ class yoyaku extends Model
     }
 
     //予約新規作成
-    public static function yoyakuCreate($input, $id, $miseId){
+    public static function yoyakuCreate($input, $Id, $miseId, $therapistId, $kokyakuId, $inputerId){
         //インサート
         $yoyaku = new yoyaku();
+        $yoyaku->id = $Id;
         $yoyaku->mise_id = $miseId;
-        $yoyaku->therapist_id = $id;
-        $yoyaku->kokyaku_id = $inputerId;
+        $yoyaku->therapist_id = $therapistId;
+        $yoyaku->kokyaku_id = $kokyakuId;
         $yoyaku->inputer_id = $inputerId;
         $yoyaku->price_id_list = $input['plan'];
         $yoyaku->back_id_list = $input['plan'];

@@ -41,7 +41,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($yoyakuList as $y)
+                                @foreach($yoyakuList  as $y)
                                 <tr>
                                     <th>{{$loop->index+1}}</th>
 

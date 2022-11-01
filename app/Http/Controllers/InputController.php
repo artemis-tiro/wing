@@ -87,8 +87,15 @@ class InputController extends Controller{
         // セラピスト情報
         $therapist = therapist::detail($therapistId);
 
+        // 顧客情報
+        // $kokyaku = kokyaku::detail($Id);
+
+        // 入力者情報
+        // $inputer = inputer::detail($Id);
+
         // 予約一覧
         $yoyakuList = yoyaku::yoyakuList($therapistId);
+        // $yoyakuList = yoyaku::yoyakuList($therapist->therapist_id);
 
         return view ('input_reservation', [
             'mise' => $mise,
@@ -141,17 +148,23 @@ class InputController extends Controller{
         // $result = Hash::check($request->nowpassword, Auth::user()->password);
         // if(!$result) return back()->with(['error' => 'パスワードが違います。'])->withInput();
 
+
+        // 予約一覧表示の時に取得した情報を「$request」と一緒に
+        // レコード作成関数(モデル名::関数名)に引数で渡してあげる
+        // ※リスト表示で必要な情報を全て受け取る必要がある
+
+
         //user作成
         $result = user::userCreate($request->input(), 'kokyaku');
         if($result['error']) return back()->with(['error' => $result['error']])->withInput();
 
         //kokyaku作成
-        $error = kokyaku::kokyakuCreate($request->input(), $result['id'], $miseId);
-        if($error) return back()->with(['error' => $error])->withInput();
+        $kokyaku = kokyaku::kokyakuCreate($request->input());
+        if($kokyaku) return back()->with(['error' => $kokyaku])->withInput();
 
         //yoyaku作成
-        $error = therapist::yoyakuCreate($request->input(), $result['id'], $miseId);
-        if($error) return back()->with(['error' => $error])->withInput();
+        $yoyaku = yoyaku::yoyakuCreate($request->input(), $result['id'], $miseId, $therapist->id, $kokyaku->id, $inputer->id);
+        if($yoyaku) return back()->with(['error' => $yoyaku])->withInput();
 
         if($result){
             return back()->with(['message' => '予約が完了しました。']);
