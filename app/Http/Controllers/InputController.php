@@ -197,7 +197,7 @@ class InputController extends Controller{
 
 
         //yoyaku作成
-        $yoyaku = yoyaku::yoyakuCreate($request->input(), $miseId, $therapistId, $kokyaku['id'], $therapistId);
+        $yoyaku = yoyaku::yoyakuCreate($request->input(), $miseId, $therapistId, $kokyaku);
         if($yoyaku) return back()->with(['error' => $yoyaku])->withInput();
 
 

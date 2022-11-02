@@ -32,6 +32,8 @@ class kokyaku extends Model
         // $kokyaku->memo = $input[''];
         $result = $kokyaku->save();
 
+        $kokyakuId = $kokyaku->id;
+
         //インサート失敗時
         if(!$result) return '新規作成に失敗しました。';
 

@@ -104,10 +104,10 @@
                     <label class="row text-nowrap mb-4 text-end">
                         <div class="col-sm-2 lh2 text-end">開始時間<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                         <div class="col-sm-2">
-                            {{ Form::date('start_day', null, ['class'=>'form-control', 'max'=>'2032-12-31', 'required'])}}
+                            {{ Form::date('start_day', null, null, ['class'=>'form-control', 'max'=>'2032-12-31', 'required'])}}
                         </div>
                         <div class="col-sm-2">
-                            {{ Form::time('start_time', null, ['class'=>'form-control', 'required'])}}
+                            {{ Form::time('start_time', null, null, ['class'=>'form-control', 'required'])}}
                         </div>
                     </label>
 
@@ -199,15 +199,15 @@
                     <label class="row text-nowrap mb-4 text-end">
                         <div class="col-sm-2 lh2 text-end">指名<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                         <div class="col-sm-1">
-                            {{ Form::radio('simei', 'simei1', true, ['class'=>'form-check-input'])}}
+                            {{ Form::radio('shimei', '1', true, ['class'=>'form-check-input'])}}
                             本指名
                         </div>
                         <div class="col-sm-1">
-                            {{ Form::radio('simei', 'simei2', false, ['class'=>'form-check-input'])}}
+                            {{ Form::radio('shimei', '2', false, ['class'=>'form-check-input'])}}
                             ネット指名
                         </div>
                         <div class="col-sm-1">
-                            {{ Form::radio('simei', 'simei3', false, ['class'=>'form-check-input'])}}
+                            {{ Form::radio('shimei', '3', false, ['class'=>'form-check-input'])}}
                             フリー
                         </div>
                     </label>
