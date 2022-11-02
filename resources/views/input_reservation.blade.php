@@ -96,7 +96,9 @@
                     <!-- フォームの開始 -->
                     {{ Form::open(['url' => url('/i/{miseId}/{therapistId}/reservation')]) }}
 
+                    @include('common.validator')
                     @include('common.error')
+                    @include('common.success')
 
                     <!-- 開始時間 -->
                     <label class="row text-nowrap mb-4 text-end">
