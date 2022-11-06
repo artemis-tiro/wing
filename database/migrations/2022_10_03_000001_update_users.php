@@ -15,7 +15,7 @@ return new class extends Migration
             $table->softDeletes()->after('access_level');
         });
         Schema::create('inputer', function (Blueprint $table) {
-            $table->foreignId('id')->nullable()->comment('ユーザーID');
+            $table->unsignedBigInteger('id')->nullable()->comment('ユーザーID');
             $table->string('name')->nullable()->comment('入力者名');
             $table->string('yomi')->nullable()->comment('よみがな');
             $table->string('address')->nullable()->comment('住所');
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->timestamps();
         });
         Schema::create('client', function (Blueprint $table) {
-            $table->foreignId('id')->nullable()->comment('ユーザーID');
+            $table->unsignedBigInteger('id')->nullable()->comment('ユーザーID');
             $table->string('name')->comment('代表者指名');
             $table->string('yomi')->nullable()->comment('よみがな');
             $table->string('address')->nullable()->comment('住所');
@@ -42,8 +42,8 @@ return new class extends Migration
         });
         Schema::create('mise', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreignId('client_id')->comment('クライアント');
-            $table->foreignId('team_id')->comment('チーム');
+            $table->unsignedBigInteger('client_id')->comment('クライアント');
+            $table->unsignedBigInteger('team_id')->comment('チーム');
             $table->string('name')->comment('店舗名前');
             $table->string('yomi')->nullable()->comment('よみがな');
             $table->string('area')->nullable()->comment('地域');

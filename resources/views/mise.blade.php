@@ -10,7 +10,7 @@
 
 @section('content')
 
-                <h1 class="h2">{{$client->name}}店舗詳細</h1>
+                <h1 class="h2">{{$mise->name}}詳細</h1>
 
                 <div class="card my-4">
                     <!-- カードのタイトル -->
@@ -121,6 +121,7 @@
                     <h2 class="card-header h5">給料形態一覧</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
+                        <p><a href="{{url()->current()}}/back">default</a></p>
                     </div>
                 </div>
 

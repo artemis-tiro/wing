@@ -46,8 +46,13 @@
     line-height: 2em;
 }
 
+
 input:disabled {
     color: #999;
+}
+
+.form-control::placeholder {
+    color: #ddd;
 }
 
 /* system WING END */
