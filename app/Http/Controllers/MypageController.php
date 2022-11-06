@@ -19,7 +19,6 @@ class MypageController extends Controller{
 
 
         return view ('mypage', [
-            'testKnsu'=>'これはtestです。',
             'error' => session('error'),
             'message' => session('message'),
        ]);
