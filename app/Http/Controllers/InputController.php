@@ -96,27 +96,25 @@ class InputController extends Controller{
         $therapist = therapist::detail($therapistId);
 
         // 顧客情報
-        // $kokyaku = kokyaku::detail($Id);
+        $kokyakuList = kokyaku::kokyakuList();
 
         // 入力者情報
         // $inputer = inputer::detail($Id);
 
         // 予約一覧
         $yoyakuList = yoyaku::yoyakuList($therapistId);
-        // $yoyakuList = yoyaku::yoyakuList($therapist->therapist_id);
 
         return view ('input_reservation', [
             'mise' => $mise,
             'therapist' => $therapist,
+            'kokyakuList' => $kokyakuList,
             'yoyakuList' => $yoyakuList,
             'error' => session('error'),
         ]);
     }
 
     //予約新規作成
-    public function reservation(Request $request, $therapistId, $miseId){
-
-
+    public function reservation(Request $request, $miseId, $therapistId){
 
 
 
@@ -137,7 +135,7 @@ class InputController extends Controller{
         // plan      : 
         // time      : 
         // autosell  : 
-        // simei     : 
+        // shimei    : 
         // option    : 
         // discount  : 
         // memo      : 
@@ -184,7 +182,7 @@ class InputController extends Controller{
 
         //kokyaku作成
         $kokyaku = kokyaku::kokyakuCreate($request->input());
-        if($kokyaku) return back()->with(['error' => $kokyaku])->withInput();
+        // if($kokyaku) return back()->with(['error' => $kokyaku])->withInput();
 
 
 

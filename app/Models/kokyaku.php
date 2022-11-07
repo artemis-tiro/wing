@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\user;
+use Log;
 
 class kokyaku extends Model
 {
@@ -15,10 +16,13 @@ class kokyaku extends Model
     protected $guarded = [''];
 
     // 顧客一覧
-    public static function kokyakuList($kokyakuTel){
-        $kokyakuList = kokyaku::where('tel', $kokyakuTel)
-        ->get();
-        return $kokyakuList;
+    public static function kokyakuList(){
+        $kokyakuList = kokyaku::get();
+        $list = [];
+        foreach($kokyakuList as $k){
+            $list[$k->id] = $k;
+        }
+        return $list;
     }
 
     //予約新規作成
@@ -37,7 +41,7 @@ class kokyaku extends Model
         //インサート失敗時
         if(!$result) return '新規作成に失敗しました。';
 
-        return null;
+        return $kokyakuId;
     }
 
 }

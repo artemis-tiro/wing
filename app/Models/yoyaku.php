@@ -28,10 +28,15 @@ class yoyaku extends Model
         $yoyaku->mise_id = $miseId;
         $yoyaku->therapist_id = $therapistId;
         $yoyaku->kokyaku_id = $kokyaku;
+
+        // 入力者のIDを入れる(ログインしているIDを取得？)
         $yoyaku->inputer_id = $therapistId;
+
+        // priceテーブルの作成まで仮
         $yoyaku->price_id_list = $input['plan'];
         $yoyaku->back_id_list = $input['plan'];
-        $yoyaku->visit_day = $input['start_day'];
+
+        $yoyaku->visit_day = $input['start_day'].' '.$input['start_time'];
         $yoyaku->shimei = $input['shimei'];
         $yoyaku->waribiki = $input['discount_many'];
         $result = $yoyaku->save();
