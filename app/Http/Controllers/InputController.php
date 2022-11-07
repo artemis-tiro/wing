@@ -82,10 +82,6 @@ class InputController extends Controller{
     //予約一覧ページ
     public function yoyaku($miseId,$therapistId){
 
-        // テスト用
-        Log::info('input_yoyakuにアクセス');
-
-
         //権限チェック
         if($ng = $this->levelCheck()) return $ng;
 
@@ -115,22 +111,12 @@ class InputController extends Controller{
 
     //予約新規作成
     public function reservation(Request $request, $miseId, $therapistId){
-
-
-
-        // テスト用
-        Log::info('予約新規作成');
-
-
-
-
-
         ///////     バリデーション      ///////
         // startday  : NULLではない、今日以降かつ今日から10年を超えてない
         // starttime : NULLではない
         // name      : NULLではない
-        // tel       : NULLではない、半角数字であるか、一意であるか
-        // mail      : NULLではない、メールであるか、一意であるか
+        // tel       : NULLではない、半角数字であるか
+        // mail      : NULLではない、メールであるか
         // visit     : 
         // plan      : 
         // time      : 
@@ -154,53 +140,21 @@ class InputController extends Controller{
             'tel.regex' => '半角数字で入力してください。',
             'tel.unique' => 'この電話番号は既に登録されています。',
             'mail.required' => 'メールアドレスを入力してください。',
-            // 'mail.email' => 'メールアドレスが正しくありません。',
             'mail.unique' => 'このメールアドレスは既に登録されています。',
         ];
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();
-
-
-        // テスト用
-        Log::info('作成前');
-
-
-
-
+        
         // タイムピッカーチェック
         // 今日以降かつ今日から10年以内であるか
-        // $result = Hash::check($request->nowpassword, Auth::user()->password);
-        // if(!$result) return back()->with(['error' => 'パスワードが違います。'])->withInput();
-
-
-        // 予約一覧表示の時に取得した情報を「$request」と一緒に
-        // レコード作成関数(モデル名::関数名)に引数で渡してあげる
-        // ※リスト表示で必要な情報を全て受け取る必要がある
-
-
-
+        // 文字列でもらって数字にして10年以内なのかみる？
 
         //kokyaku作成
         $kokyaku = kokyaku::kokyakuCreate($request->input());
-        // if($kokyaku) return back()->with(['error' => $kokyaku])->withInput();
-
-
-
-
-        // テスト用
-        // Log::info($kokyaku);
-
-
-
-
 
         //yoyaku作成
         $yoyaku = yoyaku::yoyakuCreate($request->input(), $miseId, $therapistId, $kokyaku);
         if($yoyaku) return back()->with(['error' => $yoyaku])->withInput();
-
-
-        // テスト用
-        // Log::info($yoyaku);
 
         if($kokyaku){
             return back()->with(['message' => '予約が完了しました。']);
@@ -217,4 +171,17 @@ class InputController extends Controller{
         return back();
     }
     
+    //給与計算ページ
+    public function cal(){
+
+        //権限チェック
+        if($ng = $this->levelCheck()) return $ng;
+
+        // 店舗一覧
+        // $zenMiseList = mise::zenMiseList(Auth::user()->team);
+
+        return view ('input_cal', [
+            'error' => session('error'),
+        ]);
+    }
 }

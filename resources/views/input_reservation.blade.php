@@ -50,11 +50,14 @@
                                     <td>未実装</td>
 
                                     <!-- 終了時間を来店日時＋コース時間で表示 -->
-                                    <td>{{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('m/d H:i') }} ~ </td>
+                                    <td>
+                                        {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('m/d H:i') }}.' ~ '
+                                        
+                                    </td>
 
                                     <!-- priceテーブル作成まで仮 -->
                                     <td>{{$y->price_id_list}}</td>
-                                    
+                                     
                                     <td>
                                         @switch($y->shimei)
                                             @case (1)
@@ -68,12 +71,25 @@
                                                 @break
                                         @endswitch
                                     </td>
-                                    <td>{{$kokyakuList[$y->kokyaku_id]->name}}</td>
-                                    <td>{{$kokyakuList[$y->kokyaku_id]->tel}}</td>
+
+                                    <td>{{ $kokyakuList[$y->kokyaku_id]->name.' 様' }}</td>
+                                    
+                                    <td>
+                                        {{ 
+                                            substr($kokyakuList[$y->kokyaku_id]->tel, 0, 3).'-'.
+                                            substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
+                                            substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
+                                        }}
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
+
+
+                        <a class="m-2 btn btn-info" href="">給料計算へ</a>
+
+
                     </div>
                 </div>
 
@@ -83,7 +99,7 @@
                 <!-- 予約リストから１レコードずつ抽出 -->
                 <!-- 下記をセラピストIDで全て -->
 
-                <!-- simei price_id_list kokyaku_id(でname) kokyaku_id(でtel) (コースの金額？) -->
+                <!-- shimei price_id_list kokyaku_id(でname) kokyaku_id(でtel) (コースの金額？) -->
                 <!-- visit_day price_id_list(でprice1) -->
 
 
@@ -93,7 +109,42 @@
                     <h2 class="card-header h5">コピペ用</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
+                        @foreach($yoyakuList  as $y)
+                            <span>{{$loop->index+1}}</span>
+                            
+                            <!-- 指名 -->
+                            <span>
+                                @switch($y->shimei)
+                                    @case (1)
+                                        本指名
+                                        @break
+                                    @case (2)
+                                        ネット指名
+                                        @break
+                                    @case (3)
+                                        フリー
+                                        @break
+                                @endswitch
+                            </span>
 
+                            <!-- コース -->
+                            <span>{{ $y->price_id_list }}</span>
+
+                            <!-- お客様名 -->
+                            <span>{{ $kokyakuList[$y->kokyaku_id]->name.' 様' }}</span>
+
+                            <!-- 発生料金 -->
+                            <span>合計 ..</span>
+
+                            <!-- 予約時間 -->
+                            <span>
+                                {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('m/d H:i') }}.' ~ '
+                                
+                            </span>
+
+                            <br>
+                            <br>
+                        @endforeach
                     </div>
                 </div>
 
