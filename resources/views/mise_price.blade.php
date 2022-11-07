@@ -22,39 +22,21 @@
                         割引の場合は「-1000」などマイナスで入力して下さい。<br></p>
                         <br>
                         @include('common.error')
-                        {{ Form::open(['url' => url('/c/'.$client->id.'/'.$mise->id.'/price'),'class'=>'form-horizontal']) }}
+                        {{ Form::open(['url' => url('/c/'.$client->id.'/'.$mise->id.'/priceedit'),'class'=>'form-horizontal']) }}
                         <h3 class="h5">基本料金</h3>
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>コース名</th>
-                                    <td>料金</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）60分コース'])}}</td>
-                                    <td class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）12000'])}}<span class="input-group-text">円</span></td>
-                                </tr>
-                                <tr>
-                                    <td>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）90分コース'])}}</td>
-                                    <td class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）16000'])}}<span class="input-group-text">円</span></td>
-                                </tr>
-                                <tr>
-                                    <td>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）120分コース'])}}</td>
-                                    <td class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）20000'])}}<span class="input-group-text">円</span></td>
-                                </tr>
-                                <tr>
-                                    <td>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）60分エグゼクティブコース'])}}</td>
-                                    <td class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）14000'])}}<span class="input-group-text">円</span></td>
-                                </tr>
-                                <tr>
-                                    <td>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）〇〇分〇〇コース'])}}</td>
-                                    <td class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）12000'])}}<span class="input-group-text">円</span></td>
-                                </tr>
-                                <tr><td colspan='2' class="text-center form-text">＋ 行追加 ＋</td></tr>
-                            </tbody>
-                        </table>
+                        @component('componets.mise_price_form')
+                            @slot('form', 1)
+                            @slot('type', 'course')
+                            @slot('formData', $formData)
+                            @slot('th', ['コース名', '料金'])
+                            @slot('placeholder', [
+                                "例）60分コース" => "12000",
+                                "例）90分コース" => "16000",
+                                "例）120分コース" => "20000",
+                                "例）60分エグゼクティブコース" => "16000",
+                                "例）〇〇分〇〇コース" => "24000",
+                            ])
+                        @endcomponent
 
                         <hr><br>
 
@@ -68,178 +50,149 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）全コース〇〇円割引'])}}</td>
-                                    <td class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）-2000'])}}<span class="input-group-text">円</span></td>
+                                    @php
+                                        $name = isset($formData['waribikiAuto'][0]['name_data'])? $formData['waribikiAuto'][0]['name_data']: '';
+                                        $price = isset($formData['waribikiAuto'][0]['price_data'])? $formData['waribikiAuto'][0]['price_data']: '';
+                                    @endphp
+                                    <td>{{ Form::text('waribikiAuto_name', $name, ['class'=>'form-control', 'placeholder'=>'例）全コース〇〇円割引'])}}</td>
+                                    <td class="input-group">{{ Form::number('waribikiAuto_price', $price, ['class'=>'form-control', 'placeholder'=>'例）-2000'])}}<span class="input-group-text">円</span></td>
                                 </tr>
                             </tbody>
                         </table>
+
                         <br>
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>特別割引</th>
-                                    <td>割引額</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）ツイッター見た'])}}</td>
-                                    <td class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）-2000'])}}<span class="input-group-text">円</span></td>
-                                </tr>
-                                <tr>
-                                    <td>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）メンエスランキング見た'])}}</td>
-                                    <td class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）-1000'])}}<span class="input-group-text">円</span></td>
-                                </tr>
-                                <tr>
-                                    <td>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）新人割引'])}}</td>
-                                    <td class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）-1000'])}}<span class="input-group-text">円</span></td>
-                                </tr>
-                                <tr><td colspan='2' class="text-center form-text">＋ 行追加 ＋</td></tr>
-                            </tbody>
-                        </table>
+
+                        @component('componets.mise_price_form')
+                            @slot('form', 1)
+                            @slot('type', 'waribiki')
+                            @slot('formData', $formData)
+                            @slot('th', ['特別割引', '割引額'])
+                            @slot('placeholder', [
+                                "例）ツイッター見た" => "-2000",
+                                "例）メンエスランキング見た" => "-1000",
+                                "例）新人割引" => "1000",
+                            ])
+                        @endcomponent
+
                         <br>
 
                         <h3 class="h5">クレーム時に割引対応の許可</h3>
+                            @php 
+                                $claim1000Check = isset($formData['claim1000'])? true: false;
+                                $claim2000Check = isset($formData['claim2000'])? true: false;
+                            @endphp
                         <label class="form-check form-check-label">
-                            {{ Form::checkbox('name', null, false, ['class'=>'form-check-input'])}}
+                            {{ Form::checkbox('claim1000', null, $claim1000Check, ['class'=>'form-check-input'])}}
                             クレーム対応時に1,000円の割引を許可（やむを得ない場合に限る）
                         </label>
                         <label class="form-check form-check-label">
-                            {{ Form::checkbox('name', null, false, ['class'=>'form-check-input'])}}
+                            {{ Form::checkbox('claim2000', null, $claim2000Check, ['class'=>'form-check-input'])}}
                             クレーム対応時に2,000円の割引を許可（やむを得ない場合に限る）
                         </label>
 
                         <hr><br>
 
                         <h3 class="h5">入会金</h3>
-                        <label class="row text-nowrap mb-4 text-end">
-                            <div class="col-sm-2 lh2 text-end">初回</div>
-                            <div class="col-sm-10">
-                                <div class="input-group">
-                                    {{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）1000'])}}
-                                    <span class="input-group-text">円</span>
-                                </div>
-                            </div>
-                        </label>
+                        @component('componets.mise_price_form')
+                            @slot('form', 2)
+                            @slot('type', 'firster')
+                            @slot('th', '初回')
+                            @slot('placeholder', '例）1000')
+                            @slot('formData', $formData)
+                        @endcomponent
 
-                        <label class="row text-nowrap mb-4 text-end">
-                            <div class="col-sm-2 lh2 text-end">リピーター</div>
-                            <div class="col-sm-10">
-                                <div class="input-group">
-                                    {{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）0'])}}
-                                    <span class="input-group-text">円</span>
-                                </div>
-                            </div>
-                        </label>
+                        @component('componets.mise_price_form')
+                            @slot('form', 2)
+                            @slot('type', 'repeater')
+                            @slot('th', 'リピーター')
+                            @slot('placeholder', '例）0')
+                            @slot('formData', $formData)
+                        @endcomponent
 
                         <hr><br>
 
                         <h3 class="h5">指名料</h3>
-                        <label class="row text-nowrap mb-4 text-end">
-                            <div class="col-sm-2 lh2 text-end">フリー</div>
-                            <div class="col-sm-10">
-                                <div class="input-group">
-                                    {{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）0'])}}
-                                    <span class="input-group-text">円</span>
-                                </div>
-                            </div>
-                        </label>
+                        @component('componets.mise_price_form')
+                            @slot('form', 2)
+                            @slot('type', 'free')
+                            @slot('th', 'フリー')
+                            @slot('placeholder', '例）0')
+                            @slot('formData', $formData)
+                        @endcomponent
 
-                        <label class="row text-nowrap mb-4 text-end">
-                            <div class="col-sm-2 lh2 text-end">ネット指名</div>
-                            <div class="col-sm-10">
-                                <div class="input-group">
-                                    {{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）0'])}}
-                                    <span class="input-group-text">円</span>
-                                </div>
-                            </div>
-                        </label>
+                        @component('componets.mise_price_form')
+                            @slot('form', 2)
+                            @slot('type', 'net')
+                            @slot('th', 'ネット指名')
+                            @slot('placeholder', '例）0')
+                            @slot('formData', $formData)
+                        @endcomponent
 
-                        <label class="row text-nowrap mb-4 text-end">
-                            <div class="col-sm-2 lh2 text-end">本指名</div>
-                            <div class="col-sm-10">
-                                <div class="input-group">
-                                    {{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）1000'])}}
-                                    <span class="input-group-text">円</span>
-                                </div>
-                            </div>
-                        </label>
+                        @component('componets.mise_price_form')
+                            @slot('form', 2)
+                            @slot('type', 'shimei')
+                            @slot('th', '本指名')
+                            @slot('placeholder', '例）1000')
+                            @slot('formData', $formData)
+                        @endcomponent
 
                         <hr><br>
 
                         <h3 class="h5">追加料金</h3>
-                        <table class="table table-hover">
-                            <tbody>
-                                <tr>
-                                    <td>名目</td>
-                                    <td>金額</td>
-                                </tr>
-                                <tr>
-                                    <td>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）プラチナセラピスト'])}}</td>
-                                    <td class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）1000'])}}<span class="input-group-text">円</span></td>
-                                </tr>
-                                <tr>
-                                    <td>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）プラチナセラピスト本指名'])}}</td>
-                                    <td class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）2000'])}}<span class="input-group-text">円</span></td>
-                                </tr>
-                                <tr>
-                                    <td>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）No.1セラピスト特別料金'])}}</td>
-                                    <td class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）3000'])}}<span class="input-group-text">円</span></td>
-                                </tr>
-                                <tr><td colspan='2' class="text-center form-text">＋ 行追加 ＋</td></tr>
-                            </tbody>
-                        </table>
+                        @component('componets.mise_price_form')
+                            @slot('form', 1)
+                            @slot('type', 'more')
+                            @slot('formData', $formData)
+                            @slot('th', ['名目', '金額'])
+                            @slot('placeholder', [
+                                "例）プラチナセラピスト" => "1000",
+                                "例）プラチナセラピスト本指名" => "2000",
+                                "例）No.1セラピスト特別料金" => "3000",
+                            ])
+                        @endcomponent
+
                         <hr><br>
 
                         <h3 class="h5">オプション</h3>
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>オプション</th>
-                                    <th>料金</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）ディープリンパ'])}}</th>
-                                    <th class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）2000'])}}<span class="input-group-text">円</span></th>
-                                </tr>
-                                <tr>
-                                    <th>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）衣装チェンジ1'])}}</th>
-                                    <th class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）2000'])}}<span class="input-group-text">円</span></th>
-                                </tr>
-                                <tr>
-                                    <th>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）衣装チェンジ2'])}}</th>
-                                    <th class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）5000'])}}<span class="input-group-text">円</span></th>
-                                </tr>
-                                <tr>
-                                    <th>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）ドバドバオイル'])}}</th>
-                                    <th class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）2000'])}}<span class="input-group-text">円</span></th>
-                                </tr>
-                                <tr>
-                                    <th>{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'例）オプションセット'])}}</th>
-                                    <th class="input-group">{{ Form::number('name', null, ['class'=>'form-control', 'placeholder'=>'例）6000'])}}<span class="input-group-text">円</span></th>
-                                </tr>
-                                <tr><td colspan='2' class="text-center form-text">＋ 行追加 ＋</td></tr>
-                            </tbody>
-                        </table>
+                        @component('componets.mise_price_form')
+                            @slot('form', 1)
+                            @slot('type', 'option')
+                            @slot('formData', $formData)
+                            @slot('th', ['オプション', '金額'])
+                            @slot('placeholder', [
+                                "例）ディープリンパ" => "2000",
+                                "例）衣装チェンジ1" => "2000",
+                                "例）衣装チェンジ2" => "5000",
+                                "例）ドバドバオイル" => "2000",
+                                "例）オプションセット" => "6000",
+                            ])
+                        @endcomponent
 
                         <label class="form-check form-check-label">
-                            {{ Form::radio('optionGet', null, true, ['class'=>'form-check-input'])}}
+                            @php 
+                                $therapistCheck = true;
+                                $inputerCheck = false;
+                                $optionGet = isset($formData['optionGet'][0]['name_data'])? $formData['optionGet'][0]['name_data']: 'therapist';
+                                if($optionGet == 'inputer'){
+                                    $therapistCheck = false;
+                                    $inputerCheck = true;
+                                }
+                            @endphp
+                            {{ Form::radio('optionGet', 'therapist', $therapistCheck, ['class'=>'form-check-input'])}}
                             オプションは来店時にセラピストが営業する
                         </label>
                         <label class="form-check form-check-label">
-                            {{ Form::radio('optionGet', null, false, ['class'=>'form-check-input'])}}
+                            {{ Form::radio('optionGet', 'inputer', $inputerCheck, ['class'=>'form-check-input'])}}
                             オプションは電話予約時に確定させる
                         </label>
 
                         <hr><br>
 
-                        {{ Form::submit('登録',["class"=>"m-2 btn btn-info"])}}
+                        {{ Form::submit('保存',["class"=>"m-2 btn btn-info"])}}
                         {{ Form::close() }}
+
+                        <a href="{{url('/c/'.$client->id.'/'.$mise->id)}}" class="m-2 btn btn-primary">← 戻る</a>
+
                     </div>
                 </div>
-
-
-
 @stop

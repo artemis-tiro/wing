@@ -15,6 +15,7 @@ use App\Models\Client;
 use App\Models\Mise;
 use App\Models\Room;
 use App\Models\Therapist;
+use App\Models\Price;
 
 class ClientController extends Controller{
 
@@ -186,30 +187,9 @@ class ClientController extends Controller{
     }
 
     //料金システム
-    public function price(Request $request, $clientId, $miseId){
+    public function price($clientId, $miseId){
         //権限チェック
         if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
-
-        if($request->input()){
-            //バリデーション
-            $rulus = [
-                'business_name' => ['required', Rule::unique('therapist','business_name')->whereNull('deleted_at')],
-                'login_id' => ['required','regex:/^[0-9a-zA-Z\\-\\_]+$/', Rule::unique('users','name')->whereNull('deleted_at')],
-                //'pass' => 'required | min:4 | regex:/^[[a-zA-Z0-9]+$/',
-            ];
-            $message = [
-                'business_name.required' => '源氏名を入力してください。',
-                'business_name.unique' => '登録されている源氏名です。',
-                'login_id.required' => 'ログインIDを入力してください。',
-                'login_id.regex' => 'ログインIDに使えるのはは「半角英数字、ハイフン、アンダースコア」のみです。',
-                'login_id.unique' => 'このログインIDは存在します。',
-                'pass.required' => 'パスワードを入力してください。',
-                'pass.min' => 'パスワードは4文字以上で入力してください。',
-                'pass.regex' => 'パスワードは半角英数字で入力して下さい。',
-            ];
-            $validator = Validator::make($request->all(), $rulus, $message);
-            if($validator->fails()) return back()->withErrors($validator)->withInput();
-        }
 
         //client情報
         $client = client::detail($clientId);
@@ -217,13 +197,80 @@ class ClientController extends Controller{
         //mise情報
         $mise = mise::detail($miseId);
 
+        //price情報
+        $formData = price::formData($miseId);
+
         return view ('mise_price', [
             'client' => $client,
             'mise' => $mise,
+            'formData' => $formData,
        ]);
     }
     
+    //料金システム編集
+    public function priceEdit(Request $request, $clientId, $miseId){
+        //権限チェック
+        if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
 
+        if($request->input()){
+        //     //バリデーション
+        //     $rulus = [
+        //         'business_name' => ['required', Rule::unique('therapist','business_name')->whereNull('deleted_at')],
+        //         'login_id' => ['required','regex:/^[0-9a-zA-Z\\-\\_]+$/', Rule::unique('users','name')->whereNull('deleted_at')],
+        //         //'pass' => 'required | min:4 | regex:/^[[a-zA-Z0-9]+$/',
+        //     ];
+        //     $message = [
+        //         'business_name.required' => '源氏名を入力してください。',
+        //         'business_name.unique' => '登録されている源氏名です。',
+        //         'login_id.required' => 'ログインIDを入力してください。',
+        //         'login_id.regex' => 'ログインIDに使えるのはは「半角英数字、ハイフン、アンダースコア」のみです。',
+        //         'login_id.unique' => 'このログインIDは存在します。',
+        //         'pass.required' => 'パスワードを入力してください。',
+        //         'pass.min' => 'パスワードは4文字以上で入力してください。',
+        //         'pass.regex' => 'パスワードは半角英数字で入力して下さい。',
+        //     ];
+        //     $validator = Validator::make($request->all(), $rulus, $message);
+        //     if($validator->fails()) return back()->withErrors($validator)->withInput();
+
+            $input = $request->input();
+            price::del($miseId); //今あるレコード削除
+
+            $count = [];
+
+            foreach($input as $key => $data){
+
+                //コース料金
+                if(preg_match("/_name/", $key)){
+                    if(empty($data)) continue;
+
+                    // price
+                    $keyPrice = str_replace('name', 'price', $key);
+                    if(empty($input[$keyPrice])) continue;
+                    $price = $input[$keyPrice];
+
+                    // type
+                    $type = explode('_name', $key)[0];
+                    if(!isset($count[$type])) $count[$type] = 1;
+
+                    $result = price::priceInsert($miseId, $data, $price, $count[$type], $type);
+                    $count[$type]++;
+
+                //radio-チェックされた値が入っている。 
+                }elseif($key == 'optionGet' ){ 
+                    $result = price::priceInsert($miseId, $data, 0, 1, 'optionGet');
+
+                //checkbox-値があればチェックされている
+                }elseif($key == 'claim1000' ){
+                    $result = price::priceInsert($miseId, 'claim1000', 1, 1, 'claim1000');
+                }elseif($key == 'claim2000' ){
+                    $result = price::priceInsert($miseId, 'claim2000', 1, 1, 'claim2000');
+                }
+
+            }
+            return back();
+            
+        }
+    }
 
 
 }
