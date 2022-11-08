@@ -14,7 +14,7 @@
     $teamName = App\Models\user::teamName(auth()->user()->team);
 ?>
 
-                <h1 class="h2">予約一覧</h1>
+                <h1 class="h2">{{$therapist->business_name}}スケジュール</h1>
 
                 <!-- 予約リスト -->
                 <div class="card my-4">
@@ -87,21 +87,11 @@
                         </table>
 
 
-                        <a class="m-2 btn btn-info" href="">給料計算へ</a>
+                        <a class="m-2 btn btn-info" href="{{url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo')}}">給料計算へ</a>
 
 
                     </div>
                 </div>
-
-
-
-
-                <!-- 予約リストから１レコードずつ抽出 -->
-                <!-- 下記をセラピストIDで全て -->
-
-                <!-- shimei price_id_list kokyaku_id(でname) kokyaku_id(でtel) (コースの金額？) -->
-                <!-- visit_day price_id_list(でprice1) -->
-
 
                 <!-- コピペ用 -->
                 <div class="card my-4">
@@ -327,8 +317,5 @@
                     {{ Form::close() }}
                     </div>
                 </div>
-                
-
-
 
 @stop

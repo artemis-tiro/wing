@@ -94,9 +94,6 @@ class InputController extends Controller{
         // 顧客情報
         $kokyakuList = kokyaku::kokyakuList();
 
-        // 入力者情報
-        // $inputer = inputer::detail($Id);
-
         // 予約一覧
         $yoyakuList = yoyaku::yoyakuList($therapistId);
 
@@ -171,17 +168,79 @@ class InputController extends Controller{
         return back();
     }
     
+
     //給与計算ページ
-    public function cal(){
+    public function kyuryo($miseId,$therapistId){
 
         //権限チェック
         if($ng = $this->levelCheck()) return $ng;
 
-        // 店舗一覧
-        // $zenMiseList = mise::zenMiseList(Auth::user()->team);
+        // 店舗情報
+        $mise = mise::detail($miseId);
 
-        return view ('input_cal', [
+        // セラピスト情報
+        $therapist = therapist::detail($therapistId);
+
+        // 顧客情報
+        $kokyakuList = kokyaku::kokyakuList();
+
+        // 予約一覧
+        $yoyakuList = yoyaku::yoyakuList($therapistId);
+
+        return view ('input_kyuryo', [
+            'mise' => $mise,
+            'therapist' => $therapist,
+            'kokyakuList' => $kokyakuList,
+            'yoyakuList' => $yoyakuList,
             'error' => session('error'),
         ]);
+    }
+
+    //給与計算
+    public function calculation(Request $request, $miseId, $therapistId){
+        ///////     バリデーション      ///////
+        // pouch        : 半角数字であるか
+        // adjust_item1 : 
+        // adjust_many1 : 半角数字であるか
+        // adjust_item2 : 
+        // adjust_many2 : 半角数字であるか
+        // adjust_item2 : 
+        // adjust_many3 : 半角数字であるか
+        $rulus = [
+            'pouch' => ['required', 'regex:/^[0-9]+$/i'],
+            'adjust_many1' => ['regex:/^[0-9]+$/i'],
+            'adjust_many2' => ['regex:/^[0-9]+$/i'],
+            'adjust_many3' => ['regex:/^[0-9]+$/i'],
+        ];
+        $message = [
+            'pouch.required' => 'ポーチ金額を入力してください。',
+            'pouch.regex' => '半角数字で入力してください。',
+            'adjust_many1.regex' => '半角数字で入力してください。',
+            'adjust_many2.regex' => '半角数字で入力してください。',
+            'adjust_many3.regex' => '半角数字で入力してください。',
+        ];
+        $validator = Validator::make($request->all(), $rulus, $message);
+        if($validator->fails()) return back()->withErrors($validator)->withInput();
+
+        //kokyaku作成
+        // $kokyaku = kokyaku::kokyakuCreate($request->input());
+
+        //yoyaku作成
+        // $yoyaku = yoyaku::yoyakuCreate($request->input(), $miseId, $therapistId, $kokyaku);
+        // if($yoyaku) return back()->with(['error' => $yoyaku])->withInput();
+
+        // if($kokyaku){
+        //     return back()->with(['message' => '予約が完了しました。']);
+        // }else{
+        //     return back()->with(['error' => '予約に失敗しました。']);
+        // }
+
+        // if($yoyaku){
+        //     return back()->with(['message' => '予約が完了しました。']);
+        // }else{
+        //     return back()->with(['error' => '予約に失敗しました。']);
+        // }
+
+        return back();
     }
 }
