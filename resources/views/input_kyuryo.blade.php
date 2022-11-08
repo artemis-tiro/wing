@@ -39,39 +39,54 @@
                     @include('common.success')
 
                     <!-- ポーチ -->
-                    <label class="row text-nowrap mb-4 text-end">
-                        <div class="col-sm-2 lh2 text-end">ポーチ朝一<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
-                        <div class="col-sm-10">
-                            {{ Form::text('pouch', null, ['class'=>'form-control', 'required'])}}
-                        </div>
+                    <label class="row text-nowrap text-end">
+                        <h3 class="col-sm-2 lh2 h6 text-end">ポーチ朝一</h3>
                     </label>
 
-                    <!-- 顧客名 -->
                     <label class="row text-nowrap mb-4 text-end">
-                        <div class="col-sm-2 lh2 text-end">顧客名<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
-                        <div class="col-sm-10">
-                            {{ Form::text('name', null, ['class'=>'form-control', 'required'])}}
+                        <div class="col-sm-5">
+                            {{ Form::number('pouch', null, ['class'=>'form-control'])}}
                         </div>
+                        <div class="col-sm-1 mt-2">円</div>
+                        <div class="col-sm-1"><a class="btn btn-info" href="">確定</a></div>
                     </label>
 
-                    <!-- 電話番号 -->
-                    <label class="row text-nowrap mb-4 text-end">
-                        <div class="col-sm-2 lh2 text-end">電話番号<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
-                        <div class="col-sm-10">
-                            {{ Form::text('tel', null, ['class'=>'form-control', 'required'])}}
-                        </div>
+                    <!-- 調整金 -->
+                    <label class="row text-nowrap text-end">
+                        <h3 class="col-sm-2 lh2 h6 text-end">調整金</h3>
                     </label>
 
-                    <!-- 追加割引 -->
                     <label class="row text-nowrap mb-4 text-end">
-                        <div class="col-sm-2 lh2 text-end">追加割引<span class="mx-2 badge rounded-pill bg-secondary">任意</span></div>
-                        <div class="col-sm-2">
-                            {{ Form::text('discount_many', null, ['class'=>'form-control'])}}
+                        <div class="col-sm-5">
+                            {{ Form::text('name', null, ['class'=>'form-control'])}}
                         </div>
-                        <div class="col-sm-2 lh2">理由</div>
-                        <div class="col-sm-2">
-                            {{ Form::text('discount_reason', null, ['class'=>'form-control'])}}
+                        <div class="col-sm-3">
+                            {{ Form::number('name', null, ['class'=>'form-control'])}}
                         </div>
+                        <div class="col-sm-1 mt-2">円</div>
+                        <div class="col-sm-1"><a class="btn btn-info" href="">確定</a></div>
+                    </label>
+
+                    <label class="row text-nowrap mb-4 text-end">
+                        <div class="col-sm-5">
+                            {{ Form::text('name', null, ['class'=>'form-control'])}}
+                        </div>
+                        <div class="col-sm-3">
+                            {{ Form::number('name', null, ['class'=>'form-control'])}}
+                        </div>
+                        <div class="col-sm-1 mt-2">円</div>
+                        <div class="col-sm-1"><a class="btn btn-info" href="">確定</a></div>
+                    </label>
+
+                    <label class="row text-nowrap mb-4 text-end">
+                        <div class="col-sm-5">
+                            {{ Form::text('name', null, ['class'=>'form-control'])}}
+                        </div>
+                        <div class="col-sm-3">
+                            {{ Form::number('name', null, ['class'=>'form-control'])}}
+                        </div>
+                        <div class="col-sm-1 mt-2">円</div>
+                        <div class="col-sm-1"><a class="btn btn-info" href="">確定</a></div>
                     </label>
                     
                     <!-- 送信ボタン -->
@@ -88,6 +103,28 @@
                     <h2 class="card-header h5">コピペ用</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
+
+                        <!-- セラピスト名 -->
+                        {{$therapist->business_name}}
+
+                        <br>
+                        <br>
+
+                        <!-- タイトル -->
+                        <!-- 日付　＋　お給料 -->
+
+                        <!-- ループで当日の件数と金額を出す -->
+                        <!-- 〇件目　△△△△円 -->
+
+                        <!-- 端数金？ -->
+                        <!-- 前回もらい忘れ？ -->
+
+                        <!-- 日当金額 -->
+
+                        <!-- ポーチ朝一金額 -->
+                        <!-- ポスト投函金額 -->
+                        <!-- ポーチ最終金額 -->
+
                         @foreach($yoyakuList  as $y)
                             <span>{{$loop->index+1}}</span>
                             
@@ -123,11 +160,16 @@
 
                             <br>
                             <br>
+
+
                         @endforeach
+                        
+                        今日も一日お疲れ様でした。
+                        
                     </div>
                 </div>
                 
-                <!-- コピペ用 -->
+                <!-- コピペ用(詳細) -->
                 <div class="card my-4">
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">コピペ用(詳細)</h2>
@@ -136,6 +178,19 @@
                         @foreach($yoyakuList  as $y)
                             <span>{{$loop->index+1}}</span>
                             
+                            <!-- ループして各施術？の詳細表示 -->
+                            <!-- 〇件目 -->
+
+                            <!-- 時間　＋　指名　＋　コース　＋　お客様名　＋　電話？ -->
+                            <!-- ・お客様支払 -->
+                            <!-- 基本料金　（コース金額） -->
+                            <!-- 指名      （金額） -->
+                            <!-- オプション（総額） -->
+                            <!-- ・バック -->
+                            <!-- 基本料金　（コース*給与形態のパーセント） -->
+                            <!-- 指名      （金額*給与形態のパーセント） -->
+                            <!-- オプション（総額*給与形態のパーセント） -->
+
                             <!-- 指名 -->
                             <span>
                                 @switch($y->shimei)

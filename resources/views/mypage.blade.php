@@ -88,11 +88,88 @@
                 <!-- 登録情報変更 -->
                 <div class="card my-4 col-12 col-xl-10 mb-lg-0">
                     <!-- カードのタイトル -->
-                    <h2 class="card-header h5">登録情報の変更</h2>
+                    <h2 class="card-header h5">プロフィール変更</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
-			            登録情報の変更ができます。(フェーズ2以降)
+
+                        <!-- ボタンの設定 -->
+                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        ユーザプロフィールを編集
+                        </button>
+
+                        <!-- モーダルの設定 -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    
+                                    <!-- モーダルのヘッダー -->
+                                    <div class="modal-header">
+                                        <!-- モーダルタイトル -->
+                                        <h1 class="modal-title" id="exampleModalLabel">プロフィール編集</h1>
+
+                                        <!-- 閉じるボタン -->
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+                                    </div>
+
+                                    <!-- モーダルの内容 -->
+                                    <div class="modal-body">
+                                        <!-- 新しいパスワード入力 -->
+                                        <label class="row mb-4">
+                                            <div class="col-sm-2 lh2 text-end">新しいパスワード</div>
+                                            <div class="col-sm-10">
+
+                                                <!-- 半角などのチェック -->
+                                                <!-- Form::タイプ -->
+                                                <!-- 第一引数は「name=""」 -->
+                                                {{ Form::password('newpassword', ['class'=>'form-control', 'autocomplete'=>'current-password'])}}
+
+                                                <div class="form-text">半角英数字。 a ~ Z 、0 ~ 9。</div>
+                                            </div>
+                                        </label>
+
+                                        <!-- 新しいパスワードの確認 -->
+                                        <label class="row mb-4">
+                                            <div class="col-sm-2 lh2 text-end">新しいパスワード(確認用)</div>
+                                            <div class="col-sm-10">
+
+                                                <!-- 上のパスワードと同じかの確認をする -->
+                                                {{ Form::password('checkpassword', ['class'=>'form-control', 'autocomplete'=>'current-password'])}}
+
+                                                <div class="form-text">確認のためもう一度入力してください。</div>
+                                            </div>
+                                        </label>
+
+                                        <!-- 現在のパスワードの確認 -->
+                                        <label class="row mb-4">
+                                            <div class="col-sm-2 lh2 text-end">現在のパスワード</div>
+                                            <div class="col-sm-10">
+
+                                                <!-- 現在ログインしているIDのパスワードと同じからチェックする -->
+                                                {{ Form::password('nowpassword', ['class'=>'form-control', 'autocomplete'=>'current-password'])}}
+
+                                                <div class="form-text">現在設定しているパスワードを入力してください。</div>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <!-- モーダルのフッター -->
+                                    <div class="modal-footer">
+
+                                        <!-- 各ボタン -->
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                                        <button type="button" class="btn btn-primary">変更を保存</button>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
                     </div>
+
                 </div>
 
 @stop
