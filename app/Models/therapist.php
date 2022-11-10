@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\user;
 
-class therapist extends Model
+class Therapist extends Model
 {
     use SoftDeletes;
 
@@ -70,4 +70,77 @@ class therapist extends Model
         return $therapistList;
     }
 
+    //  アカウント情報変更(名前)
+    public static function therapistNameEdit($id, $input){
+        //インサート
+        $therapist = new therapist();
+        $therapist->id = $id;
+        $therapist->name = $input['name'];
+        $therapist->yomi = $input['kana'];
+        $result = $therapist->save();
+
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
+
+    //  アカウント情報変更(住所)
+    public static function therapistAddressEdit($id, $input){
+        //インサート
+        $therapist = new therapist();
+        $therapist->id = $id;
+        $therapist->address = $input['address'];
+        $result = $therapist->save();
+
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
+
+    //  アカウント情報変更(電話番号)
+    public static function therapistTelEdit($id, $input){
+        //インサート
+        $therapist = new therapist();
+        $therapist->id = $id;
+        $therapist->tel = $input['tel'];
+        $result = $therapist->save();
+
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
+
+    //  アカウント情報変更(メールアドレス)
+    public static function therapistMailEdit($id, $input){
+        //インサート
+        $therapist = new therapist();
+        $therapist->id = $id;
+        $therapist->mail = $input['mail'];
+        $result = $therapist->save();
+
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
+
+    //  アカウント情報変更(営業プロフィール)
+    public static function therapistProfileEdit($id, $input){
+        //インサート
+        $therapist = new therapist();
+        $therapist->id = $id;
+        $therapist->business_age = $input['age'];
+        // $therapist->3size = $input['3size'];
+        $therapist->cup = $input['cup'];
+        $therapist->line = $input['line'];
+        $result = $therapist->save();
+
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
 }

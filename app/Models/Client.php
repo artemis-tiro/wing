@@ -16,7 +16,7 @@ class client extends Model
     protected $guarded = [''];
     //public $timestamps = false;
 
-    //inputer作成
+    //client作成
     public static function clientCreate($input, $id){
         //インサート
         $client = new client();
@@ -53,5 +53,61 @@ class client extends Model
         return null;
     }
 
+    //  アカウント情報変更(名前)
+    public static function clientNameEdit($id, $input){
+        //インサート
+        $client = new client();
+        $client->id = $id;
+        $client->name = $input['name'];
+        $client->yomi = $input['kana'];
+        $result = $client->save();
+
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
+
+    //  アカウント情報変更(住所)
+    public static function clientAddressEdit($id, $input){
+        //インサート
+        $client = new client();
+        $client->id = $id;
+        $client->address = $input['address'];
+        $result = $client->save();
+
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
+
+    //  アカウント情報変更(電話番号)
+    public static function clientTelEdit($id, $input){
+        //インサート
+        $client = new client();
+        $client->id = $id;
+        $client->tel = $input['tel'];
+        $result = $client->save();
+
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
+
+    //  アカウント情報変更(メールアドレス)
+    public static function clientMailEdit($id, $input){
+        //インサート
+        $client = new client();
+        $client->id = $id;
+        $client->mail = $input['mail'];
+        $result = $client->save();
+
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
 
 }

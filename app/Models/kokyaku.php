@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\user;
 use Log;
 
-class kokyaku extends Model
+class Kokyaku extends Model
 {
     use SoftDeletes;
 
