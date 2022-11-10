@@ -82,10 +82,6 @@ class InputController extends Controller{
     //予約一覧ページ
     public function yoyaku($miseId,$therapistId){
 
-        // テスト用
-        Log::info('input_yoyakuにアクセス');
-
-
         //権限チェック
         if($ng = $this->levelCheck()) return $ng;
 
@@ -96,48 +92,33 @@ class InputController extends Controller{
         $therapist = therapist::detail($therapistId);
 
         // 顧客情報
-        // $kokyaku = kokyaku::detail($Id);
-
-        // 入力者情報
-        // $inputer = inputer::detail($Id);
+        $kokyakuList = kokyaku::kokyakuList();
 
         // 予約一覧
         $yoyakuList = yoyaku::yoyakuList($therapistId);
-        // $yoyakuList = yoyaku::yoyakuList($therapist->therapist_id);
 
         return view ('input_reservation', [
             'mise' => $mise,
             'therapist' => $therapist,
+            'kokyakuList' => $kokyakuList,
             'yoyakuList' => $yoyakuList,
             'error' => session('error'),
         ]);
     }
 
     //予約新規作成
-    public function reservation(Request $request, $therapistId, $miseId){
-
-
-
-
-
-        // テスト用
-        Log::info('予約新規作成');
-
-
-
-
-
+    public function reservation(Request $request, $miseId, $therapistId){
         ///////     バリデーション      ///////
         // startday  : NULLではない、今日以降かつ今日から10年を超えてない
         // starttime : NULLではない
         // name      : NULLではない
-        // tel       : NULLではない、半角数字であるか、一意であるか
-        // mail      : NULLではない、メールであるか、一意であるか
+        // tel       : NULLではない、半角数字であるか
+        // mail      : NULLではない、メールであるか
         // visit     : 
         // plan      : 
         // time      : 
         // autosell  : 
-        // simei     : 
+        // shimei    : 
         // option    : 
         // discount  : 
         // memo      : 
@@ -156,53 +137,21 @@ class InputController extends Controller{
             'tel.regex' => '半角数字で入力してください。',
             'tel.unique' => 'この電話番号は既に登録されています。',
             'mail.required' => 'メールアドレスを入力してください。',
-            // 'mail.email' => 'メールアドレスが正しくありません。',
             'mail.unique' => 'このメールアドレスは既に登録されています。',
         ];
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();
-
-
-        // テスト用
-        Log::info('作成前');
-
-
-
-
+        
         // タイムピッカーチェック
         // 今日以降かつ今日から10年以内であるか
-        // $result = Hash::check($request->nowpassword, Auth::user()->password);
-        // if(!$result) return back()->with(['error' => 'パスワードが違います。'])->withInput();
-
-
-        // 予約一覧表示の時に取得した情報を「$request」と一緒に
-        // レコード作成関数(モデル名::関数名)に引数で渡してあげる
-        // ※リスト表示で必要な情報を全て受け取る必要がある
-
-
-
+        // 文字列でもらって数字にして10年以内なのかみる？
 
         //kokyaku作成
         $kokyaku = kokyaku::kokyakuCreate($request->input());
-        if($kokyaku) return back()->with(['error' => $kokyaku])->withInput();
-
-
-
-
-        // テスト用
-        // Log::info($kokyaku);
-
-
-
-
 
         //yoyaku作成
         $yoyaku = yoyaku::yoyakuCreate($request->input(), $miseId, $therapistId, $kokyaku);
         if($yoyaku) return back()->with(['error' => $yoyaku])->withInput();
-
-
-        // テスト用
-        // Log::info($yoyaku);
 
         if($kokyaku){
             return back()->with(['message' => '予約が完了しました。']);
@@ -219,4 +168,79 @@ class InputController extends Controller{
         return back();
     }
     
+
+    //給与計算ページ
+    public function kyuryo($miseId,$therapistId){
+
+        //権限チェック
+        if($ng = $this->levelCheck()) return $ng;
+
+        // 店舗情報
+        $mise = mise::detail($miseId);
+
+        // セラピスト情報
+        $therapist = therapist::detail($therapistId);
+
+        // 顧客情報
+        $kokyakuList = kokyaku::kokyakuList();
+
+        // 予約一覧
+        $yoyakuList = yoyaku::yoyakuList($therapistId);
+
+        return view ('input_kyuryo', [
+            'mise' => $mise,
+            'therapist' => $therapist,
+            'kokyakuList' => $kokyakuList,
+            'yoyakuList' => $yoyakuList,
+            'error' => session('error'),
+        ]);
+    }
+
+    //給与計算
+    public function calculation(Request $request, $miseId, $therapistId){
+        ///////     バリデーション      ///////
+        // pouch        : 半角数字であるか
+        // adjust_item1 : 
+        // adjust_many1 : 半角数字であるか
+        // adjust_item2 : 
+        // adjust_many2 : 半角数字であるか
+        // adjust_item2 : 
+        // adjust_many3 : 半角数字であるか
+        $rulus = [
+            'pouch' => ['required', 'regex:/^[0-9]+$/i'],
+            'adjust_many1' => ['regex:/^[0-9]+$/i'],
+            'adjust_many2' => ['regex:/^[0-9]+$/i'],
+            'adjust_many3' => ['regex:/^[0-9]+$/i'],
+        ];
+        $message = [
+            'pouch.required' => 'ポーチ金額を入力してください。',
+            'pouch.regex' => '半角数字で入力してください。',
+            'adjust_many1.regex' => '半角数字で入力してください。',
+            'adjust_many2.regex' => '半角数字で入力してください。',
+            'adjust_many3.regex' => '半角数字で入力してください。',
+        ];
+        $validator = Validator::make($request->all(), $rulus, $message);
+        if($validator->fails()) return back()->withErrors($validator)->withInput();
+
+        //kokyaku作成
+        // $kokyaku = kokyaku::kokyakuCreate($request->input());
+
+        //yoyaku作成
+        // $yoyaku = yoyaku::yoyakuCreate($request->input(), $miseId, $therapistId, $kokyaku);
+        // if($yoyaku) return back()->with(['error' => $yoyaku])->withInput();
+
+        // if($kokyaku){
+        //     return back()->with(['message' => '予約が完了しました。']);
+        // }else{
+        //     return back()->with(['error' => '予約に失敗しました。']);
+        // }
+
+        // if($yoyaku){
+        //     return back()->with(['message' => '予約が完了しました。']);
+        // }else{
+        //     return back()->with(['error' => '予約に失敗しました。']);
+        // }
+
+        return back();
+    }
 }

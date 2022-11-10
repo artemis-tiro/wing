@@ -14,7 +14,7 @@
     $teamName = App\Models\user::teamName(auth()->user()->team);
 ?>
 
-                <h1 class="h2">予約一覧</h1>
+                <h1 class="h2">{{$therapist->business_name}}スケジュール</h1>
 
                 <!-- 予約リスト -->
                 <div class="card my-4">
@@ -47,33 +47,51 @@
 
                                     <!-- 非同期処理 -->
                                     <!-- で来店日時とコース時間を参照してステータスを変動 -->
-                                    <td>ステ</td>
+                                    <td>未実装</td>
 
-                                    <!-- 来店日時とコース時間を参照する -->
-                                    <td>{{$y->visit_day}} ~ {{$y->visit_day}}</td>
+                                    <!-- 終了時間を来店日時＋コース時間で表示 -->
+                                    <td>
+                                        {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('m/d H:i') }}.' ~ '
+                                        
+                                    </td>
+
+                                    <!-- priceテーブル作成まで仮 -->
                                     <td>{{$y->price_id_list}}</td>
-                                    <td>{{$y->simei}}</td>
+                                     
+                                    <td>
+                                        @switch($y->shimei)
+                                            @case (1)
+                                                本指名
+                                                @break
+                                            @case (2)
+                                                ネット指名
+                                                @break
+                                            @case (3)
+                                                フリー
+                                                @break
+                                        @endswitch
+                                    </td>
 
-                                    <!-- 顧客IDから顧客DBを参照 -->
-                                    <td>電話</a></td>
-                                    <td></a></td>
-                                    <td></a></td>
+                                    <td>{{ $kokyakuList[$y->kokyaku_id]->name.' 様' }}</td>
+                                    
+                                    <td>
+                                        {{ 
+                                            substr($kokyakuList[$y->kokyaku_id]->tel, 0, 3).'-'.
+                                            substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
+                                            substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
+                                        }}
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
+
+
+                        <a class="m-2 btn btn-info" href="{{url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo')}}">給料計算へ</a>
+
+
                     </div>
                 </div>
-
-
-
-
-                <!-- 予約リストから１レコードずつ抽出 -->
-                <!-- 下記をセラピストIDで全て -->
-
-                <!-- simei price_id_list kokyaku_id(でname) kokyaku_id(でtel) (コースの金額？) -->
-                <!-- visit_day price_id_list(でprice1) -->
-
 
                 <!-- コピペ用 -->
                 <div class="card my-4">
@@ -81,7 +99,42 @@
                     <h2 class="card-header h5">コピペ用</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
+                        @foreach($yoyakuList  as $y)
+                            <span>{{$loop->index+1}}</span>
+                            
+                            <!-- 指名 -->
+                            <span>
+                                @switch($y->shimei)
+                                    @case (1)
+                                        本指名
+                                        @break
+                                    @case (2)
+                                        ネット指名
+                                        @break
+                                    @case (3)
+                                        フリー
+                                        @break
+                                @endswitch
+                            </span>
 
+                            <!-- コース -->
+                            <span>{{ $y->price_id_list }}</span>
+
+                            <!-- お客様名 -->
+                            <span>{{ $kokyakuList[$y->kokyaku_id]->name.' 様' }}</span>
+
+                            <!-- 発生料金 -->
+                            <span>合計 ..</span>
+
+                            <!-- 予約時間 -->
+                            <span>
+                                {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('m/d H:i') }}.' ~ '
+                                
+                            </span>
+
+                            <br>
+                            <br>
+                        @endforeach
                     </div>
                 </div>
 
@@ -94,7 +147,7 @@
                     <div class="card-body">
 
                     <!-- フォームの開始 -->
-                    {{ Form::open(['url' => url('/i/{miseId}/{therapistId}/reservation')]) }}
+                    {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/reservation')]) }}
 
                     @include('common.validator')
                     @include('common.error')
@@ -152,11 +205,11 @@
                     <label class="row text-nowrap mb-4 text-end">
                         <div class="col-sm-2 lh2 text-end">コース<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                         <div class="col-sm-1">
-                            {{ Form::radio('plan', 'normal', true, ['class'=>'form-check-input'])}}
+                            {{ Form::radio('plan', 'ノーマル', true, ['class'=>'form-check-input'])}}
                             ノーマル
                         </div>
                         <div class="col-sm-1">
-                            {{ Form::radio('plan', 'executive', false, ['class'=>'form-check-input'])}}
+                            {{ Form::radio('plan', 'エグゼクティブ', false, ['class'=>'form-check-input'])}}
                             エグゼクティブ
                         </div>
                     </label>
@@ -264,8 +317,5 @@
                     {{ Form::close() }}
                     </div>
                 </div>
-                
-
-
 
 @stop
