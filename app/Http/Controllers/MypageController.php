@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Hash;
 use Validator;
 use Log;
 use App\Models\User;
+use App\Models\Client;
+use App\Models\Inputer;
+use App\Models\Therapist;
 
 class MypageController extends Controller{
 

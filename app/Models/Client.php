@@ -56,8 +56,7 @@ class client extends Model
     //  アカウント情報変更(名前)
     public static function clientNameEdit($id, $input){
         //インサート
-        $client = new client();
-        $client->id = $id;
+        $client = client::find($id);
         $client->name = $input['name'];
         $client->yomi = $input['kana'];
         $result = $client->save();
@@ -71,8 +70,7 @@ class client extends Model
     //  アカウント情報変更(住所)
     public static function clientAddressEdit($id, $input){
         //インサート
-        $client = new client();
-        $client->id = $id;
+        $client = client::find($id);
         $client->address = $input['address'];
         $result = $client->save();
 
@@ -85,8 +83,7 @@ class client extends Model
     //  アカウント情報変更(電話番号)
     public static function clientTelEdit($id, $input){
         //インサート
-        $client = new client();
-        $client->id = $id;
+        $client = client::find($id);
         $client->tel = $input['tel'];
         $result = $client->save();
 
@@ -99,8 +96,7 @@ class client extends Model
     //  アカウント情報変更(メールアドレス)
     public static function clientMailEdit($id, $input){
         //インサート
-        $client = new client();
-        $client->id = $id;
+        $client = client::find($id);
         $client->mail = $input['mail'];
         $result = $client->save();
 
