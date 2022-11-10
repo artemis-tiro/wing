@@ -13,7 +13,7 @@ return new class extends Migration
             $table->unsignedBigInteger('mise_id')->nullable()->comment('店ID');
             $table->string('business_name')->nullable()->comment('源氏名');
             $table->integer('business_age')->nullable()->comment('営業年齢');
-            $table->string('3size')->nullable()->comment('3サイズ');
+            $table->string('size')->nullable()->comment('3サイズ');
             $table->string('cup')->nullable()->comment('カップ数');
             $table->string('name')->nullable()->comment('本名');
             $table->string('yomi')->nullable()->comment('よみがな');
@@ -55,9 +55,10 @@ return new class extends Migration
         Schema::create('back', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('mise_id')->nullable()->comment('店ID');
-            $table->unsignedBigInteger('price_id')->nullable()->comment('料金ID');
+            $table->string('price_name')->nullable()->comment('料金名');
             $table->string('name')->comment('バック名');
             $table->boolean('onece')->nullable()->comment('一日一回');
+            $table->boolean('ocha')->nullable()->comment('お茶保障');
             $table->integer('price')->nullable()->comment('バック額');
             $table->softDeletes();
             $table->timestamps();
