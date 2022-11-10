@@ -20,7 +20,7 @@ class TopController extends Controller{
             case 'inputer':
                 return redirect('/i');
             case 'client':
-                return redirect('/c');
+                return redirect('/c/'.Auth::user()->id);
             case 'therapist':
                 return redirect('/t');
         }

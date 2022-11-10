@@ -16,6 +16,7 @@ use App\Models\Mise;
 use App\Models\Room;
 use App\Models\Therapist;
 use App\Models\Price;
+use App\Models\Back;
 
 class ClientController extends Controller{
 
@@ -123,10 +124,15 @@ class ClientController extends Controller{
         //therapistリスト
         $therapistList = therapist::List($miseId);
 
+        //backリスト
+        $backList = back::list($miseId);
+
         return view ('mise', [
             'client' => $client,
             'mise' => $mise,
             'therapistList' => $therapistList,
+            'backList' => $backList,
+            'newBackMessage' => session('newBackMessage'),
        ]);
     }
 
@@ -204,6 +210,7 @@ class ClientController extends Controller{
             'client' => $client,
             'mise' => $mise,
             'formData' => $formData,
+            'message' => session('message'),
        ]);
     }
     
@@ -241,11 +248,11 @@ class ClientController extends Controller{
 
                 //コース料金
                 if(preg_match("/_name/", $key)){
-                    if(empty($data)) continue;
+                    if(is_null($data)) continue;
 
                     // price
                     $keyPrice = str_replace('name', 'price', $key);
-                    if(empty($input[$keyPrice])) continue;
+                    if(is_null($input[$keyPrice])) continue;
                     $price = $input[$keyPrice];
 
                     // type
@@ -267,9 +274,112 @@ class ClientController extends Controller{
                 }
 
             }
-            return back();
+            return back()->with(['message' => '保存しました。']);
             
         }
+    }
+
+    //back
+    public function back($clientId, $miseId, $backName){
+        //権限チェック
+        if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
+
+        //client情報
+        $client = client::detail($clientId);
+
+        //mise情報
+        $mise = mise::detail($miseId);
+
+        //price情報
+        $price = price::detail($miseId);
+        $typeList = price::typeList($miseId);
+
+        //back情報
+        $back = back::detail($miseId, $backName);
+        $formData = back::formData($miseId, $backName);
+
+        return view ('mise_back', [
+            'client' => $client,
+            'mise' => $mise,
+            'backName' => $backName,
+            'price' => $price,
+            'typeList' => $typeList,
+            'back' => $back,
+            'formData' => $formData,
+            'message' => session('message'),
+       ]);
+    }
+    
+    //back編集
+    public function backedit(Request $request, $clientId, $miseId, $backName){
+        //権限チェック
+        if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
+
+        //     //バリデーション
+        //     $rulus = [
+        //         'business_name' => ['required', Rule::unique('therapist','business_name')->whereNull('deleted_at')],
+        //         'login_id' => ['required','regex:/^[0-9a-zA-Z\\-\\_]+$/', Rule::unique('users','name')->whereNull('deleted_at')],
+        //         //'pass' => 'required | min:4 | regex:/^[[a-zA-Z0-9]+$/',
+        //     ];
+        //     $message = [
+        //         'business_name.required' => '源氏名を入力してください。',
+        //         'business_name.unique' => '登録されている源氏名です。',
+        //         'login_id.required' => 'ログインIDを入力してください。',
+        //         'login_id.regex' => 'ログインIDに使えるのはは「半角英数字、ハイフン、アンダースコア」のみです。',
+        //         'login_id.unique' => 'このログインIDは存在します。',
+        //         'pass.required' => 'パスワードを入力してください。',
+        //         'pass.min' => 'パスワードは4文字以上で入力してください。',
+        //         'pass.regex' => 'パスワードは半角英数字で入力して下さい。',
+        //     ];
+        //     $validator = Validator::make($request->all(), $rulus, $message);
+        //     if($validator->fails()) return back()->withErrors($validator)->withInput();
+
+        $input = $request->input();
+        back::del($miseId, $backName); //今あるレコード削除
+
+        foreach($input as $key => $data){
+            if($key == '_token') continue;
+            if(is_null($data)) continue;
+
+            if(preg_match("/ocha_name/", $key)){
+                // price
+                $keyPrice = str_replace('name', 'price', $key);
+                if(is_null($input[$keyPrice])) continue;
+                $price = $input[$keyPrice];
+
+                $result = back::backInsert($miseId, $data, $backName, $price, 1);
+            }elseif(preg_match("/ocha_price/", $key)){
+            }else{
+                $result = back::backInsert($miseId, $key, $backName, $data);                
+            }
+        }
+
+        return back()->with(['message' => '保存しました。']);
+    }
+
+    //back新規作成
+    public function newBack(Request $request, $clientId, $miseId){
+        //権限チェック
+        if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
+
+        $input = $request->input();
+
+        //back作成
+        $copy = isset($input['copy'])? 1: 0;
+        $result = back::backCreate($miseId, $input['back_name'], $copy);
+
+        return back()->with(['newBackMessage' => $result]);
+    }
+
+    //back削除
+    public function backDel($clientId, $miseId, $backName){
+        //権限チェック
+        if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
+
+        back::del($miseId, $backName);
+        // therapist::backDel($miseId, $backName);
+
+        return back()->with(['newBackMessage' => $backName.'を削除しました。'.$backName.'だったセラピストは']);
     }
 
 

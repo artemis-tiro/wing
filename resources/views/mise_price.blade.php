@@ -21,7 +21,10 @@
                         <p>料金を頂かない項目は未入力で大丈夫です。<br>
                         割引の場合は「-1000」などマイナスで入力して下さい。<br></p>
                         <br>
+                        @include('common.validator')
                         @include('common.error')
+                        @include('common.success')
+
                         {{ Form::open(['url' => url('/c/'.$client->id.'/'.$mise->id.'/priceedit'),'class'=>'form-horizontal']) }}
                         <h3 class="h5">基本料金</h3>
                         @component('componets.mise_price_form')
@@ -147,7 +150,7 @@
                             @slot('placeholder', [
                                 "例）プラチナセラピスト" => "1000",
                                 "例）プラチナセラピスト本指名" => "2000",
-                                "例）No.1セラピスト特別料金" => "3000",
+                                "例）延長30分" => "6000",
                             ])
                         @endcomponent
 

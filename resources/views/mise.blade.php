@@ -102,7 +102,7 @@
                             </div>
                         </label>
 
-                        {{ Form::submit('新規作成',["class"=>"m-2 btn btn-info"])}}
+                        {{ Form::submit('セラピスト作成',["class"=>"m-2 btn btn-info"])}}
                         {{ Form::close() }}
                     </div>
                 </div>
@@ -121,7 +121,12 @@
                     <h2 class="card-header h5">給料形態一覧</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
-                        <p><a href="{{url()->current()}}/back">default</a></p>
+                        <p><a href="{{url()->current()}}/back/default">default編集</a></p>
+                        @foreach($backList as $b)
+                        <p><a href="{{url()->current()}}/back/{{$b}}">{{$b}}編集</a>
+                        <a class="btn btn-sm btn-danger" href="{{url()->current()}}/back/{{$b}}/del">{{$b}}削除</a></p>
+                        @endforeach
+
                     </div>
                 </div>
 
@@ -130,6 +135,32 @@
                     <h2 class="card-header h5">給料形態新規作成</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
+                        @if ( !empty($newBackMessage) )
+                        <div class="alert alert-info d-flex align-items-center" role="alert">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                            </svg>
+                            <ul>
+                                <li>{{$newBackMessage}}</li>
+                            </ul>
+                        </div>
+                        @endif
+                        {{ Form::open(['url' => url('/c/'.$client->id.'/'.$mise->id.'/newback'),'class'=>'form-horizontal']) }}
+                        <label class="row text-nowrap mb-4 text-end">
+                            <div class="col-sm-2 lh2 text-end">バック名 *</div>
+                            <div class="col-sm-10">
+                                {{ Form::text('back_name', null, ['class'=>'form-control jq_idToPass', 'required'=>'required'])}}
+                            </div>
+                        </label>
+
+                        <label class="row text-nowrap mb-4 text-end">
+                            <div class="col-sm-2 lh2 text-end">defaultをコピーする</div>
+                            <div class="col-sm-10">
+                                {{ Form::checkbox('copy', null, true, ['class'=>'form-check-input'])}}
+                            </div>
+                        </label>
+                        {{ Form::submit('バック作成',["class"=>"m-2 btn btn-info"])}}
+                        {{ Form::close() }}
                     </div>
                 </div>
 

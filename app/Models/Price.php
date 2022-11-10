@@ -66,6 +66,28 @@ class price extends Model
         return $formData;
     }
 
+    //detail
+    public static function detail($miseId){
+        $priceList = price::where('mise_id', $miseId)
+            ->orderBy('order', 'asc')
+            ->get();
+        return $priceList;
+    }
+
+    //typeリスト
+    public static function typeList($miseId){
+        $priceList = price::where('mise_id', $miseId)
+            ->get('type')
+            ->unique('type')
+            ->toArray();
+        $resule = [];
+        foreach($priceList as $p){
+            if($p['type']=='optionGet') continue;
+            $resule[] = $p['type'];
+        }
+        return $resule;
+    }
+
 
 
 }
