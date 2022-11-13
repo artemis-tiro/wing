@@ -27,6 +27,7 @@ class InputController extends Controller{
             "tiro",
             "admin",
             "inputer",
+            "therapist"
         ])) return redirect('/');
 
         //他teamのデータ参照
@@ -60,7 +61,7 @@ class InputController extends Controller{
        ]);
     }
 
-    //セラピスト一覧ページ
+    // セラピスト一覧ページ
     public function therapist($miseId){
 
         //権限チェック
@@ -221,25 +222,6 @@ class InputController extends Controller{
         ];
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();
-
-        //kokyaku作成
-        // $kokyaku = kokyaku::kokyakuCreate($request->input());
-
-        //yoyaku作成
-        // $yoyaku = yoyaku::yoyakuCreate($request->input(), $miseId, $therapistId, $kokyaku);
-        // if($yoyaku) return back()->with(['error' => $yoyaku])->withInput();
-
-        // if($kokyaku){
-        //     return back()->with(['message' => '予約が完了しました。']);
-        // }else{
-        //     return back()->with(['error' => '予約に失敗しました。']);
-        // }
-
-        // if($yoyaku){
-        //     return back()->with(['message' => '予約が完了しました。']);
-        // }else{
-        //     return back()->with(['error' => '予約に失敗しました。']);
-        // }
 
         return back();
     }

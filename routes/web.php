@@ -33,6 +33,11 @@ Route::any('/log', "App\Http\Controllers\TopController@log");
 //mypage
 Route::middleware(['auth:sanctum', 'verified'])->any('/mypage', "App\Http\Controllers\MypageController@mypage");
 Route::middleware(['auth:sanctum', 'verified'])->any('/mypage/newpassword', "App\Http\Controllers\MypageController@newpassword");
+Route::middleware(['auth:sanctum', 'verified'])->any('/mypage/namechange', "App\Http\Controllers\MypageController@namechange");
+Route::middleware(['auth:sanctum', 'verified'])->any('/mypage/addresschange', "App\Http\Controllers\MypageController@addresschange");
+Route::middleware(['auth:sanctum', 'verified'])->any('/mypage/telchange', "App\Http\Controllers\MypageController@telchange");
+Route::middleware(['auth:sanctum', 'verified'])->any('/mypage/mailchange', "App\Http\Controllers\MypageController@mailchange");
+Route::middleware(['auth:sanctum', 'verified'])->any('/mypage/profilechange', "App\Http\Controllers\MypageController@profilechange");
 
 //tiro
 Route::middleware(['auth:sanctum', 'verified'])->any('/tiro', "App\Http\Controllers\TiroController@top");

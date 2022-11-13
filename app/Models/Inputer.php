@@ -43,8 +43,62 @@ class inputer extends Model
         return true;
     }
 
+    //  アカウント情報変更(名前)
+    public static function inputerNameEdit($id, $input){
+        //インサート
+        $inputer = new inputer();
+        $inputer->id = $id;
+        $inputer->name = $input['name'];
+        $inputer->yomi = $input['kana'];
+        $result = $inputer->save();
 
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
 
+        return null;
+    }
+
+    //  アカウント情報変更(住所)
+    public static function inputerAddressEdit($id, $input){
+        //インサート
+        $inputer = new inputer();
+        $inputer->id = $id;
+        $inputer->address = $input['address'];
+        $result = $inputer->save();
+
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
+
+    //  アカウント情報変更(電話番号)
+    public static function inputerTelEdit($id, $input){
+        //インサート
+        $inputer = new inputer();
+        $inputer->id = $id;
+        $inputer->tel = $input['tel'];
+        $result = $inputer->save();
+
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
+
+    //  アカウント情報変更(メールアドレス)
+    public static function inputerMailEdit($id, $input){
+        //インサート
+        $inputer = new inputer();
+        $inputer->id = $id;
+        $inputer->mail = $input['mail'];
+        $result = $inputer->save();
+
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
 
 
 }

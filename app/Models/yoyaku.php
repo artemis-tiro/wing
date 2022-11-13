@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\user;
 
-class yoyaku extends Model
+class Yoyaku extends Model
 {
     use SoftDeletes;
 
