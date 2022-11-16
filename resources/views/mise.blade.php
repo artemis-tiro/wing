@@ -107,12 +107,12 @@
                     </div>
                 </div>
 
-                <div class="card my-4">
+                <div class="card">
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">料金システム</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
-                        <p><a class="btn btn-info" href="{{url()->current()}}/price">料金システム登録</a></p>
+                        <div><a class="btn btn-info" href="{{ url()->current() }}/price">料金システム登録</a></div>
                     </div>
                 </div>
 
@@ -121,12 +121,20 @@
                     <h2 class="card-header h5">給料形態一覧</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
-                        <p><a href="{{url()->current()}}/back/default">default編集</a></p>
-                        @foreach($backList as $b)
-                        <p><a href="{{url()->current()}}/back/{{$b}}">{{$b}}編集</a>
-                        <a class="btn btn-sm btn-danger" href="{{url()->current()}}/back/{{$b}}/del">{{$b}}削除</a></p>
-                        @endforeach
+                        
+                        <div class="row">
+                            <div class="mt-2 col-sm-1 text-end">default</div>
+                            <div class="col-sm-1"><a class="btn btn-info" href="{{ url()->current() }}/back/default">編集</a></div>
+                        </div>
 
+                        <div class="mt-2 row">
+                            @foreach($backList as $b)
+                                <div class="mt-2 col-sm-1 text-end">{{ $b }}</div>
+                                <div class="col-sm-1"><a class="btn btn-info" href="{{ url()->current() }}/back/{{ $b }}">編集</a></div>
+                                <div class="col-sm-1"><a class="btn btn-danger" href="{{ url()->current() }}/back/{{ $b }}/del">削除</a></div>
+                            @endforeach
+                        </div>
+                    
                     </div>
                 </div>
 

@@ -23,20 +23,37 @@ class Yoyaku extends Model
 
     //予約新規作成
     public static function yoyakuCreate($input, $miseId, $therapistId, $kokyaku){
-        //insert
+        
+        $input_array = [$input['course'],
+                        $input['visit'],
+                        $input['shimei'],
+                        $input['more'],
+                        $input['option'],
+                        $input['waribikiAuto'],
+                        $input['waribiki'],
+                        $input['claim']];
+
+        $input_id = "";
+        
+        foreach($input_array as $arr){
+            if(isset($arr)){
+                $input_id = 'P'.$arr;
+            }
+        }
+        
+        // インサート
         $yoyaku = new yoyaku();
         $yoyaku->mise_id = $miseId;
         $yoyaku->therapist_id = $therapistId;
         $yoyaku->kokyaku_id = $kokyaku;
         $yoyaku->inputer_id = Auth::user()->id;
-
-        // priceテーブルの作成まで仮
-        $yoyaku->price_id_list = $input['plan'];
-        $yoyaku->back_id_list = $input['plan'];
+        
+        $yoyaku->price_id_list = $input_id;
+        $yoyaku->back_id_list = $input_id;
 
         $yoyaku->visit_day = $input['start_day'].' '.$input['start_time'];
         $yoyaku->shimei = $input['shimei'];
-        $yoyaku->waribiki = $input['discount_many'];
+        $yoyaku->waribiki = $input['waribiki'];
         $result = $yoyaku->save();
 
         //インサート失敗時
