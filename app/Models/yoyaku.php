@@ -23,7 +23,7 @@ class Yoyaku extends Model
     }
 
     // 予約コース取得
-    public static function yoyakuCourseList($yoyakuList){
+    public static function courseNameList($yoyakuList){
         foreach($yoyakuList as $y){
             $priceList = $y->price_id_list;
             $priceId = explode('P', $priceList);
@@ -32,10 +32,25 @@ class Yoyaku extends Model
         return null;
     }
 
+    // 予約バック取得
+    public static function backIdList($yoyakuList,$therapistId){
+        foreach($yoyakuList as $y){
+            $priceList = $y->price_id_list;
+            $priceId = explode('P', $priceList);
+            $y->backIdList .= 'B'.price::getBackId($priceId,$therapistId);
+        }
+        return null;
+    }
+
     //予約新規作成
     public static function yoyakuCreate($input, $miseId, $therapistId, $kokyaku){
         
         $input_price_id = "";
+        $input_back_id = "";
+
+        // back_nameを取得
+        $therapistBack = therapist::where('id',$therapistId)
+            ->value('back_name');
 
         $input_array = ['course',
                         'visit',
@@ -46,12 +61,35 @@ class Yoyaku extends Model
                         'waribiki',
                         'claim'];
 
+        // price_id_listを生成
         foreach($input_array as $arr){
             if(isset($input[$arr])){
                 $input_price_id .= 'P'.$input[$arr];
             }
         }
-            
+           
+        // back_id_listを生成
+        foreach($input_array as $arr){
+            if(isset($input[$arr])){
+
+                // price_nameを取得
+                $courseName = price::where('id',$input[$arr])
+                    ->value('name');
+
+                Log::info($courseName);
+
+                // BackDBをprice_nameとnameで検索してidを取得
+                $backId = back::where('mise_id', $miseId)
+                    ->where('price_name', $courseName)
+                    ->where('name', $therapistBack)
+                    ->value('id');
+
+                Log::info($backId);
+
+
+                $input_back_id .= 'B'.$backId;
+            }
+        }
         
         // インサート
         $yoyaku = new yoyaku();
@@ -61,7 +99,7 @@ class Yoyaku extends Model
         $yoyaku->inputer_id = Auth::user()->id;
         
         $yoyaku->price_id_list = $input_price_id;
-        $yoyaku->back_id_list = $input_id;
+        $yoyaku->back_id_list = $input_back_id;
 
         $yoyaku->visit_day = $input['start_day'].' '.$input['start_time'];
 

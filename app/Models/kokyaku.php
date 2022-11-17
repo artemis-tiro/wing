@@ -44,4 +44,11 @@ class Kokyaku extends Model
         return $kokyakuId;
     }
 
+    // 電話番号検索
+    public static function telsearch($tel){
+        $kokyaku = kokyaku::where($tel)
+            ->get();
+
+        return $kokyaku;
+    }
 }

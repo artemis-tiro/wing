@@ -142,7 +142,26 @@
                     <!-- カードの要素 -->
                     <div class="card-body">
 
-                    <!-- フォームの開始 -->
+                    @if(iseet($kokyakuData))     
+                    <!-- 電話検索フォーム -->
+                    {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/reservation')]) }}
+                                   
+                    <!-- 電話番号 -->
+                    <label class="row text-nowrap mb-4 text-end">
+                        <div class="mt-2 col-sm-2 text-end">電話番号<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
+                        <div class="col-sm-2">
+                            {{ Form::number('telsearch', null, ['class'=>'form-control', 'autocomplete'=>'off', 'required'])}}
+                        </div>
+                        <div class="col-sm-1">{{ Form::submit('検索',["class"=>"btn btn-info"]) }}</div>
+                    </label>
+
+                    <!-- フォームの終わり -->
+                    {{ Form::close() }}
+                    @endif
+
+                    @if(iseet($kokyakuData)) 
+
+                    <!-- 新規入力フォーム -->
                     {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/reservation')]) }}
 
                     @include('common.validator')
@@ -155,19 +174,16 @@
                         <div class="col-sm-2">
                             {{ Form::number('tel', null, ['class'=>'form-control', 'autocomplete'=>'off', 'required'])}}
                         </div>
-                        <div class="col-sm-1"><a class="btn btn-info" href="">検索</a></div>
                     </label>
-
-                    <hr class="border border-info">
                     
                     <!-- 開始時間 -->
                     <label class="row text-nowrap mb-4 text-end">
                         <div class="col-sm-2 text-end">開始時間<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                         <div class="col-sm-2">
-                            {{ Form::date('start_day', null, null, ['class'=>'form-control', 'max'=>'2032-12-31', 'required'])}}
+                            {{ Form::date('start_day', null, ['class'=>'form-control', 'max'=>'2032-12-31', 'required'])}}
                         </div>
                         <div class="col-sm-2">
-                            {{ Form::time('start_time', null, null, ['class'=>'form-control', 'step'=>'3000', 'required'])}}
+                            {{ Form::time('start_time', null, ['class'=>'form-control', 'step'=>'300', 'required'])}}
                         </div>
                     </label>
 
@@ -193,7 +209,7 @@
                         
                         @foreach($visitList  as $v)
                             <div class="col-sm-1">
-                                {{ Form::radio('visit', $v->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()'] )}}
+                                {{ Form::radio('visit', $v->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'required'] )}}
                                 {{ $v->name }}
                             </div>
                         @endforeach
@@ -311,6 +327,7 @@
 
                     <!-- フォームの終わり -->
                     {{ Form::close() }}
+                    @endif
                     </div>
                 </div>
 

@@ -153,8 +153,8 @@ class price extends Model
     }
 
     // コース名取得
-    public static function getCourseName($priceidList){
-        foreach($priceidList as $p){
+    public static function getCourseName($priceIdList){
+        foreach($priceIdList as $p){
             $courseName = price::find($p);
             if(!$courseName) continue;
             if($courseName->type == 'course'){

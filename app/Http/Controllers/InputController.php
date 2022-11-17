@@ -82,10 +82,13 @@ class InputController extends Controller{
     }
 
     //予約一覧ページ
-    public function yoyaku($miseId,$therapistId){
+    public function yoyaku(Request $request, $miseId,$therapistId){
 
         //権限チェック
         if($ng = $this->levelCheck()) return $ng;
+
+        $kokyakuData;
+        $formflag;
 
         // 店舗情報
         $mise = mise::detail($miseId);
@@ -99,8 +102,11 @@ class InputController extends Controller{
         // 予約一覧
         $yoyakuList = yoyaku::yoyakuList($therapistId);
 
+        // 電話番号検索
+        $telsearch = kokyaku::telSearch($request->telsearch);
+
         // 予約コース
-        yoyaku::yoyakuCourseList($yoyakuList);
+        yoyaku::courseNameList($yoyakuList);
 
         // 予約フォーム
         $courseList = price::courseList($miseId);
@@ -112,11 +118,18 @@ class InputController extends Controller{
         $waribikiList = price::waribikiList($miseId);
         $claimList = price::claimList($miseId);  
 
+        if(iseet($telsearch)){
+            $kokyakuData = $telsearch;
+            $formflag = 1;
+        }
+
         return view ('input_reservation', [
             'mise' => $mise,
             'therapist' => $therapist,
             'kokyakuList' => $kokyakuList,
             'yoyakuList' => $yoyakuList,
+            'kokyakuData' => $kokyakuData,
+            'formflag' => $formflag,
             'courseList' => $courseList,
             'visitList' => $visitList,
             'shimeiList' => $shimeiList,
@@ -125,11 +138,6 @@ class InputController extends Controller{
             'waribikiAutoList' => $waribikiAutoList,
             'waribikiList' => $waribikiList,
             'claimList' => $claimList,
-
-
-            // 'yoyakuList2' => $yoyakuList2,
-
-
             'error' => session('error'),
         ]);
     }

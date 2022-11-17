@@ -97,46 +97,29 @@
 
                         <h3 class="h5">入会金</h3>
                         @component('componets.mise_price_form')
-                            @slot('form', 2)
-                            @slot('type', 'firster')
-                            @slot('th', '初回')
-                            @slot('placeholder', '例）1000')
+                            @slot('form', 3)
+                            @slot('type', 'visit')
                             @slot('formData', $formData)
-                        @endcomponent
-
-                        @component('componets.mise_price_form')
-                            @slot('form', 2)
-                            @slot('type', 'repeater')
-                            @slot('th', 'リピーター')
-                            @slot('placeholder', '例）0')
-                            @slot('formData', $formData)
+                            @slot('th', ['名目', '料金'])
+                            @slot('placeholder', [
+                                "例）初回" => "1000",
+                                "例）リピータ" => "",
+                            ])
                         @endcomponent
 
                         <hr><br>
 
                         <h3 class="h5">指名料</h3>
                         @component('componets.mise_price_form')
-                            @slot('form', 2)
-                            @slot('type', 'free')
-                            @slot('th', 'フリー')
-                            @slot('placeholder', '例）0')
-                            @slot('formData', $formData)
-                        @endcomponent
-
-                        @component('componets.mise_price_form')
-                            @slot('form', 2)
-                            @slot('type', 'net')
-                            @slot('th', 'ネット指名')
-                            @slot('placeholder', '例）0')
-                            @slot('formData', $formData)
-                        @endcomponent
-
-                        @component('componets.mise_price_form')
-                            @slot('form', 2)
+                            @slot('form', 3)
                             @slot('type', 'shimei')
-                            @slot('th', '本指名')
-                            @slot('placeholder', '例）1000')
                             @slot('formData', $formData)
+                            @slot('th', ['名目', '料金'])
+                            @slot('placeholder', [
+                                "例）フリー" => "12000",
+                                "例）ネット指名" => "16000",
+                                "例）本しめい" => "16000",
+                            ])
                         @endcomponent
 
                         <hr><br>
