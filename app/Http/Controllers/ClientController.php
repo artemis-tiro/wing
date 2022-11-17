@@ -402,9 +402,10 @@ class ClientController extends Controller{
 
         foreach($input as $key => $data){
             if($key == '_token') continue;
-            if(is_null($data)) continue;
+            // if(is_null($data)) continue;
 
             if(preg_match("/ocha_name/", $key)){
+                if(is_null($data)) continue;
                 // price
                 $keyPrice = str_replace('name', 'price', $key);
                 if(is_null($input[$keyPrice])) continue;
@@ -413,7 +414,8 @@ class ClientController extends Controller{
                 $result = back::backInsert($miseId, $data, $backName, $price, 1);
             }elseif(preg_match("/ocha_price/", $key)){
             }else{
-                $result = back::backInsert($miseId, $key, $backName, $data);                
+                $price = $data? $data: 0;
+                $result = back::backInsert($miseId, $key, $backName, $price);
             }
         }
         back::backCreate($miseId, $backName, 0);
