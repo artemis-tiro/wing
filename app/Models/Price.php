@@ -151,4 +151,32 @@ class price extends Model
             ->get();
         return $priceList;
     }
+
+    // コース名取得
+    public static function getCourseName($priceidList){
+        foreach($priceidList as $p){
+            $courseName = price::find($p);
+            if(!$courseName) continue;
+            if($courseName->type == 'course'){
+                return $courseName->name;
+            }
+        }
+    }
+
+    // yoyakuリスト
+    // public static function getYoyakuList($pidList){
+    //     $result = [];
+    //     $count = 0;
+    //     foreach($pidList as $p){
+    //         $price = price::find($p);
+    //         if(!$price) continue;
+    //         $result[$count] =[
+    //             'name'=>$price->name,
+    //             'price'=>$price->price,
+    //             'type'=>$price->type,
+    //         ];
+    //         $count++;
+    //     }
+    //     return $result;
+    // }
 }

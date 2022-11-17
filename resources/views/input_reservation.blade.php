@@ -52,7 +52,7 @@
                                     </td>
 
                                     <!-- priceテーブル作成まで仮 -->
-                                    <td>{{ $y->price_id_list }}</td>
+                                    <td>{{ $y->courseName }}</td>
                                      
                                     <td>
                                         @switch($y->shimei)
@@ -114,12 +114,7 @@
                             </span>
 
                             <!-- コース -->
-                            {{--
-                            @php
-                                $arr = explode("P",$y->price_id_list);
-                            @endphp
-                            --}}
-                            <span>{{-- $courseList[$arr]->name --}}</span>
+                            <span>{{ $y->courseName }}</span>
 
                             <!-- お客様名 -->
                             <span>{{ $kokyakuList[$y->kokyaku_id]->name.' 様' }}</span>

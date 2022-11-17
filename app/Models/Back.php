@@ -124,6 +124,17 @@ class back extends Model
         }
         return $name.'を作成しました。';
     }
-
+    
+    // 予約コースId取得
+    public static function getBackId($miseId, $backName){
+        $backList = back::where('mise_id', $miseId)
+            ->where('name', $backName)
+            ->get();
+        $detail = [];
+        foreach($backList as $b){
+            $detail[$b->price_name] = $b->price;
+        }
+        return $detail;
+    }
 
 }

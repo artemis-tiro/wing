@@ -99,8 +99,8 @@ class InputController extends Controller{
         // 予約一覧
         $yoyakuList = yoyaku::yoyakuList($therapistId);
 
-        // コース名取得
-        // $courseName = price::courseName($priceId);
+        // 予約コース
+        yoyaku::yoyakuCourseList($yoyakuList);
 
         // 予約フォーム
         $courseList = price::courseList($miseId);
@@ -125,6 +125,11 @@ class InputController extends Controller{
             'waribikiAutoList' => $waribikiAutoList,
             'waribikiList' => $waribikiList,
             'claimList' => $claimList,
+
+
+            // 'yoyakuList2' => $yoyakuList2,
+
+
             'error' => session('error'),
         ]);
     }
