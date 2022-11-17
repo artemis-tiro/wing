@@ -8,16 +8,7 @@
 
         <!-- 「all()」でエラーを全て取得 -->
         @foreach ($errors->all() as $message)
-            <p>{{ $message }}</p>
+            <div class="align-items-center">{{ $message }}</div>
         @endforeach
-
-
-        <!-- <ul>
-            {{--
-            @foreach ($errors->all() as $error)
-                <li>{!! nl2br(e($error)) !!}</li>
-            @endforeach
-            --}}
-        </ul> -->
     </div>
 @endif

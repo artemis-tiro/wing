@@ -1,0 +1,34 @@
+[33m712ab3c[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: reset: moving to HEAD^
+[33m160c0c0[m HEAD@{1}: reset: moving to HEAD^
+[33m6a19c4b[m HEAD@{2}: reset: moving to HEAD^
+[33m6920867[m HEAD@{3}: reset: moving to 6920867
+[33m6920867[m HEAD@{4}: reset: moving to HEAD
+[33m6920867[m HEAD@{5}: reset: moving to HEAD
+[33m6920867[m HEAD@{6}: reset: moving to HEAD
+[33m6920867[m HEAD@{7}: commit: '2022/11/14/ogura'
+[33m6a19c4b[m HEAD@{8}: reset: moving to HEAD
+[33m6a19c4b[m HEAD@{9}: reset: moving to HEAD
+[33m6a19c4b[m HEAD@{10}: reset: moving to HEAD
+[33m6a19c4b[m HEAD@{11}: commit: '2022/11/14/ogura'
+[33m160c0c0[m HEAD@{12}: commit: '2022/11/11/ogura'
+[33m712ab3c[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{13}: commit: '2022/11/10/ogura'
+[33m6ac2974[m HEAD@{14}: commit (merge): '2022/11/10/ogura'
+[33mc375d29[m HEAD@{15}: commit: '2022/11/10/ogura'
+[33m160d93f[m HEAD@{16}: commit: '2022/11/09/ogura'
+[33me1460fe[m HEAD@{17}: commit: '2022/11/08/ogura'
+[33m04b4bcb[m HEAD@{18}: commit: '2022/11/08/ogura'
+[33mf36492b[m HEAD@{19}: commit: '2022/11/07/ogura'
+[33m656d418[m HEAD@{20}: commit (merge): '2022/11/07/ogura'
+[33mc149102[m HEAD@{21}: commit: '2022/11/07/ogura'
+[33m9c5a0bd[m HEAD@{22}: commit: '2022/11/02/ogura'
+[33mcdb3dab[m HEAD@{23}: commit: '2022/11/02/ogura'
+[33m76153b9[m HEAD@{24}: commit: '2022/11/02/ogura'
+[33m043deb4[m HEAD@{25}: commit: '2022/11/01ogura'
+[33mb0fd42c[m HEAD@{26}: commit: '2022/10/31/ogura'
+[33m840720e[m HEAD@{27}: pull: Fast-forward
+[33m532ae91[m HEAD@{28}: reset: moving to HEAD
+[33m532ae91[m HEAD@{29}: commit (merge): '2022/10/27/ogura'
+[33m7628bb2[m HEAD@{30}: commit: '2022/10/27/ogura'
+[33m8adfc63[m HEAD@{31}: commit: '2022/10/26/ogura'
+[33mf5e4996[m HEAD@{32}: commit: '2022/10/26/ogura'
+[33mc99966a[m HEAD@{33}: clone: from https://github.com/artemis-tiro/wing.git

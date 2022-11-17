@@ -17,7 +17,7 @@ class price extends Model
     protected $guarded = [''];
     //public $timestamps = false;
 
-    //prices削除
+    // prices削除
     public static function del($miseId){
         $priceList = price::where('mise_id', $miseId)->get();
         foreach($priceList as $p){
@@ -46,7 +46,7 @@ class price extends Model
         return null;
     }
 
-    //formデータ取得
+    // formデータ取得
     public static function formData($miseId){
         $priceList = price::where('mise_id', $miseId)
             ->orderBy('order', 'asc')
@@ -70,7 +70,7 @@ class price extends Model
         return $formData;
     }
 
-    //detail
+    // detail
     public static function detail($miseId){
         $priceList = price::where('mise_id', $miseId)
             ->orderBy('order', 'asc')
@@ -78,7 +78,7 @@ class price extends Model
         return $priceList;
     }
 
-    //typeリスト
+    // typeリスト
     public static function typeList($miseId){
         $priceList = price::where('mise_id', $miseId)
             ->get('type')
@@ -92,6 +92,95 @@ class price extends Model
         return $resule;
     }
 
+    // コース取得
+    public static function courseList($miseId){
+        $priceList = price::where('mise_id', $miseId)
+            ->where('type', 'course')
+            ->get();
+        return $priceList;
+    }
 
+    // 来店取得
+    public static function visitList($miseId){
+        $priceList = price::where('mise_id', $miseId)
+            ->where('type', 'visit')
+            ->get();
+        return $priceList;
+    }
 
+    // 指名取得
+    public static function shimeiList($miseId){
+        $priceList = price::where('mise_id', $miseId)
+            ->where('type', 'shimei')
+            ->get();
+        return $priceList;
+    }
+
+    // 追加料金取得
+    public static function moreList($miseId){
+        $priceList = price::where('mise_id', $miseId)
+            ->where('type', 'more')
+            ->get();
+        return $priceList;
+    }
+
+    // オプション取得
+    public static function optionList($miseId){
+        $priceList = price::where('mise_id', $miseId)
+            ->where('type', 'option')
+            ->get();
+        return $priceList;
+    }
+
+    // 自動割引取得
+    public static function waribikiAutoList($miseId){
+        $priceList = price::where('mise_id', $miseId)
+            ->where('type', 'waribikiAuto')
+            ->get();
+        return $priceList;
+    }
+
+    // 割引取得
+    public static function waribikiList($miseId){
+        $priceList = price::where('mise_id', $miseId)
+            ->where('type', 'waribiki')
+            ->get();
+        return $priceList;
+    }
+
+    // クレーム取得
+    public static function claimList($miseId){
+        $priceList = price::where('mise_id', $miseId)
+            ->where('type', 'claim')
+            ->get();
+        return $priceList;
+    }
+
+    // コース名取得
+    public static function getCourseName($priceIdList){
+        foreach($priceIdList as $p){
+            $courseName = price::find($p);
+            if(!$courseName) continue;
+            if($courseName->type == 'course'){
+                return $courseName->name;
+            }
+        }
+    }
+
+    // yoyakuリスト
+    // public static function getYoyakuList($pidList){
+    //     $result = [];
+    //     $count = 0;
+    //     foreach($pidList as $p){
+    //         $price = price::find($p);
+    //         if(!$price) continue;
+    //         $result[$count] =[
+    //             'name'=>$price->name,
+    //             'price'=>$price->price,
+    //             'type'=>$price->type,
+    //         ];
+    //         $count++;
+    //     }
+    //     return $result;
+    // }
 }

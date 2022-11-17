@@ -134,7 +134,7 @@
                         <hr><br>
                         @endif
 
-                        @if(in_array('firster', $typeList) || in_array('repeater', $typeList))
+                        @if(in_array('visit', $typeList))
                         <h3 class="h5">入会金</h3>
                         <table class="table table-hover">
                             <thead>
@@ -146,7 +146,7 @@
                             </thead>
                             <tbody>
                                 @foreach($price as $p)
-                                @php if($p->type!='firster' && $p->type!='repeater') continue; @endphp
+                                @php if($p->type!='visit') continue; @endphp
                                 <tr>
                                     <td>{{$p->name}}</td>
                                     <td>{{$p->price}}円</td>
@@ -159,7 +159,7 @@
                         <hr><br>
                         @endif
 
-                        @if(in_array('free', $typeList) || in_array('net', $typeList) || in_array('shimei', $typeList))
+                        @if(in_array('shimei', $typeList))
                         <h3 class="h5">指名料</h3>
                         <table class="table table-hover">
                             <thead>

@@ -125,5 +125,4 @@ class back extends Model
         return $name.'を作成しました。';
     }
 
-
 }
