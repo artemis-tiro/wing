@@ -40,7 +40,7 @@ class back extends Model
         $list = [];
         foreach($backList as $b){
             if($b->name=='default') continue;
-            $list[] = $b->name;
+            $list[$b->name] = $b->name;
         }
         return $list;
     }
@@ -100,12 +100,12 @@ class back extends Model
         $backList = back::where('mise_id', $miseId)
             ->where('name', $name)
             ->get();
-        if($backList->count()) return $name.'は存在します。';
+        if($backList->count() || $name=="default") return $name.'は存在します。';
 
-        if($copy){
-            $default = back::where('mise_id', $miseId)
-                ->where('name', 'default')
-                ->get();
+        $default = back::where('mise_id', $miseId)
+            ->where('name', 'default')
+            ->get();
+        if($copy && $default->count()){
             foreach($default as $d){
                 $newBack = new back();
                 $newBack->mise_id = $miseId;

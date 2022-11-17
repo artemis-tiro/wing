@@ -91,7 +91,9 @@ class User extends Authenticatable
         $clientList = user::where('access_level', 'client')
             ->where('team', $team)
             ->get();
-        return $clientList;
+        $list = $clientList->sortByDesc('active');
+
+        return $list;
     }
 
     //nameからid取得
@@ -218,6 +220,7 @@ class User extends Authenticatable
         foreach($list as $i){
             $user = user::find($i->id);
             $i->loginId = $user->name;
+            $i->active = $user->active;
         }
     }
 

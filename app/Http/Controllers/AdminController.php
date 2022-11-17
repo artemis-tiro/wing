@@ -76,6 +76,7 @@ class AdminController extends Controller{
         return view ('admin_client', [
             'clientList' => $clientList,
             'error' => session('error'),
+            'mes1' => session('mes1'),
        ]);
     }
 
@@ -197,23 +198,35 @@ class AdminController extends Controller{
         //権限チェック
         if($ng = $this->levelCheck()) return $ng;
 
+        $mes = '';
         switch($action){
             case 'go':
                 user::toActive($id);
+                $name = client::getName($id);
+                $mes = $name.'を再開しました。';
                 break;
             case 'stop':
                 user::toStop($id);
+                $name = client::getName($id);
+                $mes = $name.'を停止しました。';
                 break;
             case 'memo':
                 user::memo($id, $request->input('memo'.$id));
                 break;
             case 'del':
+                $name = client::getName($id);
+                $miseCount = mise::myMiseList($id)->count();
+                if($miseCount){
+                    $mes = $name.'は店舗の登録があるので削除できません。';
+                    break;
+                }
                 user::del($id);
-                clietn::del($id);
+                client::del($id);
+                $mes = $name.'を削除しました。';
                 break;
         }
 
-        return back();
+        return back()->with(['mes1' => $mes]);
     }
 
 

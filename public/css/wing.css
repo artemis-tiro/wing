@@ -55,4 +55,12 @@ input:disabled {
     color: #ddd;
 }
 
+.account_go * {
+    color: #ccc !important;
+}
+
+li {
+    list-style: none;
+}
+
 /* system WING END */

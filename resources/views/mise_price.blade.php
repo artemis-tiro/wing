@@ -28,10 +28,10 @@
                         {{ Form::open(['url' => url('/c/'.$client->id.'/'.$mise->id.'/priceedit'),'class'=>'form-horizontal']) }}
                         <h3 class="h5">基本料金</h3>
                         @component('componets.mise_price_form')
-                            @slot('form', 1)
+                            @slot('form', 4)
                             @slot('type', 'course')
                             @slot('formData', $formData)
-                            @slot('th', ['コース名', '料金'])
+                            @slot('th', ['コース名', '分数', '料金'])
                             @slot('placeholder', [
                                 "例）60分コース" => "12000",
                                 "例）90分コース" => "16000",

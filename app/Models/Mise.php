@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\user;
+use App\Models\Therapist;
 
 class mise extends Model
 {
@@ -33,7 +34,8 @@ class mise extends Model
     public static function myMiseList($id){
         $myMiseList = mise::where('client_id', $id)
             ->get();
-        return $myMiseList;
+        $list = $myMiseList->sortByDesc('active');
+        return $list;
     }
 
     //全mise一覧
@@ -64,11 +66,59 @@ class mise extends Model
         return $num;
     }
 
+    // アクティブmiseカウント
+    public static function miseCountActive($clientId){
+        $num = mise::where('client_id', $clientId)
+            ->where('active', 1)
+            ->count();
+        return $num;
+    }
+
     // メイン店舗
     public static function miseMain($clientId){
-        $mise = mise::where('client_id', $clientId)->first();
+        $mise = mise::where('client_id', $clientId)
+            ->where('active', 1)
+            ->first();
         $main = $mise? $mise->name: '';
         return $main;
+    }
+
+    // ヒアリングシート編集
+    public static function hearingsheetEdit($id, $hearingsheet){
+        $mise = mise::find($id)
+            ->update(['hearing_sheet'=>$hearingsheet]);
+
+        return null;
+    }
+
+    //activeオン
+    public static function toActive($id){
+        $mise = mise::find($id);
+        $mise->active = 1;
+        $mise->save();
+        return $mise->name.'を再開しました。';
+    }
+
+    //activeオフ
+    public static function toStop($id){
+        $mise = mise::find($id);
+        $mise->active = 0;
+        $mise->save();
+        return $mise->name.'を停止しました。';
+    }
+
+    //削除
+    public static function del($id){
+        $mise = mise::find($id);
+        if(!$mise) return '店が存在しません。';
+
+        //在籍セラピスト数確認
+        $list = therapist::List($id);
+        if($list->count()==0){
+            $mise->delete();
+            return $mise->name.'を削除しました。';
+        }
+        return 'セラピストの登録がある店は削除できません。';
     }
 
 
