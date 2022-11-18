@@ -77,6 +77,7 @@ class ClientController extends Controller{
         return view ('client', [
             'client' => $client,
             'myMiseList' => $myMiseList,
+            'mes1' => session('mes1'),
        ]);
     }
 
@@ -132,8 +133,32 @@ class ClientController extends Controller{
             'mise' => $mise,
             'therapistList' => $therapistList,
             'backList' => $backList,
+            'mes1' => session('mes1'),
+            'mes4' => session('mes4'),
+            'mes6' => session('mes6'),
             'newBackMessage' => session('newBackMessage'),
        ]);
+    }
+
+    //mise編集
+    public function miseEdit($clientId, $miseId, $action){
+        //権限チェック
+        if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
+
+        $mes = '';
+        switch($action){
+            case 'go':
+                $mes = mise::toActive($miseId);
+                break;
+            case 'stop':
+                $mes = mise::toStop($miseId);
+                break;
+            case 'del':
+                $mes = mise::del($miseId);
+                break;
+        }
+
+        return back()->with(['mes1' => $mes]);
     }
 
     //thrapist新規作成
@@ -168,6 +193,7 @@ class ClientController extends Controller{
         $error = therapist::therapistCreate($request->input(), $result['id'], $miseId);
         if($error) return back()->with(['error' => $error])->withInput();
 
+        return back()->with(['mes1' => '「'.$request->input()['business_name'].'」を作成しました。']);
         return back();
     }
     
@@ -191,6 +217,35 @@ class ClientController extends Controller{
             'therapist' => $therapist,
        ]);
     }
+
+    //therapistステータス変更
+    public function therapistEdit(Request $request, $clientId, $miseId, $therapistId, $action){
+        //権限チェック
+        if($ng = $this->levelCheck($clientId, $miseId, $therapistId)) return $ng;
+
+        $mes = '';
+        switch($action){
+            case 'go':
+                user::toActive($therapistId);
+                $name = therapist::getName($therapistId);
+                $mes = '「'.$name.'」のアカウントを再開しました。';
+                break;
+            case 'stop':
+                user::toStop($therapistId);
+                $name = therapist::getName($therapistId);
+                $mes = '「'.$name.'」のアカウントを停止しました。';
+                break;
+            case 'backchange':
+                $mes = therapist::backChange($therapistId, $request->input()["back_name"]);
+                break;
+            case 'del':
+                $mes = therapist::del($therapistId);
+                break;
+        }
+
+        return back()->with(['mes1' => $mes]);
+    }
+
 
     //料金システム
     public function price($clientId, $miseId){
@@ -259,22 +314,30 @@ class ClientController extends Controller{
                     $type = explode('_name', $key)[0];
                     if(!isset($count[$type])) $count[$type] = 1;
 
-                    $result = price::priceInsert($miseId, $data, $price, $count[$type], $type);
+                    // time
+                    $time = null;
+                    if($type=="course"){
+                        $keyTime = str_replace('name', 'time', $key);
+                        if(is_null($input[$keyTime])) continue;
+                        $time = $input[$keyTime];
+                    }
+
+                    $result = price::priceInsert($miseId, $data, $price, $count[$type], $type, $time);
                     $count[$type]++;
 
                 //radio-チェックされた値が入っている。 
                 }elseif($key == 'optionGet' ){ 
-                    $result = price::priceInsert($miseId, $data, 0, 1, 'optionGet');
+                    $result = price::priceInsert($miseId, $data, 0, 1, 'optionGet', null);
 
                 //checkbox-値があればチェックされている
                 }elseif($key == 'claim1000' ){
-                    $result = price::priceInsert($miseId, 'claim1000', 1, 1, 'claim1000');
+                    $result = price::priceInsert($miseId, 'claim1000', 1, 1, 'claim1000', null);
                 }elseif($key == 'claim2000' ){
-                    $result = price::priceInsert($miseId, 'claim2000', 1, 1, 'claim2000');
+                    $result = price::priceInsert($miseId, 'claim2000', 1, 1, 'claim2000', null);
                 }
 
             }
-            return back()->with(['message' => '保存しました。']);
+            return back()->with(['message' => '保存しました。「バック額の確認」もお願いします。']);
             
         }
     }
@@ -339,9 +402,10 @@ class ClientController extends Controller{
 
         foreach($input as $key => $data){
             if($key == '_token') continue;
-            if(is_null($data)) continue;
+            // if(is_null($data)) continue;
 
             if(preg_match("/ocha_name/", $key)){
+                if(is_null($data)) continue;
                 // price
                 $keyPrice = str_replace('name', 'price', $key);
                 if(is_null($input[$keyPrice])) continue;
@@ -350,9 +414,11 @@ class ClientController extends Controller{
                 $result = back::backInsert($miseId, $data, $backName, $price, 1);
             }elseif(preg_match("/ocha_price/", $key)){
             }else{
-                $result = back::backInsert($miseId, $key, $backName, $data);                
+                $price = $data? $data: 0;
+                $result = back::backInsert($miseId, $key, $backName, $price);
             }
         }
+        back::backCreate($miseId, $backName, 0);
 
         return back()->with(['message' => '保存しました。']);
     }
@@ -368,7 +434,7 @@ class ClientController extends Controller{
         $copy = isset($input['copy'])? 1: 0;
         $result = back::backCreate($miseId, $input['back_name'], $copy);
 
-        return back()->with(['newBackMessage' => $result]);
+        return back()->with(['mes4' => $result]);
     }
 
     //back削除
@@ -377,9 +443,19 @@ class ClientController extends Controller{
         if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
 
         back::del($miseId, $backName);
-        // therapist::backDel($miseId, $backName);
+        therapist::backDel($miseId, $backName);
 
-        return back()->with(['newBackMessage' => $backName.'を削除しました。'.$backName.'だったセラピストは']);
+        return back()->with(['mes4' => $backName.'を削除しました。']);
+    }
+
+    //ヒアリングシート編集
+    public function hearingsheetEdit(Request $request, $clientId, $miseId){
+        //権限チェック
+        if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
+
+        mise::hearingsheetEdit($miseId, $request->input()['hearing_sheet']);
+
+        return back()->with(['mes6' => 'ヒアリングシートを編集しました。']);
     }
 
 

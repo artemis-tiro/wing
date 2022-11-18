@@ -19,6 +19,10 @@
                     <h2 class="card-header h5">クライアント一覧</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
+                        @component('componets.message')
+                            @slot('type', 'info')
+                            @slot('mes', $mes1)
+                        @endcomponent
                         <!-- テーブル -->
                         <table class="table table-hover">
                             <thead>
@@ -29,8 +33,6 @@
                                     <th scope="col">店舗数</th>
                                     <th scope="col">メイン店舗</th>
                                     <th scope="col">状態</th>
-                                    <!-- ボタンのための空白 -->
-                                    <!-- 一般ユーザでは表示しない -->
                                     <th scope="col"></th>
                                     <th scope="col"></th>
                                 </tr>
@@ -44,14 +46,24 @@
                                      $actionComment = $c->active?'停止':'再開'; 
                                 ?>
 
-                                <tr>
+                                <tr class="account_{{$action}}">
                                     <th>{{$loop->index+1}}</th>
                                     <td><a href="{{url('/c/'.$c->id)}}">{{$c->client->name}}</a></td>
-                                    <td>{{$c->miseCount}}</td>
+                                    <td>{{$c->miseCountActive}}</td>
                                     <td>{{$c->miseMain}}</td>
                                     <td>{{$active}}</td>
                                     <td><a class="btn btn-sm btn-info" href="{{url('/admin/editclient')}}/{{$c->id}}/{{$action}}">{{$actionComment}}</a></td>
-                                    <td><a class="btn btn-sm btn-danger" href="{{url('/admin/editclient')}}/{{$c->id}}/del">削除</a></td>
+                                    <td>
+                                        @if($c->miseCount==0)
+                                            @component('componets.modal')
+                                                @slot('type', 'del')
+                                                @slot('name', $c->client->name)
+                                                @slot('id', $c->client->name.$loop->index)
+                                                @slot('text', $c->client->name."は店舗の登録がないので削除できます。")
+                                                @slot('url', url('/admin/editclient').'/'.$c->id.'/del')
+                                            @endcomponent
+                                        @endif
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -64,7 +76,9 @@
                     <h2 class="card-header h5">クライアント新規作成</h2>
                     <!-- カードの要素 -->
                     <div class="card-body">
+                        @include('common.validator')
                         @include('common.error')
+                        @include('common.success')
                         {{ Form::open(['url' => url('/admin/newclient'),'class'=>'form-horizontal']) }}
                         <label class="row text-nowrap mb-4 text-end">
                             <div class="col-sm-2 lh2 text-end">ログインID *</div>

@@ -29,14 +29,15 @@ class price extends Model
         return null;
     }
 
-    // priceインサート
-    public static function priceInsert($miseId, $name, $price, $count, $type){
+    //priceインサート
+    public static function priceInsert($miseId, $name, $price, $count, $type, $time){
         $newPrice = new price();
         $newPrice->mise_id = $miseId;
         $newPrice->name = $name;
         $newPrice->price = $price;
         $newPrice->order = $count;
         $newPrice->type = $type;
+        $newPrice->time = $time;
         $result = $newPrice->save();
 
         //インサート失敗時
@@ -54,11 +55,14 @@ class price extends Model
         foreach($priceList as $p){
             $nameTitle = $p->type.'_name_'.$p->order;
             $priceTitle = $p->type.'_price_'.$p->order;
+            $timeTitle = $p->type.'_time_'.$p->order;
             $cell = [];
             $cell['name_title'] = $nameTitle;
             $cell['name_data'] = $p->name;
             $cell['price_title'] = $priceTitle;
             $cell['price_data'] = $p->price;
+            $cell['time_title'] = $timeTitle;
+            $cell['time_data'] = $p->time;
             $formData[$p->type][] = $cell;
         }
         // Log::info($formData);//★★★log★★★

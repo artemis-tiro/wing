@@ -48,6 +48,7 @@ class client extends Model
         foreach($clientList as $c){
             $c->client = client::find($c->id);
             $c->miseCount = mise::miseCount($c->id);
+            $c->miseCountActive = mise::miseCountActive($c->id);
             $c->miseMain = mise::miseMain($c->id);
         }
         return null;
@@ -105,5 +106,12 @@ class client extends Model
 
         return null;
     }
+
+    // therapist名取得
+    public static function getName($id){
+        $client = client::find($id);
+        return $client->name;
+    }
+
 
 }

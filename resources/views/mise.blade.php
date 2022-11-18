@@ -17,6 +17,14 @@
                     <h2 class="card-header h5">セラピスト一覧</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
+                        @if ( !empty($mes1) )
+                        <div class="alert alert-info d-flex align-items-center" role="alert">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                            </svg>
+                            <ul><li>{{$mes1}}</li></ul>
+                        </div>
+                        @endif
                         <!-- テーブル -->
                         <table class="table table-hover">
                             <thead>
@@ -26,8 +34,8 @@
                                     <th scope="col">ID</th>
                                     <th scope="col">源氏名</th>
                                     <th scope="col">給料形態</th>
-                                    <th scope="col">前回出勤</th>
-                                    <th scope="col">当欠率</th>
+                                    <th scope="col">前回出勤日</th>
+                                    <th scope="col">ステータス</th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
                                 </tr>
@@ -35,22 +43,30 @@
                             <tbody>
                                 @foreach($therapistList as $i)
                                 <?php 
-                                     $level = $i->access_level=='admin'?'管理者':'メンバー'; 
-                                     $action2 = $i->access_level=='admin'?'toInputer':'toAdmin'; 
                                      $active = $i->active?'アクティブ':'停止中'; 
                                      $action = $i->active?'stop':'go'; 
                                      $actionComment = $i->active?'停止':'再開'; 
                                 ?>
 
-                                <tr>
+                                <tr class="account_{{$action}}">
                                     <th>{{$loop->index+1}}</th>
                                     <td>{{$i->loginId}}</td>
                                     <td><a href="{{url('/c/'.$client->id.'/'.$mise->id.'/'.$i->id)}}">{{$i->business_name}}</a></td>
+                                    <td>{{ Form::open(['url' => url()->current().'/'.$i->id."/edit/backchange",'class'=>'form-horizontal']) }}{{ Form::select('back_name', ['default'=>'default']+$backList, $i->back_name, ['class'=>'form-select form-select-sm pass', 'onchange'=>'submit(this.form)'])}}{{ Form::close() }}</td>
                                     <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td><a class="btn btn-sm btn-info" href="#">{{$actionComment}}</a></td>
-                                    <td><a class="btn btn-sm btn-danger" href="#">削除</a></td>
+                                    <td>{{$active}}</td>
+                                    <td><a class="btn btn-sm btn-info" href="{{url()->current()}}/{{$i->id}}/edit/{{$action}}">{{$actionComment}}</a></td>
+                                    <td>
+                                        @if(!$i->yoyaku)
+                                        @component('componets.modal')
+                                            @slot('type', 'del')
+                                            @slot('name', $i->business_name)
+                                            @slot('id', $i->business_name.$loop->index)
+                                            @slot('text', "予約が一回もないので削除できます。")
+                                            @slot('url', url()->current().'/'.$i->id."/edit/del")
+                                        @endcomponent
+                                        @endif
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -69,7 +85,10 @@
                     <h2 class="card-header h5">セラピスト新規作成</h2>
                     <!-- カードの要素 -->
                     <div class="card-body">
+                        @include('common.validator')
                         @include('common.error')
+                        @include('common.success')
+
                         {{ Form::open(['url' => url('/c/'.$client->id.'/'.$mise->id.'/newtherapist'),'class'=>'form-horizontal']) }}
                         <label class="row text-nowrap mb-4 text-end">
                             <div class="col-sm-2 lh2 text-end">源氏名 *</div>
@@ -81,7 +100,7 @@
                         <label class="row text-nowrap mb-4 text-end">
                             <div class="col-sm-2 lh2 text-end">ログインID *</div>
                             <div class="col-sm-10">
-                                {{ Form::text('login_id', null, ['class'=>'form-control jq_idToPass', 'required'=>'required'])}}
+                                {{ Form::text('login_id', null, ['class'=>'form-control jq_idToPass', 'required'=>'required', 'pattern'=>'^[0-9a-zA-Z\\-\\_]+$', 'title'=>'半角英数、ハイフン、アンダーバーのみ'])}}
                                 <div class="form-text">「店名_源氏名」半角英数字、ユニーク。</div>
                             </div>
                         </label>
@@ -97,8 +116,7 @@
                         <label class="row text-nowrap mb-4">
                             <span class="col-sm-2 lh2">給料形態 *</span>
                             <div class="col-sm-10">
-                                {{ Form::text('back_name', 'default', ['class'=>'form-control pass', 'required'=>'required'])}}
-                                <div class="form-text">まずはdefault固定です。</div>
+                                {{ Form::select('back_name', ['default'=>'default']+$backList, 'default', ['class'=>'form-select pass', 'required'=>'required'])}}
                             </div>
                         </label>
 
@@ -121,7 +139,34 @@
                     <h2 class="card-header h5">給料形態一覧</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
-                        
+                        @if ( !empty($mes4) )
+                        <div class="alert alert-info d-flex align-items-center" role="alert">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                            </svg>
+                            <ul><li>{{$mes4}}</li></ul>
+                        </div>
+                        @endif
+
+                        <table>
+                            <tr><th>default</th><td>　　<a class="btn btn-sm btn-info" href="{{url()->current()}}/back/default">編集</a></td><td>　　※defaultは削除できません。</td></tr>
+                            @foreach($backList as $b)
+                            <tr>
+                                <th>{{$b}}</th>
+                                <td>　　<a class="btn btn-sm btn-info" href="{{url()->current()}}/back/{{$b}}">編集</a></td>
+                                <td>　　
+                                @component('componets.modal')
+                                    @slot('type', 'del')
+                                    @slot('name', $b)
+                                    @slot('id', $b)
+                                    @slot('text', $b."のセラピストはdefaultになります。")
+                                    @slot('url', url()->current()."/back/".$b."/del")
+                                @endcomponent
+                                </td>
+                            </tr>
+                            @endforeach
+                        </table>
+{{--                        
                         <div class="row">
                             <div class="mt-2 col-sm-1 text-end">default</div>
                             <div class="col-sm-1"><a class="btn btn-info" href="{{ url()->current() }}/back/default">編集</a></div>
@@ -134,7 +179,7 @@
                                 <div class="col-sm-1"><a class="btn btn-danger" href="{{ url()->current() }}/back/{{ $b }}/del">削除</a></div>
                             @endforeach
                         </div>
-                    
+--}}                    
                     </div>
                 </div>
 
@@ -148,9 +193,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
                             </svg>
-                            <ul>
-                                <li>{{$newBackMessage}}</li>
-                            </ul>
+                            <ul><li>{{$newBackMessage}}</li></ul>
                         </div>
                         @endif
                         {{ Form::open(['url' => url('/c/'.$client->id.'/'.$mise->id.'/newback'),'class'=>'form-horizontal']) }}
@@ -169,6 +212,28 @@
                         </label>
                         {{ Form::submit('バック作成',["class"=>"m-2 btn btn-info"])}}
                         {{ Form::close() }}
+                    </div>
+                </div>
+
+                <div class="card my-4">
+                    <!-- カードのタイトル -->
+                    <h2 class="card-header h5">ヒアリングシート</h2>
+                    <!-- カードの要素 -->
+                    <div class="card-body table-responsive text-nowrap">
+                        @if ( !empty($mes6) )
+                        <div class="alert alert-info d-flex align-items-center" role="alert">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                            </svg>
+                            <ul><li>{{$mes6}}</li></ul>
+                        </div>
+                        @endif
+                        <p>{!! nl2br(e($mise->hearing_sheet)) !!}</p>
+                        @component('componets.modal')
+                            @slot('type', 'hearingSheet')
+                            @slot('text', $mise->hearing_sheet)
+                            @slot('url', url()->current().'/hearingsheetedit')
+                        @endcomponent
                     </div>
                 </div>
 

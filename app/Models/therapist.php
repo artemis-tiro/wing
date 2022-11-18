@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\user;
+use Log;
 
 class Therapist extends Model
 {
@@ -34,8 +35,15 @@ class Therapist extends Model
     //therapist詳細を追加
     public static function addDetail($miseList){
         foreach($miseList as $m){
-            $m->therapist = therapist::where('mise_id', $m->id)
+            $therapist = therapist::where('mise_id', $m->id)
                 ->get();
+            $m->therapist = $therapist;
+            $count = 0;
+            foreach($therapist as $t){
+                $user = user::find($t->id);
+                if($user->active) $count++;
+            }
+            $m->therapistCount = $count;
         }
         return null;
     }
@@ -45,7 +53,13 @@ class Therapist extends Model
         $therapistList = therapist::where('mise_id', $miseId)
             ->get();
         user::addDetail($therapistList);
-        return $therapistList;
+        foreach($therapistList as $t){
+            $exist = yoyaku::where('therapist_id', $t->id)
+                ->first();
+            $t->yoyaku = $exist? 1: 0;
+        }
+        $list = $therapistList->sortByDesc('active');
+        return $list;
     }
 
     //権限チェック
@@ -142,5 +156,44 @@ class Therapist extends Model
         if(!$result) return '失敗しました。';
 
         return null;
+    }
+
+    //  back削除
+    public static function backDel($miseId, $backName){
+        $therapistList = therapist::where('mise_id', $miseId)
+            ->where('back_name', $backName)
+            ->update(['back_name'=>'default']);
+
+        return null;
+    }
+
+    // therapist削除
+    public static function del($therapistId){
+        $exist = yoyaku::where('therapist_id', $therapistId)
+            ->first();
+        if($exist) return null; //yoyakuにあれば削除できない
+
+        $therapist = therapist::find($therapistId);
+        $name = $therapist->business_name;
+        $therapist->forceDelete();
+            
+        user::find($therapistId)->forceDelete();
+
+        $mes =  '「'.$name.'」を削除しました。';
+        return $mes;
+    }
+
+    // therapistバック変更
+    public static function backChange($therapistId, $backName){
+        $therapist = therapist::find($therapistId);
+        $therapist->update(['back_name'=>$backName]);
+        $mes =  '「'.$therapist->business_name.'」の給料形態を【'.$backName.'】に変更しました。';
+        return $mes;
+    }
+
+    // therapist名取得
+    public static function getName($therapistId){
+        $therapist = therapist::find($therapistId);
+        return $therapist->business_name;
     }
 }
