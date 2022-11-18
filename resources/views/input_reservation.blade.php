@@ -142,7 +142,7 @@
                     <!-- カードの要素 -->
                     <div class="card-body">
 
-                    @if(iseet($kokyakuData))     
+                    @if($formflag == 0)     
                     <!-- 電話検索フォーム -->
                     {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/reservation')]) }}
                                    
@@ -159,7 +159,7 @@
                     {{ Form::close() }}
                     @endif
 
-                    @if(iseet($kokyakuData)) 
+                    @if($formflag == 1) 
 
                     <!-- 新規入力フォーム -->
                     {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/reservation')]) }}
