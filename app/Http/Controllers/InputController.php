@@ -84,11 +84,11 @@ class InputController extends Controller{
     //予約一覧ページ
     public function yoyaku(Request $request, $miseId,$therapistId){
 
+        $kokyakuData;
+        $formflag = 0;
+
         //権限チェック
         if($ng = $this->levelCheck()) return $ng;
-
-        $kokyakuData;
-        $formflag;
 
         // 店舗情報
         $mise = mise::detail($miseId);

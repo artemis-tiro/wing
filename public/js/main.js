@@ -24,7 +24,9 @@ $('.add_input').click(function() {
     $(parent).append(new_form);
 });
 
+/*
 $('.radio_total input ').click(function() {
     var price = '<span class="subtotal col">' + String($(this).attr('price')) + '</span>';
     $(this).closest('.radio_total').append(price);
 });
+*/
