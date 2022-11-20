@@ -78,11 +78,11 @@
             </thead>
             <tbody class="courceTbody">
                 @if(empty($formData[$type]))
-                    @foreach($placeholder as $k=>$d)
+                    @foreach($placeholder as $d)
                         <tr>
-                            <td>{{ Form::text($type.'_name_'.$loop->index+1, null, ['class'=>'form-control', 'placeholder'=>$k])}}</td>
-                            <td><div class="input-group">{{ Form::number($type.'_time_'.$loop->index+1, null, ['class'=>'form-control', 'placeholder'=>$d])}}<span class="input-group-text">分</span></div></td>
-                            <td><div class="input-group">{{ Form::number($type.'_price_'.$loop->index+1, null, ['class'=>'form-control', 'placeholder'=>$d])}}<span class="input-group-text">円</span></div></td>
+                            <td>{{ Form::text($type.'_name_'.$loop->index+1, null, ['class'=>'form-control', 'placeholder'=>$d[0]])}}</td>
+                            <td><div class="input-group">{{ Form::number($type.'_time_'.$loop->index+1, null, ['class'=>'form-control', 'placeholder'=>$d[1]])}}<span class="input-group-text">分</span></div></td>
+                            <td><div class="input-group">{{ Form::number($type.'_price_'.$loop->index+1, null, ['class'=>'form-control', 'placeholder'=>$d[2]])}}<span class="input-group-text">円</span></div></td>
                         </tr>
                     @endforeach
                 @else

@@ -167,6 +167,15 @@ class price extends Model
         }
     }
 
+    // コースが存在するか
+    public static function courseExist($miseId){
+        $course = price::where('mise_id', $miseId)
+            ->where('type', 'course')
+            ->first();
+        $result = $course? true: false;
+        return $result;
+    }
+
     // yoyakuリスト
     // public static function getYoyakuList($pidList){
     //     $result = [];

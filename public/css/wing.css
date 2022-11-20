@@ -59,6 +59,17 @@ input:disabled {
     color: #ccc !important;
 }
 
+.ccc * {
+    color: #ccc !important;
+    pointer-events: none;
+}
+
+.priceRequest {
+    color: red !important;
+    font-weight: bold !important;
+    font-size: 1rem;
+}
+
 li {
     list-style: none;
 }

@@ -118,7 +118,7 @@ class InputController extends Controller{
         $waribikiList = price::waribikiList($miseId);
         $claimList = price::claimList($miseId);  
 
-        if(iseet($telsearch)){
+        if(isset($telsearch)){
             $kokyakuData = $telsearch;
             $formflag = 1;
         }

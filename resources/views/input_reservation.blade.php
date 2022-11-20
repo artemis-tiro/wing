@@ -142,7 +142,7 @@
                     <!-- カードの要素 -->
                     <div class="card-body">
 
-                    @if(iseet($kokyakuData))     
+                    @if(isset($kokyakuData))     
                     <!-- 電話検索フォーム -->
                     {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/reservation')]) }}
                                    
@@ -159,7 +159,7 @@
                     {{ Form::close() }}
                     @endif
 
-                    @if(iseet($kokyakuData)) 
+                    @if(isset($kokyakuData)) 
 
                     <!-- 新規入力フォーム -->
                     {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/reservation')]) }}
@@ -204,22 +204,16 @@
                     </label>
 
                     <!-- 来店 -->
-                    <label class="row text-nowrap mb-4 text-end">
+                    <div class="row text-nowrap mb-4 text-end radio_total">
                         <div class="col-sm-2 text-end">来店<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                         
                         @foreach($visitList  as $v)
-                            <div class="col-sm-1">
-                                {{ Form::radio('visit', $v->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'required'] )}}
+                            <label class="col-sm-1">
+                                {{ Form::radio('visit', $v->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$v->price, 'required'] )}}
                                 {{ $v->name }}
-                            </div>
+                            </label>
                         @endforeach
-                        <div class="col-sm-1" id="many1">
-                            +1,000
-                        </div>
-                        <div class="col-sm-1" id="many2">
-                            
-                        </div>
-                    </label>
+                    </div>
 
                     <!-- コース -->
                     <label class="row text-nowrap mb-4 text-end">

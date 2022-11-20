@@ -127,12 +127,19 @@ class ClientController extends Controller{
 
         //backリスト
         $backList = back::list($miseId);
+        $backList2 = back::list2($miseId);
+
+        //price作成確認
+        $courseExist = price::courseExist($miseId);
+
 
         return view ('mise', [
             'client' => $client,
             'mise' => $mise,
             'therapistList' => $therapistList,
             'backList' => $backList,
+            'backList2' => $backList2,
+            'courseExist' => $courseExist,
             'mes1' => session('mes1'),
             'mes4' => session('mes4'),
             'mes6' => session('mes6'),
@@ -168,7 +175,7 @@ class ClientController extends Controller{
 
         //バリデーション
         $rulus = [
-            'business_name' => ['required', Rule::unique('therapist','business_name')->whereNull('deleted_at')],
+            'business_name' => ['required', Rule::unique('therapist','business_name')->whereNull('deleted_at')->where('mise_id', $miseId)],
             'login_id' => ['required','regex:/^[0-9a-zA-Z\\-\\_]+$/', Rule::unique('users','name')->whereNull('deleted_at')],
             //'pass' => 'required | min:4 | regex:/^[[a-zA-Z0-9]+$/',
         ];
@@ -177,7 +184,7 @@ class ClientController extends Controller{
             'business_name.unique' => '登録されている源氏名です。',
             'login_id.required' => 'ログインIDを入力してください。',
             'login_id.regex' => 'ログインIDに使えるのはは「半角英数字、ハイフン、アンダースコア」のみです。',
-            'login_id.unique' => 'このログインIDは存在します。',
+            'login_id.unique' => 'このログインIDは使われています。',
             'pass.required' => 'パスワードを入力してください。',
             'pass.min' => 'パスワードは4文字以上で入力してください。',
             'pass.regex' => 'パスワードは半角英数字で入力して下さい。',
