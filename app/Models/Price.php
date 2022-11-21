@@ -166,8 +166,6 @@ class price extends Model
             }
         }
     }
-<<<<<<< HEAD
-=======
 
     // コースが存在するか
     public static function courseExist($miseId){
@@ -194,5 +192,4 @@ class price extends Model
     //     }
     //     return $result;
     // }
->>>>>>> bc29391c4ccd5c517538b3b4c91d487db3e8393f
 }

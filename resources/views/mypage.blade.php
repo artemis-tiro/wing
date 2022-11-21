@@ -369,6 +369,9 @@
                                             </div>
                                         </label>
 
+                                        <!-- 源氏名 -->
+
+
                                         <!-- 3サイズ入力 -->
                                         <label class="row">
                                             @if ($errors->has('3size'))

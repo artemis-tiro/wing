@@ -48,6 +48,7 @@
                                     <!-- 終了時間を来店日時＋コース時間で表示 -->
                                     <td>
                                         {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('m/d H:i') }} ~ 
+                                        {{-- date('m/d H:i',strtotime(" \Carbon\Carbon::createFromTimeString($y->visit_day)->format('m/d H:i') +0 seconds +210 min +0 hours")) --}}
                                         
                                     </td>
 
@@ -210,89 +211,91 @@
                         <div class="row text-nowrap mb-4 text-end radio_visit">
                             <div class="col-sm-2 text-end">来店<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                             
+                            <div class="col-sm-1 btn bg-info text-white visitMany">金額を表示</div>
+
                             @foreach($visitList  as $v)
                                 <label class="col-sm-1">
                                     {{ Form::radio('visit', $v->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$v->price, 'required']) }}
                                     {{ $v->name }}
                                 </label>
                             @endforeach
-
-                            <div class="col-sm-1 visitMany"></div>
                         </div>
 
                         <!-- コース -->
                         <div class="row text-nowrap mb-4 text-end radio_course">
                             <div class="col-sm-2 text-end">コース<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                             
+                            <div class="col-sm-1 btn bg-info text-white courseMany">金額を表示</div>
+
                             @foreach($courseList  as $c)
                                 <label class="col-sm-1">
                                     {{ Form::radio('course', $c->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$c->price, 'required']) }}
                                     {{ $c->name }}
                                 </label>
                             @endforeach
-
-                            <div class="col-sm-1 courseMany"></div>
                         </div>
 
                         <!-- 指名 -->
-                        <div class="row text-nowrap mb-4 text-end radio_shimei">
+                        <div class="row text-nowrap mb-4 text-end radio_shimei">                            
                             <div class="col-sm-2 text-end">指名<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                             
+                            <div class="col-sm-1 btn bg-info text-white shimeiMany">金額を表示</div>
+
                             @foreach($shimeiList  as $s)
                                 <label class="col-sm-1">
                                     {{ Form::radio('shimei', $s->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$s->price, 'required']) }}
                                     {{ $s->name }}
                                 </label>
                             @endforeach
-
-                            <div class="col-sm-1 shimeiMany"></div>
                         </div>
 
                         <!-- 追加料金 -->
                         <div class="row text-nowrap mb-4 text-end radio_more">
                             <div class="col-sm-2 text-end">特別料金<span class="mx-2 badge rounded-pill bg-secondary">任意</span></div>
                             
+                            <div class="col-sm-1 btn bg-info text-white moreMany">金額を表示</div>
+
                             @foreach($moreList  as $m)
                                 <label class="col-sm-1">
                                     {{ Form::radio('more', $m->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$m->price]) }}
                                     {{ $m->name }}
                                 </label>
                             @endforeach
-
-                            <div class="col-sm-1 moreMany"></div>
                         </div>
 
                         <!-- オプション -->
                         <div class="row text-nowrap mb-4 text-end radio_option">
                             <div class="col-sm-2 text-end">オプション<span class="mx-2 badge rounded-pill bg-secondary">任意</span></div>
                             
+                            <div class="col-sm-1 btn bg-info text-white optionMany">金額を表示</div>
+
                             @foreach($optionList  as $o)
                                 <label class="col-sm-1">
                                     {{ Form::radio('option', $o->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$o->price]) }}
                                     {{ $o->name }}
                                 </label>
                             @endforeach
-
-                            <div class="col-sm-1 optionMany"></div>
                         </div>
 
                         <!-- 自動割引 -->
                         <div class="row text-nowrap mb-4 text-end">
                             <div class="col-sm-2 text-end">自動割引<span class="mx-2 badge rounded-pill bg-secondary">自動選択</span></div>
                             
+                            <div class="col-sm-1 btn bg-danger text-white waribikiAutoMany">{{ $waribikiAutoList[0]->price }}円</div>
+
                             @foreach($waribikiAutoList  as $wa)
                                 <label class="col-sm-1">
                                     {{ Form::radio('waribikiAuto', $wa->id, true, ['class'=>'form-check-input', 'disabled'=>'disabled']) }}
                                     {{ $wa->name }}
                                 </label>
                             @endforeach
-
-                            <div class="col-sm-1 waribikiAutoMany"></div>
                         </div>
 
                         <!-- 追加割引 -->
                         <div class="row text-nowrap mb-4 text-end radio_waribiki">
                             <div class="col-sm-2 text-end">追加割引<span class="mx-2 badge rounded-pill bg-secondary">任意</span></div>
+                            
+                            <div class="col-sm-1 btn bg-danger text-white waribikiMany ">金額を表示</div>
                             
                             @foreach($waribikiList  as $w)
                             <label class="col-sm-1">
@@ -300,8 +303,6 @@
                                 {{ $w->name }}
                             </label>
                             @endforeach
-
-                            <div class="col-sm-1 waribikiMany"></div>
                         </div>
 
                         @if(!(isset($claimList)))
@@ -309,23 +310,29 @@
                         <div class="row text-nowrap mb-4 text-end radio_claim">
                             <div class="col-sm-2 text-end">クレーム対応<span class="mx-2 badge rounded-pill bg-secondary">任意</span></div>
                             
+                            <div class="col-sm-1 btn bg-danger text-white claimMany"></div>
+
                             @foreach($claimList  as $cl)
                                 <label class="col-sm-1">
                                     {{ Form::radio('claim', $cl->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$w->price]) }}
                                     {{ $cl->name }}
                                 </label>
                             @endforeach
-
-                            <div class="col-sm-1 claimMany"></div>
                         </div>
                         @endif
 
                         <!-- メモ -->
                         <label class="row text-nowrap mb-4">
-                                <span class="col-sm-2 lh2">メモ<span class="mx-2 badge rounded-pill bg-secondary">任意</span></span>
-                                <div class="col-sm-10">
-                                    {{ Form::textarea('memo', null, ['class'=>'form-control'])}}
-                                </div>
+                            <span class="col-sm-2">メモ<span class="mx-2 badge rounded-pill bg-secondary">任意</span></span>
+                            <div class="col-sm-10">
+                                {{ Form::textarea('memo', null, ['class'=>'form-control'])}}
+                            </div>
+                        </label>
+
+                        <!-- メモ -->
+                        <label class="row text-nowrap mb-4">
+                            <span class="col-sm-2">合計金額</span>
+                            <div class="col-sm-3 btn btn-lg bg-info text-white totalMany">合計金額を表示</div>
                         </label>
                         
                         <!-- 送信ボタン -->
