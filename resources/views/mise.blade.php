@@ -125,18 +125,24 @@
                     </div>
                 </div>
 
+                @php
+                    $priceRequest = $courseExist? null: '<span class="priceRequest">　※料金システムを登録して下さい。</span>';
+                    $lockMes = $courseExist? null: '<span class="priceRequest">　※料金システムを登録後に編集できます。</span>';
+                    $backNotComplete = '<span class="priceRequest">　※バックを登録してください。</span>';
+                    $ccc = $courseExist? null: 'ccc';
+                @endphp
                 <div class="card">
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">料金システム</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
-                        <div><a class="btn btn-info" href="{{ url()->current() }}/price">料金システム登録</a></div>
+                        <div><a class="btn btn-info" href="{{ url()->current() }}/price">料金システム登録</a>{!!$priceRequest!!}</div>
                     </div>
                 </div>
 
-                <div class="card my-4">
+                <div class="card my-4 {{$ccc}}">
                     <!-- カードのタイトル -->
-                    <h2 class="card-header h5">給料形態一覧</h2>
+                    <h2 class="card-header h5">給料形態一覧 {!!$lockMes!!}</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
                         @if ( !empty($mes4) )
@@ -149,20 +155,22 @@
                         @endif
 
                         <table>
-                            <tr><th>default</th><td>　　<a class="btn btn-sm btn-info" href="{{url()->current()}}/back/default">編集</a></td><td>　　※defaultは削除できません。</td></tr>
-                            @foreach($backList as $b)
+                            @foreach($backList2 as $b)
                             <tr>
-                                <th>{{$b}}</th>
-                                <td>　　<a class="btn btn-sm btn-info" href="{{url()->current()}}/back/{{$b}}">編集</a></td>
+                                <th>{{$b['name']}}</th>
+                                <td>　　<a class="btn btn-sm btn-info" href="{{url()->current()}}/back/{{$b['name']}}">編集</a></td>
                                 <td>　　
+                                @if($b['name'] != 'default')
                                 @component('componets.modal')
                                     @slot('type', 'del')
-                                    @slot('name', $b)
-                                    @slot('id', $b)
-                                    @slot('text', $b."のセラピストはdefaultになります。")
-                                    @slot('url', url()->current()."/back/".$b."/del")
+                                    @slot('name', $b['name'])
+                                    @slot('id', $b['name'])
+                                    @slot('text', $b['name']."のセラピストはdefaultになります。")
+                                    @slot('url', url()->current()."/back/".$b['name']."/del")
                                 @endcomponent
+                                @endif
                                 </td>
+                                <td>@if(!$priceRequest && !$b['complete']) {!!$backNotComplete!!} @endif</td>
                             </tr>
                             @endforeach
                         </table>
@@ -173,7 +181,7 @@
                         </div>
 
                         <div class="mt-2 row">
-                            @foreach($backList as $b)
+                            @foreach($backList2 as $b)
                                 <div class="mt-2 col-sm-1 text-end">{{ $b }}</div>
                                 <div class="col-sm-1"><a class="btn btn-info" href="{{ url()->current() }}/back/{{ $b }}">編集</a></div>
                                 <div class="col-sm-1"><a class="btn btn-danger" href="{{ url()->current() }}/back/{{ $b }}/del">削除</a></div>
@@ -183,9 +191,9 @@
                     </div>
                 </div>
 
-                <div class="card my-4">
+                <div class="card my-4 {{$ccc}}">
                     <!-- カードのタイトル -->
-                    <h2 class="card-header h5">給料形態新規作成</h2>
+                    <h2 class="card-header h5">給料形態新規作成 {!!$lockMes!!}</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
                         @if ( !empty($newBackMessage) )

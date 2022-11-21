@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\user;
 use App\Models\yoyaku;
+use App\Models\Price;
 use Log;
 
 class back extends Model
@@ -41,6 +42,51 @@ class back extends Model
         foreach($backList as $b){
             if($b->name=='default') continue;
             $list[$b->name] = $b->name;
+        }
+        return $list;
+    }
+
+    //backリスト
+    public static function list2($miseId){
+        $backList = back::where('mise_id', $miseId)
+            ->get()
+            ->unique('name');
+        $priceList = price::where('mise_id', $miseId)
+            ->get();
+
+        $list = [];
+
+        $list['default']['name'] = 'default';
+        $complete = 1;
+        foreach($priceList as $p){
+            if($p->type=='optionGet') continue;
+            $back = back::where('mise_id', $miseId)
+                ->where('price_name', $p->name)
+                ->where('name', 'default')
+                ->first();
+            if(!$back){
+                $complete = 0;
+                break;
+            }
+        }
+        $list['default']['complete'] = $complete;
+
+        foreach($backList as $b){
+            if($b->name=='default') continue;
+            $list[$b->name]['name'] = $b->name;
+            $complete = 1;
+            foreach($priceList as $p){
+                if($p->type=='optionGet') continue;
+                $back = back::where('mise_id', $miseId)
+                    ->where('price_name', $p->name)
+                    ->where('name', $b->name)
+                    ->first();
+                if(!$back){
+                    $complete = 0;
+                    break;
+                }
+            }
+            $list[$b->name]['complete'] = $complete;
         }
         return $list;
     }
