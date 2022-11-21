@@ -166,21 +166,4 @@ class price extends Model
             }
         }
     }
-
-    // yoyakuリスト
-    // public static function getYoyakuList($pidList){
-    //     $result = [];
-    //     $count = 0;
-    //     foreach($pidList as $p){
-    //         $price = price::find($p);
-    //         if(!$price) continue;
-    //         $result[$count] =[
-    //             'name'=>$price->name,
-    //             'price'=>$price->price,
-    //             'type'=>$price->type,
-    //         ];
-    //         $count++;
-    //     }
-    //     return $result;
-    // }
 }

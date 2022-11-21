@@ -84,8 +84,9 @@ class InputController extends Controller{
     //予約一覧ページ
     public function yoyaku(Request $request, $miseId,$therapistId){
 
-        $kokyakuData;
+        $kokyakuData = null;
         $formflag = 0;
+        $inputTel = $request->input('telsearch');
 
         //権限チェック
         if($ng = $this->levelCheck()) return $ng;
@@ -103,7 +104,7 @@ class InputController extends Controller{
         $yoyakuList = yoyaku::yoyakuList($therapistId);
 
         // 電話番号検索
-        $telsearch = kokyaku::telSearch($request->telsearch);
+        $telsearch = kokyaku::telSearch($request->input('telsearch'));
 
         // 予約コース
         yoyaku::courseNameList($yoyakuList);
@@ -118,9 +119,12 @@ class InputController extends Controller{
         $waribikiList = price::waribikiList($miseId);
         $claimList = price::claimList($miseId);  
 
-        if(isset($telsearch)){
+        if($request->input('telsearch')){
             $kokyakuData = $telsearch;
             $formflag = 1;
+
+        log::info($kokyakuData);
+
         }
 
         return view ('input_reservation', [
@@ -130,6 +134,7 @@ class InputController extends Controller{
             'yoyakuList' => $yoyakuList,
             'kokyakuData' => $kokyakuData,
             'formflag' => $formflag,
+            'inputTel' => $inputTel,
             'courseList' => $courseList,
             'visitList' => $visitList,
             'shimeiList' => $shimeiList,

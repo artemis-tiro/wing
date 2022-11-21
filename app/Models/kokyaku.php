@@ -45,9 +45,17 @@ class Kokyaku extends Model
     }
 
     // 電話番号検索
-    public static function telsearch($tel){
-        $kokyaku = kokyaku::where($tel)
-            ->get();
+    public static function telsearch($input){
+
+        // log::info($input);
+        
+        if(!($input)){
+            return null;
+        }
+        $kokyaku = kokyaku::where('tel',$input)
+            ->first();
+
+        // log::info($kokyaku);
 
         return $kokyaku;
     }
