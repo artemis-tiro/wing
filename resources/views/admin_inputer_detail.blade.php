@@ -6,12 +6,12 @@
 
 @section('pan2')
 <?php $inputerName = $inputerDetail->name?$inputerDetail->name:$user->name; ?>
-<li class="breadcrumb-item active" aria-current="page">{{$inputerName}}さん詳細</li>
+<li class="breadcrumb-item active" aria-current="page">{{ $inputerName }}さん詳細</li>
 @stop
 
 @section('content')
-
-                <h1 class="h2">{{$inputerName}}さん詳細</h1>
+ 
+                <h1 class="h2">{{ $inputerName }}さん詳細</h1>
 
                 <div class="card my-4">
                     <!-- カードのタイトル -->
@@ -71,15 +71,15 @@
                     <div class="card-body table-responsive text-nowrap">
                         <!-- テーブル -->
                         <table class="table table-hover">
-                           <tr><td>ユーザーID</td><td>{{$user->id}}</td></tr>
-                           <tr><td>ログインID</td><td>{{$user->name}}</td></tr>
-                           <tr><td>名前</td><td>{{$inputerDetail->name}}</td></tr>
-                           <tr><td>電話番号</td><td>{{$inputerDetail->tel}}</td></tr>
-                           <tr><td>住所</td><td>{{$inputerDetail->address}}</td></tr>
-                           <tr><td>メールアドレス</td><td>{{$inputerDetail->mail}}</td></tr>
-                           <tr><td>生年月日</td><td>{{$inputerDetail->birthday}}</td></tr>
-                           <tr><td>入社日</td><td>{{$inputerDetail->joinday}}</td></tr>
-                           <tr><td>身分証提出</td><td>{{$inputerDetail->kyc}}</td></tr>
+                           <tr><td>ユーザーID</td><td>{{ $user->id }}</td></tr>
+                           <tr><td>ログインID</td><td>{{ $user->name }}</td></tr>
+                           <tr><td>名前</td><td>{{ $inputerDetail->name }}</td></tr>
+                           <tr><td>電話番号</td><td>{{ $inputerDetail->tel }}</td></tr>
+                           <tr><td>住所</td><td>{{ $inputerDetail->address }}</td></tr>
+                           <tr><td>メールアドレス</td><td>{{ $inputerDetail->mail }}</td></tr>
+                           <tr><td>生年月日</td><td>{{ $inputerDetail->birthday }}</td></tr>
+                           <tr><td>入社日</td><td>{{ $inputerDetail->joinday }}</td></tr>
+                           <tr><td>身分証提出</td><td>{{ $inputerDetail->kyc }}</td></tr>
                         </table>
                     </div>
                 </div>

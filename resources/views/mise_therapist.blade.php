@@ -4,15 +4,16 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item"><a href="{{url("/c/".$client->id)}}">{{$client->name}}様</a></li>
-<li class="breadcrumb-item"><a href="{{url("/c/".$client->id.'/'.$mise->id)}}">{{$mise->name}}</a></li>
-<li class="breadcrumb-item active">{{$therapist->business_name}}</li>
+<li class="breadcrumb-item"><a href="{{ url("/c/".$client->id) }}">{{ $client->name }}様</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/c/".$client->id.'/'.$mise->id) }}">{{ $mise->name }}</a></li>
+<li class="breadcrumb-item active">{{ $therapist->business_name }}</li>
 @stop
 
 @section('content')
 
-                <h1 class="h2">{{$therapist->business_name}}詳細</h1>
+                <h1 class="h2">{{ $therapist->business_name }}さん編集</h1>
 
+                <!-- 成績 -->
                 <div class="card my-4">
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">成績</h2>
@@ -83,9 +84,10 @@
                     </div>
                 </div>
 
+                <!-- 詳細 -->
                 <div class="card my-4">
                     <!-- カードのタイトル -->
-                    <h2 class="card-header h5">{{$therapist->business_name}}詳細</h2>
+                    <h2 class="card-header h5">詳細</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
                       ※実装はフェーズ2以降
@@ -95,6 +97,4 @@
                         </ul>
                     </div>
                 </div>
-
-
 @stop

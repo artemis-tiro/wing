@@ -4,14 +4,15 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item"><a href="{{url("/c/".$client->id)}}">{{$client->name}}様</a></li>
-<li class="breadcrumb-item active">{{$mise->name}}</li>
+<li class="breadcrumb-item"><a href="{{ url("/c/".$client->id) }}">{{ $client->name }}様</a></li>
+<li class="breadcrumb-item active">{{ $mise->name }}</li>
 @stop
 
 @section('content')
 
-                <h1 class="h2">{{$mise->name}}詳細</h1>
+                <h1 class="h2">{{ $mise->name }}セラピスト編集</h1>
 
+                <!-- セラピスト一覧 -->
                 <div class="card my-4">
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">セラピスト一覧</h2>
@@ -22,7 +23,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
                             </svg>
-                            <ul><li>{{$mes1}}</li></ul>
+                            <ul><li>{{ $mes1 }}</li></ul>
                         </div>
                         @endif
                         <!-- テーブル -->
@@ -48,14 +49,14 @@
                                      $actionComment = $i->active?'停止':'再開'; 
                                 ?>
 
-                                <tr class="account_{{$action}}">
-                                    <th>{{$loop->index+1}}</th>
-                                    <td>{{$i->loginId}}</td>
-                                    <td><a href="{{url('/c/'.$client->id.'/'.$mise->id.'/'.$i->id)}}">{{$i->business_name}}</a></td>
-                                    <td>{{ Form::open(['url' => url()->current().'/'.$i->id."/edit/backchange",'class'=>'form-horizontal']) }}{{ Form::select('back_name', ['default'=>'default']+$backList, $i->back_name, ['class'=>'form-select form-select-sm pass', 'onchange'=>'submit(this.form)'])}}{{ Form::close() }}</td>
+                                <tr class="account_{{ $action }}">
+                                    <th>{{ $loop->index+1 }}</th>
+                                    <td>{{ $i->loginId }}</td>
+                                    <td><a href="{{ url('/c/'.$client->id.'/'.$mise->id.'/'.$i->id) }}">{{ $i->business_name }}</a></td>
+                                    <td>{{ Form::open(['url' => url()->current().'/'.$i->id."/edit/backchange",'class'=>'form-horizontal']) }}{{ Form::select('back_name', ['default'=>'default']+$backList, $i->back_name, ['class'=>'form-select form-select-sm pass', 'onchange'=>'submit(this.form)']) }}{{ Form::close() }}</td>
                                     <td>-</td>
-                                    <td>{{$active}}</td>
-                                    <td><a class="btn btn-sm btn-info" href="{{url()->current()}}/{{$i->id}}/edit/{{$action}}">{{$actionComment}}</a></td>
+                                    <td>{{ $active }}</td>
+                                    <td><a class="btn btn-sm btn-info" href="{{ url()->current() }}/{{ $i->id }}/edit/{{ $action }}">{{ $actionComment }}</a></td>
                                     <td>
                                         @if(!$i->yoyaku)
                                         @component('componets.modal')
@@ -80,6 +81,7 @@
                     </div>
                 </div>
 
+                <!-- セラピスト新規作成 -->
                 <div class="card my-4 mb-5">
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">セラピスト新規作成</h2>
@@ -93,22 +95,22 @@
                         <label class="row text-nowrap mb-4 text-end">
                             <div class="col-sm-2 lh2 text-end">源氏名 *</div>
                             <div class="col-sm-10">
-                                {{ Form::text('business_name', null, ['class'=>'form-control jq_idToPass', 'required'=>'required'])}}
+                                {{ Form::text('business_name', null, ['class'=>'form-control jq_idToPass', 'autocomplete'=>'off', 'required'=>'required']) }}
                             </div>
                         </label>
 
                         <label class="row text-nowrap mb-4 text-end">
                             <div class="col-sm-2 lh2 text-end">ログインID *</div>
                             <div class="col-sm-10">
-                                {{ Form::text('login_id', null, ['class'=>'form-control jq_idToPass', 'required'=>'required', 'pattern'=>'^[0-9a-zA-Z\\-\\_]+$', 'title'=>'半角英数、ハイフン、アンダーバーのみ'])}}
-                                <div class="form-text">「店名_源氏名」半角英数字、ユニーク。</div>
+                                {{ Form::text('login_id', null, ['class'=>'form-control jq_idToPass', 'autocomplete'=>'off', 'required'=>'required', 'pattern'=>'^[0-9a-zA-Z\\-\\_]+$', 'title'=>'半角英数、ハイフン、アンダーバーのみ']) }}
+                                <div class="form-text">「店名_源氏名」半角英数字。</div>
                             </div>
                         </label>
 
                         <label class="row text-nowrap mb-4">
                             <span class="col-sm-2 lh2">パスワード *</span>
                             <div class="col-sm-10">
-                                {{ Form::text('pass', null, ['class'=>'form-control pass', 'required'=>'required', 'disabled'=>'disabled'])}}
+                                {{ Form::text('pass', null, ['class'=>'form-control pass', 'required'=>'required', 'disabled'=>'disabled']) }}
                                 <div class="form-text">初期値はログインIDと同じ。</div>
                             </div>
                         </label>
@@ -116,19 +118,20 @@
                         <label class="row text-nowrap mb-4">
                             <span class="col-sm-2 lh2">給料形態 *</span>
                             <div class="col-sm-10">
-                                {{ Form::select('back_name', ['default'=>'default']+$backList, 'default', ['class'=>'form-select pass', 'required'=>'required'])}}
+                                {{ Form::select('back_name', ['default'=>'default']+$backList, 'default', ['class'=>'form-select pass', 'required'=>'required']) }}
                             </div>
                         </label>
 
-                        {{ Form::submit('セラピスト作成',["class"=>"m-2 btn btn-info"])}}
+                        {{ Form::submit('セラピスト作成',["class"=>"btn btn-info"]) }}
                         {{ Form::close() }}
                     </div>
                 </div>
 
+                <!-- 料金システム登録 -->
                 @php
-                    $priceRequest = $courseExist? null: '<span class="priceRequest">　※料金システムを登録して下さい。</span>';
-                    $lockMes = $courseExist? null: '<span class="priceRequest">　※料金システムを登録後に編集できます。</span>';
-                    $backNotComplete = '<span class="priceRequest">　※バックを登録してください。</span>';
+                    $priceRequest = $courseExist? null: '<span class="priceRequest">※料金システムを登録して下さい。</span>';
+                    $lockMes = $courseExist? null: '<span class="priceRequest">※料金システムを登録後に編集できます。</span>';
+                    $backNotComplete = '<span class="priceRequest">※バックを登録してください。</span>';
                     $ccc = $courseExist? null: 'ccc';
                 @endphp
                 <div class="card">
@@ -136,11 +139,12 @@
                     <h2 class="card-header h5">料金システム</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
-                        <div><a class="btn btn-info" href="{{ url()->current() }}/price">料金システム登録</a>{!!$priceRequest!!}</div>
+                        <div><a class="btn btn-info" href="{{ url()->current() }}/price">料金システム編集</a>{!!$priceRequest!!}</div>
                     </div>
                 </div>
 
-                <div class="card my-4 {{$ccc}}">
+                <!-- バック一覧 -->
+                <div class="card my-4 {{ $ccc }}">
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">給料形態一覧 {!!$lockMes!!}</h2>
                     <!-- カードの要素 -->
@@ -150,16 +154,16 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
                             </svg>
-                            <ul><li>{{$mes4}}</li></ul>
+                            <ul><li>{{ $mes4 }}</li></ul>
                         </div>
                         @endif
 
                         <table>
                             @foreach($backList2 as $b)
                             <tr>
-                                <th>{{$b['name']}}</th>
-                                <td>　　<a class="btn btn-sm btn-info" href="{{url()->current()}}/back/{{$b['name']}}">編集</a></td>
-                                <td>　　
+                                <th>{{ $b['name'] }}</th>
+                                <td><a class="btn btn-sm btn-info" href="{{ url()->current() }}/back/{{ $b['name'] }}">編集</a></td>
+                                <td>
                                 @if($b['name'] != 'default')
                                 @component('componets.modal')
                                     @slot('type', 'del')
@@ -174,24 +178,31 @@
                             </tr>
                             @endforeach
                         </table>
+
+
+
 {{--                        
                         <div class="row">
-                            <div class="mt-2 col-sm-1 text-end">default</div>
-                            <div class="col-sm-1"><a class="btn btn-info" href="{{ url()->current() }}/back/default">編集</a></div>
+                            <div class="mt-2 col-sm-2 text-end">default</div>
+                            <div class="col-sm-2"><a class="btn btn-info" href="{{ url()->current() }}/back/default">編集</a></div>
                         </div>
 
                         <div class="mt-2 row">
                             @foreach($backList2 as $b)
-                                <div class="mt-2 col-sm-1 text-end">{{ $b }}</div>
-                                <div class="col-sm-1"><a class="btn btn-info" href="{{ url()->current() }}/back/{{ $b }}">編集</a></div>
-                                <div class="col-sm-1"><a class="btn btn-danger" href="{{ url()->current() }}/back/{{ $b }}/del">削除</a></div>
+                                <div class="mt-2 col-sm-2 text-end">{{ $b }}</div>
+                                <div class="col-sm-2"><a class="btn btn-info" href="{{ url()->current() }}/back/{{ $b }}">編集</a></div>
+                                <div class="col-sm-2"><a class="btn btn-danger" href="{{ url()->current() }}/back/{{ $b }}/del">削除</a></div>
                             @endforeach
                         </div>
 --}}                    
+
+
+
                     </div>
                 </div>
 
-                <div class="card my-4 {{$ccc}}">
+                <!-- バック新規作成 -->
+                <div class="card my-4 {{ $ccc }}">
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">給料形態新規作成 {!!$lockMes!!}</h2>
                     <!-- カードの要素 -->
@@ -201,28 +212,29 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
                             </svg>
-                            <ul><li>{{$newBackMessage}}</li></ul>
+                            <ul><li>{{ $newBackMessage }}</li></ul>
                         </div>
                         @endif
-                        {{ Form::open(['url' => url('/c/'.$client->id.'/'.$mise->id.'/newback'),'class'=>'form-horizontal']) }}
+                        {{ Form::open(['url' => url('/c/'.$client->id.'/'.$mise->id.'/newback'),'class'=>'form-horizontal', 'autocomplete'=>'off']) }}
                         <label class="row text-nowrap mb-4 text-end">
                             <div class="col-sm-2 lh2 text-end">バック名 *</div>
                             <div class="col-sm-10">
-                                {{ Form::text('back_name', null, ['class'=>'form-control jq_idToPass', 'required'=>'required'])}}
+                                {{ Form::text('back_name', null, ['class'=>'form-control jq_idToPass', 'required'=>'required']) }}
                             </div>
                         </label>
 
                         <label class="row text-nowrap mb-4 text-end">
                             <div class="col-sm-2 lh2 text-end">defaultをコピーする</div>
                             <div class="col-sm-10">
-                                {{ Form::checkbox('copy', null, true, ['class'=>'form-check-input'])}}
+                                {{ Form::checkbox('copy', null, true, ['class'=>'form-check-input', 'autocomplete'=>'off']) }}
                             </div>
                         </label>
-                        {{ Form::submit('バック作成',["class"=>"m-2 btn btn-info"])}}
+                        {{ Form::submit('バック作成',["class"=>"btn btn-info"]) }}
                         {{ Form::close() }}
                     </div>
                 </div>
 
+                <!-- ヒアリングシート -->
                 <div class="card my-4">
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">ヒアリングシート</h2>
@@ -233,7 +245,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
                             </svg>
-                            <ul><li>{{$mes6}}</li></ul>
+                            <ul><li>{{ $mes6 }}</li></ul>
                         </div>
                         @endif
                         <p>{!! nl2br(e($mise->hearing_sheet)) !!}</p>
@@ -245,6 +257,7 @@
                     </div>
                 </div>
 
+                <!-- ルーム一覧 -->
                 <div class="card my-4">
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">ルーム一覧</h2>
@@ -260,6 +273,7 @@
                     </div>
                 </div>
 
+                <!-- ルーム新規作成 -->
                 <div class="card my-4">
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">ルーム新規作成</h2>

@@ -100,7 +100,6 @@ class TiroController extends Controller{
         return back();
     }
 
-
     //なりすまし
     public function nari($team){
         //権限チェック

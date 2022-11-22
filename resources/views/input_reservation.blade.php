@@ -48,7 +48,7 @@
                                     <!-- 終了時間を来店日時＋コース時間で表示 -->
                                     <td>
                                         {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('m/d H:i') }} ~ 
-                                        {{-- date('m/d H:i',strtotime(" \Carbon\Carbon::createFromTimeString($y->visit_day)->format('m/d H:i') +0 seconds +210 min +0 hours")) --}}
+                                        {{ date('m/d H:i',strtotime(" $y->visit_day +210 min ")) }}
                                         
                                     </td>
 
