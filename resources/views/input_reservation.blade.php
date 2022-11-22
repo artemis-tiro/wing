@@ -4,9 +4,9 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item"><a href="{{url("/i")}}">店舗一覧</a></li>
-<li class="breadcrumb-item"><a href="{{url("/i/".$mise->id)}}">{{$mise->name}}</a></li>
-<li class="breadcrumb-item active">{{$therapist->business_name}}</li>
+<li class="breadcrumb-item"><a href="{{ url("/i") }}">店舗一覧</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/i/".$mise->id) }}">{{ $mise->name }}</a></li>
+<li class="breadcrumb-item active">{{ $therapist->business_name }}</li>
 @stop
 
 @section('content')
@@ -14,7 +14,7 @@
     $teamName = App\Models\user::teamName(auth()->user()->team);
 ?>
 
-                <h1 class="h2">{{$therapist->business_name}}スケジュール</h1>
+                <h1 class="h2">{{ $therapist->business_name }}さんスケジュール</h1>
 
                 <!-- 予約リスト -->
                 <div class="card my-4">
@@ -39,7 +39,7 @@
                             <tbody>
                                 @foreach($yoyakuList  as $y)
                                 <tr>
-                                    <th>{{$loop->index+1}}</th>
+                                    <th>{{ $loop->index+1 }}</th>
 
                                     <!-- 非同期処理 -->
                                     <!-- で来店日時とコース時間を参照してステータスを変動 -->
@@ -49,7 +49,6 @@
                                     <td>
                                         {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('m/d H:i') }} ~ 
                                         {{ date('m/d H:i',strtotime(" $y->visit_day +210 min ")) }}
-                                        
                                     </td>
 
                                     <!-- priceテーブル作成まで仮 -->
@@ -84,7 +83,7 @@
                         </table>
 
 
-                        <a class="m-2 btn btn-info" href="{{url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo')}}">給料計算へ</a>
+                        <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}">給料計算へ</a>
 
 
                     </div>
@@ -97,7 +96,7 @@
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
                         @foreach($yoyakuList  as $y)
-                            <span>{{$loop->index+1}}</span>
+                            <span>{{ $loop->index+1 }}</span>
                             
                             <!-- 指名 -->
                             <span>
@@ -121,12 +120,12 @@
                             <span>{{ $kokyakuList[$y->kokyaku_id]->name.' 様' }}</span>
 
                             <!-- 発生料金 -->
-                            <span>合計 ..</span>
+                            <span>合計 {{ $y->totalPrice }}円</span>
 
                             <!-- 予約時間 -->
                             <span>
-                                {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('m/d H:i') }} ~ 
-                                
+                                {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('H:i') }} ~ 
+                                {{ date('H:i',strtotime(" $y->visit_day +210 min ")) }}
                             </span>
 
                             <br>
@@ -151,7 +150,7 @@
                         <label class="row text-nowrap text-end">
                             <div class="mt-2 col-sm-2 text-end">電話番号<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                             <div class="col-sm-2">
-                                {{ Form::number('telsearch', null, ['class'=>'form-control', 'autocomplete'=>'off', 'required'])}}
+                                {{ Form::number('telsearch', null, ['class'=>'form-control', 'autocomplete'=>'off', 'required']) }}
                             </div>
                             <div class="col-sm-1">{{ Form::submit('検索',["class"=>"btn btn-info"]) }}</div>
                         </label>
@@ -174,7 +173,7 @@
                             <div class="mt-2 col-sm-2 text-end">電話番号<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                             <div class="col-sm-2">
                                 @php $tel=isset($kokyakuData->tel)? $kokyakuData->tel: $inputTel; @endphp
-                                {{ Form::number('tel', $tel, ['class'=>'form-control', 'autocomplete'=>'off', 'required'])}}
+                                {{ Form::number('tel', $tel, ['class'=>'form-control', 'autocomplete'=>'off', 'required']) }}
                             </div>
                         </label>
                         
@@ -182,10 +181,10 @@
                         <label class="row text-nowrap mb-4 text-end">
                             <div class="col-sm-2 text-end">開始時間<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                             <div class="col-sm-2">
-                                {{ Form::date('start_day', null, ['class'=>'form-control', 'max'=>'2032-12-31', 'required'])}}
+                                {{ Form::date('start_day', null, ['class'=>'form-control', 'max'=>'2032-12-31', 'required']) }}
                             </div>
                             <div class="col-sm-2">
-                                {{ Form::time('start_time', null, ['class'=>'form-control', 'step'=>'300', 'required'])}}
+                                {{ Form::time('start_time', null, ['class'=>'form-control', 'step'=>'300', 'required']) }}
                             </div>
                         </label>
 
@@ -194,7 +193,7 @@
                             <div class="col-sm-2 text-end">顧客名<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                             <div class="col-sm-10">
                                 @php $name=isset($kokyakuData->name)? $kokyakuData->name: null; @endphp
-                                {{ Form::text('name', $name, ['class'=>'form-control', 'autocomplete'=>'off', 'required'])}}
+                                {{ Form::text('name', $name, ['class'=>'form-control', 'autocomplete'=>'off', 'required']) }}
                             </div>
                         </label>
 
@@ -203,7 +202,7 @@
                             <div class="col-sm-2 text-end">Email<span class="mx-2 badge rounded-pill bg-secondary">任意</span></div>
                             <div class="col-sm-10">
                                 @php $mail=isset($kokyakuData->mail)? $kokyakuData->mail: null; @endphp
-                                {{ Form::text('mail', $mail, ['class'=>'form-control', 'autocomplete'=>'off'])}}
+                                {{ Form::text('mail', $mail, ['class'=>'form-control', 'autocomplete'=>'off']) }}
                             </div>
                         </label>
 
@@ -325,7 +324,7 @@
                         <label class="row text-nowrap mb-4">
                             <span class="col-sm-2">メモ<span class="mx-2 badge rounded-pill bg-secondary">任意</span></span>
                             <div class="col-sm-10">
-                                {{ Form::textarea('memo', null, ['class'=>'form-control'])}}
+                                {{ Form::textarea('memo', null, ['class'=>'form-control']) }}
                             </div>
                         </label>
 
@@ -336,7 +335,7 @@
                         </label>
                         
                         <!-- 送信ボタン -->
-                        {{ Form::submit('新規予約',["class"=>"m-2 btn btn-info"])}}
+                        {{ Form::submit('新規予約',["class"=>"m-2 btn btn-info"]) }}
 
                         <!-- フォームの終わり -->
                         {{ Form::close() }}

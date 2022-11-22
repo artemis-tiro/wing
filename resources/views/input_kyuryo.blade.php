@@ -4,9 +4,9 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item"><a href="{{url("/i")}}">店舗一覧</a></li>
-<li class="breadcrumb-item"><a href="{{url("/i/".$mise->id)}}">{{$mise->name}}</a></li>
-<li class="breadcrumb-item"><a href="{{url('/i/'.$mise->id.'/'.$therapist->id.'/')}}">{{$therapist->business_name}}</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/i") }}">店舗一覧</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/i/".$mise->id) }}">{{ $mise->name }}</a></li>
+<li class="breadcrumb-item"><a href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/') }}">{{ $therapist->business_name }}</a></li>
 <li class="breadcrumb-item active">給与計算</li>
 
 <li class="breadcrumb-item active"></li>
@@ -26,7 +26,7 @@
                     <!-- 調整金の後ろに給与形態も出す -->
 
                     <!-- カードのタイトル -->
-                    <h2 class="card-header h5">{{$therapist->business_name}}(給与形態)</h2>
+                    <h2 class="card-header h5">調整金</h2>
 
                     <!-- カードの要素 -->
                     <div class="card-body">
@@ -39,58 +39,61 @@
                     @include('common.success')
 
                     <!-- ポーチ -->
-                    <label class="row text-nowrap text-end">
+                    <div class="row text-nowrap text-end">
                         <h3 class="col-sm-2 lh2 h6 text-end">ポーチ朝一</h3>
-                    </label>
+                    </div>
 
-                    <label class="row text-nowrap mb-4 text-end">
-                        <div class="col-sm-5">
-                            {{ Form::number('pouch', null, ['class'=>'form-control'])}}
+                    <div class="row text-nowrap mb-4 text-end">
+                        <div class="col input-group">
+                            {{ Form::number('pouch', null, ['class'=>'form-control']) }}
+                            <span class="input-group-text">円</span>
                         </div>
-                        <div class="col-sm-1 mt-2">円</div>
-                        <div class="col-sm-1"><a class="btn btn-info" href="">確定</a></div>
-                    </label>
+
+                        <!-- input-groupの大きさを調整 -->
+                        <div class="col"></div>
+                        <div class="col"></div>
+                    </div>
 
                     <!-- 調整金 -->
-                    <label class="row text-nowrap text-end">
+                    <div class="row text-nowrap text-end">
                         <h3 class="col-sm-2 lh2 h6 text-end">調整金</h3>
-                    </label>
+                    </div>
 
-                    <label class="row text-nowrap mb-4 text-end">
+                    <div class="row text-nowrap mb-4 text-end">
                         <div class="col-sm-5">
-                            {{ Form::text('name', null, ['class'=>'form-control'])}}
+                            {{ Form::text('name', null, ['class'=>'form-control']) }}
                         </div>
-                        <div class="col-sm-3">
-                            {{ Form::number('name', null, ['class'=>'form-control'])}}
+                        <div class="col input-group">
+                            {{ Form::number('name', null, ['class'=>'form-control']) }}
+                            <span class="input-group-text">円</span>
                         </div>
-                        <div class="col-sm-1 mt-2">円</div>
-                        <div class="col-sm-1"><a class="btn btn-info" href="">確定</a></div>
-                    </label>
+                        <div class="col"></div>
+                    </div>
 
-                    <label class="row text-nowrap mb-4 text-end">
+                    <div class="row text-nowrap mb-4 text-end">
                         <div class="col-sm-5">
-                            {{ Form::text('name', null, ['class'=>'form-control'])}}
+                            {{ Form::text('name', null, ['class'=>'form-control']) }}
                         </div>
-                        <div class="col-sm-3">
-                            {{ Form::number('name', null, ['class'=>'form-control'])}}
+                        <div class="col input-group">
+                            {{ Form::number('name', null, ['class'=>'form-control']) }}
+                            <span class="input-group-text">円</span>
                         </div>
-                        <div class="col-sm-1 mt-2">円</div>
-                        <div class="col-sm-1"><a class="btn btn-info" href="">確定</a></div>
-                    </label>
+                        <div class="col"></div>
+                    </div>
 
-                    <label class="row text-nowrap mb-4 text-end">
+                    <div class="row text-nowrap mb-4 text-end">
                         <div class="col-sm-5">
-                            {{ Form::text('name', null, ['class'=>'form-control'])}}
+                            {{ Form::text('name', null, ['class'=>'form-control']) }}
                         </div>
-                        <div class="col-sm-3">
-                            {{ Form::number('name', null, ['class'=>'form-control'])}}
+                        <div class="col input-group">
+                            {{ Form::number('name', null, ['class'=>'form-control']) }}
+                            <span class="input-group-text">円</span>
                         </div>
-                        <div class="col-sm-1 mt-2">円</div>
-                        <div class="col-sm-1"><a class="btn btn-info" href="">確定</a></div>
-                    </label>
+                        <div class="col"></div>
+                    </div>
                     
                     <!-- 送信ボタン -->
-                    {{ Form::submit('給料計算',["class"=>"m-2 btn btn-info"])}}
+                    {{ Form::submit('給料計算',["class"=>"btn btn-info"]) }}
 
                     <!-- フォームの終わり -->
                     {{ Form::close() }}
@@ -105,7 +108,7 @@
                     <div class="card-body table-responsive text-nowrap">
 
                         <!-- セラピスト名 -->
-                        {{$therapist->business_name}}
+                        {{ $therapist->business_name }}
 
                         <br>
                         <br>
@@ -126,7 +129,7 @@
                         <!-- ポーチ最終金額 -->
 
                         @foreach($yoyakuList  as $y)
-                            <span>{{$loop->index+1}}</span>
+                            <span>{{ $loop->index+1 }}</span>
                             
                             <!-- 指名 -->
                             <span>
@@ -176,7 +179,7 @@
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
                         @foreach($yoyakuList  as $y)
-                            <span>{{$loop->index+1}}</span>
+                            <span>{{ $loop->index+1 }}</span>
                             
                             <!-- ループして各施術？の詳細表示 -->
                             <!-- 〇件目 -->

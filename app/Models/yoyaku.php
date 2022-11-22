@@ -24,10 +24,22 @@ class Yoyaku extends Model
 
     // 予約コース取得
     public static function courseNameList($yoyakuList){
+
+        $price = 0;
+
         foreach($yoyakuList as $y){
             $priceList = $y->price_id_list;
             $priceId = explode('P', $priceList);
+
+            // $yoyakuListに「courseName」を追加
             $y->courseName = price::getCourseName($priceId);
+
+            // $yoyakuListに「totalPrice」を追加
+            $price +=  price::getCoursePrice($priceId);
+
+            LOG::info($price);
+
+            $y->totalPrice = $price;
         }
         return null;
     }
