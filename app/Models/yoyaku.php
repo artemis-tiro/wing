@@ -34,12 +34,14 @@ class Yoyaku extends Model
             // $yoyakuListに「courseName」を追加
             $y->courseName = price::getCourseName($priceId);
 
+            // $yoyakuListに「courseShimei」を追加
+            $y->courseShimei = price::getCourseShimei($priceId);
+
             // $yoyakuListに「totalPrice」を追加
-            $price +=  price::getCoursePrice($priceId);
+            $y->totalPrice =  price::getCoursePrice($priceId);
 
-            LOG::info($price);
-
-            $y->totalPrice = $price;
+            // $yoyakuListに「courseTime」を追加
+            $y->courseTime =  price::getCourseTime($priceId);
         }
         return null;
     }
@@ -88,16 +90,11 @@ class Yoyaku extends Model
                 $courseName = price::where('id',$input[$arr])
                     ->value('name');
 
-                Log::info($courseName);
-
                 // BackDBをprice_nameとnameで検索してidを取得
                 $backId = back::where('mise_id', $miseId)
                     ->where('price_name', $courseName)
                     ->where('name', $therapistBack)
                     ->value('id');
-
-                Log::info($backId);
-
 
                 $input_back_id .= 'B'.$backId;
             }
@@ -114,14 +111,6 @@ class Yoyaku extends Model
         $yoyaku->back_id_list = $input_back_id;
 
         $yoyaku->visit_day = $input['start_day'].' '.$input['start_time'];
-
-        // $shimei = isset($input['shimei'])? $input['shimei']: 0; //三項演算子
-
-        // if(isset($input['shimei'])){ //上の三項演算子と同じ
-        //     $shimei = $input['shimei'];
-        // }else{
-        //     $shimei = 0;
-        // }
         
         // 削除されるカラム
         $yoyaku->shimei = null;

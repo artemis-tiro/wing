@@ -136,7 +136,7 @@ class price extends Model
     public static function waribikiAutoList($miseId){
         $priceList = price::where('mise_id', $miseId)
             ->where('type', 'waribikiAuto')
-            ->get();
+            ->first();
         return $priceList;
     }
 
@@ -176,20 +176,41 @@ class price extends Model
         return $result;
     }
 
+    // 指名取得
+    public static function getCourseShimei($priceIdList){
+        foreach($priceIdList as $p){
+            $courseName = price::find($p);
+            if(!$courseName) continue;
+            if($courseName->type == 'shimei'){
+                return $courseName->name;
+            }
+        }
+    }
+
+    // コース時間取得
+    public static function getCoursetime($priceIdList){
+        foreach($priceIdList as $p){
+            $courseName = price::find($p);
+            if(!$courseName) continue;
+            if($courseName->type == 'course'){
+                return $courseName->time;
+            }
+        }
+    }
+
     // コース金額取得
     public static function getCoursePrice($priceIdList){
+
+        $totalPrice = 0;
+
         foreach($priceIdList as $p){
             
             $coursePrice = price::find($p);
 
-            
-            // if(!$coursePrice->price) continue;
-
-            // LOG::info($coursePrice->price);
-
             if($coursePrice){
-                return $coursePrice->price;
+                $totalPrice += $coursePrice->price;
             }
         }
+        return $totalPrice;
     }
 }

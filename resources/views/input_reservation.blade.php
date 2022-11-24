@@ -4,7 +4,7 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item"><a href="{{ url("/i") }}">店舗一覧</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/i") }}">店舗編集</a></li>
 <li class="breadcrumb-item"><a href="{{ url("/i/".$mise->id) }}">{{ $mise->name }}</a></li>
 <li class="breadcrumb-item active">{{ $therapist->business_name }}</li>
 @stop
@@ -54,19 +54,7 @@
                                     <!-- priceテーブル作成まで仮 -->
                                     <td>{{ $y->courseName }}</td>
                                      
-                                    <td>
-                                        @switch($y->shimei)
-                                            @case (1)
-                                                フリー
-                                                @break
-                                            @case (2)
-                                                ネット指名
-                                                @break
-                                            @case (3)
-                                                本指名
-                                                @break
-                                        @endswitch
-                                    </td>
+                                    <td>{{ $y->courseShimei }}</td>
 
                                     <td>{{ $kokyakuList[$y->kokyaku_id]->name.' 様' }}</td>
                                     
@@ -99,19 +87,7 @@
                             <span>{{ $loop->index+1 }}</span>
                             
                             <!-- 指名 -->
-                            <span>
-                                @switch($y->shimei)
-                                    @case (1)
-                                        フリー
-                                        @break
-                                    @case (2)
-                                        ネット指名
-                                        @break
-                                    @case (3)
-                                        本指名
-                                        @break
-                                @endswitch
-                            </span>
+                            <span>{{ $y->courseShimei }}</span>
 
                             <!-- コース -->
                             <span>{{ $y->courseName }}</span>
@@ -125,7 +101,7 @@
                             <!-- 予約時間 -->
                             <span>
                                 {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('H:i') }} ~ 
-                                {{ date('H:i',strtotime(" $y->visit_day +210 min ")) }}
+                                {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min ")) }}
                             </span>
 
                             <br>
@@ -280,14 +256,14 @@
                         <div class="row text-nowrap mb-4 text-end">
                             <div class="col-sm-2 text-end">自動割引<span class="mx-2 badge rounded-pill bg-secondary">自動選択</span></div>
                             
-                            <div class="col-sm-1 btn bg-danger text-white waribikiAutoMany">{{ $waribikiAutoList[0]->price }}円</div>
+                            <div class="col-sm-1 btn bg-danger text-white waribikiAutoMany">{{ $waribikiAutoList->price }}円</div>
 
-                            @foreach($waribikiAutoList  as $wa)
-                                <label class="col-sm-1">
-                                    {{ Form::radio('waribikiAuto', $wa->id, true, ['class'=>'form-check-input', 'disabled'=>'disabled']) }}
-                                    {{ $wa->name }}
-                                </label>
-                            @endforeach
+                            <label class="col-sm-1">
+                                {{ Form::radio('waribikiAuto_display', $waribikiAutoList->id, true, ['class'=>'form-check-input', 'disabled'=>'disabled']) }}
+                                {{ Form::hidden('waribikiAuto', $waribikiAutoList->id) }}
+                                {{ $waribikiAutoList->name }}
+                            </label>
+
                         </div>
 
                         <!-- 追加割引 -->
