@@ -20,8 +20,21 @@ class MypageController extends Controller{
         // アクセス情報取得
         $accessLevel = Auth::user()->access_level;
 
+        switch ($accessLevel) {
+            case 'therapist':
+                $mydeta = therapist::detail(Auth::user()->id);
+                break;
+            case 'client':
+                $mydeta = client::detail(Auth::user()->id);
+                break;
+            case 'inputer':
+                $mydeta = inputer::detail(Auth::user()->id);
+                break;
+        }
+
         return view ('mypage', [
             'accessLevel' => $accessLevel,
+            'mydeta' => $mydeta,
             'error' => session('error'),
             'message' => session('message'),
        ]);
@@ -175,6 +188,32 @@ class MypageController extends Controller{
                 break;
             case 'inputer':
                 $result = inputer::inputerMailEdit(Auth::user()->id,$request);
+                break;
+        }
+
+        if($result){
+            return back()->with(['message' => '変更されました。']);
+        }else{
+            return back()->with(['error' => '変更されませんでした。']);
+        }
+
+        return back();
+
+    }
+
+    // 生年月日の変更
+    public function birthdachange(Request $request){
+
+        // DB更新
+        switch ($accessLevel) {
+            case 'therapist':
+                $result = therapist::therapistBirthdayEdit(Auth::user()->id,$request);
+                break;
+            case 'client':
+                $result = client::clientBirthdaEdit(Auth::user()->id,$request);
+                break;
+            case 'inputer':
+                $result = inputer::inputerBirthdaEdit(Auth::user()->id,$request);
                 break;
         }
 

@@ -102,7 +102,7 @@ class InputController extends Controller{
         $kokyakuList = kokyaku::kokyakuList();
 
         // 予約一覧
-        $yoyakuList = yoyaku::yoyakuList($therapistId);
+        $yoyakuList = yoyaku::yoyakuList($therapistId, date('Y-m-d'));
 
         // 電話番号検索
         $telsearch = kokyaku::telSearch($request->input('telsearch'));
@@ -220,7 +220,7 @@ class InputController extends Controller{
         $kokyakuList = kokyaku::kokyakuList();
 
         // 予約一覧
-        $yoyakuList = yoyaku::yoyakuList($therapistId);
+        $yoyakuList = yoyaku::yoyakuList($therapistId, date('Y-m-d'));
 
         // 予約一覧
         $adjustList = kyuryo::adjustList($miseId, $therapistId);

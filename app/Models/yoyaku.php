@@ -16,8 +16,9 @@ class Yoyaku extends Model
     protected $guarded = [''];
 
     // 予約一覧
-    public static function yoyakuList($therapistId){
+    public static function yoyakuList($therapistId,$time){
         $yoyakuList = yoyaku::where('therapist_id', $therapistId)
+            ->whereBetween('visit_day', [$time.' 00:00:00', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
             ->get();
         return $yoyakuList;
     }
@@ -25,23 +26,53 @@ class Yoyaku extends Model
     // 予約コース取得
     public static function courseNameList($yoyakuList){
 
-        $price = 0;
-
         foreach($yoyakuList as $y){
             $priceList = $y->price_id_list;
             $priceId = explode('P', $priceList);
 
+            $backList = $y->back_id_list;
+            $backId = explode('B', $backList);
+
             // $yoyakuListに「courseName」を追加
+            // コース名を取得
             $y->courseName = price::getCourseName($priceId);
 
             // $yoyakuListに「courseShimei」を追加
+            // 指名を取得
             $y->courseShimei = price::getCourseShimei($priceId);
 
+            // $yoyakuListに「coursePrice」を追加
+            // コース金額を取得
+            $y->coursePrice =  price::getCoursePrice($priceId);
+
             // $yoyakuListに「totalPrice」を追加
-            $y->totalPrice =  price::getCoursePrice($priceId);
+            // 指名金額を取得
+            $y->shimeiPrice =  price::getShimeiPrice($priceId);
+
+            // $yoyakuListに「totalPrice」を追加
+            // オプション金額を取得
+            $y->optionPrice =  price::getOptionPrice($priceId);
+
+            // $yoyakuListに「totalPrice」を追加
+            // コース総額を取得
+            $y->totalPrice =  price::getTotalPrice($priceId);
 
             // $yoyakuListに「courseTime」を追加
+            // コース時間を取得
             $y->courseTime =  price::getCourseTime($priceId);
+
+            // $yoyakuListに「courseTime」を追加
+            // コース時間を取得
+            $y->courseBack =  back::getCoursePrice($backId[1]);
+
+            // $yoyakuListに「courseTime」を追加
+            // コース時間を取得
+            $y->shimeiBack =  back::getShimeiPrice($backId[3]);
+
+            // $yoyakuListに「courseTime」を追加
+            // コース時間を取得
+            $y->optionBack =  back::getOptionPrice($backId[5]);
+
         }
         return null;
     }

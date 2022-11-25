@@ -158,46 +158,38 @@
                         </div>
                         @endif
 
-                        <table>
-                            @foreach($backList2 as $b)
-                            <tr>
-                                <th>{{ $b['name'] }}</th>
-                                <td><a class="btn btn-sm btn-info" href="{{ url()->current() }}/back/{{ $b['name'] }}">編集</a></td>
-                                <td>
-                                @if($b['name'] != 'default')
-                                @component('componets.modal')
-                                    @slot('type', 'del')
-                                    @slot('name', $b['name'])
-                                    @slot('id', $b['name'])
-                                    @slot('text', $b['name']."のセラピストはdefaultになります。")
-                                    @slot('url', url()->current()."/back/".$b['name']."/del")
-                                @endcomponent
-                                @endif
-                                </td>
-                                <td>@if(!$priceRequest && !$b['complete']) {!!$backNotComplete!!} @endif</td>
-                            </tr>
-                            @endforeach
+                        <table class="table table-hover">
+                            <thead>
+                                <!-- カテゴリ -->
+                                <tr>
+                                    <th scope="col">バック名</th>
+                                    <th scope="col"></th>
+                                    <!-- ボタン表示 -->
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($backList2 as $b)
+                                <tr>
+                                    <th>{{ $b['name'] }}</th>
+                                    <td><a class="btn btn-sm btn-info" href="{{ url()->current() }}/back/{{ $b['name'] }}">編集</a></td>
+                                    <td>
+                                    @if($b['name'] != 'default')
+                                    @component('componets.modal')
+                                        @slot('type', 'del')
+                                        @slot('name', $b['name'])
+                                        @slot('id', $b['name'])
+                                        @slot('text', $b['name']."のセラピストはdefaultになります。")
+                                        @slot('url', url()->current()."/back/".$b['name']."/del")
+                                    @endcomponent
+                                    @endif
+                                    </td>
+                                    <td>@if(!$priceRequest && !$b['complete']) {!!$backNotComplete!!} @endif</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
                         </table>
-
-
-
-{{--                        
-                        <div class="row">
-                            <div class="mt-2 col-sm-2 text-end">default</div>
-                            <div class="col-sm-2"><a class="btn btn-info" href="{{ url()->current() }}/back/default">編集</a></div>
-                        </div>
-
-                        <div class="mt-2 row">
-                            @foreach($backList2 as $b)
-                                <div class="mt-2 col-sm-2 text-end">{{ $b }}</div>
-                                <div class="col-sm-2"><a class="btn btn-info" href="{{ url()->current() }}/back/{{ $b }}">編集</a></div>
-                                <div class="col-sm-2"><a class="btn btn-danger" href="{{ url()->current() }}/back/{{ $b }}/del">削除</a></div>
-                            @endforeach
-                        </div>
---}}                    
-
-
-
                     </div>
                 </div>
 

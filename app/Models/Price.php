@@ -200,6 +200,39 @@ class price extends Model
 
     // コース金額取得
     public static function getCoursePrice($priceIdList){
+        foreach($priceIdList as $p){
+            $courseName = price::find($p);
+            if(!$courseName) continue;
+            if($courseName->type == 'course'){
+                return $courseName->price;
+            }
+        }
+    }
+
+    // 指名金額取得
+    public static function getShimeiPrice($priceIdList){
+        foreach($priceIdList as $p){
+            $courseName = price::find($p);
+            if(!$courseName) continue;
+            if($courseName->type == 'shimei'){
+                return $courseName->price;
+            }
+        }
+    }
+
+    // オプション金額取得
+    public static function getOptionPrice($priceIdList){
+        foreach($priceIdList as $p){
+            $courseName = price::find($p);
+            if(!$courseName) continue;
+            if($courseName->type == 'option'){
+                return $courseName->price;
+            }
+        }
+    }
+
+    // コース総額取得
+    public static function getTotalPrice($priceIdList){
 
         $totalPrice = 0;
 

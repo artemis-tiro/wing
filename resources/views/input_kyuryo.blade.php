@@ -150,7 +150,7 @@
                             <!-- 時間　＋　指名　＋　コース　＋　お客様名　＋　電話 -->
                             <span>
                                 <!-- 予約時間 -->
-                                {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('H:i') }} ~ 
+                                {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('H:i') }}~ 
 
                                 <!-- 指名 -->
                                 {{ $y->courseShimei }}
@@ -161,34 +161,33 @@
                                 <!-- お客様名 -->
                                 {{ $kokyakuList[$y->kokyaku_id]->name.' 様' }}
 
-                                <!-- お客様電話番号 -->
-                                <!-- 下四桁のみ表示 -->
-                                {{ $kokyakuList[$y->kokyaku_id]->tel }}
+                                <!-- お客様電話番号(下四桁のみ表示) -->
+                                {{ substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4) }}
                             </span>
 
                             <!-- お客様支払 -->
                             <span>・お客様支払</span>
 
                             <!-- コース金額 -->
-                            <span>基本料金 {{-- コース金額 --}}円</span>
+                            <span>基本料金  {{ $y->coursePrice }}円</span>
 
                             <!-- 指名 -->
-                            <span>{{-- 〇〇指名 --}} {{-- 指名金額 --}}円</span>
+                            <span>{{ $y->courseShimei }}    {{ $y->shimeiPrice }}円</span>
                             
                             <!-- オプション -->
-                            <span>オプション {{-- オプション総額 --}}円</span>
+                            <span>オプション    {{ $y->optionPrice }}円</span>
                             
                             <!-- バック -->
                             <span>・バック</span>
                             
                             <!-- コース金額 -->
-                            <span>基本料金 {{-- コースバック金額 --}}円</span>
+                            <span>基本料金  {{ $y->courseBack }}円</span>
 
                             <!-- 指名 -->
-                            <span>{{-- 〇〇指名 --}} {{-- 指名バック金額 --}}円</span>
+                            <span>{{ $y->courseShimei }}    {{ $y->shimeiBack }}円</span>
                             
                             <!-- オプション -->
-                            <span>オプション {{-- オプションバック総額 --}}円</span>
+                            <span>オプション    {{ $y->optionBack }}円</span>
 
                             <br>
                             <br>

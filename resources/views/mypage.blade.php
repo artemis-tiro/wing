@@ -36,7 +36,7 @@
                             <!-- ラベル -->
                             <div class="text-info text-end">名前</div>
                             <div class="col-sm-3">
-                                <label for="">「名前」を表示</label>
+                                <label for="">{{ $mydeta->name }}</label>
                             </div>
                             <!-- ボタン -->
                             <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#nameModal">
@@ -49,7 +49,7 @@
                             <!-- ラベル -->
                             <div class="mt-2 text-info text-end">住所</div>
                             <div class="col-sm-3">
-                                <label for="">「住所」を表示</label>
+                                <label for="">{{ $mydeta->address }}</label>
                             </div>
                             <!-- ボタン -->
                             <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#addressModal">
@@ -62,7 +62,7 @@
                             <!-- ラベル -->
                             <div class="mt-2 text-info text-end">電話番号</div>
                             <div class="col-sm-3">
-                                <label for="">「電話番号」を表示</label>
+                                <label for="">{{ $mydeta->tel }}</label>
                             </div>
                             <!-- ボタン -->
                             <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#telModal">
@@ -75,10 +75,23 @@
                             <!-- ラベル -->
                             <div class="mt-2 text-info text-end">メールアドレス</div>
                             <div class="col-sm-3">
-                                <label for="">「メールアドレス」を表示</label>
+                                <label for="">{{ $mydeta->mail }}</label>
                             </div>
                             <!-- ボタン -->
                             <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#mailModal">
+                                編集
+                            </button>
+                        </label>
+
+                        <!-- 生年月日 -->
+                        <label class="row">
+                            <!-- ラベル -->
+                            <div class="mt-2 text-info text-end">生年月日</div>
+                            <div class="col-sm-3">
+                                <label for="">{{ $mydeta->birthday }}</label>
+                            </div>
+                            <!-- ボタン -->
+                            <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="birthdayModal">
                                 編集
                             </button>
                         </label>
@@ -312,6 +325,59 @@
                                                 <!-- Form::タイプ -->
                                                 <!-- 第一引数は「name=""」 -->
                                                 {{ Form::email('mail', null, ['class'=>'form-control', 'autocomplete'=>'current-password']) }}
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <!-- モーダルのフッター -->
+                                    <div class="modal-footer">
+
+                                        <!-- 各ボタン -->
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                                        {{ Form::submit('更新',["class"=>"btn btn-info"])}}
+
+                                    </div>
+
+                                    <!-- フォームの終わり -->
+                                    {{ Form::close() }}
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 生年月日 -->
+                        <div class="modal fade" id="birthdayModal" tabindex="-1" aria-labelledby="birthdayModalLabel" data-bs-backdrop="static">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    
+                                    <!-- モーダルのヘッダー -->
+                                    <div class="modal-header">
+                                        <!-- モーダルタイトル -->
+                                        <h1 class="modal-title h4" id="birthdayModalLabel">生年月日を変更</h1>
+                                    </div>
+
+                                    <!-- フォームの開始 -->
+                                    {{ Form::open(['url' => url('/mypage/birthdaychange')]) }}
+                                    
+                                    <!-- モーダルの内容 -->
+                                    <div class="modal-body">
+
+                                        <!-- メールアドレス入力 -->
+                                        <label class="row">
+
+                                            <!-- ラベルにエラーメッセージを出す -->
+                                            @if ($errors->has('birthday'))
+                                                <div class="mt-2 text-danger text-end">{{ $errors->first('birthday') }}</div>
+                                            @else
+                                                <div class="mt-2 text-info text-end">生年月日</div>
+                                            @endif
+
+                                            <div class="col-sm-12">
+
+                                                <!-- 半角などのチェック -->
+                                                <!-- Form::タイプ -->
+                                                <!-- 第一引数は「name=""」 -->
+                                                {{ Form::number('birthday', null, ['class'=>'form-control', 'autocomplete'=>'current-password']) }}
                                             </div>
                                         </label>
                                     </div>
