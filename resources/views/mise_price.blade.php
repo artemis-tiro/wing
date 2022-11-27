@@ -4,15 +4,16 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item"><a href="{{url("/c/".$client->id)}}">{{$client->name}}様</a></li>
-<li class="breadcrumb-item"><a href="{{url("/c/".$client->id.'/'.$mise->id)}}">{{$mise->name}}</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/c/".$client->id) }}">{{ $client->name }}様</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/c/".$client->id.'/'.$mise->id) }}">{{ $mise->name }}</a></li>
 <li class="breadcrumb-item active">料金システム登録</li>
 @stop
 
 @section('content')
 
-                <h1 class="h2">料金システム登録</h1>
+                <h1 class="h2">料金システム編集</h1>
 
+                <!-- 料金システム編集 -->
                 <div class="card my-4">
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">お客様から頂く料金</h2>
@@ -57,8 +58,8 @@
                                         $name = isset($formData['waribikiAuto'][0]['name_data'])? $formData['waribikiAuto'][0]['name_data']: '';
                                         $price = isset($formData['waribikiAuto'][0]['price_data'])? $formData['waribikiAuto'][0]['price_data']: '';
                                     @endphp
-                                    <td>{{ Form::text('waribikiAuto_name', $name, ['class'=>'form-control', 'placeholder'=>'例）全コース〇〇円割引'])}}</td>
-                                    <td class="input-group">{{ Form::number('waribikiAuto_price', $price, ['class'=>'form-control', 'placeholder'=>'例）-2000'])}}<span class="input-group-text">円</span></td>
+                                    <td>{{ Form::text('waribikiAuto_name', $name, ['class'=>'form-control', 'placeholder'=>'例）全コース〇〇円割引']) }}</td>
+                                    <td class="input-group">{{ Form::number('waribikiAuto_price', $price, ['class'=>'form-control', 'placeholder'=>'例）-2000']) }}<span class="input-group-text">円</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -85,11 +86,11 @@
                                 $claim2000Check = isset($formData['claim2000'])? true: false;
                             @endphp
                         <label class="form-check form-check-label">
-                            {{ Form::checkbox('claim1000', null, $claim1000Check, ['class'=>'form-check-input'])}}
+                            {{ Form::checkbox('claim1000', null, $claim1000Check, ['class'=>'form-check-input']) }}
                             クレーム対応時に1,000円の割引を許可（やむを得ない場合に限る）
                         </label>
                         <label class="form-check form-check-label">
-                            {{ Form::checkbox('claim2000', null, $claim2000Check, ['class'=>'form-check-input'])}}
+                            {{ Form::checkbox('claim2000', null, $claim2000Check, ['class'=>'form-check-input']) }}
                             クレーム対応時に2,000円の割引を許可（やむを得ない場合に限る）
                         </label>
 
@@ -176,20 +177,20 @@
                                     $inputerCheck = true;
                                 }
                             @endphp
-                            {{ Form::radio('optionGet', 'therapist', $therapistCheck, ['class'=>'form-check-input'])}}
+                            {{ Form::radio('optionGet', 'therapist', $therapistCheck, ['class'=>'form-check-input']) }}
                             オプションは来店時にセラピストが営業する
                         </label>
                         <label class="form-check form-check-label">
-                            {{ Form::radio('optionGet', 'inputer', $inputerCheck, ['class'=>'form-check-input'])}}
+                            {{ Form::radio('optionGet', 'inputer', $inputerCheck, ['class'=>'form-check-input']) }}
                             オプションは電話予約時に確定させる
                         </label>
 
                         <hr><br>
 
-                        {{ Form::submit('保存',["class"=>"m-2 btn btn-info"])}}
+                        {{ Form::submit('保存',["class"=>"btn btn-info"]) }}
                         {{ Form::close() }}
 
-                        <a href="{{url('/c/'.$client->id.'/'.$mise->id)}}" class="m-2 btn btn-primary">← 戻る</a>
+                        <a href="{{ url('/c/'.$client->id.'/'.$mise->id) }}" class="mt-2 btn btn-secondary">← 戻る</a>
 
                     </div>
                 </div>

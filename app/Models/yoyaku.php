@@ -16,18 +16,63 @@ class Yoyaku extends Model
     protected $guarded = [''];
 
     // 予約一覧
-    public static function yoyakuList($therapistId){
+    public static function yoyakuList($therapistId,$time){
         $yoyakuList = yoyaku::where('therapist_id', $therapistId)
+            ->whereBetween('visit_day', [$time.' 00:00:00', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
             ->get();
         return $yoyakuList;
     }
 
     // 予約コース取得
     public static function courseNameList($yoyakuList){
+
         foreach($yoyakuList as $y){
             $priceList = $y->price_id_list;
             $priceId = explode('P', $priceList);
+
+            $backList = $y->back_id_list;
+            $backId = explode('B', $backList);
+
+            // $yoyakuListに「courseName」を追加
+            // コース名を取得
             $y->courseName = price::getCourseName($priceId);
+
+            // $yoyakuListに「courseShimei」を追加
+            // 指名を取得
+            $y->courseShimei = price::getCourseShimei($priceId);
+
+            // $yoyakuListに「coursePrice」を追加
+            // コース金額を取得
+            $y->coursePrice =  price::getCoursePrice($priceId);
+
+            // $yoyakuListに「totalPrice」を追加
+            // 指名金額を取得
+            $y->shimeiPrice =  price::getShimeiPrice($priceId);
+
+            // $yoyakuListに「totalPrice」を追加
+            // オプション金額を取得
+            $y->optionPrice =  price::getOptionPrice($priceId);
+
+            // $yoyakuListに「totalPrice」を追加
+            // コース総額を取得
+            $y->totalPrice =  price::getTotalPrice($priceId);
+
+            // $yoyakuListに「courseTime」を追加
+            // コース時間を取得
+            $y->courseTime =  price::getCourseTime($priceId);
+
+            // $yoyakuListに「courseTime」を追加
+            // コース時間を取得
+            $y->courseBack =  back::getCoursePrice($backId[1]);
+
+            // $yoyakuListに「courseTime」を追加
+            // コース時間を取得
+            $y->shimeiBack =  back::getShimeiPrice($backId[3]);
+
+            // $yoyakuListに「courseTime」を追加
+            // コース時間を取得
+            $y->optionBack =  back::getOptionPrice($backId[5]);
+
         }
         return null;
     }
@@ -76,16 +121,11 @@ class Yoyaku extends Model
                 $courseName = price::where('id',$input[$arr])
                     ->value('name');
 
-                Log::info($courseName);
-
                 // BackDBをprice_nameとnameで検索してidを取得
                 $backId = back::where('mise_id', $miseId)
                     ->where('price_name', $courseName)
                     ->where('name', $therapistBack)
                     ->value('id');
-
-                Log::info($backId);
-
 
                 $input_back_id .= 'B'.$backId;
             }
@@ -102,14 +142,6 @@ class Yoyaku extends Model
         $yoyaku->back_id_list = $input_back_id;
 
         $yoyaku->visit_day = $input['start_day'].' '.$input['start_time'];
-
-        // $shimei = isset($input['shimei'])? $input['shimei']: 0; //三項演算子
-
-        // if(isset($input['shimei'])){ //上の三項演算子と同じ
-        //     $shimei = $input['shimei'];
-        // }else{
-        //     $shimei = 0;
-        // }
         
         // 削除されるカラム
         $yoyaku->shimei = null;

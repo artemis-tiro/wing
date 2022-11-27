@@ -100,5 +100,17 @@ class inputer extends Model
         return null;
     }
 
+    //  アカウント情報変更(生年月日)
+    public static function inputerBirthdayEdit($id, $input){
+        //インサート
+        $inputer = new inputer();
+        $inputer->id = $id;
+        $inputer->mail = $input['birthday'];
+        $result = $inputer->save();
 
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
 }

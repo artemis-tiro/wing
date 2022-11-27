@@ -107,6 +107,19 @@ class client extends Model
         return null;
     }
 
+    //  アカウント情報変更(生年月日)
+    public static function inputerBirthdayEdit($id, $input){
+        //インサート
+        $client = client::find($id);
+        $client->mail = $input['birthday'];
+        $result = $client->save();
+
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
+
     // therapist名取得
     public static function getName($id){
         $client = client::find($id);

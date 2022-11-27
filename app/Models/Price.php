@@ -136,7 +136,7 @@ class price extends Model
     public static function waribikiAutoList($miseId){
         $priceList = price::where('mise_id', $miseId)
             ->where('type', 'waribikiAuto')
-            ->get();
+            ->first();
         return $priceList;
     }
 
@@ -176,20 +176,74 @@ class price extends Model
         return $result;
     }
 
-    // yoyakuリスト
-    // public static function getYoyakuList($pidList){
-    //     $result = [];
-    //     $count = 0;
-    //     foreach($pidList as $p){
-    //         $price = price::find($p);
-    //         if(!$price) continue;
-    //         $result[$count] =[
-    //             'name'=>$price->name,
-    //             'price'=>$price->price,
-    //             'type'=>$price->type,
-    //         ];
-    //         $count++;
-    //     }
-    //     return $result;
-    // }
+    // 指名取得
+    public static function getCourseShimei($priceIdList){
+        foreach($priceIdList as $p){
+            $courseName = price::find($p);
+            if(!$courseName) continue;
+            if($courseName->type == 'shimei'){
+                return $courseName->name;
+            }
+        }
+    }
+
+    // コース時間取得
+    public static function getCoursetime($priceIdList){
+        foreach($priceIdList as $p){
+            $courseName = price::find($p);
+            if(!$courseName) continue;
+            if($courseName->type == 'course'){
+                return $courseName->time;
+            }
+        }
+    }
+
+    // コース金額取得
+    public static function getCoursePrice($priceIdList){
+        foreach($priceIdList as $p){
+            $courseName = price::find($p);
+            if(!$courseName) continue;
+            if($courseName->type == 'course'){
+                return $courseName->price;
+            }
+        }
+    }
+
+    // 指名金額取得
+    public static function getShimeiPrice($priceIdList){
+        foreach($priceIdList as $p){
+            $courseName = price::find($p);
+            if(!$courseName) continue;
+            if($courseName->type == 'shimei'){
+                return $courseName->price;
+            }
+        }
+    }
+
+    // オプション金額取得
+    public static function getOptionPrice($priceIdList){
+        foreach($priceIdList as $p){
+            $courseName = price::find($p);
+            if(!$courseName) continue;
+            if($courseName->type == 'option'){
+                return $courseName->price;
+            }
+        }
+    }
+
+    // コース総額取得
+    public static function getTotalPrice($priceIdList){
+
+        $totalPrice = 0;
+
+        foreach($priceIdList as $p){
+            
+            $coursePrice = price::find($p);
+
+            if($coursePrice){
+                $totalPrice += $coursePrice->price;
+            }
+        }
+        return $totalPrice;
+    }
 }

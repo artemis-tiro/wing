@@ -32,7 +32,7 @@ class back extends Model
         return null;
     }
 
-    //backリスト
+    // backリスト
     public static function list($miseId){
         $backList = back::where('mise_id', $miseId)
             ->get()
@@ -46,7 +46,7 @@ class back extends Model
         return $list;
     }
 
-    //backリスト
+    // backリスト
     public static function list2($miseId){
         $backList = back::where('mise_id', $miseId)
             ->get()
@@ -91,7 +91,7 @@ class back extends Model
         return $list;
     }
 
-    //backインサート
+    // backインサート
     public static function backInsert($miseId, $price_name, $back_name, $price, $ocha=null){
         $back = new back();
         $back->mise_id = $miseId;
@@ -107,7 +107,7 @@ class back extends Model
         return null;
     }
 
-    //formデータ取得
+    // formデータ取得
     public static function formData($miseId, $backName){
         $backList = back::where('mise_id', $miseId)
             ->where('name', $backName)
@@ -129,7 +129,7 @@ class back extends Model
         return $formData;
     }
 
-    //detail
+    // detail
     public static function detail($miseId, $backName){
         $backList = back::where('mise_id', $miseId)
             ->where('name', $backName)
@@ -141,7 +141,7 @@ class back extends Model
         return $detail;
     }
 
-    //新規作成
+    // 新規作成
     public static function backCreate($miseId, $name, $copy){
         $backList = back::where('mise_id', $miseId)
             ->where('name', $name)
@@ -171,4 +171,27 @@ class back extends Model
         return $name.'を作成しました。';
     }
 
+    // コースバック金額取得
+    public static function getCoursePrice($backId){
+        if($backId){
+            $backName = back::find($backId);
+            return $backName->price;
+        }
+    }
+
+    // 指名バック金額取得
+    public static function getShimeiPrice($backId){
+        if($backId){
+            $backName = back::find($backId);
+            return $backName->price;
+        }
+    }
+
+    // オプションバック金額取得
+    public static function getOptionPrice($backId){
+        if($backId){
+            $backName = back::find($backId);
+            return $backName->price;
+        }
+    }
 }

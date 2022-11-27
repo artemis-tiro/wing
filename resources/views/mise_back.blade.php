@@ -4,18 +4,19 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item"><a href="{{url("/c/".$client->id)}}">{{$client->name}}様</a></li>
-<li class="breadcrumb-item"><a href="{{url("/c/".$client->id.'/'.$mise->id)}}">{{$mise->name}}</a></li>
-<li class="breadcrumb-item active">バック編集（{{$backName}}）</li>
+<li class="breadcrumb-item"><a href="{{ url("/c/".$client->id) }}">{{ $client->name }}様</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/c/".$client->id.'/'.$mise->id) }}">{{ $mise->name }}</a></li>
+<li class="breadcrumb-item active">バック編集({{ $backName }})</li>
 @stop
 
 @section('content')
 
                 <h1 class="h2">バック編集</h1>
 
+                <!-- バック編集 -->
                 <div class="card my-4">
                     <!-- カードのタイトル -->
-                    <h2 class="card-header h5">{{$backName}}のバック料金</h2>
+                    <h2 class="card-header h5">セラピストに払うお金</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
                         <p>雑費などセラピストの給料から引く場合は「-1000」とマイナスで入力して下さい。<br>
@@ -40,10 +41,10 @@
                                 @foreach($price as $p)
                                 @php if($p->type!='course') continue; @endphp
                                 <tr>
-                                    <td>{{$p->name}}</td>
-                                    <td>{{$p->price}}円</td>
+                                    <td>{{ $p->name }}</td>
+                                    <td>{{ $p->price }}円</td>
                                     @php $v=isset($back[$p->name])?$back[$p->name]:null; @endphp
-                                    <td class="input-group">{{ Form::number($p->name, $v, ['class'=>'form-control'])}}<span class="input-group-text">円</span></td>
+                                    <td class="input-group">{{ Form::number($p->name, $v, ['class'=>'form-control']) }}<span class="input-group-text">円</span></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -65,10 +66,10 @@
                                 @foreach($price as $p)
                                 @php if($p->type!='waribikiAuto') continue; @endphp
                                 <tr>
-                                    <td>{{$p->name}}</td>
-                                    <td>{{$p->price}}円</td>
+                                    <td>{{ $p->name }}</td>
+                                    <td>{{ $p->price }}円</td>
                                     @php $v=isset($back[$p->name])?$back[$p->name]:null; @endphp
-                                    <td class="input-group">{{ Form::number($p->name, $v, ['class'=>'form-control'])}}<span class="input-group-text">円</span></td>
+                                    <td class="input-group">{{ Form::number($p->name, $v, ['class'=>'form-control']) }}<span class="input-group-text">円</span></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -90,10 +91,10 @@
                                 @foreach($price as $p)
                                 @php if($p->type!='waribiki') continue; @endphp
                                 <tr>
-                                    <td>{{$p->name}}</td>
-                                    <td>{{$p->price}}円</td>
+                                    <td>{{ $p->name }}</td>
+                                    <td>{{ $p->price }}円</td>
                                     @php $v=isset($back[$p->name])?$back[$p->name]:null; @endphp
-                                    <td class="input-group">{{ Form::number($p->name, $v, ['class'=>'form-control'])}}<span class="input-group-text">円</span></td>
+                                    <td class="input-group">{{ Form::number($p->name, $v, ['class'=>'form-control']) }}<span class="input-group-text">円</span></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -118,7 +119,7 @@
                                     <td>クレーム対応時に1,000円の割引</td>
                                     <td>-1000円</td>
                                     @php $v=isset($back['claim1000'])?$back['claim1000']:null; @endphp
-                                    <td class="input-group">{{ Form::number('claim1000', $v, ['class'=>'form-control'])}}<span class="input-group-text">円</span></td>
+                                    <td class="input-group">{{ Form::number('claim1000', $v, ['class'=>'form-control']) }}<span class="input-group-text">円</span></td>
                                 </tr>
                                 @endif
                                 @if(in_array('claim2000', $typeList))
@@ -126,7 +127,7 @@
                                     <td>クレーム対応時に2,000円の割引</td>
                                     <td>-2000円</td>
                                     @php $v=isset($back['claim2000'])?$back['claim2000']:null; @endphp
-                                    <td class="input-group">{{ Form::number('claim2000', $v, ['class'=>'form-control'])}}<span class="input-group-text">円</span></td>
+                                    <td class="input-group">{{ Form::number('claim2000', $v, ['class'=>'form-control']) }}<span class="input-group-text">円</span></td>
                                 </tr>
                                 @endif
                             </tbody>
@@ -148,10 +149,10 @@
                                 @foreach($price as $p)
                                 @php if($p->type!='visit') continue; @endphp
                                 <tr>
-                                    <td>{{$p->name}}</td>
-                                    <td>{{$p->price}}円</td>
+                                    <td>{{ $p->name }}</td>
+                                    <td>{{ $p->price }}円</td>
                                     @php $v=isset($back[$p->name])?$back[$p->name]:null; @endphp
-                                    <td class="input-group">{{ Form::number($p->name, $v, ['class'=>'form-control'])}}<span class="input-group-text">円</span></td>
+                                    <td class="input-group">{{ Form::number($p->name, $v, ['class'=>'form-control']) }}<span class="input-group-text">円</span></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -173,10 +174,10 @@
                                 @foreach($price as $p)
                                 @php if($p->type!='free' && $p->type!='net' && $p->type!='shimei') continue; @endphp
                                 <tr>
-                                    <td>{{$p->name}}</td>
-                                    <td>{{$p->price}}円</td>
+                                    <td>{{ $p->name }}</td>
+                                    <td>{{ $p->price }}円</td>
                                     @php $v=isset($back[$p->name])?$back[$p->name]:null; @endphp
-                                    <td class="input-group">{{ Form::number($p->name, $v, ['class'=>'form-control'])}}<span class="input-group-text">円</span></td>
+                                    <td class="input-group">{{ Form::number($p->name, $v, ['class'=>'form-control']) }}<span class="input-group-text">円</span></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -198,10 +199,10 @@
                                 @foreach($price as $p)
                                 @php if($p->type!='more') continue; @endphp
                                 <tr>
-                                    <td>{{$p->name}}</td>
-                                    <td>{{$p->price}}円</td>
+                                    <td>{{ $p->name }}</td>
+                                    <td>{{ $p->price }}円</td>
                                     @php $v=isset($back[$p->name])?$back[$p->name]:null; @endphp
-                                    <td class="input-group">{{ Form::number($p->name, $v, ['class'=>'form-control'])}}<span class="input-group-text">円</span></td>
+                                    <td class="input-group">{{ Form::number($p->name, $v, ['class'=>'form-control']) }}<span class="input-group-text">円</span></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -223,10 +224,10 @@
                                 @foreach($price as $p)
                                 @php if($p->type!='option') continue; @endphp
                                 <tr>
-                                    <td>{{$p->name}}</td>
-                                    <td>{{$p->price}}円</td>
+                                    <td>{{ $p->name }}</td>
+                                    <td>{{ $p->price }}円</td>
                                     @php $v=isset($back[$p->name])?$back[$p->name]:null; @endphp
-                                    <td class="input-group">{{ Form::number($p->name, $v, ['class'=>'form-control'])}}<span class="input-group-text">円</span></td>
+                                    <td class="input-group">{{ Form::number($p->name, $v, ['class'=>'form-control']) }}<span class="input-group-text">円</span></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -248,10 +249,10 @@
                         @endcomponent
 
 
-                        {{ Form::submit('保存',["class"=>"m-2 btn btn-info"])}}
+                        {{ Form::submit('保存',["class"=>"btn btn-info"]) }}
                         {{ Form::close() }}
 
-                        <a href="{{url('/c/'.$client->id.'/'.$mise->id)}}" class="m-2 btn btn-primary">← 戻る</a>
+                        <a href="{{ url('/c/'.$client->id.'/'.$mise->id) }}" class="mt-2 btn btn-secondary">← 戻る</a>
 
                     </div>
                 </div>

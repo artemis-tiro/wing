@@ -1,107 +1,112 @@
     function displayMany() {
-        visit = document.getElementsByName('visit')
-        // course = document.getElementsByName('course')
-        // shimei = document.getElementsByName('shimei')
-        // more = document.getElementsByName('more')
-        // option = document.getElementsByName('option')
-        // waribikiAuto = document.getElementsByName('waribikiAuto')
-        // waribiki = document.getElementsByName('waribiki')
-        // claim = document.getElementsByName('claim')
 
-        // visit
-        if (visit[0].checked) {
-            document.getElementById('many1').style.display = "";
-            document.getElementById('many2').style.display = "none";
-        } else if (visit[1].checked) {
-            document.getElementById('many1').style.display = "none";
-            document.getElementById('many2').style.display = "";
-        } else {
-            document.getElementById('many1').style.display = "none";
-            document.getElementById('many2').style.display = "none";
+        // 合計計算
+        function sumAll() {
+            visit = $('.visitMany').text();
+            course = $('.courseMany').text();
+            shimei = $('.shimeiMany').text();
+            more = $('.moreMany').text();
+            option = $('.optionMany').text();
+            waribikiAuto = $('.waribikiAutoMany').text();
+            waribiki = $('.waribikiMany').text();
+            claim = $('.claimMany').text();
+
+            total = Number(visit.replace('円', ''))
+                    + Number(course.replace('円', ''))
+                    + Number(shimei.replace('円', ''))
+                    + Number(more.replace('円', ''))
+                    + Number(option.replace('円', ''))
+                    + Number(waribikiAuto.replace('円', ''))
+                    + Number(waribiki.replace('円', ''))
+                    + Number(claim.replace('円', ''));
+                    
+            $('.totalMany').text(total + '円');
         }
 
-        // // course
-        // if (course[0].checked) {
-        //     document.getElementById('many1').style.display = "";
-        //     document.getElementById('many2').style.display = "none";
-        // } else if (course[1].checked) {
-        //     document.getElementById('many1').style.display = "none";
-        //     document.getElementById('many2').style.display = "";
-        // } else {
-        //     document.getElementById('many1').style.display = "none";
-        //     document.getElementById('many2').style.display = "none";
-        // }
+        // 来店
+        $('.radio_visit input ').click(function() {
+            // 「.attr('属性','書き換える内容')」属性を取得、書き換え
+            visitPrice = $(this).attr('price');
+            
+            // 「.text()」要素内のテキストを取得、書き換え
+            $('.visitMany').text(visitPrice + '円');
 
-        // // shimei
-        // if (shimei[0].checked) {
-        //     document.getElementById('many1').style.display = "";
-        //     document.getElementById('many2').style.display = "none";
-        // } else if (shimei[1].checked) {
-        //     document.getElementById('many1').style.display = "none";
-        //     document.getElementById('many2').style.display = "";
-        // } else {
-        //     document.getElementById('many1').style.display = "none";
-        //     document.getElementById('many2').style.display = "none";
-        // }
+            sumAll();
+        });
 
-        // // more
-        // if (more[0].checked) {
-        //     document.getElementById('many1').style.display = "";
-        //     document.getElementById('many2').style.display = "none";
-        // } else if (more[1].checked) {
-        //     document.getElementById('many1').style.display = "none";
-        //     document.getElementById('many2').style.display = "";
-        // } else {
-        //     document.getElementById('many1').style.display = "none";
-        //     document.getElementById('many2').style.display = "none";
-        // }
+        // コース
+        $('.radio_course input ').click(function() {
 
-        // // option
-        // if (option[0].checked) {
-        //     document.getElementById('many1').style.display = "";
-        //     document.getElementById('many2').style.display = "none";
-        // } else if (option[1].checked) {
-        //     document.getElementById('many1').style.display = "none";
-        //     document.getElementById('many2').style.display = "";
-        // } else {
-        //     document.getElementById('many1').style.display = "none";
-        //     document.getElementById('many2').style.display = "none";
-        // }
+            coursePrice = $(this).attr('price');
+            
+            $('.courseMany').text(coursePrice + '円')
 
-        // // waribikiAuto
-        // if (waribikiAuto[0].checked) {
-        //     document.getElementById('many1').style.display = "";
-        //     document.getElementById('many2').style.display = "none";
-        // } else if (waribikiAuto[1].checked) {
-        //     document.getElementById('many1').style.display = "none";
-        //     document.getElementById('many2').style.display = "";
-        // } else {
-        //     document.getElementById('many1').style.display = "none";
-        //     document.getElementById('many2').style.display = "none";
-        // }
+            sumAll();
+        });
 
-        // // waribiki
-        // if (waribiki[0].checked) {
-        //     document.getElementById('many1').style.display = "";
-        //     document.getElementById('many2').style.display = "none";
-        // } else if (waribiki[1].checked) {
-        //     document.getElementById('many1').style.display = "none";
-        //     document.getElementById('many2').style.display = "";
-        // } else {
-        //     document.getElementById('many1').style.display = "none";
-        //     document.getElementById('many2').style.display = "none";
-        // }
+        // 指名
+        $('.radio_shimei input ').click(function() {
 
-        // // claim
-        // if (claim[0].checked) {
-        //     document.getElementById('many1').style.display = "";
-        //     document.getElementById('many2').style.display = "none";
-        // } else if (claim[1].checked) {
-        //     document.getElementById('many1').style.display = "none";
-        //     document.getElementById('many2').style.display = "";
-        // } else {
-        //     document.getElementById('many1').style.display = "none";
-        //     document.getElementById('many2').style.display = "none";
-        // }
+            shimeiPrice = $(this).attr('price');
+            
+            $('.shimeiMany').text(shimeiPrice + '円');
+
+            sumAll();
+        });
+
+        // 追加料金
+        $('.radio_more input ').click(function() {
+            
+            morePrice = $(this).attr('price');
+            
+            $('.moreMany').text(morePrice + '円');
+
+            sumAll();
+        });
+        
+        // オプション
+        $('.radio_option input ').click(function() {
+            
+            optionPrice = $(this).attr('price');
+            
+            $('.optionMany').text(optionPrice + '円');
+
+            sumAll();
+        });
+        
+        // 割引
+        $('.radio_waribiki input ').click(function() {
+            
+            waribikiPrice = $(this).attr('price');
+            
+            $('.waribikiMany').text(waribikiPrice + '円');
+
+            sumAll();
+        });
+        
+        // クレーム対応
+        $('.radio_claim input ').click(function() {
+            
+            claimPrice = $(this).attr('price');
+            
+            $('.claimMany').text(claimPrice + '円');
+
+            sumAll();
+        });
+        
+        // $('.radio_visit, .radio_course, .radio_shimei, .radio_more, .radio_option, .radio_waribikiAuto, .radio_waribiki, .radio_claim input ').click(function() {
+            
+        //     // 全部のpriceをintに変換して計算する
+        //     totalPrice = Number(visitPrice)
+        //                     + Number(coursePrice)
+        //                     + Number(shimeiPrice)
+        //                     + Number(morePrice)
+        //                     + Number(optionPrice)
+        //                     + Number(waribikiAutoPrice)
+        //                     + Number(waribikiPrice)
+        //                     + Number(claimPrice);
+            
+        //     $('.totalMany').text(String(totalPrice));
+        // });
     }
     window.addEventListener('load', displayMany());

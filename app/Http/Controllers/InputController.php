@@ -17,6 +17,7 @@ use App\Models\Therapist;
 use App\Models\Yoyaku;
 use App\Models\Kokyaku;
 use App\Models\Price;
+use App\Models\Kyuryo;
 
 class InputController extends Controller{
 
@@ -84,10 +85,11 @@ class InputController extends Controller{
     //予約一覧ページ
     public function yoyaku(Request $request, $miseId,$therapistId){
 
-        $kokyakuData;
+        $kokyakuData = null;
         $formflag = 0;
+        $inputTel = $request->input('telsearch');
 
-        //権限チェック
+        // 権限チェック
         if($ng = $this->levelCheck()) return $ng;
 
         // 店舗情報
@@ -100,10 +102,10 @@ class InputController extends Controller{
         $kokyakuList = kokyaku::kokyakuList();
 
         // 予約一覧
-        $yoyakuList = yoyaku::yoyakuList($therapistId);
+        $yoyakuList = yoyaku::yoyakuList($therapistId, date('Y-m-d'));
 
         // 電話番号検索
-        $telsearch = kokyaku::telSearch($request->telsearch);
+        $telsearch = kokyaku::telSearch($request->input('telsearch'));
 
         // 予約コース
         yoyaku::courseNameList($yoyakuList);
@@ -118,7 +120,7 @@ class InputController extends Controller{
         $waribikiList = price::waribikiList($miseId);
         $claimList = price::claimList($miseId);  
 
-        if(isset($telsearch)){
+        if($request->input('telsearch')){
             $kokyakuData = $telsearch;
             $formflag = 1;
         }
@@ -130,6 +132,7 @@ class InputController extends Controller{
             'yoyakuList' => $yoyakuList,
             'kokyakuData' => $kokyakuData,
             'formflag' => $formflag,
+            'inputTel' => $inputTel,
             'courseList' => $courseList,
             'visitList' => $visitList,
             'shimeiList' => $shimeiList,
@@ -204,7 +207,7 @@ class InputController extends Controller{
     // 給与計算ページ
     public function kyuryo($miseId,$therapistId){
 
-        //権限チェック
+        // 権限チェック
         if($ng = $this->levelCheck()) return $ng;
 
         // 店舗情報
@@ -217,13 +220,20 @@ class InputController extends Controller{
         $kokyakuList = kokyaku::kokyakuList();
 
         // 予約一覧
-        $yoyakuList = yoyaku::yoyakuList($therapistId);
+        $yoyakuList = yoyaku::yoyakuList($therapistId, date('Y-m-d'));
+
+        // 予約一覧
+        $adjustList = kyuryo::adjustList($miseId, $therapistId);
+        
+        // 予約コース
+        yoyaku::courseNameList($yoyakuList);
 
         return view ('input_kyuryo', [
             'mise' => $mise,
             'therapist' => $therapist,
             'kokyakuList' => $kokyakuList,
             'yoyakuList' => $yoyakuList,
+            'adjustList' => $adjustList,
             'error' => session('error'),
         ]);
     }
@@ -232,27 +242,31 @@ class InputController extends Controller{
     public function calculation(Request $request, $miseId, $therapistId){
         ///////     バリデーション      ///////
         // pouch        : 半角数字であるか
-        // adjust_item1 : 
+        // adjust_name1 : 
         // adjust_many1 : 半角数字であるか
-        // adjust_item2 : 
+        // adjust_name2 : 
         // adjust_many2 : 半角数字であるか
-        // adjust_item2 : 
+        // adjust_name3 : 
         // adjust_many3 : 半角数字であるか
         $rulus = [
-            'pouch' => ['required', 'regex:/^[0-9]+$/i'],
-            'adjust_many1' => ['regex:/^[0-9]+$/i'],
-            'adjust_many2' => ['regex:/^[0-9]+$/i'],
-            'adjust_many3' => ['regex:/^[0-9]+$/i'],
+            // 'pouch' => ['required', 'regex:/^[0-9]+$/i'],
+            'adjust_many1' => ['nullable', 'regex:/^[0-9]+$/i'],
+            'adjust_many2' => ['nullable', 'regex:/^[0-9]+$/i'],
+            'adjust_many3' => ['nullable', 'regex:/^[0-9]+$/i'],
         ];
         $message = [
-            'pouch.required' => 'ポーチ金額を入力してください。',
-            'pouch.regex' => '半角数字で入力してください。',
+            // 'pouch.required' => 'ポーチ金額を入力してください。',
+            // 'pouch.regex' => '半角数字で入力してください。',
             'adjust_many1.regex' => '半角数字で入力してください。',
             'adjust_many2.regex' => '半角数字で入力してください。',
             'adjust_many3.regex' => '半角数字で入力してください。',
         ];
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();
+
+        // kyuryo作成
+        $kyuryo = kyuryo::kyuryoCreate($request->input(), $miseId, $therapistId, date('Y-m-d H:i:s'));
+        if($kyuryo) return back()->with(['error' => $kyuryo])->withInput();
 
         return back();
     }

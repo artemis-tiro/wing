@@ -5,7 +5,7 @@
 @include('common.pan')
 
 @section('pan2')
-<li class="breadcrumb-item active" aria-current="page">店舗一覧</li>
+<li class="breadcrumb-item active" aria-current="page">店舗編集</li>
 @stop
 
 @section('content')
@@ -13,11 +13,11 @@
     $teamName = App\Models\user::teamName(auth()->user()->team);
 ?>
 
-                <h1 class="h2">店舗一覧</h1>
+                <h1 class="h2">店舗編集</h1>
 
                 <div class="card my-4">
                     <!-- カードのタイトル -->
-                    <h2 class="card-header h5">店舗一覧</h2>
+                    <h2 class="card-header h5">一覧</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
                         <!-- テーブル -->
@@ -37,9 +37,9 @@
                                 @foreach($zenMiseList as $m)
 
                                 <tr>
-                                    <th>{{$loop->index+1}}</th>
-                                    <td><a href="{{url('/i/'.$m->id)}}">{{$m->name}}</a></td>
-                                    <td>{{$m->area}}</td>
+                                    <th>{{ $loop->index+1 }}</th>
+                                    <td><a href="{{url('/i/'.$m->id)}}">{{ $m->name }}</a></td>
+                                    <td>{{ $m->area }}</td>
                                     <td>--</td>
                                     <td>--</td>
                                     <td>--</td>

@@ -141,6 +141,20 @@ class Therapist extends Model
         return null;
     }
 
+    //  アカウント情報変更(生年月日)
+    public static function inputerBirthdayEdit($id, $input){
+        //インサート
+        $therapist = new therapist();
+        $therapist->id = $id;
+        $therapist->mail = $input['birthday'];
+        $result = $therapist->save();
+
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
+
     //  アカウント情報変更(営業プロフィール)
     public static function therapistProfileEdit($id, $input){
         //インサート

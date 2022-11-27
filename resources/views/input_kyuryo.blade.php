@@ -4,9 +4,9 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item"><a href="{{url("/i")}}">店舗一覧</a></li>
-<li class="breadcrumb-item"><a href="{{url("/i/".$mise->id)}}">{{$mise->name}}</a></li>
-<li class="breadcrumb-item"><a href="{{url('/i/'.$mise->id.'/'.$therapist->id.'/')}}">{{$therapist->business_name}}</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/i") }}">店舗編集</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/i/".$mise->id) }}">{{ $mise->name }}</a></li>
+<li class="breadcrumb-item"><a href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/') }}">{{ $therapist->business_name }}</a></li>
 <li class="breadcrumb-item active">給与計算</li>
 
 <li class="breadcrumb-item active"></li>
@@ -17,7 +17,7 @@
     $teamName = App\Models\user::teamName(auth()->user()->team);
 ?>
 
-                <h1 class="h2">給与計算</h1>
+                <h1 class="h2">{{ $therapist->business_name }}さん 給与明細</h1>
 
                 <!-- 予約フォーム -->
                 <div class="card my-4">
@@ -26,7 +26,7 @@
                     <!-- 調整金の後ろに給与形態も出す -->
 
                     <!-- カードのタイトル -->
-                    <h2 class="card-header h5">{{$therapist->business_name}}(給与形態)</h2>
+                    <h2 class="card-header h5">給与計算</h2>
 
                     <!-- カードの要素 -->
                     <div class="card-body">
@@ -38,59 +38,53 @@
                     @include('common.error')
                     @include('common.success')
 
-                    <!-- ポーチ -->
-                    <label class="row text-nowrap text-end">
-                        <h3 class="col-sm-2 lh2 h6 text-end">ポーチ朝一</h3>
-                    </label>
 
-                    <label class="row text-nowrap mb-4 text-end">
-                        <div class="col-sm-5">
-                            {{ Form::number('pouch', null, ['class'=>'form-control'])}}
+                    
+                    <!-- 　　　　今回未実装 　　　　　-->
+                    {{--
+                    <!-- ポーチ -->
+                    <div class="row text-nowrap text-end">
+                        <h3 class="col-sm-2 lh2 h6 text-end">ポーチ朝一</h3>
+                    </div>
+
+                    <div class="row text-nowrap mb-4 text-end">
+                        <div class="col input-group">
+                            {{ Form::number('pouch', null, ['class'=>'form-control']) }}
+                            <span class="input-group-text">円</span>
                         </div>
-                        <div class="col-sm-1 mt-2">円</div>
-                        <div class="col-sm-1"><a class="btn btn-info" href="">確定</a></div>
-                    </label>
+
+                        <!-- input-groupの大きさを調整 -->
+                        <div class="col"></div>
+                        <div class="col"></div>
+                    </div>
+                    --}}
+                    <!-- 　　　　今回未実装 　　　　　-->
+
+
 
                     <!-- 調整金 -->
-                    <label class="row text-nowrap text-end">
+                    <div class="row text-nowrap text-end">
                         <h3 class="col-sm-2 lh2 h6 text-end">調整金</h3>
-                    </label>
+                    </div>
 
-                    <label class="row text-nowrap mb-4 text-end">
-                        <div class="col-sm-5">
-                            {{ Form::text('name', null, ['class'=>'form-control'])}}
+                        @foreach($adjustList  as $a)
+                        <div class="row text-nowrap mb-4 text-end">
+                            <div class="col-sm-5">
+                                {{-- @php $name=isset($adjustList->adjust_name)? $adjustList->adjust_name: null; @endphp --}}
+                                {{ Form::text('adjust_name'.'$index+1', $a->adjust_name, ['class'=>'form-control', 'autocomplete'=>'off']) }}
+                            </div>
+                            <div class="col input-group">
+                                {{-- @php $many=isset($adjustList->adjust_many)? $adjustList->adjust_many: null; @endphp --}}
+                                {{ Form::number('adjust_many'.'$index+1', $a->adjust_many, ['class'=>'form-control', 'autocomplete'=>'off']) }}
+                                <span class="input-group-text">円</span>
+                            </div>
+                            <div class="col"></div>
                         </div>
-                        <div class="col-sm-3">
-                            {{ Form::number('name', null, ['class'=>'form-control'])}}
-                        </div>
-                        <div class="col-sm-1 mt-2">円</div>
-                        <div class="col-sm-1"><a class="btn btn-info" href="">確定</a></div>
-                    </label>
+                        @endforeach
 
-                    <label class="row text-nowrap mb-4 text-end">
-                        <div class="col-sm-5">
-                            {{ Form::text('name', null, ['class'=>'form-control'])}}
-                        </div>
-                        <div class="col-sm-3">
-                            {{ Form::number('name', null, ['class'=>'form-control'])}}
-                        </div>
-                        <div class="col-sm-1 mt-2">円</div>
-                        <div class="col-sm-1"><a class="btn btn-info" href="">確定</a></div>
-                    </label>
 
-                    <label class="row text-nowrap mb-4 text-end">
-                        <div class="col-sm-5">
-                            {{ Form::text('name', null, ['class'=>'form-control'])}}
-                        </div>
-                        <div class="col-sm-3">
-                            {{ Form::number('name', null, ['class'=>'form-control'])}}
-                        </div>
-                        <div class="col-sm-1 mt-2">円</div>
-                        <div class="col-sm-1"><a class="btn btn-info" href="">確定</a></div>
-                    </label>
-                    
                     <!-- 送信ボタン -->
-                    {{ Form::submit('給料計算',["class"=>"m-2 btn btn-info"])}}
+                    {{ Form::submit('給料計算',["class"=>"btn btn-info"]) }}
 
                     <!-- フォームの終わり -->
                     {{ Form::close() }}
@@ -105,64 +99,37 @@
                     <div class="card-body table-responsive text-nowrap">
 
                         <!-- セラピスト名 -->
-                        {{$therapist->business_name}}
+                        {{ $therapist->business_name }}
 
                         <br>
                         <br>
-
-                        <!-- タイトル -->
-                        <!-- 日付　＋　お給料 -->
-
-                        <!-- ループで当日の件数と金額を出す -->
-                        <!-- 〇件目　△△△△円 -->
-
-                        <!-- 端数金？ -->
-                        <!-- 前回もらい忘れ？ -->
-
-                        <!-- 日当金額 -->
-
-                        <!-- ポーチ朝一金額 -->
-                        <!-- ポスト投函金額 -->
-                        <!-- ポーチ最終金額 -->
 
                         @foreach($yoyakuList  as $y)
-                            <span>{{$loop->index+1}}</span>
-                            
-                            <!-- 指名 -->
-                            <span>
-                                @switch($y->shimei)
-                                    @case (1)
-                                        本指名
-                                        @break
-                                    @case (2)
-                                        ネット指名
-                                        @break
-                                    @case (3)
-                                        フリー
-                                        @break
-                                @endswitch
-                            </span>
-
-                            <!-- コース -->
-                            <span>{{ $y->price_id_list }}</span>
-
-                            <!-- お客様名 -->
-                            <span>{{ $kokyakuList[$y->kokyaku_id]->name.' 様' }}</span>
+                            <span>{{ $loop->index+1 }}件目</span>
 
                             <!-- 発生料金 -->
-                            <span>合計 ..</span>
-
-                            <!-- 予約時間 -->
-                            <span>
-                                {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('m/d H:i') }}.' ~ '
-                                
-                            </span>
+                            <span>{{ $y->totalPrice }}円</span>
 
                             <br>
-                            <br>
-
-
                         @endforeach
+
+                        <!-- ajyast1 -->
+                        
+                        <!-- ajyast2 -->
+
+                        <!-- ajyast3 -->
+
+                        <!-- 当日の予約の合計 -->
+
+
+                        <!-- 　　　　今回未実装 　　　　　-->
+                        <!-- ポーチ朝一 -->
+                        <!-- ポスト投函 -->
+                        <!-- ポーチ最終 -->
+                        <!-- 　　　　今回未実装　　　　　-->
+
+                        <br>
+                        <br>
                         
                         今日も一日お疲れ様でした。
                         
@@ -174,52 +141,53 @@
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">コピペ用(詳細)</h2>
                     <!-- カードの要素 -->
-                    <div class="card-body table-responsive text-nowrap">
+                    <div class="row card-body table-responsive text-nowrap">
                         @foreach($yoyakuList  as $y)
-                            <span>{{$loop->index+1}}</span>
-                            
-                            <!-- ループして各施術？の詳細表示 -->
-                            <!-- 〇件目 -->
 
-                            <!-- 時間　＋　指名　＋　コース　＋　お客様名　＋　電話？ -->
-                            <!-- ・お客様支払 -->
-                            <!-- 基本料金　（コース金額） -->
-                            <!-- 指名      （金額） -->
-                            <!-- オプション（総額） -->
-                            <!-- ・バック -->
-                            <!-- 基本料金　（コース*給与形態のパーセント） -->
-                            <!-- 指名      （金額*給与形態のパーセント） -->
-                            <!-- オプション（総額*給与形態のパーセント） -->
+                            <!-- 件数 -->
+                            <span>-------{{ $loop->index+1 }}件目-------</span>
+
+                            <!-- 時間　＋　指名　＋　コース　＋　お客様名　＋　電話 -->
+                            <span>
+                                <!-- 予約時間 -->
+                                {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('H:i') }}~ 
+
+                                <!-- 指名 -->
+                                {{ $y->courseShimei }}
+
+                                <!-- コース -->
+                                {{ $y->courseName }}
+
+                                <!-- お客様名 -->
+                                {{ $kokyakuList[$y->kokyaku_id]->name.' 様' }}
+
+                                <!-- お客様電話番号(下四桁のみ表示) -->
+                                {{ substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4) }}
+                            </span>
+
+                            <!-- お客様支払 -->
+                            <span>・お客様支払</span>
+
+                            <!-- コース金額 -->
+                            <span>基本料金  {{ $y->coursePrice }}円</span>
 
                             <!-- 指名 -->
-                            <span>
-                                @switch($y->shimei)
-                                    @case (1)
-                                        本指名
-                                        @break
-                                    @case (2)
-                                        ネット指名
-                                        @break
-                                    @case (3)
-                                        フリー
-                                        @break
-                                @endswitch
-                            </span>
+                            <span>{{ $y->courseShimei }}    {{ $y->shimeiPrice }}円</span>
+                            
+                            <!-- オプション -->
+                            <span>オプション    {{ $y->optionPrice }}円</span>
+                            
+                            <!-- バック -->
+                            <span>・バック</span>
+                            
+                            <!-- コース金額 -->
+                            <span>基本料金  {{ $y->courseBack }}円</span>
 
-                            <!-- コース -->
-                            <span>{{ $y->price_id_list }}</span>
-
-                            <!-- お客様名 -->
-                            <span>{{ $kokyakuList[$y->kokyaku_id]->name.' 様' }}</span>
-
-                            <!-- 発生料金 -->
-                            <span>合計 ..</span>
-
-                            <!-- 予約時間 -->
-                            <span>
-                                {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('m/d H:i') }}.' ~ '
-                                
-                            </span>
+                            <!-- 指名 -->
+                            <span>{{ $y->courseShimei }}    {{ $y->shimeiBack }}円</span>
+                            
+                            <!-- オプション -->
+                            <span>オプション    {{ $y->optionBack }}円</span>
 
                             <br>
                             <br>
