@@ -98,4 +98,38 @@
             </tbody>
         </table>
         @break
+    @case (5)
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th style="width:50%;">{{$th[0]}}</th>
+                    <th>{{$th[1]}}</th>
+                    <th>{{$th[2]}}</th>
+                    @if($time=='on') <th>{{$th[3]}}</th> @endif
+                </tr>
+            </thead>
+            <tbody class="courceTbody">
+                @if(empty($formData[$type]))
+                    @foreach($placeholder as $d)
+                        <tr>
+                            <td>{{ Form::text($type.'_name_'.$loop->index+1, null, ['class'=>'form-control', 'placeholder'=>$d[0]])}}</td>
+                            @if($time=='on') <td><div class="input-group">{{ Form::number($type.'_time_'.$loop->index+1, null, ['class'=>'form-control', 'placeholder'=>$d[1]])}}<span class="input-group-text">分</span></div></td> @endif
+                            <td><div class="input-group">{{ Form::number($type.'_price_'.$loop->index+1, null, ['class'=>'form-control', 'placeholder'=>$d[2]])}}<span class="input-group-text">円</span></div></td>
+                            <td><div class="input-group">{{ Form::number($type.'_back_'.$loop->index+1, null, ['class'=>'form-control', 'placeholder'=>$d[3]])}}<span class="input-group-text">円</span></div></td>
+                        </tr>
+                    @endforeach
+                @else
+                    @foreach($formData[$type] as $f)
+                        <tr>
+                            <td>{{ Form::text($f['name_title'], $f['name_data'], ['class'=>'form-control'])}}</td>
+                            @if($time=='on') <td><div class="input-group">{{ Form::number($f['time_title'], $f['time_data'], ['class'=>'form-control'])}}<span class="input-group-text">分</span></div></td> @endif
+                            <td><div class="input-group">{{ Form::number($f['price_title'], $f['price_data'], ['class'=>'form-control'])}}<span class="input-group-text">円</span></div></td>
+                            <td><div class="input-group">{{ Form::number($f['back_title'], $f['back_data'], ['class'=>'form-control'])}}<span class="input-group-text">円</span></div></td>
+                        </tr>
+                    @endforeach
+                @endif
+                @if($add=='on') <tr><td id="{{$type}}" colspan='100%' class="text-center form-text add_input">＋ 行追加 ＋</td></tr> @endif
+            </tbody>
+        </table>
+        @break
 @endswitch

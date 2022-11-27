@@ -305,25 +305,25 @@ class ClientController extends Controller{
             price::del($miseId); //今あるレコード削除
 
             $count = [];
+            $backName = $input['backName'];
 
             foreach($input as $key => $data){
 
                 //コース料金
-                if(preg_match("/visit_name/", $key)){
-                    // price
-                    $keyPrice = str_replace('name', 'price', $key);
-                    $price = is_null($input[$keyPrice])? 0: $input[$keyPrice];
-                    if(!isset($count['visit'])) $count['visit'] = 1;
-                    $result = price::priceInsert($miseId, $data, $price, $count['visit'], 'visit', null);
-                    $count['visit']++;
-
-                }elseif(preg_match("/_name/", $key)){
+                if(preg_match("/_name/", $key)){
                     if(is_null($data)) continue;
 
                     // price
                     $keyPrice = str_replace('name', 'price', $key);
-                    if(is_null($input[$keyPrice])) continue;
-                    $price = $input[$keyPrice];
+                    // if(is_null($input[$keyPrice])) continue;
+                    // $price = $input[$keyPrice];
+                    $price = is_null($input[$keyPrice])? 0: $input[$keyPrice];
+
+                    // back
+                    $keyBack = str_replace('name', 'back', $key);
+                    // if(is_null($input[$keyBack])) continue;
+                    // $back = $input[$keyBack];
+                    $back = is_null($input[$keyBack])? 0: $input[$keyBack];
 
                     // type
                     $type = explode('_name', $key)[0];
@@ -333,26 +333,30 @@ class ClientController extends Controller{
                     $time = null;
                     if($type=="course"){
                         $keyTime = str_replace('name', 'time', $key);
-                        if(is_null($input[$keyTime])) continue;
-                        $time = $input[$keyTime];
+                        if(is_null($input[$keyTime])){
+                            $time = preg_replace('/[^0-9]/', '', $data);
+                        }else{
+                            $time = $input[$keyTime];
+                        }
+                        
                     }
 
-                    $result = price::priceInsert($miseId, $data, $price, $count[$type], $type, $time);
+                    $result = price::priceInsert($miseId, $data, $price, $count[$type], $type, $time, $backName, $back);
                     $count[$type]++;
 
                 //radio-チェックされた値が入っている。 
                 }elseif($key == 'optionGet' ){ 
-                    $result = price::priceInsert($miseId, $data, 0, 1, 'optionGet', null);
+                    $result = price::priceInsert($miseId, $data, 0, 1, 'optionGet', null, $backName, null);
 
                 //checkbox-値があればチェックされている
                 }elseif($key == 'claim1000' ){
-                    $result = price::priceInsert($miseId, 'claim1000', 1, 1, 'claim1000', null);
+                    $result = price::priceInsert($miseId, 'claim1000', 1, 1, 'claim1000', null, $backName, null);
                 }elseif($key == 'claim2000' ){
-                    $result = price::priceInsert($miseId, 'claim2000', 1, 1, 'claim2000', null);
+                    $result = price::priceInsert($miseId, 'claim2000', 1, 1, 'claim2000', null, $backName, null);
                 }
 
             }
-            return back()->with(['message' => '保存しました。「バック額の確認」もお願いします。']);
+            return back()->with(['message' => '保存しました。内容の確認をお願いします。']);
             
         }
     }
