@@ -19,7 +19,7 @@
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
                         <p>雑費などセラピストの給料から引く場合は「-1000」とマイナスで入力して下さい。<br>
-                            金額が入っている項目のみ有効。
+                            空欄はバック0円になります。
                         </p>
                         @include('common.validator')
                         @include('common.error')

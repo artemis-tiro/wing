@@ -309,7 +309,15 @@ class ClientController extends Controller{
             foreach($input as $key => $data){
 
                 //コース料金
-                if(preg_match("/_name/", $key)){
+                if(preg_match("/visit_name/", $key)){
+                    // price
+                    $keyPrice = str_replace('name', 'price', $key);
+                    $price = is_null($input[$keyPrice])? 0: $input[$keyPrice];
+                    if(!isset($count['visit'])) $count['visit'] = 1;
+                    $result = price::priceInsert($miseId, $data, $price, $count['visit'], 'visit', null);
+                    $count['visit']++;
+
+                }elseif(preg_match("/_name/", $key)){
                     if(is_null($data)) continue;
 
                     // price

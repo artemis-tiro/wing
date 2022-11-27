@@ -121,5 +121,19 @@ class Yoyaku extends Model
 
         return null;
     }
+
+
+    // inputerに予約経験あるか
+    public static function addExist($inputList){
+        foreach($inputList as $i){
+            $exist = yoyaku::where('inputer_id', $i->id)
+                ->first();
+            $i->yoyakuExist = $exist? 1: 0;
+        }
+        return null;
+    }
+
+
+
     
 }

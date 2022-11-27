@@ -13,6 +13,7 @@ use App\Models\User;
 use App\Models\Inputer;
 use App\Models\Client;
 use App\Models\Mise;
+use App\Models\Yoyaku;
 
 class AdminController extends Controller{
 
@@ -57,6 +58,7 @@ class AdminController extends Controller{
 
         //inputer一覧
         $inputerList = user::inputerList(Auth::user()->team);
+        yoyaku::addExist($inputerList);
 
         return view ('admin_inputer', [
             'inputerList' => $inputerList,

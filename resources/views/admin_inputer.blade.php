@@ -45,22 +45,25 @@
                                      $actionComment = $i->active?'停止':'再開'; 
                                 ?>
 
-                                <tr>
+                                <tr class="account_{{$action}}">
                                     <th>{{$loop->index+1}}</th>
                                     <td><a href="{{url('/admin/inputer/'.$i->id)}}">{{$i->name}}</a></td>
                                     <td>{{$level}}</td>
                                     <td><a class="btn btn-sm btn-info" href="{{url('/admin/editinputer')}}/{{$i->id}}/{{$action2}}">権限切り替え</a></td>
                                     <td>{{$active}}</td>
-                                    <!--
-                                    <td>
-                                        {{ Form::open(['url' => url('/admin/editinputer/'.$i->id.'/memo')]) }}
-                                        {{ Form::text('memo'.$i->id, $i->memo)}}
-                                        {{ Form::submit('メモ')}}
-                                        {{ Form::close() }}
-                                    </td>
-                                    -->
                                     <td><a class="btn btn-sm btn-info" href="{{url('/admin/editinputer')}}/{{$i->id}}/{{$action}}">{{$actionComment}}</a></td>
-                                    <td><a class="btn btn-sm btn-danger" href="{{url('/admin/editinputer')}}/{{$i->id}}/del">削除</a></td>
+                                    <td>
+                                        @if(!$i->yoyakuExist)
+                                            @component('componets.modal')
+                                                @slot('type', 'del')
+                                                @slot('name', $i->name)
+                                                @slot('id', $i->name.$loop->index)
+                                                @slot('text', $i->name."はまだ予約の入力がないので削除できます。")
+                                                @slot('url', url('/admin/editinputer').'/'.$i->id.'/del')
+                                            @endcomponent
+                                        @endif
+                                        {{--<a class="btn btn-sm btn-danger" href="{{url('/admin/editinputer')}}/{{$i->id}}/del">削除</a>--}}
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -73,7 +76,9 @@
                     <h2 class="card-header h5">メンバー新規作成</h2>
                     <!-- カードの要素 -->
                     <div class="card-body">
+                        @include('common.validator')
                         @include('common.error')
+                        @include('common.success')
                         {{ Form::open(['url' => url('/admin/newinputer'),'class'=>'form-horizontal']) }}
                         <label class="row text-nowrap mb-4 text-end">
                             <div class="col-sm-2 lh2 text-end">ログインID *</div>

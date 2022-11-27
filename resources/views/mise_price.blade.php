@@ -96,16 +96,26 @@
                         <hr><br>
 
                         <h3 class="h5">入会金</h3>
-                        @component('componets.mise_price_form')
-                            @slot('form', 3)
-                            @slot('type', 'visit')
-                            @slot('formData', $formData)
-                            @slot('th', ['名目', '料金'])
-                            @slot('placeholder', [
-                                "例）初回" => "1000",
-                                "例）リピータ" => "0",
-                            ])
-                        @endcomponent
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>名目</th>
+                                        <th>料金</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="courceTbody">
+                                    <tr>
+                                        <td>初回{{Form::hidden('visit_name_1', '初回')}}</td>
+                                        @php $price = isset($formData['visit'][0]['price_data'])? $formData['visit'][0]['price_data']: null; @endphp
+                                        <td class="input-group">{{ Form::number('visit_price_1', $price, ['class'=>'form-control', 'placeholder'=>1000])}}<span class="input-group-text">円</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>リピーター{{Form::hidden('visit_name_2', 'リピーター')}}</td>
+                                        @php $price = isset($formData['visit'][1]['price_data'])? $formData['visit'][1]['price_data']: null; @endphp
+                                        <td class="input-group">{{ Form::number('visit_price_2', $price, ['class'=>'form-control', 'placeholder'=>0])}}<span class="input-group-text">円</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
                         <hr><br>
 
@@ -125,6 +135,7 @@
 
                         <hr><br>
 
+{{--
                         <h3 class="h5">追加料金</h3>
                         @component('componets.mise_price_form')
                             @slot('form', 1)
@@ -139,7 +150,7 @@
                         @endcomponent
 
                         <hr><br>
-
+--}}
                         <h3 class="h5">オプション</h3>
                         @component('componets.mise_price_form')
                             @slot('form', 1)

@@ -83,7 +83,8 @@ class User extends Authenticatable
             ->where('id', '<>', $team) //teamオーナーを除外
             ->where('team', $team)
             ->get();
-        return $inputerList;
+        $list = $inputerList->sortByDesc('active');
+        return $list;
     }
 
     //client一覧

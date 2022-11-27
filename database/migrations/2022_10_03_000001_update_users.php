@@ -29,7 +29,7 @@ return new class extends Migration
         });
         Schema::create('client', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->nullable()->comment('ユーザーID');
-            $table->string('name')->comment('代表者指名');
+            $table->string('name')->comment('代表者本名');
             $table->string('yomi')->nullable()->comment('よみがな');
             $table->string('address')->nullable()->comment('住所');
             $table->string('tel')->nullable()->comment('電話番号');
