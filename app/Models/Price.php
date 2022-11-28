@@ -18,8 +18,10 @@ class price extends Model
     //public $timestamps = false;
 
     // prices削除
-    public static function del($miseId){
-        $priceList = price::where('mise_id', $miseId)->get();
+    public static function del($miseId, $backName){
+        $priceList = price::where('mise_id', $miseId)
+            ->where('back_name', $backName)
+            ->get();
         foreach($priceList as $p){
             $exist = yoyaku::where('price_id_list', 'LIKE', "%p".$p->id."%")
                 ->first();
@@ -49,8 +51,9 @@ class price extends Model
     }
 
     // formデータ取得
-    public static function formData($miseId){
+    public static function formData($miseId, $backName){
         $priceList = price::where('mise_id', $miseId)
+            ->where('back_name', $backName)
             ->orderBy('order', 'asc')
             ->get();
         $formData = [];
@@ -73,6 +76,83 @@ class price extends Model
         // Log::info($formData);//★★★log★★★
         
         return $formData;
+    }
+
+    // 新規作成
+    public static function backCreate($miseId, $name, $copy){
+        $backList = price::where('mise_id', $miseId)
+            ->where('back_name', $name)
+            ->get();
+        if($backList->count() || $name=="default") return $name.'は存在します。';
+
+        $default = price::where('mise_id', $miseId)
+            ->where('back_name', 'default')
+            ->get();
+        if($copy && $default->count()){
+            foreach($default as $d){
+                $newBack = new price();
+                $newBack->mise_id = $miseId;
+                $newBack->name = $d->name;
+                $newBack->time = $d->time;
+                $newBack->price = $d->price;
+                $newBack->order = $d->order;
+                $newBack->type = $d->type;
+                $newBack->back = $d->back;
+                $newBack->back_name = $name;
+                $result = $newBack->save();
+            }
+        }else{
+            $newBack = new price();
+            $newBack->mise_id = $miseId;
+            $newBack->back_name = $name;
+            $newBack->name = 0;
+            $newBack->price = 0;
+            $newBack->order = 0;
+            $result = $newBack->save();
+        }
+        return $name.'を作成しました。';
+    }
+
+        // backリスト
+    public static function list($miseId){
+        $backList = price::where('mise_id', $miseId)
+            ->get()
+            ->unique('back_name');
+
+        $list = [];
+        foreach($backList as $b){
+            if($b->back_name=='default') continue;
+            $list[$b->back_name] = $b->back_name;
+        }
+        return $list;
+    }
+
+        // backリスト
+    public static function list2($miseId){
+        $backList = price::where('mise_id', $miseId)
+            ->get()
+            ->unique('back_name');
+        $list = [];
+
+        $list['default']['name'] = 'default';
+        $courceExist = price::where('mise_id', $miseId)
+            ->where('back_name', 'default')
+            ->where('type', 'course')
+            ->first();
+        $complete = $courceExist? 1: 0;
+        $list['default']['complete'] = $complete;
+
+        foreach($backList as $b){
+            if($b->back_name=='default') continue;
+            $list[$b->back_name]['name'] = $b->back_name;
+            $courceExist = price::where('mise_id', $miseId)
+                ->where('back_name', $b->back_name)
+                ->where('type', 'course')
+                ->first();
+            $complete = $courceExist? 1: 0;
+            $list[$b->back_name]['complete'] = $complete;
+        }
+        return $list;
     }
 
     // detail

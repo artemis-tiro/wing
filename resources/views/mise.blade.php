@@ -127,26 +127,16 @@
                     </div>
                 </div>
 
-                <!-- 料金システム登録 -->
+                <!-- バック一覧 -->
                 @php
                     $priceRequest = $courseExist? null: '<span class="priceRequest">※料金システムを登録して下さい。</span>';
-                    $lockMes = $courseExist? null: '<span class="priceRequest">※料金システムを登録後に編集できます。</span>';
-                    $backNotComplete = '<span class="priceRequest">※バックを登録してください。</span>';
+                    $lockMes = $courseExist? null: '<span class="priceRequest">※料金システムdefaultを設定して下さい。</span>';
+                    $backNotComplete = '<span class="priceRequest">※料金システムを登録してください。</span>';
                     $ccc = $courseExist? null: 'ccc';
                 @endphp
-                <div class="card">
+                <div class="card my-4">
                     <!-- カードのタイトル -->
-                    <h2 class="card-header h5">料金システム</h2>
-                    <!-- カードの要素 -->
-                    <div class="card-body table-responsive text-nowrap">
-                        <div><a class="btn btn-info" href="{{ url()->current() }}/price">料金システム編集</a>{!!$priceRequest!!}</div>
-                    </div>
-                </div>
-
-                <!-- バック一覧 -->
-                <div class="card my-4 {{ $ccc }}">
-                    <!-- カードのタイトル -->
-                    <h2 class="card-header h5">給料形態一覧 {!!$lockMes!!}</h2>
+                    <h2 class="card-header h5">料金システム一覧</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
                         @if ( !empty($mes4) )
@@ -162,7 +152,7 @@
                             <thead>
                                 <!-- カテゴリ -->
                                 <tr>
-                                    <th scope="col">バック名</th>
+                                    <th scope="col">名称</th>
                                     <th scope="col"></th>
                                     <!-- ボタン表示 -->
                                     <th scope="col"></th>
@@ -173,7 +163,7 @@
                                 @foreach($backList2 as $b)
                                 <tr>
                                     <th>{{ $b['name'] }}</th>
-                                    <td><a class="btn btn-sm btn-info" href="{{ url()->current() }}/back/{{ $b['name'] }}">編集</a></td>
+                                    <td><a class="btn btn-sm btn-info" href="{{ url()->current() }}/price/{{ $b['name'] }}">編集</a></td>
                                     <td>
                                     @if($b['name'] != 'default')
                                     @component('componets.modal')
@@ -185,7 +175,7 @@
                                     @endcomponent
                                     @endif
                                     </td>
-                                    <td>@if(!$priceRequest && !$b['complete']) {!!$backNotComplete!!} @endif</td>
+                                    <td>@if(!$b['complete']) {!!$backNotComplete!!} @endif</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -196,7 +186,7 @@
                 <!-- バック新規作成 -->
                 <div class="card my-4 {{ $ccc }}">
                     <!-- カードのタイトル -->
-                    <h2 class="card-header h5">給料形態新規作成 {!!$lockMes!!}</h2>
+                    <h2 class="card-header h5">料金システム新規作成 {!!$lockMes!!}</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
                         @if ( !empty($newBackMessage) )
@@ -209,7 +199,7 @@
                         @endif
                         {{ Form::open(['url' => url('/c/'.$client->id.'/'.$mise->id.'/newback'),'class'=>'form-horizontal', 'autocomplete'=>'off']) }}
                         <label class="row text-nowrap mb-4 text-end">
-                            <div class="col-sm-2 lh2 text-end">バック名 *</div>
+                            <div class="col-sm-2 lh2 text-end">料金システム名 *</div>
                             <div class="col-sm-10">
                                 {{ Form::text('back_name', null, ['class'=>'form-control jq_idToPass', 'required'=>'required']) }}
                             </div>

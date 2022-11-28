@@ -70,7 +70,7 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}', "
 Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/edit/{action}', "App\Http\Controllers\ClientController@miseEdit");
 Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/newtherapist', "App\Http\Controllers\ClientController@newTherapist");
 Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/newback', "App\Http\Controllers\ClientController@newBack");
-Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/price', "App\Http\Controllers\ClientController@price");
+Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/price/{backName}', "App\Http\Controllers\ClientController@price");
 Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/priceedit', "App\Http\Controllers\ClientController@priceEdit");
 Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/hearingsheetedit', "App\Http\Controllers\ClientController@hearingsheetEdit");
 Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/back/{backName}', "App\Http\Controllers\ClientController@back");

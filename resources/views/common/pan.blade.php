@@ -17,9 +17,9 @@
 @endif
 
 @if($level == "tiro" || $level == "admin")
-						@if(strpos($path,'admin/inputer/') !== false) <li class="breadcrumb-item"><a href="{{url("/admin/inputer")}}">メンバー編集</a></li>@endif
-						@if(strpos($path,'client/') !== false) <li class="breadcrumb-item"><a href="{{url("/admin/client")}}">クライアント編集</a></li>@endif
-						@if(strpos($path,'c/') !== false) <li class="breadcrumb-item"><a href="{{url("/admin/client")}}">クライアント編集</a></li>@endif
+						@if(strpos($path,'admin/inputer/') !== false) <li class="breadcrumb-item"><a href="{{url("/admin/inputer")}}">メンバー一覧</a></li>@endif
+						@if(strpos($path,'client/') !== false) <li class="breadcrumb-item"><a href="{{url("/admin/client")}}">クライアント一覧</a></li>@endif
+						@if(strpos($path,'c/') !== false) <li class="breadcrumb-item"><a href="{{url("/admin/client")}}">クライアント一覧</a></li>@endif
 @endif
 
 @stop
