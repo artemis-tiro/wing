@@ -240,4 +240,10 @@ class User extends Authenticatable
             ->get();
         return $miseList;
     }
+
+    // detail
+    public static function detail($id){
+        $user = user::find($id);
+        return $user;
+    }
 }

@@ -2,7 +2,6 @@
 @include('common.header')
 @include('common.topbar')
 @include('common.sidemenu')
-{{--@include('common.pan')--}}
 @section('pan2')
 <li class="breadcrumb-item active">マイページ</li>
 @stop
@@ -31,73 +30,90 @@
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
 
-                        <!-- 名前 -->
-                        <label class="row">
-                            <!-- ラベル -->
-                            <div class="text-info text-end">名前</div>
-                            <div class="col-sm-3">
-                                <label for="">{{ $mydeta->name }}</label>
-                            </div>
-                            <!-- ボタン -->
-                            <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#nameModal">
-                                編集
-                            </button>
-                        </label>
+                        <!-- モーダルラベル/ボタンの設定 -->
+                        <!-- ユーザーでログイン時 -->
+                        @if( $accessLevel != 'tiro' )
 
-                        <!-- 住所 -->
-                        <label class="row">
-                            <!-- ラベル -->
-                            <div class="mt-2 text-info text-end">住所</div>
-                            <div class="col-sm-3">
-                                <label for="">{{ $mydeta->address }}</label>
-                            </div>
-                            <!-- ボタン -->
-                            <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#addressModal">
-                                編集
-                            </button>
-                        </label>
+                            <!-- 名前 -->
+                            <label class="row">
+                                <!-- ラベル -->
+                                <div class="text-info text-end">名前</div>
+                                <div class="col-sm-3">
+                                    <label class="mt-2">{{ $mydeta->name }}</label>
+                                </div>
+                                <!-- ボタン -->
+                                <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#nameModal">
+                                    編集
+                                </button>
+                            </label>
 
-                        <!-- 電話番号 -->
-                        <label class="row">
-                            <!-- ラベル -->
-                            <div class="mt-2 text-info text-end">電話番号</div>
-                            <div class="col-sm-3">
-                                <label for="">{{ $mydeta->tel }}</label>
-                            </div>
-                            <!-- ボタン -->
-                            <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#telModal">
-                                編集
-                            </button>
-                        </label>
+                            <!-- 住所 -->
+                            <label class="row">
+                                <!-- ラベル -->
+                                <div class="mt-2 text-info text-end">住所</div>
+                                <div class="col-sm-3">
+                                    <label class="mt-2">{{ $mydeta->address }}</label>
+                                </div>
+                                <!-- ボタン -->
+                                <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#addressModal">
+                                    編集
+                                </button>
+                            </label>
 
-                        <!-- メールアドレス -->
-                        <label class="row">
-                            <!-- ラベル -->
-                            <div class="mt-2 text-info text-end">メールアドレス</div>
-                            <div class="col-sm-3">
-                                <label for="">{{ $mydeta->mail }}</label>
-                            </div>
-                            <!-- ボタン -->
-                            <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#mailModal">
-                                編集
-                            </button>
-                        </label>
+                            <!-- 電話番号 -->
+                            <label class="row">
+                                <!-- ラベル -->
+                                <div class="mt-2 text-info text-end">電話番号</div>
+                                <div class="col-sm-3">
+                                    <label class="mt-2">
+                                        {{ 
+                                            substr($mydeta->tel, 0, 3).'-'.
+                                            substr($mydeta->tel, 3, 4).'-'.
+                                            substr($mydeta->tel, -4, 4)
+                                        }}
+                                    </label>
+                                </div>
+                                <!-- ボタン -->
+                                <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#telModal">
+                                    編集
+                                </button>
+                            </label>
 
-                        <!-- 生年月日 -->
-                        <label class="row">
-                            <!-- ラベル -->
-                            <div class="mt-2 text-info text-end">生年月日</div>
-                            <div class="col-sm-3">
-                                <label for="">{{ $mydeta->birthday }}</label>
-                            </div>
-                            <!-- ボタン -->
-                            <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="birthdayModal">
-                                編集
-                            </button>
-                        </label>
+                            <!-- メールアドレス -->
+                            <label class="row">
+                                <!-- ラベル -->
+                                <div class="mt-2 text-info text-end">メールアドレス</div>
+                                <div class="col-sm-3">
+                                    <label class="mt-2">{{ $mydeta->mail }}</label>
+                                </div>
+                                <!-- ボタン -->
+                                <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#mailModal">
+                                    編集
+                                </button>
+                            </label>
+
+                            <!-- 生年月日 -->
+                            <label class="row">
+                                <!-- ラベル -->
+                                <div class="mt-2 text-info text-end">生年月日</div>
+                                <div class="col-sm-3">
+                                    <label class="mt-2">
+                                        {{ 
+                                            substr(str_replace('-', '', $mydeta->birthday), 0, 4).'年'.
+                                            substr(str_replace('-', '', $mydeta->birthday), 4, 2).'月'.
+                                            substr(str_replace('-', '', $mydeta->birthday), -2, 2).'日'
+                                        }}
+                                    </label>
+                                </div>
+                                <!-- ボタン -->
+                                <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#birthdayModal">
+                                    編集
+                                </button>
+                            </label>
+
+                        @endif
 
                         <!-- セラピストのみ編集する -->
-                        {{-- @if( $accessLevel === 'tiro' ) --}}
                         @if( $accessLevel === 'therapist' )
                             <!-- 営業プロフィール -->
                             <label class="row">
@@ -114,7 +130,7 @@
                         @endif
 
                         <!-- パスワード -->
-                        <button type="button" class="mt-2 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#passwordModal">
+                        <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#passwordModal">
                             パスワードを変更
                         </button>
 
@@ -150,7 +166,7 @@
 
                                                 <!-- 半角などのチェック -->
                                                 <!-- Form::タイプ('NAME', VALUE, ['class'=>'クラス']) -->
-                                                {{ Form::text('name', null, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required']) }}
+                                                {{ Form::text('name', $mydeta->name, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required', 'placeholder'=>'(例) 山田沙也加']) }}
                                             </div>
                                         </label>
 
@@ -164,7 +180,7 @@
                                             <div class="col-sm-12">
 
                                                 <!-- 上のパスワードと同じかの確認をする -->
-                                                {{ Form::text('kana', null, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required']) }}
+                                                {{ Form::text('kana', $mydeta->yomi, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required', 'placeholder'=>'(例) やまださやか']) }}
                                             </div>
                                         </label>
 
@@ -218,7 +234,7 @@
                                                 <!-- 半角などのチェック -->
                                                 <!-- Form::タイプ -->
                                                 <!-- 第一引数は「name=""」 -->
-                                                {{ Form::text('address', null, ['class'=>'form-control', 'autocomplete'=>'off']) }}
+                                                {{ Form::text('address', $mydeta->address, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'(例) 東京都新宿区西新宿2丁目8-1']) }}
                                             </div>
                                         </label>
                                     </div>
@@ -271,7 +287,7 @@
                                                 <!-- 半角などのチェック -->
                                                 <!-- Form::タイプ -->
                                                 <!-- 第一引数は「name=""」 -->
-                                                {{ Form::tel('tel', null, ['class'=>'form-control', 'autocomplete'=>'off']) }}
+                                                {{ Form::number('tel', $mydeta->tel, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'(例) 08021210007']) }}
                                             </div>
                                         </label>
                                     </div>
@@ -324,7 +340,7 @@
                                                 <!-- 半角などのチェック -->
                                                 <!-- Form::タイプ -->
                                                 <!-- 第一引数は「name=""」 -->
-                                                {{ Form::email('mail', null, ['class'=>'form-control', 'autocomplete'=>'current-password']) }}
+                                                {{ Form::email('mail', $mydeta->mail, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'(例) anya@gmail.com']) }}
                                             </div>
                                         </label>
                                     </div>
@@ -377,7 +393,7 @@
                                                 <!-- 半角などのチェック -->
                                                 <!-- Form::タイプ -->
                                                 <!-- 第一引数は「name=""」 -->
-                                                {{ Form::number('birthday', null, ['class'=>'form-control', 'autocomplete'=>'current-password']) }}
+                                                {{ Form::number('birthday', str_replace('-', '', $mydeta->birthday), ['class'=>'form-control', 'autocomplete'=>'current-password', 'placeholder'=>'(例) 2005-01-21']) }}
                                             </div>
                                         </label>
                                     </div>
@@ -431,7 +447,7 @@
                                                 <!-- 半角などのチェック -->
                                                 <!-- Form::タイプ -->
                                                 <!-- 第一引数は「name=""」 -->
-                                                {{ Form::number('age', null, ['class'=>'form-control', 'autocomplete'=>'off']) }}
+                                                {{ Form::number('age', $mydeta->age, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'(例) 21']) }}
                                             </div>
                                         </label>
 
@@ -448,7 +464,7 @@
                                             <div class="col-sm-12">
 
                                                 <!-- 上のパスワードと同じかの確認をする -->
-                                                {{ Form::text('3size', null, ['class'=>'form-control', 'autocomplete'=>'off']) }}
+                                                {{ Form::text('3size', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'(例) 81-63-87']) }}
                                             </div>
                                         </label>
 
@@ -462,7 +478,7 @@
                                             <div class="col-sm-12">
 
                                                 <!-- 上のパスワードと同じかの確認をする -->
-                                                {{ Form::text('cup', null, ['class'=>'form-control', 'autocomplete'=>'off']) }}
+                                                {{ Form::text('cup', $mydeta->cup, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'(例) A']) }}
                                             </div>
                                         </label>
 
@@ -476,7 +492,7 @@
                                             <div class="col-sm-12">
 
                                                 <!-- 上のパスワードと同じかの確認をする -->
-                                                {{ Form::text('line', null, ['class'=>'form-control', 'autocomplete'=>'off']) }}
+                                                {{ Form::text('line', $mydeta->line, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'(例) anya0121']) }}
                                             </div>
                                         </label>
                                     </div>

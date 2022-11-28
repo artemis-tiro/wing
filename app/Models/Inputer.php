@@ -46,7 +46,7 @@ class inputer extends Model
     //  アカウント情報変更(名前)
     public static function inputerNameEdit($id, $input){
         //インサート
-        $inputer = new inputer();
+        $inputer = inputer::find($id);
         $inputer->id = $id;
         $inputer->name = $input['name'];
         $inputer->yomi = $input['kana'];
@@ -61,7 +61,7 @@ class inputer extends Model
     //  アカウント情報変更(住所)
     public static function inputerAddressEdit($id, $input){
         //インサート
-        $inputer = new inputer();
+        $inputer = inputer::find($id);
         $inputer->id = $id;
         $inputer->address = $input['address'];
         $result = $inputer->save();
@@ -75,7 +75,7 @@ class inputer extends Model
     //  アカウント情報変更(電話番号)
     public static function inputerTelEdit($id, $input){
         //インサート
-        $inputer = new inputer();
+        $inputer = inputer::find($id);
         $inputer->id = $id;
         $inputer->tel = $input['tel'];
         $result = $inputer->save();
@@ -89,7 +89,7 @@ class inputer extends Model
     //  アカウント情報変更(メールアドレス)
     public static function inputerMailEdit($id, $input){
         //インサート
-        $inputer = new inputer();
+        $inputer = inputer::find($id);
         $inputer->id = $id;
         $inputer->mail = $input['mail'];
         $result = $inputer->save();
@@ -103,9 +103,9 @@ class inputer extends Model
     //  アカウント情報変更(生年月日)
     public static function inputerBirthdayEdit($id, $input){
         //インサート
-        $inputer = new inputer();
+        $inputer = inputer::find($id);
         $inputer->id = $id;
-        $inputer->mail = $input['birthday'];
+        $inputer->birthday = $input['birthday'];
         $result = $inputer->save();
 
         //インサート失敗時

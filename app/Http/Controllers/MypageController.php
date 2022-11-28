@@ -30,6 +30,11 @@ class MypageController extends Controller{
             case 'inputer':
                 $mydeta = inputer::detail(Auth::user()->id);
                 break;
+            case 'admin':
+                $mydeta = inputer::detail(Auth::user()->id);
+                break;
+            default;
+                $mydeta = user::detail(Auth::user()->id);
         }
 
         return view ('mypage', [
@@ -111,6 +116,9 @@ class MypageController extends Controller{
             case 'inputer':
                 $result = inputer::inputerNameEdit(Auth::user()->id,$request);
                 break;
+            case 'admin':
+                $result = inputer::inputerNameEdit(Auth::user()->id,$request);
+                break;
         }
 
         if($result){
@@ -126,6 +134,9 @@ class MypageController extends Controller{
     // 住所の変更
     public function addresschange(Request $request){
         
+        // アクセス情報取得
+        $accessLevel = Auth::user()->access_level;
+
         // DB更新
         switch ($accessLevel) {
             case 'therapist':
@@ -135,6 +146,9 @@ class MypageController extends Controller{
                 $result = client::clientAddressEdit(Auth::user()->id,$request);
                 break;
             case 'inputer':
+                $result = inputer::inputerAddressEdit(Auth::user()->id,$request);
+                break;
+            case 'admin':
                 $result = inputer::inputerAddressEdit(Auth::user()->id,$request);
                 break;
         }
@@ -152,6 +166,21 @@ class MypageController extends Controller{
     // 電話番号の変更
     public function telchange(Request $request){
 
+        // アクセス情報取得
+        $accessLevel = Auth::user()->access_level;
+
+        ///////     バリデーション      ///////
+        // NULLではない
+        // ひらがなであるか
+        $rulus = [
+            'tel' => ['numeric'],
+        ];
+        $message = [
+            'tel.numeric' => '数字を入力してください。',
+        ];
+        $validator = Validator::make($request->all(), $rulus, $message);
+        if($validator->fails()) return back()->withErrors($validator)->withInput();
+
         // DB更新
         switch ($accessLevel) {
             case 'therapist':
@@ -161,6 +190,9 @@ class MypageController extends Controller{
                 $result = client::clientTelEdit(Auth::user()->id,$request);
                 break;
             case 'inputer':
+                $result = inputer::inputerTelEdit(Auth::user()->id,$request);
+                break;
+            case 'admin':
                 $result = inputer::inputerTelEdit(Auth::user()->id,$request);
                 break;
         }
@@ -178,6 +210,9 @@ class MypageController extends Controller{
     // メールアドレスの変更
     public function mailchange(Request $request){
 
+        // アクセス情報取得
+        $accessLevel = Auth::user()->access_level;
+
         // DB更新
         switch ($accessLevel) {
             case 'therapist':
@@ -187,6 +222,9 @@ class MypageController extends Controller{
                 $result = client::clientMailEdit(Auth::user()->id,$request);
                 break;
             case 'inputer':
+                $result = inputer::inputerMailEdit(Auth::user()->id,$request);
+                break;
+            case 'admin':
                 $result = inputer::inputerMailEdit(Auth::user()->id,$request);
                 break;
         }
@@ -202,7 +240,22 @@ class MypageController extends Controller{
     }
 
     // 生年月日の変更
-    public function birthdachange(Request $request){
+    public function birthdaychange(Request $request){
+
+        // アクセス情報取得
+        $accessLevel = Auth::user()->access_level;
+        
+        ///////     バリデーション      ///////
+        // NULLではない
+        // ひらがなであるか
+        $rulus = [
+            'birthday' => ['numeric'],
+        ];
+        $message = [
+            'birthday.numeric' => '数字を入力してください。',
+        ];
+        $validator = Validator::make($request->all(), $rulus, $message);
+        if($validator->fails()) return back()->withErrors($validator)->withInput();
 
         // DB更新
         switch ($accessLevel) {
@@ -210,10 +263,13 @@ class MypageController extends Controller{
                 $result = therapist::therapistBirthdayEdit(Auth::user()->id,$request);
                 break;
             case 'client':
-                $result = client::clientBirthdaEdit(Auth::user()->id,$request);
+                $result = client::clientBirthdayEdit(Auth::user()->id,$request);
                 break;
             case 'inputer':
-                $result = inputer::inputerBirthdaEdit(Auth::user()->id,$request);
+                $result = inputer::inputerBirthdayEdit(Auth::user()->id,$request);
+                break;
+            case 'admin':
+                $result = inputer::inputerBirthdayEdit(Auth::user()->id,$request);
                 break;
         }
 

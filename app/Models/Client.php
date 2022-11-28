@@ -108,10 +108,10 @@ class client extends Model
     }
 
     //  アカウント情報変更(生年月日)
-    public static function inputerBirthdayEdit($id, $input){
+    public static function clientBirthdayEdit($id, $input){
         //インサート
         $client = client::find($id);
-        $client->mail = $input['birthday'];
+        $client->birthday = $input['birthday'];
         $result = $client->save();
 
         //インサート失敗時

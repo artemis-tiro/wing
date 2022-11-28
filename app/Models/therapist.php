@@ -142,7 +142,7 @@ class Therapist extends Model
     }
 
     //  アカウント情報変更(生年月日)
-    public static function inputerBirthdayEdit($id, $input){
+    public static function therapistBirthdayEdit($id, $input){
         //インサート
         $therapist = new therapist();
         $therapist->id = $id;
