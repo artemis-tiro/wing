@@ -132,4 +132,33 @@
             </tbody>
         </table>
         @break
+    @case (6)
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>{{$th[0]}}</th>
+                    <th>{{$th[1]}}</th>
+                </tr>
+            </thead>
+            <tbody class="courceTbody">
+                @if(empty($formData[$type]))
+                    @foreach($placeholder as $k=>$d)
+                        <tr>
+                            <td>{{ Form::text($type.'_name_'.$loop->index+1, null, ['class'=>'form-control', 'placeholder'=>$k])}}</td>
+                            <td class="input-group">{{ Form::number($type.'_back_'.$loop->index+1, null, ['class'=>'form-control', 'placeholder'=>$d])}}<span class="input-group-text">円</span></td>
+                        </tr>
+                    @endforeach
+                @else
+                    @foreach($formData[$type] as $f)
+                        <tr>
+                            <td>{{ Form::text($f['name_title'], $f['name_data'], ['class'=>'form-control'])}}</td>
+                            <td class="input-group">{{ Form::number($f['back_title'], $f['back_data'], ['class'=>'form-control'])}}<span class="input-group-text">円</span></td>
+                        </tr>
+                    @endforeach
+                @endif
+                <tr><td id="{{$type}}" colspan='2' class="text-center form-text add_input">＋ 行追加 ＋</td></tr>
+            </tbody>
+        </table>
+        @break
+
 @endswitch

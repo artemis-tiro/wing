@@ -6,12 +6,57 @@
 @section('pan2')
 <li class="breadcrumb-item"><a href="{{ url("/c/".$client->id) }}">{{ $client->name }}様</a></li>
 <li class="breadcrumb-item"><a href="{{ url("/c/".$client->id.'/'.$mise->id) }}">{{ $mise->name }}</a></li>
-<li class="breadcrumb-item active">料金システム登録</li>
+<li class="breadcrumb-item active">料金システム編集</li>
 @stop
 
 @section('content')
+<style>
+    /* number-input と number-overlap をまとめるコンテナ */
+    .number-container {
+        position: relative;
+    }
 
-                <h1 class="h2">料金システム編集</h1>
+    /* カンマ区切りにしたい input 要素 */
+    .number-input {
+        position: relative;
+    }
+    /* 普段は z-index:1 で number-overlap の後ろに居る。色は被ってしまうので transparent */
+    .number-input:not(:focus) {
+        z-index: 1;
+        color: transparent;
+    }
+    /* フォーカス中は z-index:3 で number-overlap の前に来る。色も戻す */
+    .number-input:focus {
+        z-index: 3;
+        color: #555;
+    }
+
+    /* number-input に覆い被さる要素。 pointer-events:none でクリックを透過させる */
+    .number-overlap {
+        position: absolute;
+        top: 1px;
+        left: 0px;
+        display: inline-block;
+        background: transparent;
+        width: 100% !important;
+
+        pointer-events: none;
+        z-index: 2;
+    }
+</style>
+<script>
+    $(function () {
+        // フォーカスを抜けたり値が変わったりしたら覆い被さっているテキストをカンマ区切りにする
+        $('#hoge').on('blur change input', function () {
+            const $this = $(this);
+            if ($this.val() !== '') {
+                $this.next().text((+$this.val()).toLocaleString());
+            }
+        });
+    });
+</script>
+
+                <h1 class="h2">{{$backName}} の料金システム編集</h1>
 
                 <!-- 料金システム編集 -->
                 <div class="card my-4">
@@ -27,7 +72,7 @@
                         @include('common.success')
 
                         {{ Form::open(['url' => url('/c/'.$client->id.'/'.$mise->id.'/priceedit'),'class'=>'form-horizontal']) }}
-                        {{Form::hidden('backName', 'default')}}
+                        {{Form::hidden('backName', $backName)}}
                         <h3 class="h5">基本料金</h3>
                         @component('componets.mise_price_form')
                             @slot('form', 5)
@@ -64,7 +109,7 @@
                                         $back = isset($formData['waribikiAuto'][0]['back_data'])? $formData['waribikiAuto'][0]['back_data']: '';
                                     @endphp
                                     <td>{{ Form::text('waribikiAuto_name', $name, ['class'=>'form-control', 'placeholder'=>'例）全コース〇〇円割引']) }}</td>
-                                    <td><div class="input-group">{{ Form::number('waribikiAuto_price', $price, ['class'=>'form-control', 'placeholder'=>'例）-2000']) }}<span class="input-group-text">円</span></div></td>
+                                    <td><div class="input-group">{{ Form::number('waribikiAuto_price', $price, ['class'=>'form-control', 'placeholder'=>'例）-2000', 'id'=>'hoge']) }}<span class="input-group-text">円</span></div></td>
                                     <td><div class="input-group">{{ Form::number('waribikiAuto_back', $back, ['class'=>'form-control', 'placeholder'=>'例）0']) }}<span class="input-group-text">円</span></div></td>
                                 </tr>
                             </tbody>
@@ -179,22 +224,6 @@
 
                         <hr><br>
 
-{{--
-                        <h3 class="h5">追加料金</h3>
-                        @component('componets.mise_price_form')
-                            @slot('form', 1)
-                            @slot('type', 'more')
-                            @slot('formData', $formData)
-                            @slot('th', ['名目', '金額'])
-                            @slot('placeholder', [
-                                "例）プラチナセラピスト" => "1000",
-                                "例）プラチナセラピスト本指名" => "2000",
-                                "例）延長30分" => "6000",
-                            ])
-                        @endcomponent
-
-                        <hr><br>
---}}
                         <h3 class="h5">オプション</h3>
                         @component('componets.mise_price_form')
                             @slot('form', 5)
@@ -232,8 +261,22 @@
 
                         <hr><br>
 
+                        <h3 class="h5">お茶保障</h3>
+                        @component('componets.mise_price_form')
+                            @slot('form', 6)
+                            @slot('type', 'ocha')
+                            @slot('formData', $formData)
+                            @slot('th', ['名目', '保障額'])
+                            @slot('placeholder', [
+                                "例）3時間シフト、2時間待機" => "1000",
+                                "例）5時間シフト、4時間待機" => "2000",
+                                "例）7時間シフト、6時間待機" => "3000",
+                            ])
+                        @endcomponent
                         {{ Form::submit('保存',["class"=>"btn btn-info"]) }}
                         {{ Form::close() }}
+
+                        <hr><br>
 
                         <a href="{{ url('/c/'.$client->id.'/'.$mise->id) }}" class="mt-2 btn btn-secondary">← 戻る</a>
 

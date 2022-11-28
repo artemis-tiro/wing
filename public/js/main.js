@@ -20,6 +20,9 @@ $('.add_input').click(function() {
     if (type == "course") {
         form = '<tr class="TYPE"> <td><input class="form-control" name="TYPE_name_NUM" type="text"></td><td><div class="input-group"><input class="form-control" name="TYPE_time_NUM" type="number"><span class="input-group-text">分</span></div></td><td><div class="input-group"><input class="form-control" name="TYPE_price_NUM" type="number"><span class="input-group-text">円</span ></div></td><td><div class="input-group"><input class="form-control" name="TYPE_back_NUM" type="number"><span class="input-group-text">円</span></div></td></tr>';
     }
+    if (type == "ocha") {
+        form = '<tr class="TYPE"><td><input class="form-control" name="TYPE_name_NUM" type="text"></td> <td class = "input-group" > <input class="form-control" name="TYPE_price_NUM" type="number"><span class="input-group-text">円</span></td></tr>';
+    }
     var new_form = form.replace(/NUM/g, num).replace(/TYPE/g, type);
     $(parent).append(new_form);
 });

@@ -126,8 +126,8 @@ class ClientController extends Controller{
         $therapistList = therapist::List($miseId);
 
         //backリスト
-        $backList = back::list($miseId);
-        $backList2 = back::list2($miseId);
+        $backList = price::list($miseId);
+        $backList2 = price::list2($miseId);
 
         //price作成確認
         $courseExist = price::courseExist($miseId);
@@ -255,7 +255,7 @@ class ClientController extends Controller{
 
 
     //料金システム
-    public function price($clientId, $miseId){
+    public function price($clientId, $miseId, $backName){
         //権限チェック
         if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
 
@@ -266,12 +266,13 @@ class ClientController extends Controller{
         $mise = mise::detail($miseId);
 
         //price情報
-        $formData = price::formData($miseId);
+        $formData = price::formData($miseId, $backName);
 
         return view ('mise_price', [
             'client' => $client,
             'mise' => $mise,
             'formData' => $formData,
+            'backName' => $backName,
             'message' => session('message'),
        ]);
     }
@@ -302,28 +303,29 @@ class ClientController extends Controller{
         //     if($validator->fails()) return back()->withErrors($validator)->withInput();
 
             $input = $request->input();
-            price::del($miseId); //今あるレコード削除
+            $backName = $input['backName'];
+
+            price::del($miseId, $backName); //今あるレコード削除
 
             $count = [];
-            $backName = $input['backName'];
 
             foreach($input as $key => $data){
 
                 //コース料金
                 if(preg_match("/_name/", $key)){
-                    if(is_null($data)) continue;
+                    if(empty($data)) continue;
 
                     // price
                     $keyPrice = str_replace('name', 'price', $key);
                     // if(is_null($input[$keyPrice])) continue;
                     // $price = $input[$keyPrice];
-                    $price = is_null($input[$keyPrice])? 0: $input[$keyPrice];
+                    $price = empty($input[$keyPrice])? 0: $input[$keyPrice];
 
                     // back
                     $keyBack = str_replace('name', 'back', $key);
                     // if(is_null($input[$keyBack])) continue;
                     // $back = $input[$keyBack];
-                    $back = is_null($input[$keyBack])? 0: $input[$keyBack];
+                    $back = empty($input[$keyBack])? 0: $input[$keyBack];
 
                     // type
                     $type = explode('_name', $key)[0];
@@ -335,6 +337,7 @@ class ClientController extends Controller{
                         $keyTime = str_replace('name', 'time', $key);
                         if(is_null($input[$keyTime])){
                             $time = preg_replace('/[^0-9]/', '', $data);
+                            $time = $time? $time: 0;
                         }else{
                             $time = $input[$keyTime];
                         }
@@ -451,17 +454,18 @@ class ClientController extends Controller{
 
         //back作成
         $copy = isset($input['copy'])? 1: 0;
-        $result = back::backCreate($miseId, $input['back_name'], $copy);
+        $result = price::backCreate($miseId, $input['back_name'], $copy);
 
         return back()->with(['mes4' => $result]);
     }
 
     //back削除
     public function backDel($clientId, $miseId, $backName){
+        if($backName=="default") return back()->with(['mes4' => 'defaultは削除できません。']);
         //権限チェック
         if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
 
-        back::del($miseId, $backName);
+        price::del($miseId, $backName);
         therapist::backDel($miseId, $backName);
 
         return back()->with(['mes4' => $backName.'を削除しました。']);
