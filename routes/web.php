@@ -75,6 +75,7 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/new
 Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/price/{backName}', "App\Http\Controllers\ClientController@price");
 Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/priceedit', "App\Http\Controllers\ClientController@priceEdit");
 Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/hearingsheetedit', "App\Http\Controllers\ClientController@hearingsheetEdit");
+Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/misedataedit', "App\Http\Controllers\ClientController@miseDataEdit");
 Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/back/{backName}', "App\Http\Controllers\ClientController@back");
 Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/back/{backName}/edit', "App\Http\Controllers\ClientController@backedit");
 Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/back/{backName}/del', "App\Http\Controllers\ClientController@backDel");

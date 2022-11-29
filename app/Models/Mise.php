@@ -91,6 +91,19 @@ class mise extends Model
         return null;
     }
 
+    // 店舗情報編集
+    public static function miseDataEdit($id, $input){
+        $mise = mise::find($id);
+        $mise->name = $input['name'];
+        $mise->yomi = $input['yomi'];
+        $mise->area = $input['area'];
+        $mise->tel = $input['tel'];
+        $mise->hp = $input['hp'];
+        $mise->save();
+
+        return null;
+    }
+
     //activeオン
     public static function toActive($id){
         $mise = mise::find($id);

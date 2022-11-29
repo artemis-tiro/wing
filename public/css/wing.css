@@ -84,5 +84,60 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
+/* number-input と number-overlap をまとめるコンテナ */
+.number-container {
+    position: relative;
+}
+
+/* カンマ区切りにしたい input 要素 */
+.number-input {
+    position: relative;
+}
+
+/* 普段は z-index:1 で number-overlap の後ろに居る。色は被ってしまうので transparent */
+.number-input:not(:focus) {
+    z-index: 1;
+    color: transparent;
+}
+
+/* フォーカス中は z-index:3 で number-overlap の前に来る。色も戻す */
+.number-input:focus {
+    z-index: 3;
+    color: #555;
+}
+
+/* カンマ区切りにしたい input 要素 */
+.number-inputM {
+    position: relative;
+}
+
+/* 普段は z-index:1 で number-overlap の後ろに居る。色は被ってしまうので transparent */
+.number-inputM:not(:focus) {
+    z-index: 1;
+    color: transparent;
+}
+
+/* フォーカス中は z-index:3 で number-overlap の前に来る。色も戻す */
+.number-inputM:focus {
+    z-index: 3;
+    color: red;
+}
+
+/* number-input に覆い被さる要素。 pointer-events:none でクリックを透過させる */
+.number-overlap {
+    position: absolute !important;
+    top: 1px;
+    left: 0px;
+    display: inline-block;
+    background: transparent;
+    width: 100% !important;
+    border: none;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.M {
+    color: red;
+}
 
 /* system WING END */

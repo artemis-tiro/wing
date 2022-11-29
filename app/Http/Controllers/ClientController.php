@@ -143,6 +143,7 @@ class ClientController extends Controller{
             'mes1' => session('mes1'),
             'mes4' => session('mes4'),
             'mes6' => session('mes6'),
+            'mes7' => session('mes7'),
             'newBackMessage' => session('newBackMessage'),
        ]);
     }
@@ -395,6 +396,7 @@ class ClientController extends Controller{
        ]);
     }
     
+/*
     //back編集
     public function backedit(Request $request, $clientId, $miseId, $backName){
         //権限チェック
@@ -444,6 +446,7 @@ class ClientController extends Controller{
 
         return back()->with(['message' => '保存しました。']);
     }
+*/
 
     //back新規作成
     public function newBack(Request $request, $clientId, $miseId){
@@ -479,6 +482,16 @@ class ClientController extends Controller{
         mise::hearingsheetEdit($miseId, $request->input()['hearing_sheet']);
 
         return back()->with(['mes6' => 'ヒアリングシートを編集しました。']);
+    }
+
+    //店舗情報編集
+    public function miseDataEdit(Request $request, $clientId, $miseId){
+        //権限チェック
+        if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
+
+        mise::miseDataEdit($miseId, $request->input());
+
+        return back()->with(['mes7' => '店舗情報を編集しました。']);
     }
 
 
