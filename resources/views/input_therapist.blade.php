@@ -16,6 +16,7 @@
 
                 <h1 class="h2">{{$mise->name}}詳細</h1>
 
+                <!-- セラピスト一覧 -->
                 <div class="card my-4">
                     <!-- カードのタイトル -->
                     <h2 class="card-header h5">セラピスト一覧</h2>
@@ -50,7 +51,7 @@
                     <h2 class="card-header h5">ヒアリングシート</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
-                        {{$mise->hearing_sheet}}
+                        {!! nl2br(e($mise->hearing_sheet)) !!}
                     </div>
                 </div>
 @stop

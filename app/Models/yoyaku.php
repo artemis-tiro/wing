@@ -60,19 +60,6 @@ class Yoyaku extends Model
             // $yoyakuListに「courseTime」を追加
             // コース時間を取得
             $y->courseTime =  price::getCourseTime($priceId);
-
-            // $yoyakuListに「courseTime」を追加
-            // コース時間を取得
-            $y->courseBack =  back::getCoursePrice($backId[1]);
-
-            // $yoyakuListに「courseTime」を追加
-            // コース時間を取得
-            $y->shimeiBack =  back::getShimeiPrice($backId[3]);
-
-            // $yoyakuListに「courseTime」を追加
-            // コース時間を取得
-            $y->optionBack =  back::getOptionPrice($backId[5]);
-
         }
         return null;
     }
@@ -100,7 +87,6 @@ class Yoyaku extends Model
         $input_array = ['course',
                         'visit',
                         'shimei',
-                        'more',
                         'option',
                         'waribikiAuto',
                         'waribiki',
@@ -165,7 +151,13 @@ class Yoyaku extends Model
         return null;
     }
 
-
+    // 予約一覧カウント
+    public static function yoyakuListCnt($therapistId,$time){
+        $yoyakuListCnt = yoyaku::where('therapist_id', $therapistId)
+            ->whereBetween('visit_day', [$time.' 00:00:00', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
+            ->count();
+        return $yoyakuListCnt;
+    }
 
     
 }

@@ -178,65 +178,73 @@ class price extends Model
     }
 
     // コース取得
-    public static function courseList($miseId){
+    public static function courseList($miseId,$backName){
         $priceList = price::where('mise_id', $miseId)
+            ->where('back_name', $backName)
             ->where('type', 'course')
             ->get();
         return $priceList;
     }
 
     // 来店取得
-    public static function visitList($miseId){
+    public static function visitList($miseId,$backName){
         $priceList = price::where('mise_id', $miseId)
+            ->where('back_name', $backName)
             ->where('type', 'visit')
             ->get();
         return $priceList;
     }
 
     // 指名取得
-    public static function shimeiList($miseId){
+    public static function shimeiList($miseId,$backName){
         $priceList = price::where('mise_id', $miseId)
+            ->where('back_name', $backName)
             ->where('type', 'shimei')
             ->get();
         return $priceList;
     }
 
-    // 追加料金取得
-    public static function moreList($miseId){
-        $priceList = price::where('mise_id', $miseId)
-            ->where('type', 'more')
-            ->get();
-        return $priceList;
-    }
-
     // オプション取得
-    public static function optionList($miseId){
+    public static function optionList($miseId,$backName){
         $priceList = price::where('mise_id', $miseId)
+            ->where('back_name', $backName)
             ->where('type', 'option')
             ->get();
         return $priceList;
     }
 
     // 自動割引取得
-    public static function waribikiAutoList($miseId){
+    public static function waribikiAutoList($miseId,$backName){
         $priceList = price::where('mise_id', $miseId)
+            ->where('back_name', $backName)
             ->where('type', 'waribikiAuto')
             ->first();
         return $priceList;
     }
 
     // 割引取得
-    public static function waribikiList($miseId){
+    public static function waribikiList($miseId,$backName){
         $priceList = price::where('mise_id', $miseId)
+            ->where('back_name', $backName)
             ->where('type', 'waribiki')
             ->get();
         return $priceList;
     }
 
     // クレーム取得
-    public static function claimList($miseId){
+    public static function claimList($miseId,$backName){
         $priceList = price::where('mise_id', $miseId)
+            ->where('back_name', $backName)
             ->where('type', 'claim')
+            ->get();
+        return $priceList;
+    }
+
+    // お茶取得
+    public static function otyaList($miseId,$backName){
+        $priceList = price::where('mise_id', $miseId)
+            ->where('back_name', $backName)
+            ->where('type', 'ocha')
             ->get();
         return $priceList;
     }
@@ -286,10 +294,10 @@ class price extends Model
     // コース金額取得
     public static function getCoursePrice($priceIdList){
         foreach($priceIdList as $p){
-            $courseName = price::find($p);
-            if(!$courseName) continue;
-            if($courseName->type == 'course'){
-                return $courseName->price;
+            $getCourse = price::find($p);
+            if(!$getCourse) continue;
+            if($getCourse->type == 'course'){
+                return $getCourse;
             }
         }
     }
@@ -297,10 +305,10 @@ class price extends Model
     // 指名金額取得
     public static function getShimeiPrice($priceIdList){
         foreach($priceIdList as $p){
-            $courseName = price::find($p);
-            if(!$courseName) continue;
-            if($courseName->type == 'shimei'){
-                return $courseName->price;
+            $getShimei = price::find($p);
+            if(!$getShimei) continue;
+            if($getShimei->type == 'shimei'){
+                return $getShimei;
             }
         }
     }
@@ -308,10 +316,10 @@ class price extends Model
     // オプション金額取得
     public static function getOptionPrice($priceIdList){
         foreach($priceIdList as $p){
-            $courseName = price::find($p);
-            if(!$courseName) continue;
-            if($courseName->type == 'option'){
-                return $courseName->price;
+            $getOption = price::find($p);
+            if(!$getOption) continue;
+            if($getOption->type == 'option'){
+                return $getOption;
             }
         }
     }
@@ -330,5 +338,14 @@ class price extends Model
             }
         }
         return $totalPrice;
+    }
+
+    // オプション取得
+    public static function getOption($miseId,$backName){
+        $priceList = price::where('mise_id', $miseId)
+            ->where('back_name', $backName)
+            ->where('type', 'optionGet')
+            ->first();
+        return $priceList;
     }
 }

@@ -6,7 +6,7 @@
 @section('pan2')
 <li class="breadcrumb-item"><a href="{{ url("/i") }}">店舗編集</a></li>
 <li class="breadcrumb-item"><a href="{{ url("/i/".$mise->id) }}">{{ $mise->name }}</a></li>
-<li class="breadcrumb-item active">{{ $therapist->business_name }}</li>
+<li class="breadcrumb-item active">{{ $therapist->business_name }} さん</li>
 @stop
 
 @section('content')
@@ -76,6 +76,8 @@
 
                     </div>
                 </div>
+                
+                <!-- 先行予約リスト -->
 
                 <!-- コピペ用 -->
                 <div class="card my-4">
@@ -149,7 +151,8 @@
                             <div class="mt-2 col-sm-2 text-end">電話番号<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                             <div class="col-sm-2">
                                 @php $tel=isset($kokyakuData->tel)? $kokyakuData->tel: $inputTel; @endphp
-                                {{ Form::number('tel', $tel, ['class'=>'form-control', 'autocomplete'=>'off', 'required']) }}
+                                {{ Form::hidden('tel', $tel) }}
+                                {{ Form::number('tel_display', $tel, ['class'=>'form-control', 'disabled'=>'disabled']) }}
                             </div>
                         </label>
                         
@@ -188,12 +191,21 @@
                             
                             <div class="col-sm-1 btn bg-info text-white visitMany">金額を表示</div>
 
-                            @foreach($visitList  as $v)
+                            @if(isset($kokyakuData))
                                 <label class="col-sm-1">
-                                    {{ Form::radio('visit', $v->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$v->price, 'required']) }}
-                                    {{ $v->name }}
+                                        {{ Form::radio('visit', $v->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$v->price, 'required']) }}
+                                        {{ $v->name }}
                                 </label>
-                            @endforeach
+                            @endif
+
+                            @if(!(isset($kokyakuData)))
+                                @foreach($visitList  as $v)
+                                    <label class="col-sm-1">
+                                        {{ Form::radio('visit', $v->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$v->price, 'required']) }}
+                                        {{ $v->name }}
+                                    </label>
+                                @endforeach
+                            @endif
                         </div>
 
                         <!-- コース -->
@@ -224,33 +236,24 @@
                             @endforeach
                         </div>
 
-                        <!-- 追加料金 -->
-                        <div class="row text-nowrap mb-4 text-end radio_more">
-                            <div class="col-sm-2 text-end">特別料金<span class="mx-2 badge rounded-pill bg-secondary">任意</span></div>
-                            
-                            <div class="col-sm-1 btn bg-info text-white moreMany">金額を表示</div>
-
-                            @foreach($moreList  as $m)
-                                <label class="col-sm-1">
-                                    {{ Form::radio('more', $m->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$m->price]) }}
-                                    {{ $m->name }}
-                                </label>
-                            @endforeach
-                        </div>
-
                         <!-- オプション -->
-                        <div class="row text-nowrap mb-4 text-end radio_option">
-                            <div class="col-sm-2 text-end">オプション<span class="mx-2 badge rounded-pill bg-secondary">任意</span></div>
-                            
-                            <div class="col-sm-1 btn bg-info text-white optionMany">金額を表示</div>
+                        <!-- priceDB->name = inputer のみ表示 -->
+                        @if(isset($getOption))
+                            @if($getOption->name === 'inputer')
+                                <div class="row text-nowrap mb-4 text-end radio_option">
+                                    <div class="col-sm-2 text-end">オプション<span class="mx-2 badge rounded-pill bg-secondary">任意</span></div>
+                                    
+                                    <div class="col-sm-1 btn bg-info text-white optionMany">金額を表示</div>
 
-                            @foreach($optionList  as $o)
-                                <label class="col-sm-1">
-                                    {{ Form::radio('option', $o->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$o->price]) }}
-                                    {{ $o->name }}
-                                </label>
-                            @endforeach
-                        </div>
+                                    @foreach($optionList  as $o)
+                                        <label class="col-sm-1">
+                                            {{ Form::radio('option', $o->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$o->price]) }}
+                                            {{ $o->name }}
+                                        </label>
+                                    @endforeach
+                                </div>
+                            @endif
+                        @endif
 
                         <!-- 自動割引 -->
                         <div class="row text-nowrap mb-4 text-end">
