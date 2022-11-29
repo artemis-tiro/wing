@@ -111,14 +111,14 @@ class InputController extends Controller{
         yoyaku::courseNameList($yoyakuList);
 
         // 予約フォーム
-        $courseList = price::courseList($miseId);
-        $visitList = price::visitList($miseId);
-        $shimeiList = price::shimeiList($miseId);
-        $moreList = price::moreList($miseId);
-        $optionList = price::optionList($miseId);
-        $waribikiAutoList = price::waribikiAutoList($miseId);
-        $waribikiList = price::waribikiList($miseId);
-        $claimList = price::claimList($miseId);  
+        $courseList = price::courseList($miseId,$therapist->back_name);
+        $visitList = price::visitList($miseId,$therapist->back_name);
+        $shimeiList = price::shimeiList($miseId,$therapist->back_name);
+        $optionList = price::optionList($miseId,$therapist->back_name);
+        $waribikiAutoList = price::waribikiAutoList($miseId,$therapist->back_name);
+        $waribikiList = price::waribikiList($miseId,$therapist->back_name);
+        $claimList = price::claimList($miseId,$therapist->back_name);
+        $getOption = price::getOption($miseId,$therapist->back_name);
 
         if($request->input('telsearch')){
             $kokyakuData = $telsearch;
@@ -136,11 +136,11 @@ class InputController extends Controller{
             'courseList' => $courseList,
             'visitList' => $visitList,
             'shimeiList' => $shimeiList,
-            'moreList' => $moreList,
             'optionList' => $optionList,
             'waribikiAutoList' => $waribikiAutoList,
             'waribikiList' => $waribikiList,
             'claimList' => $claimList,
+            'getOption' => $getOption,
             'error' => session('error'),
         ]);
     }
@@ -224,6 +224,12 @@ class InputController extends Controller{
 
         // 予約一覧
         $adjustList = kyuryo::adjustList($miseId, $therapistId);
+
+        // お茶情報
+        $otyaList = price::otyaList($miseId,$therapist->back_name);
+
+        // 予約数カウント
+        $yoyakuListCnt = yoyaku::yoyakuListCnt($therapistId, date('Y-m-d'));
         
         // 予約コース
         yoyaku::courseNameList($yoyakuList);
@@ -234,6 +240,8 @@ class InputController extends Controller{
             'kokyakuList' => $kokyakuList,
             'yoyakuList' => $yoyakuList,
             'adjustList' => $adjustList,
+            'otyaList' => $otyaList,
+            'yoyakuListCnt' => $yoyakuListCnt,
             'error' => session('error'),
         ]);
     }
