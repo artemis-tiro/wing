@@ -34,6 +34,9 @@
                                     <th scope="col">指名</th>
                                     <th scope="col">顧客名</th>
                                     <th scope="col">電話番号</th>
+                                    <!-- 編集/削除ボタン -->
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,6 +68,8 @@
                                             substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
                                         }}
                                     </td>
+                                    <td><a class="btn btn-sm btn-info" href="">編集</a></td>
+                                    <td><a class="btn btn-sm btn-danger" href="">削除</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -78,6 +83,65 @@
                 </div>
                 
                 <!-- 先行予約リスト -->
+                <div class="card my-4">
+                    <!-- カードのタイトル -->
+                    <h2 class="card-header h5">予約一覧(翌日以降)</h2>
+                    <!-- カードの要素 -->
+                    <div class="card-body table-responsive text-nowrap">
+                        <!-- テーブル -->
+                        <table class="table table-hover">
+                            <thead>
+                                <!-- カテゴリ -->
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">ステータス</th>
+                                    <th scope="col">時間</th>
+                                    <th scope="col">コース</th>
+                                    <th scope="col">指名</th>
+                                    <th scope="col">顧客名</th>
+                                    <th scope="col">電話番号</th>
+                                    <!-- 編集/削除ボタン -->
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($yoyakuAfterList  as $ya)
+                                <tr>
+                                    <th>{{ $loop->index+1 }}</th>
+
+                                    <!-- 非同期処理 -->
+                                    <!-- で来店日時とコース時間を参照してステータスを変動 -->
+                                    <td>未実装</td>
+
+                                    <!-- 終了時間を来店日時＋コース時間で表示 -->
+                                    <td>
+                                        {{ \Carbon\Carbon::createFromTimeString($ya->visit_day)->format('m/d H:i') }} ~ 
+                                        {{ date('H:i',strtotime(" $ya->visit_day +$ya->courseTime min ")) }}
+                                    </td>
+
+                                    <!-- priceテーブル作成まで仮 -->
+                                    <td>{{ $ya->courseName }}</td>
+                                     
+                                    <td>{{ $ya->courseShimei }}</td>
+
+                                    <td>{{ $kokyakuList[$ya->kokyaku_id]->name.' 様' }}</td>
+                                    
+                                    <td>
+                                        {{ 
+                                            substr($kokyakuList[$ya->kokyaku_id]->tel, 0, 3).'-'.
+                                            substr($kokyakuList[$ya->kokyaku_id]->tel, 3, 4).'-'.
+                                            substr($kokyakuList[$ya->kokyaku_id]->tel, -4, 4)
+                                        }}
+                                    </td>
+                                    <td><a class="btn btn-sm btn-info" href="">編集</a></td>
+                                    <td><a class="btn btn-sm btn-danger" href="">削除</a></td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
                 <!-- コピペ用 -->
                 <div class="card my-4">
@@ -120,8 +184,8 @@
                     <!-- カードの要素 -->
                     <div class="card-body">
 
+                    <!-- 電話検索フォーム -->
                     @if($formflag == 0)
-                        <!-- 電話検索フォーム -->
                         {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id)]) }}
                                     
                         <!-- 電話番号 -->
@@ -137,9 +201,9 @@
                         {{ Form::close() }}
                     @endif
 
+                    <!-- 新規予約入力フォーム -->
                     @if($formflag == 1)
 
-                        <!-- 新規予約入力フォーム -->
                         {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/reservation')]) }}
 
                         @include('common.validator')
@@ -160,7 +224,7 @@
                         <label class="row text-nowrap mb-4 text-end">
                             <div class="col-sm-2 text-end">開始時間<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                             <div class="col-sm-2">
-                                {{ Form::date('start_day', null, ['class'=>'form-control', 'max'=>'2032-12-31', 'required']) }}
+                                {{ Form::date('start_day', date('Y-m-d'), ['class'=>'form-control', 'min'=>date('Y-m-d'), 'required']) }}
                             </div>
                             <div class="col-sm-2">
                                 {{ Form::time('start_time', null, ['class'=>'form-control', 'step'=>'300', 'required']) }}
@@ -188,17 +252,18 @@
                         <!-- 来店 -->
                         <div class="row text-nowrap mb-4 text-end radio_visit">
                             <div class="col-sm-2 text-end">来店<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
-                            
-                            <div class="col-sm-1 btn bg-info text-white visitMany">金額を表示</div>
-
+                        
                             @if(isset($kokyakuData))
+                                <div class="col-sm-1 btn bg-info text-white visitMany">{{ $getRepeater->price }}円</div>
                                 <label class="col-sm-1">
-                                        {{ Form::radio('visit', $v->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$v->price, 'required']) }}
-                                        {{ $v->name }}
+                                        {{ Form::radio('visit_display', $getRepeater->id, true, ['class'=>'form-check-input', 'disabled'=>'disabled']) }}
+                                        {{ Form::hidden('visit', $getRepeater->id) }}
+                                        {{ $getRepeater->name }}
                                 </label>
                             @endif
 
                             @if(!(isset($kokyakuData)))
+                                <div class="col-sm-1 btn bg-info text-white visitMany">金額を表示</div>
                                 @foreach($visitList  as $v)
                                     <label class="col-sm-1">
                                         {{ Form::radio('visit', $v->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$v->price, 'required']) }}

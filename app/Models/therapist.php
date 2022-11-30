@@ -87,7 +87,8 @@ class Therapist extends Model
     //  アカウント情報変更(名前)
     public static function therapistNameEdit($id, $input){
         //インサート
-        $therapist = new therapist();
+        $therapist = therapist::find($id);
+        
         $therapist->id = $id;
         $therapist->name = $input['name'];
         $therapist->yomi = $input['kana'];
@@ -102,7 +103,8 @@ class Therapist extends Model
     //  アカウント情報変更(住所)
     public static function therapistAddressEdit($id, $input){
         //インサート
-        $therapist = new therapist();
+        $therapist = therapist::find($id);
+
         $therapist->id = $id;
         $therapist->address = $input['address'];
         $result = $therapist->save();
@@ -116,7 +118,8 @@ class Therapist extends Model
     //  アカウント情報変更(電話番号)
     public static function therapistTelEdit($id, $input){
         //インサート
-        $therapist = new therapist();
+        $therapist = therapist::find($id);
+
         $therapist->id = $id;
         $therapist->tel = $input['tel'];
         $result = $therapist->save();
@@ -130,7 +133,8 @@ class Therapist extends Model
     //  アカウント情報変更(メールアドレス)
     public static function therapistMailEdit($id, $input){
         //インサート
-        $therapist = new therapist();
+        $therapist = therapist::find($id);
+
         $therapist->id = $id;
         $therapist->mail = $input['mail'];
         $result = $therapist->save();
@@ -144,7 +148,8 @@ class Therapist extends Model
     //  アカウント情報変更(生年月日)
     public static function therapistBirthdayEdit($id, $input){
         //インサート
-        $therapist = new therapist();
+        $therapist = therapist::find($id);
+
         $therapist->id = $id;
         $therapist->mail = $input['birthday'];
         $result = $therapist->save();
@@ -158,7 +163,8 @@ class Therapist extends Model
     //  アカウント情報変更(営業プロフィール)
     public static function therapistProfileEdit($id, $input){
         //インサート
-        $therapist = new therapist();
+        $therapist = therapist::find($id);
+
         $therapist->id = $id;
         $therapist->business_age = $input['age'];
         // $therapist->3size = $input['3size'];

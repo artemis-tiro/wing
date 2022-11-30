@@ -23,15 +23,20 @@ class Yoyaku extends Model
         return $yoyakuList;
     }
 
+    // 先行予約一覧
+    public static function yoyakuAfterList($therapistId,$time){
+        $yoyakuList = yoyaku::where('therapist_id', $therapistId)
+            ->whereNotBetween('visit_day', [$time.' 00:00:00', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
+            ->get();
+        return $yoyakuList;
+    }
+
     // 予約コース取得
     public static function courseNameList($yoyakuList){
 
         foreach($yoyakuList as $y){
             $priceList = $y->price_id_list;
             $priceId = explode('P', $priceList);
-
-            $backList = $y->back_id_list;
-            $backId = explode('B', $backList);
 
             // $yoyakuListに「courseName」を追加
             // コース名を取得

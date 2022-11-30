@@ -348,4 +348,13 @@ class price extends Model
             ->first();
         return $priceList;
     }
+
+    // リピーターのみ取得
+    public static function getRepeater($miseId,$backName){
+        $priceList = price::where('mise_id', $miseId)
+            ->where('back_name', $backName)
+            ->where('name', 'リピーター')
+            ->first();
+        return $priceList;
+    }
 }
