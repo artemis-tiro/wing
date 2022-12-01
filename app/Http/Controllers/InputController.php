@@ -288,4 +288,13 @@ class InputController extends Controller{
 
         return back();
     }
+
+    //予約削除
+    public function yoyakudel(Request $request, $miseId, $therapistId, $id){
+
+        $yoyaku = yoyaku::find($id);
+        if($yoyaku) $yoyaku->delete();
+        
+        return back();
+    }
 }

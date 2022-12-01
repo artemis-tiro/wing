@@ -80,7 +80,7 @@ class Yoyaku extends Model
         return null;
     }
 
-    //予約新規作成
+    // 予約新規作成
     public static function yoyakuCreate($input, $miseId, $therapistId, $kokyaku){
         
         $input_price_id = "";

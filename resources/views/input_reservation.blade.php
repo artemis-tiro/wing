@@ -69,15 +69,19 @@
                                         }}
                                     </td>
                                     <td><a class="btn btn-sm btn-info" href="">編集</a></td>
-                                    <td><a class="btn btn-sm btn-danger" href="">削除</a></td>
+                                    <td><a class="btn btn-sm btn-danger" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/'.$y->id.'/del') }}">削除</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
 
-
-                        <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}">給料計算へ</a>
-
+                        @if(isset($getOption))
+                            @if($getOption->name === 'inputer')
+                                <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}">給料計算へ</a>
+                            @else
+                                <a class="m-2 btn btn-info" href="">編集</a>
+                            @endif
+                        @endif
 
                     </div>
                 </div>
