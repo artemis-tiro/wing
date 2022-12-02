@@ -25,12 +25,35 @@ class Kokyaku extends Model
         return $list;
     }
 
-    //予約新規作成
+    // 新規顧客作成
     public static function kokyakuCreate($input){
         //インサート
         $kokyaku = new kokyaku();
         $kokyaku->name = $input['name'];
         $kokyaku->tel = $input['tel'];
+        $kokyaku->mail = $input['mail'];
+        // $kokyaku->ng = $input[''];
+        // $kokyaku->memo = $input[''];
+        $result = $kokyaku->save();
+
+        $kokyakuId = $kokyaku->id;
+
+        //インサート失敗時
+        if(!$result) return '新規作成に失敗しました。';
+
+        return $kokyakuId;
+    }
+
+    // 顧客情報更新
+    public static function kokyakuUpdate($input,$id){
+
+        $kokyaku = kokyaku::find($id);
+            // ->first();
+
+        log::info($kokyaku);
+        
+        $kokyaku->id = $id;
+        $kokyaku->name = $input['name'];
         $kokyaku->mail = $input['mail'];
         // $kokyaku->ng = $input[''];
         // $kokyaku->memo = $input[''];

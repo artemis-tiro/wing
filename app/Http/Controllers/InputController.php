@@ -104,11 +104,15 @@ class InputController extends Controller{
         // 予約一覧
         $yoyakuList = yoyaku::yoyakuList($therapistId, date('Y-m-d'));
 
+        // 先行予約一覧
+        $yoyakuAfterList = yoyaku::yoyakuAfterList($therapistId, date('Y-m-d'));
+
         // 電話番号検索
         $telsearch = kokyaku::telSearch($request->input('telsearch'));
 
         // 予約コース
         yoyaku::courseNameList($yoyakuList);
+        yoyaku::courseNameList($yoyakuAfterList);
 
         // 予約フォーム
         $courseList = price::courseList($miseId,$therapist->back_name);
@@ -119,6 +123,7 @@ class InputController extends Controller{
         $waribikiList = price::waribikiList($miseId,$therapist->back_name);
         $claimList = price::claimList($miseId,$therapist->back_name);
         $getOption = price::getOption($miseId,$therapist->back_name);
+        $getRepeater = price::getRepeater($miseId,$therapist->back_name);
 
         if($request->input('telsearch')){
             $kokyakuData = $telsearch;
@@ -130,6 +135,7 @@ class InputController extends Controller{
             'therapist' => $therapist,
             'kokyakuList' => $kokyakuList,
             'yoyakuList' => $yoyakuList,
+            'yoyakuAfterList' => $yoyakuAfterList,
             'kokyakuData' => $kokyakuData,
             'formflag' => $formflag,
             'inputTel' => $inputTel,
@@ -141,6 +147,7 @@ class InputController extends Controller{
             'waribikiList' => $waribikiList,
             'claimList' => $claimList,
             'getOption' => $getOption,
+            'getRepeater' => $getRepeater,
             'error' => session('error'),
         ]);
     }
@@ -165,7 +172,7 @@ class InputController extends Controller{
             'start_day' => ['required'],
             'start_time' => ['required'],
             'name' => ['required'],
-            'tel' => ['required','regex:/^[0-9]+$/i',Rule::unique('kokyaku','tel')->whereNull('deleted_at')],
+            'tel' => ['required','regex:/^[0-9]+$/i'],
         ];
         $message = [
             'start_day.required' => '予約日をしてください。',
@@ -173,19 +180,22 @@ class InputController extends Controller{
             'name.required' => 'お客様名を入力してください。',
             'tel.required' => '電話番号を入力してください。',
             'tel.regex' => '半角数字で入力してください。',
-            'tel.unique' => 'この電話番号は既に登録されています。',
         ];
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();
-        
-        // タイムピッカーチェック
-        // 今日以降かつ今日から10年以内であるか
-        // 文字列でもらって数字にして10年以内なのかみる？
 
-        //kokyaku作成
-        $kokyaku = kokyaku::kokyakuCreate($request->input());
+        $kokyakuId = kokyaku::telsearch($request->input(['tel']));
 
-        //yoyaku作成
+        // telserchして値が存在していないならcreate
+        if($kokyakuId){
+            // kokyaku更新
+            $kokyaku = kokyaku::kokyakuUpdate($request->input(),$kokyakuId->id);
+        }else{
+            // kokyaku作成
+            $kokyaku = kokyaku::kokyakuCreate($request->input());
+        }
+
+        // yoyaku作成
         $yoyaku = yoyaku::yoyakuCreate($request->input(), $miseId, $therapistId, $kokyaku);
         if($yoyaku) return back()->with(['error' => $yoyaku])->withInput();
 
@@ -276,6 +286,15 @@ class InputController extends Controller{
         $kyuryo = kyuryo::kyuryoCreate($request->input(), $miseId, $therapistId, date('Y-m-d H:i:s'));
         if($kyuryo) return back()->with(['error' => $kyuryo])->withInput();
 
+        return back();
+    }
+
+    //予約削除
+    public function yoyakudel(Request $request, $miseId, $therapistId, $id){
+
+        $yoyaku = yoyaku::find($id);
+        if($yoyaku) $yoyaku->delete();
+        
         return back();
     }
 }

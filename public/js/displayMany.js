@@ -5,7 +5,6 @@
             visit = $('.visitMany').text();
             course = $('.courseMany').text();
             shimei = $('.shimeiMany').text();
-            more = $('.moreMany').text();
             option = $('.optionMany').text();
             waribikiAuto = $('.waribikiAutoMany').text();
             waribiki = $('.waribikiMany').text();
@@ -14,7 +13,6 @@
             total = Number(visit.replace('円', '')) +
                 Number(course.replace('円', '')) +
                 Number(shimei.replace('円', '')) +
-                Number(more.replace('円', '')) +
                 Number(option.replace('円', '')) +
                 Number(waribikiAuto.replace('円', '')) +
                 Number(waribiki.replace('円', '')) +
@@ -50,16 +48,6 @@
             shimeiPrice = $(this).attr('price');
 
             $('.shimeiMany').text(shimeiPrice + '円');
-
-            sumAll();
-        });
-
-        // 追加料金
-        $('.radio_more input ').click(function() {
-
-            morePrice = $(this).attr('price');
-
-            $('.moreMany').text(morePrice + '円');
 
             sumAll();
         });
