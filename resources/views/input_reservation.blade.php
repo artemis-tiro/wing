@@ -69,7 +69,16 @@
                                         }}
                                     </td>
                                     <td><a class="btn btn-sm btn-info" href="">編集</a></td>
-                                    <td><a class="btn btn-sm btn-danger" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/'.$y->id.'/del') }}">削除</a></td>
+                                    <td>
+                                        <a class="btn btn-sm btn-danger" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/'.$y->id.'/del') }}">削除</a>
+                                        @component('componets.modal')
+                                            @slot('type', 'del')
+                                            @slot('name', 'あｓだ')
+                                            @slot('id', $y->id)
+                                            @slot('text', "本当に削除しますか。")
+                                            @slot('url', url('/i/'.$mise->id.'/'.$therapist->id.'/'.$y->id.'/del')
+                                        @endcomponent
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -257,6 +266,7 @@
                         <div class="row text-nowrap mb-4 text-end radio_visit">
                             <div class="col-sm-2 text-end">来店<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                         
+                            {{--
                             @if(isset($kokyakuData))
                                 <div class="col-sm-1 btn bg-info text-white visitMany">{{ $getRepeater->price }}円</div>
                                 <label class="col-sm-1">
@@ -275,6 +285,26 @@
                                     </label>
                                 @endforeach
                             @endif
+                            --}}
+
+
+                            <div class="col-sm-1 btn bg-info text-white visitMany">-----円</div>
+                            @foreach($visitList  as $v)
+                                <label class="col-sm-1">
+                                    {{ Form::radio('visit', $v->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$v->price, 'required']) }}
+                                    {{ $v->name }}
+                                </label>
+                            @endforeach
+
+                            <script>
+                                @if( isset($kokyakuData) ) 
+                                    displayRepeater();
+                                @else
+                                    displayFirst();
+                                @endif
+                            </script>
+                            
+
                         </div>
 
                         <!-- コース -->
@@ -362,7 +392,7 @@
                         </div>
 
                         <!-- 追加割引 -->
-                        <div class="row text-nowrap text-end radio_waribiki">
+                        <div class="row text-nowrap mb-4 text-end radio_waribiki">
                             <div class="col-sm-2 text-end">追加割引<span class="mx-2 badge rounded-pill bg-secondary">任意</span></div>
                                                         
                             @foreach($waribikiList  as $w)

@@ -26,7 +26,6 @@ class Yoyaku extends Model
     // 先行予約一覧
     public static function yoyakuAfterList($therapistId,$time){
         $yoyakuList = yoyaku::where('therapist_id', $therapistId)
-            // ->whereNotBetween('visit_day', [$time.' 00:00:00', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
             ->whereNotBetween('visit_day', [date('Y-m-d', strtotime("-10 year")).' 05:59:59', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
             ->get();
         return $yoyakuList;
@@ -126,7 +125,6 @@ class Yoyaku extends Model
 
         return null;
     }
-
 
     // inputerに予約経験あるか
     public static function addExist($inputList){
