@@ -52,7 +52,7 @@ class ClientController extends Controller{
         if($miseId && !mise::authCheck($clientId, $miseId)) return redirect('/');
 
         //therapistが存在しない、クライアントの物ではない
-        if($therapistId && !therapist::authCheck($miseId, $therapistId)) return redirect('/');
+        if($miseId && $therapistId && !therapist::authCheck($miseId, $therapistId)) return redirect('/');
 
         return null;
     }
@@ -334,7 +334,7 @@ class ClientController extends Controller{
 
                     // time
                     $time = null;
-                    if($type=="course"){
+                    if($type=="course" || $type=="encho"){
                         $keyTime = str_replace('name', 'time', $key);
                         if(is_null($input[$keyTime])){
                             $time = preg_replace('/[^0-9]/', '', $data);
@@ -354,9 +354,9 @@ class ClientController extends Controller{
 
                 //checkbox-値があればチェックされている
                 }elseif($key == 'claim1000' ){
-                    $result = price::priceInsert($miseId, 'claim1000', 1, 1, 'claim1000', null, $backName, null);
+                    $result = price::priceInsert($miseId, 'クレーム対応の為1000円割引', -1000, 1, 'claim', null, $backName, 0);
                 }elseif($key == 'claim2000' ){
-                    $result = price::priceInsert($miseId, 'claim2000', 1, 1, 'claim2000', null, $backName, null);
+                    $result = price::priceInsert($miseId, 'クレーム対応の為2000円割引', -2000, 1, 'claim', null, $backName, 0);
                 }
 
             }

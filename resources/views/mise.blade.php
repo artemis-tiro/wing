@@ -4,13 +4,13 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item"><a href="{{ url("/c/".$client->id) }}">{{ $client->name }}様</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/c/".$client->id) }}">店舗一覧</a></li>
 <li class="breadcrumb-item active">{{ $mise->name }}</li>
 @stop
 
 @section('content')
 
-                <h1 class="h2">{{ $mise->name }}セラピスト編集</h1>
+                <h1 class="h2">{{ $mise->name }}管理画面</h1>
 
                 <!-- セラピスト一覧 -->
                 <div class="card my-4">
@@ -35,7 +35,6 @@
                                     <th scope="col">ID</th>
                                     <th scope="col">源氏名</th>
                                     <th scope="col">給料形態</th>
-                                    <th scope="col">前回出勤日</th>
                                     <th scope="col">ステータス</th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
@@ -54,7 +53,6 @@
                                     <td>{{ $i->loginId }}</td>
                                     <td><a href="{{ url('/c/'.$client->id.'/'.$mise->id.'/'.$i->id) }}">{{ $i->business_name }}</a></td>
                                     <td>{{ Form::open(['url' => url()->current().'/'.$i->id."/edit/backchange",'class'=>'form-horizontal']) }}{{ Form::select('back_name', ['default'=>'default']+$backList, $i->back_name, ['class'=>'form-select form-select-sm pass', 'onchange'=>'submit(this.form)']) }}{{ Form::close() }}</td>
-                                    <td>-</td>
                                     <td>{{ $active }}</td>
                                     <td><a class="btn btn-sm btn-info" href="{{ url()->current() }}/{{ $i->id }}/edit/{{ $action }}">{{ $actionComment }}</a></td>
                                     <td>

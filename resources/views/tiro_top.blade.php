@@ -52,7 +52,17 @@
                                     <td>〇〇さん</td>
                                     <td>{{ $active }}</td>
                                     <td><a class="btn btn-sm btn-info" href="{{url('/tiro/editadmin')}}/{{$a->id}}/{{$action}}">{{ $actionComment }}</a></td>
-                                    <td><a class="btn btn-sm btn-danger" href="{{url('/tiro/editadmin')}}/{{$a->id}}/del">削除</a></td>
+                                    <td>
+                                        @if($a->memberCount == 1)
+                                        @component('componets.modal')
+                                            @slot('type', 'del')
+                                            @slot('name', $a->name)
+                                            @slot('id', $a->name.$loop->index)
+                                            @slot('text', "チームにメンバーがいない場合のみ削除できます。")
+                                            @slot('url', url('/tiro/editadmin').'/'.$a->id."/del")
+                                        @endcomponent
+                                        @endif
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>

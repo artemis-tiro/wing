@@ -1,10 +1,10 @@
 @if($type=="del")
-<button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#{{$id}}">削除</button>
-<div class="modal fade" id="{{$id}}" tabindex="-1" aria-labelledby="{{$id}}Label" aria-hidden="true">
+<button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#a{{$id}}">削除</button>
+<div class="modal fade" id="a{{$id}}" tabindex="-1" aria-labelledby="a{{$id}}Label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="{{$id}}Label">{{$name}}を削除してもよろしいですか。</h5>
+        <h5 class="modal-title" id="a{{$id}}Label">{{$name}}を削除してもよろしいですか。</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="border: 1px solid;">×</button>
       </div>
       <div class="modal-body">

@@ -84,8 +84,14 @@
 
                         <h3 class="h5">クレーム時に割引対応の許可</h3>
                             @php 
-                                $claim1000Check = isset($formData['claim1000'])? true: false;
-                                $claim2000Check = isset($formData['claim2000'])? true: false;
+                                $claim1000Check = false;
+                                $claim2000Check = false;
+                                if(isset($formData['claim'])){
+                                    foreach($formData['claim'] as $c){
+                                        if($c['price_data']==-1000) $claim1000Check = true;
+                                        if($c['price_data']==-2000) $claim2000Check = true;
+                                    }
+                                }
                             @endphp
                         <label class="form-check form-check-label">
                             {{ Form::checkbox('claim1000', null, $claim1000Check, ['class'=>'form-check-input']) }}
@@ -159,6 +165,22 @@
                             {{ Form::radio('optionGet', 'inputer', $inputerCheck, ['class'=>'form-check-input']) }}
                             オプションは電話予約時に確定させる
                         </label>
+
+                        <hr><br>
+
+                        @component('componets.mise_price_form')
+                            @slot('form', 5)
+                            @slot('type', 'encho')
+                            @slot('time', 'on')
+                            @slot('add', 'on')
+                            @slot('formData', $formData)
+                            @slot('th', ['延長','分数', 'お客様料金', 'セラピストバック'])
+                            @slot('placeholder', [
+                                ["例）延長30分", 30, "6000", "3000"],
+                                ["例）延長60分", 60, "12000", "9000"],
+                                ["例）延長90分", 90, "18000", "9000"],
+                            ])
+                        @endcomponent
 
                         <hr><br>
 

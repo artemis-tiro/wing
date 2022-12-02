@@ -74,6 +74,11 @@ class User extends Authenticatable
         $adminList = user::where('access_level', 'admin')
             ->whereColumn('id', 'team') //teamオーナーのみ
             ->get();
+        foreach($adminList as $a){
+            $a->memberCount = user::where('team', $a->team)
+                ->get()
+                ->count();
+        }
         return $adminList;
     }
 

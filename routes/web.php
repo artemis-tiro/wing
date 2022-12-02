@@ -83,6 +83,10 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/bac
 Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/{therapistId}', "App\Http\Controllers\ClientController@therapist");
 Route::middleware(['auth:sanctum', 'verified'])->any('/c/{clientId}/{miseId}/{therapistId}/edit/{action}', "App\Http\Controllers\ClientController@therapistEdit");
 
+//shift
+Route::middleware(['auth:sanctum', 'verified'])->any('/shift', "App\Http\Controllers\ShiftController@top");
+Route::middleware(['auth:sanctum', 'verified'])->any('/shift/{miseId}', "App\Http\Controllers\ShiftController@shift");
+
 //therapist
 Route::middleware(['auth:sanctum', 'verified'])->any('/t', "App\Http\Controllers\TherapistController@top");
 
