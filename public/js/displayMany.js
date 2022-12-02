@@ -81,20 +81,5 @@
 
             sumAll();
         });
-
-        // $('.radio_visit, .radio_course, .radio_shimei, .radio_more, .radio_option, .radio_waribikiAuto, .radio_waribiki, .radio_claim input ').click(function() {
-
-        //     // 全部のpriceをintに変換して計算する
-        //     totalPrice = Number(visitPrice)
-        //                     + Number(coursePrice)
-        //                     + Number(shimeiPrice)
-        //                     + Number(morePrice)
-        //                     + Number(optionPrice)
-        //                     + Number(waribikiAutoPrice)
-        //                     + Number(waribikiPrice)
-        //                     + Number(claimPrice);
-
-        //     $('.totalMany').text(String(totalPrice));
-        // });
     }
     window.addEventListener('load', displayMany());
