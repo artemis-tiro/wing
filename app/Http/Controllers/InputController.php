@@ -297,4 +297,13 @@ class InputController extends Controller{
         
         return back();
     }
+
+    //予約編集
+    public function yoyakuedit(Request $request, $miseId, $therapistId, $id){
+
+        $yoyaku = yoyaku::find($id);
+        if($yoyaku) $yoyaku->delete();
+        
+        return back();
+    }
 }

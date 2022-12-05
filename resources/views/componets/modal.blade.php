@@ -5,13 +5,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="a{{$id}}Label">{{$name}}を削除してもよろしいですか。</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="border: 1px solid;">×</button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
       </div>
       <div class="modal-body">
         {{$text}}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
         <a class="btn btn-danger" href="{{$url}}">削除</a>
       </div>
     </div>
