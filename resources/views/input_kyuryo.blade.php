@@ -190,7 +190,11 @@
                                 <span>{{ $y->courseShimei }}    {{ $y->shimeiPrice->price }}円</span>
                                 
                                 <!-- オプション -->
-                                <span>オプション    {{ $y->optionPrice->price }}円</span>
+                                @if(isset($y->optionPrice->price))
+                                    <span>オプション    無し</span>
+                                @else
+                                    <span>オプション    {{ $y->optionPrice->price }}円</span>
+                                @endif
                                 
                                 <!-- バック -->
                                 <span>・バック</span>
@@ -202,7 +206,11 @@
                                 <span>{{ $y->courseShimei }}    {{ $y->shimeiPrice->back }}円</span>
                                 
                                 <!-- オプション -->
-                                <span>オプション    {{ $y->optionPrice->back }}円</span>
+                                @if(isset($y->optionPrice->back))
+                                    <span>オプション    無し</span>
+                                @else
+                                    <span>オプション    {{ $y->optionPrice->back }}円</span>
+                                @endif
 
                                 <br>
                                 <br>

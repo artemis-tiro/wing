@@ -301,9 +301,15 @@ class InputController extends Controller{
     //予約編集
     public function yoyakuedit(Request $request, $miseId, $therapistId, $id){
 
-        $yoyaku = yoyaku::find($id);
-        if($yoyaku) $yoyaku->delete();
-        
+        // DB更新
+        $result = yoyaku::yoyakuEdit($request, $id);
+
+        if($result){
+            return back()->with(['message' => '変更されました。']);
+        }else{
+            return back()->with(['error' => '変更されませんでした。']);
+        }
+
         return back();
     }
 }

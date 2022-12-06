@@ -144,5 +144,39 @@ class Yoyaku extends Model
         return $yoyakuListCnt;
     }
 
-    
+    // 延長・オプション編集
+    public static function yoyakuEdit($input, $id){
+        
+        $yoyaku = yoyaku::find($id);
+        
+
+        log::info($yoyaku);
+        log::info($yoyaku->price_id_ilst);
+
+
+        $input_price_id = $yoyaku->price_id_ilst;
+
+
+
+        log::info($input_price_id);
+
+
+        $input_array = ['courseEx',
+                        'optionEx'];
+
+        // price_id_listを追加
+        foreach($input_array as $arr){
+            if(isset($input[$arr])){
+                $input_price_id .= 'P'.$input[$arr];
+            }
+        }
+
+        $yoyaku->price_id_list = $input_price_id;
+        $result = $yoyaku->save();
+
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
 }
