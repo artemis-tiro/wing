@@ -100,32 +100,15 @@
                                             <div class="modal-body">
 
                                                 <!-- 延長 -->
-                                                {{--
-                                                <label class="row">
-
-                                                    <!-- ラベル -->
-                                                    @if ($errors->has('courseEx'))
-                                                        <div class="mt-2 text-danger text-end">{{ $errors->first('courseEx') }}</div>
-                                                    @else
-                                                        <div class="mt-2 text-info text-end">コース延長</div>
-                                                    @endif
-
-                                                    <div class="col-sm-12">
-                                                        {{ Form::text('courseEx', null, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required', 'placeholder'=>'(例) 山田沙也加']) }}
-                                                    </div>
-                                                </label>
-                                                --}}
-
-                                                <!-- コース -->
                                                 <div class="row text-nowrap text-end radio_course">
                                                     <div class="col-sm-3 text-end">延長<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                                                     
-                                                    @foreach($courseList  as $c)
+                                                    @foreach($enchoList  as $e)
                                                         @if($loop->index == 0)
                                                             <!-- <div class="col-sm-2 ms-auto btn bg-info text-white courseMany">-----円</div> -->
                                                             <label class="col-sm-2 mb-2">
-                                                                {{ Form::radio('course', $c->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$c->price, 'required']) }}
-                                                                {{ $c->name }}
+                                                                {{ Form::radio('courseEx', $e->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$e->price, 'required']) }}
+                                                                {{ $e->name }}
                                                             </label>
                                                 <!-- 項目縦表示のためここで１つ目のdivをとじる -->
                                                 </div>
@@ -134,8 +117,8 @@
                                                             <!-- 項目の場所合わせ -->
                                                             <div class="col-sm-3"></div>
                                                             <label class="col-sm-2">
-                                                                {{ Form::radio('course', $c->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$c->price, 'required']) }}
-                                                                {{ $c->name }}
+                                                                {{ Form::radio('courseEx', $e->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$e->price, 'required']) }}
+                                                                {{ $e->name }}
                                                             </label>
                                                 </div>
                                                         @endif
@@ -145,29 +128,12 @@
                                                             <div class="col-sm-3"></div>
 
                                                             <label class="col-sm-2">
-                                                                {{ Form::radio('course', null, true, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>0, 'required']) }}
+                                                                {{ Form::radio('courseEx', null, true, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>0, 'required']) }}
                                                                 延長なし
                                                             </label>
                                                 </div>
 
                                                 <!-- オプション -->
-                                                {{--
-                                                <label class="row">
-
-                                                    <!-- ラベル -->
-                                                    @if ($errors->has('optionEx'))
-                                                        <div class="mt-2 text-danger text-end">{{ $errors->first('optionEx') }}</div>
-                                                    @else
-                                                        <div class="mt-2 text-info text-end">オプション</div>
-                                                    @endif
-
-                                                    <div class="col-sm-12">
-                                                        {{ Form::text('optionEx', null, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required', 'placeholder'=>'(例) やまださやか']) }}
-                                                    </div>
-                                                </label>
-                                                --}}
-
-
                                                 <div class="row text-nowrap text-end radio_option">
                                                     <div class="col-sm-3 text-end">オプション<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                                                     
@@ -230,13 +196,7 @@
                             </tbody>
                         </table>
 
-                        @if(isset($getOption))
-                            @if($getOption->name === 'inputer')
-                                <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}">給料計算へ</a>
-                            @else
-                                <a class="m-2 btn btn-info" href="">編集</a>
-                            @endif
-                        @endif
+                        <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}">給料計算へ</a>
 
                     </div>
                 </div>

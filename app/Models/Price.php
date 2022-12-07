@@ -249,6 +249,15 @@ class price extends Model
         return $priceList;
     }
 
+    // 延長取得
+    public static function enchoList($miseId,$backName){
+        $enchoList = price::where('mise_id', $miseId)
+            ->where('back_name', $backName)
+            ->where('type', 'encho')
+            ->get();
+        return $enchoList;
+    }
+
     // コース名取得
     public static function getCourseName($priceIdList){
         foreach($priceIdList as $p){

@@ -124,6 +124,7 @@ class InputController extends Controller{
         $claimList = price::claimList($miseId,$therapist->back_name);
         $getOption = price::getOption($miseId,$therapist->back_name);
         $getRepeater = price::getRepeater($miseId,$therapist->back_name);
+        $enchoList = price::enchoList($miseId,$therapist->back_name);
 
         if($request->input('telsearch')){
             $kokyakuData = $telsearch;
@@ -146,6 +147,7 @@ class InputController extends Controller{
             'waribikiAutoList' => $waribikiAutoList,
             'waribikiList' => $waribikiList,
             'claimList' => $claimList,
+            'enchoList' => $enchoList,
             'getOption' => $getOption,
             'getRepeater' => $getRepeater,
             'error' => session('error'),
