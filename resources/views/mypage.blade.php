@@ -389,11 +389,7 @@
                                             @endif
 
                                             <div class="col-sm-12">
-
-                                                <!-- 半角などのチェック -->
-                                                <!-- Form::タイプ -->
-                                                <!-- 第一引数は「name=""」 -->
-                                                {{ Form::number('birthday', str_replace('-', '', $mydeta->birthday), ['class'=>'form-control', 'autocomplete'=>'current-password', 'placeholder'=>'(例) 2005-01-21']) }}
+                                                {{ Form::date('birthday', null, ['class'=>'form-control', 'required']) }}
                                             </div>
                                         </label>
                                     </div>
@@ -568,7 +564,7 @@
                                             @if ($errors->has('nowpassword'))
                                                 <div class="mt-2 text-danger text-end">{{ $errors->first('nowpassword') }}</div>
                                             @else
-                                                <div class="mt-2 text-info text-end">新しいパスワード(確認)</div>
+                                                <div class="mt-2 text-info text-end">現在のパスワード</div>
                                             @endif
                                             <div class="col-sm-12">
 

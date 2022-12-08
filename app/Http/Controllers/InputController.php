@@ -301,10 +301,10 @@ class InputController extends Controller{
     }
 
     //予約編集
-    public function yoyakuedit(Request $request, $miseId, $therapistId, $id){
+    public function yoyakuencho(Request $request, $miseId, $therapistId, $id){
 
         // DB更新
-        $result = yoyaku::yoyakuEdit($request, $id);
+        $result = yoyaku::yoyakuencho($request, $id);
 
         if($result){
             return back()->with(['message' => '変更されました。']);

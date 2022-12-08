@@ -144,22 +144,12 @@ class Yoyaku extends Model
         return $yoyakuListCnt;
     }
 
-    // 延長・オプション編集
-    public static function yoyakuEdit($input, $id){
+    // 延長編集
+    public static function yoyakuencho($input, $id){
         
         $yoyaku = yoyaku::find($id);
-        
 
-        log::info($yoyaku);
-        log::info($yoyaku->price_id_ilst);
-
-
-        $input_price_id = $yoyaku->price_id_ilst;
-
-
-
-        log::info($input_price_id);
-
+        $input_price_id = $yoyaku->price_id_list;
 
         $input_array = ['courseEx',
                         'optionEx'];
