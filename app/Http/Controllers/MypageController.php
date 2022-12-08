@@ -244,18 +244,6 @@ class MypageController extends Controller{
 
         // アクセス情報取得
         $accessLevel = Auth::user()->access_level;
-        
-        ///////     バリデーション      ///////
-        // NULLではない
-        // ひらがなであるか
-        $rulus = [
-            'birthday' => ['numeric'],
-        ];
-        $message = [
-            'birthday.numeric' => '数字を入力してください。',
-        ];
-        $validator = Validator::make($request->all(), $rulus, $message);
-        if($validator->fails()) return back()->withErrors($validator)->withInput();
 
         // DB更新
         switch ($accessLevel) {

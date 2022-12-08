@@ -83,11 +83,11 @@
                         @foreach($adjustList  as $a)
                             <div class="row text-nowrap mb-4 text-end">
                                 <div class="col-sm-5">
-                                    @php $name=isset($adjustList->adjust_name)? $adjustList->adjust_name: 'name'=>''; @endphp
+                                    @php $name=isset($adjustList->adjust_name)? $adjustList->adjust_name: ''; @endphp
                                     {{ Form::text('adjust_name'.'$index+1', $a->adjust_name, ['class'=>'form-control', 'autocomplete'=>'off']) }}
                                 </div>
                                 <div class="col input-group">
-                                    @php $many=isset($adjustList->adjust_many)? $adjustList->adjust_many: 'name'=>''; @endphp
+                                    @php $many=isset($adjustList->adjust_many)? $adjustList->adjust_many: ''; @endphp
                                     {{ Form::number('adjust_many'.'$index+1', $a->adjust_many, ['class'=>'form-control', 'autocomplete'=>'off']) }}
                                     <span class="input-group-text">円</span>
                                 </div>
