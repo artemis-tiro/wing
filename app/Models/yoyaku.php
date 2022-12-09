@@ -149,16 +149,16 @@ class Yoyaku extends Model
         
         $yoyaku = yoyaku::find($id);
 
+        $count = 0;
         $input_price_id = $yoyaku->price_id_list;
 
-        $input_array = ['courseEx',
-                        'optionEx'];
+        if($input['courseExCnt'.$input['courseEx']]){
+            $count = $input['courseExCnt'.$input['courseEx']];
+        }
 
-        // price_id_listを追加
-        foreach($input_array as $arr){
-            if(isset($input[$arr])){
-                $input_price_id .= 'P'.$input[$arr];
-            }
+        // 延長回数分「price_id_list」に追加
+        for($i = 0; $i < $count; $i++){
+            $input_price_id .= 'P'.$input['courseEx'];
         }
 
         $yoyaku->price_id_list = $input_price_id;

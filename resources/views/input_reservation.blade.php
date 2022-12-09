@@ -109,26 +109,34 @@
                                                         @foreach($enchoList  as $e)
                                                             @if($loop->index == 0)
                                                                 <!-- <div class="col-sm-2 ms-auto btn bg-info text-white courseMany">-----円</div> -->
-                                                                <label class="col-sm-2 mb-2">
+                                                                <label class="col-sm-5 mb-2">
                                                                     {{ Form::radio('courseEx', $e->id, false, ['class'=>'form-check-input', 'required']) }}
                                                                     {{ $e->name }}
-                                                                    <span class="mx-2 badge rounded-pill bg-info">{{ $e->price }}</span>
+                                                                    <span class="mx-2 badge rounded-pill bg-info">{{ $e->price }}円</span>
                                                                 </label>
+                                                                ×
+                                                                <div class="col-sm-2 ms-auto">
+                                                                    {{ Form::number('courseExCnt'.$e->id, null, ['class'=>'form-control', 'autocomplete'=>'off']) }}
+                                                                </div>
                                                     <!-- 項目縦表示のためここで１つ目のdivをとじる -->
                                                     </div>
                                                             @else
-                                                    <div class="row text-nowrap mb-2 text-end radio_course">
+                                                    <div class="row text-nowrap mt-2 text-end radio_course">
                                                                 <!-- 項目の場所合わせ -->
                                                                 <div class="col-sm-3"></div>
-                                                                <label class="col-sm-2">
+                                                                <label class="col-sm-5">
                                                                     {{ Form::radio('courseEx', $e->id, false, ['class'=>'form-check-input', 'required']) }}
                                                                     {{ $e->name }}
-                                                                    <span class="mx-2 badge rounded-pill bg-info">{{ $e->price }}</span>
+                                                                    <span class="mx-2 badge rounded-pill bg-info">{{ $e->price }}円</span>
                                                                 </label>
+                                                                ×
+                                                                <div class="col-sm-2">
+                                                                    {{ Form::number('courseExCnt'.$e->id, null, ['class'=>'form-control', 'autocomplete'=>'off']) }}
+                                                                </div>
                                                     </div>
                                                             @endif
                                                         @endforeach
-                                                    <div class="row text-nowrap mb-2 text-end radio_course">
+                                                    <div class="row text-nowrap mt-2 text-end radio_course">
                                                                 <!-- 項目の場所合わせ -->
                                                                 <div class="col-sm-3"></div>
 
@@ -229,8 +237,16 @@
                                             substr($kokyakuList[$ya->kokyaku_id]->tel, -4, 4)
                                         }}
                                     </td>
-                                    <td><a class="btn btn-sm btn-info" href="">編集</a></td>
-                                    <td><a class="btn btn-sm btn-danger" href="">削除</a></td>
+                                    <td><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="">編集</a></td>
+                                    <td>
+                                        @component('componets.modal')
+                                            @slot('type', 'del')
+                                            @slot('name', '予約')
+                                            @slot('id', $ya->id)
+                                            @slot('text', "本当に削除しますか。")
+                                            @slot('url', url('/i/'.$mise->id.'/'.$therapist->id.'/'.$ya->id.'/del'))
+                                        @endcomponent
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
