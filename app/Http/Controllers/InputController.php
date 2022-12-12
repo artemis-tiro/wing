@@ -300,11 +300,26 @@ class InputController extends Controller{
         return back();
     }
 
-    //予約編集
+    //予約延長
     public function yoyakuencho(Request $request, $miseId, $therapistId, $id){
 
         // DB更新
         $result = yoyaku::yoyakuencho($request, $id);
+
+        if($result){
+            return back()->with(['message' => '変更されました。']);
+        }else{
+            return back()->with(['error' => '変更されませんでした。']);
+        }
+
+        return back();
+    }
+
+    //予約編集
+    public function yoyakuedit(Request $request, $miseId, $therapistId, $id){
+
+        // DB更新
+        $result = yoyaku::yoyakuedit($request, $id);
 
         if($result){
             return back()->with(['message' => '変更されました。']);
