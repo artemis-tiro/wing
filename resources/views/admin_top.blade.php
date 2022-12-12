@@ -41,4 +41,16 @@
                     </div>
                 </div>
 
+                <div class="card my-4 mb-5">
+                    <!-- カードのタイトル -->
+                    <h2 class="card-header h5">パスワードリセット</h2>
+                    <!-- カードの要素 -->
+                    <div class="card-body">
+                        <p>パスワードのリセットは管理者しかできません。<br>
+                            パスワードを忘れたユーザーがいたらここからリセットして上げてください。
+                        </p>
+                        <a class="btn btn-sm btn-info" href="{{url('/admin/passreset')}}">パスワードリセット画面へ</a></td>
+                    </div>
+                </div>
+
 @stop

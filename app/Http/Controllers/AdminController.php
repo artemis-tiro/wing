@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Validator; 
 use App\Rules\Hankaku;
 use Log;
@@ -14,6 +15,7 @@ use App\Models\Inputer;
 use App\Models\Client;
 use App\Models\Mise;
 use App\Models\Yoyaku;
+use App\Models\session;
 
 class AdminController extends Controller{
 
@@ -59,6 +61,7 @@ class AdminController extends Controller{
         //inputer一覧
         $inputerList = user::inputerList(Auth::user()->team);
         yoyaku::addExist($inputerList);
+        inputer::addDetail($inputerList);
 
         return view ('admin_inputer', [
             'inputerList' => $inputerList,
@@ -229,6 +232,40 @@ class AdminController extends Controller{
         }
 
         return back()->with(['mes1' => $mes]);
+    }
+
+
+    //パスワードリセット
+    public function passReset(Request $request){
+        //権限チェック
+        if($ng = $this->levelCheck()) return $ng;
+
+        if(!$request->input()){
+            return view ('admin_passreset', [
+           ]);
+        }
+
+        $loginId = $request->input()['login_id'];
+        $id = user::nameToId($loginId);
+        $check = user::teamCheck($id, Auth::user()->team);
+        $mes = '';
+
+        if(!$id){
+            $mes = $loginId.'が見つかりませんでした。';
+        
+        }elseif(!$check){
+            $mes = $loginId.'のパスワードをリセットする権限がありません。';
+        
+        }elseif($id && $check){
+            user::passwordUpdate($id,Hash::make($loginId));
+            session::del($id);
+            user::logout($id);
+            $mes = $loginId.'のパスワードを「'.$loginId.'」にリセットしました。';
+        }
+
+        return view ('admin_passreset', [
+            'mes' => $mes,
+       ]);
     }
 
 

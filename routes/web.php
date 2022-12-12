@@ -56,6 +56,7 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/admin/inputer/{id}', "App
 Route::middleware(['auth:sanctum', 'verified'])->any('/admin/client', "App\Http\Controllers\AdminController@client");
 Route::middleware(['auth:sanctum', 'verified'])->any('/admin/newclient', "App\Http\Controllers\AdminController@newClient");
 Route::middleware(['auth:sanctum', 'verified'])->any('/admin/editclient/{id}/{action}', "App\Http\Controllers\AdminController@editClient");
+Route::middleware(['auth:sanctum', 'verified'])->any('/admin/passreset', "App\Http\Controllers\AdminController@passReset");
 
 //inputer
 Route::middleware(['auth:sanctum', 'verified'])->any('/i', "App\Http\Controllers\InputController@top");

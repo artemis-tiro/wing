@@ -30,7 +30,8 @@
                                 <!-- カテゴリ -->
                                 <tr>
                                     <th scope="col"></th>
-                                    <th scope="col">代表者</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">代表者名</th>
                                     <th scope="col">店舗数</th>
                                     <th scope="col">メイン店舗</th>
                                     <th scope="col">状態</th>
@@ -49,6 +50,7 @@
 
                                 <tr class="account_{{ $action }}">
                                     <th>{{ $loop->index+1 }}</th>
+                                    <td>{{ $c->name }}</td>
                                     <td><a href="{{ url('/c/'.$c->id) }}">{{ $c->client->name }}</a></td>
                                     <td>{{ $c->miseCountActive }}</td>
                                     <td>{{ $c->miseMain }}</td>

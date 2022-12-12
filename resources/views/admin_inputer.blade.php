@@ -26,6 +26,7 @@
                                 <!-- カテゴリ -->
                                 <tr>
                                     <th scope="col"></th>
+                                    <th scope="col">ID</th>
                                     <th scope="col">名前</th>
                                     <th scope="col">権限</th>
                                     <th scope="col"></th>
@@ -48,7 +49,8 @@
 
                                 <tr class="account_{{$action}}">
                                     <th>{{$loop->index+1}}</th>
-                                    <td><a href="{{url('/admin/inputer/'.$i->id)}}">{{$i->name}}</a></td>
+                                    <th>{{$i->name}}</th>
+                                    <td><a href="{{url('/admin/inputer/'.$i->id)}}">{{$i->inputer->name}}</a></td>
                                     <td>{{$level}}</td>
                                     <td><a class="btn btn-sm btn-info" href="{{url('/admin/editinputer')}}/{{$i->id}}/{{$action2}}">権限切り替え</a></td>
                                     <td>{{$active}}</td>

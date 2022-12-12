@@ -113,4 +113,12 @@ class inputer extends Model
 
         return null;
     }
+
+    //inputer詳細を追加
+    public static function addDetail($inputerList){
+        foreach($inputerList as $i){
+            $i->inputer = inputer::find($i->id);
+        }
+        return null;
+    }
 }

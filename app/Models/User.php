@@ -69,10 +69,10 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    //teamä¸€è¦§
+    //teamÒ»ÓE
     public static function teamList(){
         $adminList = user::where('access_level', 'admin')
-            ->whereColumn('id', 'team') //teamã‚ªãƒ¼ãƒŠãƒ¼ã®ã¿
+            ->whereColumn('id', 'team') //team¥ª©`¥Ê©`¤Î¤ß
             ->get();
         foreach($adminList as $a){
             $a->memberCount = user::where('team', $a->team)
@@ -82,17 +82,17 @@ class User extends Authenticatable
         return $adminList;
     }
 
-    //ãƒ¡ãƒ³ãƒãƒ¼ä¸€è¦§
+    //¥á¥ó¥Ğ©`Ò»ÓE
     public static function inputerList($team){
         $inputerList = user::whereIn('access_level', ['admin','inputer'])
-            ->where('id', '<>', $team) //teamã‚ªãƒ¼ãƒŠãƒ¼ã‚’é™¤å¤–
+            ->where('id', '<>', $team) //team¥ª©`¥Ê©`¤ò³ıÍâ
             ->where('team', $team)
             ->get();
         $list = $inputerList->sortByDesc('active');
         return $list;
     }
 
-    //clientä¸€è¦§
+    //clientÒ»ÓE
     public static function clientList($team){
         $clientList = user::where('access_level', 'client')
             ->where('team', $team)
@@ -102,28 +102,29 @@ class User extends Authenticatable
         return $list;
     }
 
-    //nameã‹ã‚‰idå–å¾—
+    //name¤«¤éidÈ¡µÃ
     public static function nameToId($name){
         $user = user::where('name', $name)
             ->first();
+        if(!$user) return false;
         return $user->id;
     }
 
-    //teamã‹ã‚‰nameå–å¾—
+    //team¤«¤énameÈ¡µÃ
     public static function teamName($team){
         $user = user::find($team);
         if(!$user) return null;
         return $user->name;
     }
 
-    //userä½œæˆ
+    //user×÷³É
     public static function userCreate($input, $level,){
         $result = ['error'=>'', 'id'=>''];
 
-        //teamå–å¾—
+        //teamÈ¡µÃ
         $team = Auth::user()->team;
 
-        //ã‚¤ãƒ³ã‚µãƒ¼ãƒˆ
+        //¥¤¥ó¥µ©`¥È
         $user = new user();
         $user->name = $input['login_id'];
         // $user->password = Hash::make($input['pass']);
@@ -132,7 +133,7 @@ class User extends Authenticatable
         $user->team = $team;
         $saveResult = $user->save();
         if(!$saveResult){
-            $result['error'] .= "æ–°è¦ä½œæˆã«å¤±æ•—ã—ã¾ã—ãŸã€‚\n";
+            $result['error'] .= "ĞÂÒ×÷³É¤ËÊ§”¡¤·¤Ş¤·¤¿¡£\n";
             return $result;
         }
 
@@ -140,7 +141,7 @@ class User extends Authenticatable
         return $result;
     }
 
-    //teamä½œæˆ
+    //team×÷³É
     public static function teamCreate($id){
         $user = user::find($id);
         $user->team = $user->id;
@@ -148,7 +149,7 @@ class User extends Authenticatable
         return true;
     }
 
-    //ãƒãƒ¼ãƒ ãƒã‚§ãƒƒã‚¯
+    //¥Á©`¥à¥Á¥§¥Ã¥¯
     public static function teamCheck($id, $team){
         $user = user::find($id);
         if(!isset($user->team)) return false;
@@ -157,7 +158,7 @@ class User extends Authenticatable
         return true;
     }
 
-    //teamã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãƒã‚§ãƒƒã‚¯
+    //team¥¢¥¯¥Æ¥£¥Ö¥Á¥§¥Ã¥¯
     public static function teamActiveCheck($team){
         $owner = user::find($team);
         if(!$owner) return false;
@@ -166,7 +167,7 @@ class User extends Authenticatable
         return true;
     }
 
-    //activeã‚ªãƒ³
+    //active¥ª¥ó
     public static function toActive($id){
         $user = user::find($id);
         $user->active = 1;
@@ -174,7 +175,7 @@ class User extends Authenticatable
         return true;
     }
 
-    //activeã‚ªãƒ•
+    //active¥ª¥Õ
     public static function toStop($id){
         $user = user::find($id);
         $user->active = 0;
@@ -182,7 +183,7 @@ class User extends Authenticatable
         return true;
     }
 
-    //memberã¸
+    //member¤Ø
     public static function toInputer($id){
         $user = user::find($id);
         $user->access_level = 'inputer';
@@ -190,7 +191,7 @@ class User extends Authenticatable
         return true;
     }
 
-    //adminã¸
+    //admin¤Ø
     public static function toAdmin($id){
         $user = user::find($id);
         $user->access_level = 'admin';
@@ -198,7 +199,7 @@ class User extends Authenticatable
         return true;
     }
 
-    //memoæ›´æ–°
+    //memo¸üĞÂ
     public static function memo($id, $memo){
         $user = user::find($id);
         $user->memo = $memo;
@@ -206,14 +207,14 @@ class User extends Authenticatable
         return true;
     }
 
-    //å‰Šé™¤
+    //Ï÷³ı
     public static function del($id){
         $user = user::find($id);
         if($user) $user->delete();
         return true;
     }
 
-    //ãªã‚Šã™ã¾ã—
+    //¤Ê¤ê¤¹¤Ş¤·
     public static function nari($team){
         $me = user::find(Auth::user()->id);
         $me->team = $team;
@@ -221,7 +222,7 @@ class User extends Authenticatable
         return true;
     }
 
-    //loginIdè¿½åŠ 
+    //loginId×·¼Ó
     public static function addDetail($list){
         foreach($list as $i){
             $user = user::find($i->id);
@@ -230,7 +231,7 @@ class User extends Authenticatable
         }
     }
 
-    //ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰æ›´æ–°
+    //¥Ñ¥¹¥ï©`¥É¸üĞÂ
     public static function passwordUpdate($id,$newPassword){
         $user = user::find($id);
         $user->password = $newPassword;
@@ -238,7 +239,7 @@ class User extends Authenticatable
         return $result;
     }
 
-    //miseä¸€è¦§
+    //miseÒ»ÓE
     public static function miseList($team){
         $miseList = user::where('access_level', 'therapist')
             ->where('team', $team)
@@ -251,4 +252,13 @@ class User extends Authenticatable
         $user = user::find($id);
         return $user;
     }
+
+    // logout
+    public static function logout($id){
+        $user = user::find($id);
+        $user->remember_token = null;
+        $user->save();
+        return null;
+    }
+
 }
