@@ -258,6 +258,15 @@ class price extends Model
         return $enchoList;
     }
 
+    // コースが存在するか
+    public static function courseExist($miseId){
+        $course = price::where('mise_id', $miseId)
+            ->where('type', 'course')
+            ->first();
+        $result = $course? true: false;
+        return $result;
+    }
+
     // コース名取得
     public static function getCourseName($priceIdList){
         foreach($priceIdList as $p){
@@ -269,15 +278,6 @@ class price extends Model
         }
     }
 
-    // コースが存在するか
-    public static function courseExist($miseId){
-        $course = price::where('mise_id', $miseId)
-            ->where('type', 'course')
-            ->first();
-        $result = $course? true: false;
-        return $result;
-    }
-
     // 指名取得
     public static function getCourseShimei($priceIdList){
         foreach($priceIdList as $p){
@@ -285,6 +285,17 @@ class price extends Model
             if(!$courseName) continue;
             if($courseName->type == 'shimei'){
                 return $courseName->name;
+            }
+        }
+    }
+
+    // 割引取得
+    public static function getCourseWaribiki($priceIdList){
+        foreach($priceIdList as $p){
+            $courseWaribki = price::find($p);
+            if(!$courseWaribki) continue;
+            if($courseWaribki->type == 'waribiki'){
+                return $courseWaribki->name;
             }
         }
     }

@@ -38,6 +38,7 @@
                                     <th scope="col"></th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,6 +70,7 @@
                                             substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
                                         }}
                                     </td>
+                                    <td><a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#yoyakuOptionModal">オプション</a></td>
                                     <td><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#yoyakuEditModal">編集</a></td>
                                     <td>
                                         @component('componets.modal')
@@ -84,6 +86,83 @@
 
 
                                 <!-- モーダル設定 -->
+                                <!-- オプションボタン -->
+                                <div class="modal fade" id="yoyakuOptionModal" tabindex="-1" aria-labelledby="yoyakuOptionModal" data-bs-backdrop="static">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            
+                                            <!-- モーダルのヘッダー -->
+                                            <div class="modal-header">
+                                                <!-- モーダルタイトル -->
+                                                <h1 class="modal-title h4" id="yoyakuOptionModalLabel">オプション選択</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
+                                            </div>
+
+                                            <!-- フォームの開始 -->
+                                            {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/'.$y->id.'/yoyakuOption')]) }}
+                                            
+                                            <!-- モーダルの内容 -->
+                                            <div class="modal-body">
+
+                                                <!-- オプション -->
+                                                <div class="row text-nowrap mb-2 text-end">
+                                                    <div class="col-sm-3 text-end">オプション<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
+                                                    
+                                                    @foreach($optionList  as $o)
+                                                        @if($loop->index == 0)
+                                                            <label class="col-sm-3">
+                                                                {{ Form::radio('optionEx', $o->id, false, ['class'=>'form-check-input', 'required']) }}
+                                                                {{ $o->name }}
+                                                            </label>
+                                                            <label class="col-sm-2">
+                                                                <span class="mx-2 badge rounded-pill bg-info">{{ number_format($o->price) }}円</span>
+                                                            </label>
+                                                <!-- 項目縦表示のためここで１つ目のdivをとじる -->
+                                                </div>
+                                                        @else
+                                                <div class="row text-nowrap mb-2 text-end">
+                                                            <!-- 項目の場所合わせ -->
+                                                            <div class="col-sm-3"></div>
+                                                            <label class="col-sm-3">
+                                                                {{ Form::radio('optionEx', $o->id, false, ['class'=>'form-check-input', 'required']) }}
+                                                                {{ $o->name }}
+                                                            </label>
+                                                            <label class="col-sm-2">
+                                                                <span class="mx-2 badge rounded-pill bg-info">{{ number_format($o->price) }}円</span>
+                                                            </label>
+                                                </div>
+                                                        @endif
+                                                    @endforeach
+
+                                                <!-- 予約済オプションにチェック -->
+                                                @foreach($yoyakuList  as $y)
+                                                    @foreach($optionList  as $o)
+                                                        @if( $y->courseName === $o->name )
+                                                            <script>
+                                                                yoyakuEditChk('optionEx', {{ $loop->index }});
+                                                            </script>
+                                                        @endif
+                                                    @endforeach
+                                                @endforeach
+
+                                            </div>
+
+                                            <!-- モーダルのフッター -->
+                                            <div class="modal-footer">
+
+                                                <!-- 各ボタン -->
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                                                {{ Form::submit('更新',["class"=>"btn btn-info"])}}
+
+                                            </div>
+
+                                            <!-- フォームの終わり -->
+                                            {{ Form::close() }}
+
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <!-- 編集ボタン -->
                                 <div class="modal fade" id="yoyakuEditModal" tabindex="-1" aria-labelledby="yoyakuEditModal" data-bs-backdrop="static">
                                     <div class="modal-dialog modal-dialog-centered">
@@ -192,6 +271,39 @@
                                                 </div>
                                                         @endif
                                                     @endforeach
+
+                                                <!-- 予約済コースにチェック -->
+                                                @foreach($yoyakuList  as $y)
+                                                    @foreach($courseList  as $c)
+                                                        @if( $y->courseName === $c->name )
+                                                            <script>
+                                                                yoyakuEditChk('courseEx', {{ $loop->index }});
+                                                            </script>
+                                                        @endif
+                                                    @endforeach
+                                                @endforeach
+
+                                                <!-- 予約済指名にチェック -->
+                                                @foreach($yoyakuList  as $y)
+                                                    @foreach($shimeiList  as $s)
+                                                        @if( $y->courseShimei === $s->name )
+                                                            <script>
+                                                                yoyakuEditChk('shimeiEx', {{ $loop->index }});
+                                                            </script>
+                                                        @endif
+                                                    @endforeach
+                                                @endforeach
+
+                                                <!-- 予約済割引にチェック -->
+                                                @foreach($yoyakuList  as $y)
+                                                    @foreach($waribikiList  as $w)
+                                                        @if( $y->courseWaribiki === $w->name )
+                                                            <script>
+                                                                yoyakuEditChk('waribikiEx', {{ $loop->index }});
+                                                            </script>
+                                                        @endif
+                                                    @endforeach
+                                                @endforeach
                                             </div>
 
                                             <!-- モーダルのフッター -->
@@ -496,28 +608,6 @@
                         <!-- 来店 -->
                         <div class="row text-nowrap mb-4 text-end radio_visit">
                             <div class="col-sm-2 text-end">来店<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
-                        
-                            {{--
-                            @if(isset($kokyakuData))
-                                <div class="col-sm-1 btn bg-info text-white visitMany">{{ $getRepeater->price }}円</div>
-                                <label class="col-sm-1">
-                                        {{ Form::radio('visit_display', $getRepeater->id, true, ['class'=>'form-check-input', 'disabled'=>'disabled']) }}
-                                        {{ Form::hidden('visit', $getRepeater->id) }}
-                                        {{ $getRepeater->name }}
-                                </label>
-                            @endif
-
-                            @if(!(isset($kokyakuData)))
-                                <div class="col-sm-1 btn bg-info text-white visitMany">-----円</div>
-                                @foreach($visitList  as $v)
-                                    <label class="col-sm-1">
-                                        {{ Form::radio('visit', $v->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$v->price, 'required']) }}
-                                        {{ $v->name }}
-                                    </label>
-                                @endforeach
-                            @endif
-                            --}}
-
 
                             <div class="col-sm-1 btn bg-info text-white visitMany">-----円</div>
                             @foreach($visitList  as $v)

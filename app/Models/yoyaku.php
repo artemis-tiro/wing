@@ -46,6 +46,10 @@ class Yoyaku extends Model
             // 指名を取得
             $y->courseShimei = price::getCourseShimei($priceId);
 
+            // $yoyakuListに「courseWaribiki」を追加
+            // 割引を取得
+            $y->courseWaribiki = price::getCourseWaribiki($priceId);
+
             // $yoyakuListに「coursePrice」を追加
             // コース金額を取得
             $y->coursePrice =  price::getCoursePrice($priceId);
@@ -150,7 +154,7 @@ class Yoyaku extends Model
         $yoyaku = yoyaku::find($id);
 
         $count = 0;
-        $input_price_id = $yoyaku->price_id_list;
+        $inputId = null;
 
         if($input['courseExCnt'.$input['courseEx']]){
             $count = $input['courseExCnt'.$input['courseEx']];
@@ -158,10 +162,10 @@ class Yoyaku extends Model
 
         // 延長回数分「price_id_list」に追加
         for($i = 0; $i < $count; $i++){
-            $input_price_id .= 'P'.$input['courseEx'];
+            $inputId .= 'P'.$input['courseEx'];
         }
 
-        $yoyaku->price_id_list = $input_price_id;
+        $yoyaku->encho_id_list = $inputId;
         $result = $yoyaku->save();
 
         //インサート失敗時
@@ -175,16 +179,30 @@ class Yoyaku extends Model
         
         $yoyaku = yoyaku::find($id);
 
-        $count = 0;
-        $input_price_id = $yoyaku->price_id_list;
+        $input_price_id = '';
 
-        if($input['courseExCnt'.$input['courseEx']]){
-            $count = $input['courseExCnt'.$input['courseEx']];
+        $priceid = explode('P', $yoyaku->price_id_list);
+
+        
+        // course,shimei,waribiki以外でprice_id_listを作成
+        foreach($priceid as $p){
+            $courseName = price::find($p);
+            if(!$courseName) continue;
+            // 編集で入力する項目以外
+            if(!($courseName->type == 'course'||$courseName->type == 'shimei'||$courseName->type == 'waribiki')){
+                $input_price_id .= 'P'.$p;
+            }
         }
 
-        // 延長回数分「price_id_list」に追加
-        for($i = 0; $i < $count; $i++){
-            $input_price_id .= 'P'.$input['courseEx'];
+        // 作成したprice_id_listにinputのidを足して更新
+        $input_array = ['courseEx',
+                        'shimeiEx',
+                        'waribikiEx'];
+
+        foreach($input_array as $arr){
+            if(isset($input[$arr])){
+                $input_price_id .= 'P'.$input[$arr];
+            }
         }
 
         $yoyaku->price_id_list = $input_price_id;
