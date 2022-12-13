@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2022-12-13 10:36:54] local.INFO: tiroトップへアクセス  
 [2022-12-13 11:26:16] local.ERROR: Attempt to read property "price" on null {"view":{"view":"C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\resources\\views\\input_kyuryo.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1074364118 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#577</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
@@ -808,3 +809,5 @@
 #34 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #35 {main}
 "} 
+=======
+>>>>>>> bf36cedf80df89289cd5fd8333d1a0b66d541575

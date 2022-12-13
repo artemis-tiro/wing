@@ -49,7 +49,7 @@
 
                                 <tr class="account_{{$action}}">
                                     <th>{{$loop->index+1}}</th>
-                                    <th>{{$i->name}}</th>
+                                    <td>{{$i->name}}</td>
                                     <td><a href="{{url('/admin/inputer/'.$i->id)}}">{{$i->inputer->name}}</a></td>
                                     <td>{{$level}}</td>
                                     <td><a class="btn btn-sm btn-info" href="{{url('/admin/editinputer')}}/{{$i->id}}/{{$action2}}">権限切り替え</a></td>
