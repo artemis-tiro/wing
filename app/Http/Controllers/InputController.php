@@ -82,7 +82,7 @@ class InputController extends Controller{
         ]);
     }
 
-    //予約一覧ページ
+    // 予約一覧ページ
     public function yoyaku(Request $request, $miseId,$therapistId){
 
         $kokyakuData = null;
@@ -109,6 +109,9 @@ class InputController extends Controller{
 
         // 電話番号検索
         $telsearch = kokyaku::telSearch($request->input('telsearch'));
+
+        // オプション有無確認
+        $optionfind = yoyaku::optionFind($yoyakuList);
 
         // 予約コース
         yoyaku::courseNameList($yoyakuList);
@@ -139,6 +142,7 @@ class InputController extends Controller{
             'yoyakuAfterList' => $yoyakuAfterList,
             'kokyakuData' => $kokyakuData,
             'formflag' => $formflag,
+            'optionfind' => $optionfind,
             'inputTel' => $inputTel,
             'courseList' => $courseList,
             'visitList' => $visitList,
@@ -291,7 +295,7 @@ class InputController extends Controller{
         return back();
     }
 
-    //予約削除
+    // 予約削除
     public function yoyakudel(Request $request, $miseId, $therapistId, $id){
 
         $yoyaku = yoyaku::find($id);
@@ -300,7 +304,7 @@ class InputController extends Controller{
         return back();
     }
 
-    //予約延長
+    // 予約延長
     public function yoyakuencho(Request $request, $miseId, $therapistId, $id){
 
         // DB更新
@@ -315,11 +319,26 @@ class InputController extends Controller{
         return back();
     }
 
-    //予約編集
+    // 予約編集
     public function yoyakuedit(Request $request, $miseId, $therapistId, $id){
 
         // DB更新
         $result = yoyaku::yoyakuedit($request, $id);
+
+        if($result){
+            return back()->with(['message' => '変更されました。']);
+        }else{
+            return back()->with(['error' => '変更されませんでした。']);
+        }
+
+        return back();
+    }
+
+    // 予約編集(オプション)
+    public function yoyakuoption(Request $request, $miseId, $therapistId, $id){
+
+        // DB更新
+        $result = yoyaku::yoyakuoption($request, $id);
 
         if($result){
             return back()->with(['message' => '変更されました。']);

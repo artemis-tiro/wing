@@ -99,7 +99,7 @@
                                             </div>
 
                                             <!-- フォームの開始 -->
-                                            {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/'.$y->id.'/yoyakuOption')]) }}
+                                            {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/'.$y->id.'/yoyakuoption')]) }}
                                             
                                             <!-- モーダルの内容 -->
                                             <div class="modal-body">
@@ -133,6 +133,18 @@
                                                 </div>
                                                         @endif
                                                     @endforeach
+                                                <div class="row text-nowrap mt-2 text-end radio_course">
+                                                    <!-- 項目の場所合わせ -->
+                                                    <div class="col-sm-3"></div>
+
+                                                    <label class="col-sm-3">
+                                                        {{ Form::radio('optionEx', null, true, ['class'=>'form-check-input', 'required']) }}
+                                                        オプション無し
+                                                    </label>
+                                                    <label class="col-sm-2">
+                                                        <span class="mx-2 badge rounded-pill bg-info">0円</span>
+                                                    </label>
+                                                </div>
 
                                                 <!-- 予約済オプションにチェック -->
                                                 @foreach($yoyakuList  as $y)
@@ -261,7 +273,7 @@
                                                 <div class="row text-nowrap mb-2 text-end radio_course">
                                                             <!-- 項目の場所合わせ -->
                                                             <div class="col-sm-3"></div>
-                                                            <label class="col-sm-">
+                                                            <label class="col-sm-3">
                                                                 {{ Form::radio('waribikiEx', $w->id, false, ['class'=>'form-check-input', 'required']) }}
                                                                 {{ $w->name }}
                                                             </label>
@@ -271,6 +283,18 @@
                                                 </div>
                                                         @endif
                                                     @endforeach
+                                                <div class="row text-nowrap mt-2 text-end radio_course">
+                                                    <!-- 項目の場所合わせ -->
+                                                    <div class="col-sm-3"></div>
+
+                                                    <label class="col-sm-3">
+                                                        {{ Form::radio('waribikiEx', null, true, ['class'=>'form-check-input', 'required']) }}
+                                                        割引無し
+                                                    </label>
+                                                    <label class="col-sm-2">
+                                                        <span class="mx-2 badge rounded-pill bg-danger">0円</span>
+                                                    </label>
+                                                </div>
 
                                                 <!-- 予約済コースにチェック -->
                                                 @foreach($yoyakuList  as $y)
@@ -380,16 +404,16 @@
                                                             @endif
                                                         @endforeach
                                                     <div class="row text-nowrap mt-2 text-end radio_course">
-                                                                <!-- 項目の場所合わせ -->
-                                                                <div class="col-sm-3"></div>
+                                                        <!-- 項目の場所合わせ -->
+                                                        <div class="col-sm-3"></div>
 
-                                                                <label class="col-sm-3">
-                                                                    {{ Form::radio('courseEx', null, true, ['class'=>'form-check-input', 'required']) }}
-                                                                    延長なし
-                                                                </label>
-                                                                <label class="col-sm-2">
-                                                                    <span class="mx-2 badge rounded-pill bg-info">0円</span>
-                                                                </label>
+                                                        <label class="col-sm-3">
+                                                            {{ Form::radio('courseEx', null, true, ['class'=>'form-check-input', 'required']) }}
+                                                            延長無し
+                                                        </label>
+                                                        <label class="col-sm-2">
+                                                            <span class="mx-2 badge rounded-pill bg-info">0円</span>
+                                                        </label>
                                                     </div>
                                                 @else
                                                     <div class="row text-nowrap text-end radio_course">
@@ -423,8 +447,17 @@
                             </tbody>
                         </table>
 
-                        <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}">給料計算へ</a>
-
+                        @if($getOption === 'inputer')
+                            @if($optionfind)
+                                <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" >給料計算へ</a>
+                            @else
+                                <a class="m-2 btn btn-info disabled" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" disabled>給料計算へ</a>
+                                <label class="text-danger">※オプションを選択してください</label>
+                            @endif
+                        @else
+                            <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" >給料計算へ</a>
+                        @endif
+                        
                     </div>
                 </div>
                 
@@ -679,7 +712,7 @@
                                         @if($loop->index == 0)
                                             <div class="col-sm-1 btn bg-info text-white optionMany">-----円</div>
                                             <label class="col-sm-2">
-                                                {{ Form::radio('option', $o->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$o->price]) }}
+                                                {{ Form::radio('option', $o->id, false, ['class'=>'form-check-input radioOnOff', 'onclick'=>'displayMany()', 'price'=>$o->price]) }}
                                                 {{ $o->name }}
                                             </label>
                                 <!-- 項目縦表示のためここで１つ目のdivをとじる -->
@@ -689,7 +722,7 @@
                                             <!-- 項目の場所合わせ -->
                                             <div class="col-sm-3"></div>
                                             <label class="col-sm-2">
-                                                {{ Form::radio('option', $o->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$o->price]) }}
+                                                {{ Form::radio('option', $o->id, false, ['class'=>'form-check-input radioOnOff', 'onclick'=>'displayMany()', 'price'=>$o->price]) }}
                                                 {{ $o->name }}
                                             </label>
                                 </div>
@@ -720,7 +753,7 @@
                                 @if($loop->index == 0)
                                     <div class="col-sm-1 btn bg-danger text-white waribikiMany ">-----円</div>
                                     <label class="col-sm-2">
-                                        {{ Form::radio('waribiki', $w->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$w->price]) }}
+                                        {{ Form::radio('waribiki', $w->id, false, ['class'=>'form-check-input radioOnOff', 'onclick'=>'displayMany()', 'price'=>$w->price]) }}
                                         {{ $w->name }}
                                     </label>
                         </div>
@@ -729,7 +762,7 @@
                                     <!-- 項目の場所合わせ -->
                                     <div class="col-sm-3"></div>
                                     <label class="col-sm-2">
-                                        {{ Form::radio('waribiki', $w->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$w->price]) }}
+                                        {{ Form::radio('waribiki', $w->id, false, ['class'=>'form-check-input radioOnOff', 'onclick'=>'displayMany()', 'price'=>$w->price]) }}
                                         {{ $w->name }}
                                     </label>
                         </div>

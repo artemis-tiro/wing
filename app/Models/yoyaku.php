@@ -115,7 +115,7 @@ class Yoyaku extends Model
         $yoyaku->inputer_id = Auth::user()->id;
         
         $yoyaku->price_id_list = $input_price_id;
-        $yoyaku->back_id_list = null;
+        $yoyaku->encho_id_list = null;
 
         $yoyaku->visit_day = $input['start_day'].' '.$input['start_time'];
         
@@ -211,6 +211,58 @@ class Yoyaku extends Model
         //インサート失敗時
         if(!$result) return '失敗しました。';
 
+        return null;
+    }
+
+    // 延長編集
+    public static function yoyakuoption($input, $id){
+        
+        $yoyaku = yoyaku::find($id);
+
+        $input_price_id = '';
+
+        $priceid = explode('P', $yoyaku->price_id_list);
+
+        
+        // option以外でprice_id_listを作成
+        foreach($priceid as $p){
+            $courseName = price::find($p);
+            if(!$courseName) continue;
+            // 編集で入力する項目以外
+            if(!($courseName->type == 'option')){
+                $input_price_id .= 'P'.$p;
+            }
+        }
+
+        if(isset($input['optionEx'])){
+            $input_price_id .= 'P'.$input['optionEx'];
+        }
+
+        $yoyaku->price_id_list = $input_price_id;
+        $result = $yoyaku->save();
+
+        //インサート失敗時
+        if(!$result) return '失敗しました。';
+
+        return null;
+    }
+
+    // オプション有無確認
+    public static function optionFind($yoyakuList){
+        
+        // 予約にオプションがない場合true
+        foreach($yoyakuList as $y){
+            $priceList = $y->price_id_list;
+            $priceId = explode('P', $priceList);
+
+            foreach($priceId as $p){
+                $courseName = price::find($p);
+                if(!$courseName) continue;
+                if($courseName->type == 'option'){
+                    return true;
+                };
+            }
+        }
         return null;
     }
 }
