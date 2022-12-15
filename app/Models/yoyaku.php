@@ -259,10 +259,10 @@ class Yoyaku extends Model
                 $courseName = price::find($p);
                 if(!$courseName) continue;
                 if($courseName->type == 'option'){
-                    return true;
+                    return '有り';
                 };
             }
         }
-        return null;
+        return '無し';
     }
 }

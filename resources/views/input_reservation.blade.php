@@ -64,13 +64,23 @@
                                     <td>{{ $kokyakuList[$y->kokyaku_id]->name.' 様' }}</td>
                                     
                                     <td>
+                                        <!-- mb_strlen()文字数カウント -->
+                                        @if(mb_strlen($kokyakuList[$y->kokyaku_id]->tel) === 11)
                                         {{ 
                                             substr($kokyakuList[$y->kokyaku_id]->tel, 0, 3).'-'.
                                             substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
                                             substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
                                         }}
+                                        @else
+                                        {{ 
+                                            substr($kokyakuList[$y->kokyaku_id]->tel, 0, 2).'-'.
+                                            substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
+                                            substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
+                                        }}
+                                        @endif
+                                        
                                     </td>
-                                    <td><a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#yoyakuOptionModal">オプション</a></td>
+                                    <td><a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#yoyakuOptionModal" data-whatever="aa">オプション</a></td>
                                     <td><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#yoyakuEditModal">編集</a></td>
                                     <td>
                                         @component('componets.modal')
@@ -447,8 +457,8 @@
                             </tbody>
                         </table>
 
-                        @if($getOption === 'inputer')
-                            @if($optionfind)
+                        @if($getOption === 'therapist')
+                            @if($optionfind === '有り')
                                 <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" >給料計算へ</a>
                             @else
                                 <a class="m-2 btn btn-info disabled" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" disabled>給料計算へ</a>

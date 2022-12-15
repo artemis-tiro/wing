@@ -113,6 +113,8 @@ class InputController extends Controller{
         // オプション有無確認
         $optionfind = yoyaku::optionFind($yoyakuList);
 
+        log::info($optionfind);
+
         // 予約コース
         yoyaku::courseNameList($yoyakuList);
         yoyaku::courseNameList($yoyakuAfterList);
@@ -178,7 +180,7 @@ class InputController extends Controller{
             'start_day' => ['required'],
             'start_time' => ['required'],
             'name' => ['required'],
-            'tel' => ['required','regex:/^[0-9]+$/i'],
+            'tel' => ['required','regex:/^[0-9]+$/i','min:10','max:11'],
         ];
         $message = [
             'start_day.required' => '予約日をしてください。',
@@ -186,6 +188,8 @@ class InputController extends Controller{
             'name.required' => 'お客様名を入力してください。',
             'tel.required' => '電話番号を入力してください。',
             'tel.regex' => '半角数字で入力してください。',
+            'tel.min' => '10文字または11文字でで入力してください。',
+            'tel.max' => '10文字または11文字でで入力してください。',
         ];
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();
