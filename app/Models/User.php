@@ -13,6 +13,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Log;
 
 use App\Models\inputer;
 
@@ -152,6 +153,7 @@ class User extends Authenticatable
     //¥Á©`¥à¥Á¥§¥Ã¥¯
     public static function teamCheck($id, $team){
         $user = user::find($id);
+        Log::channel('daily')->info('');
         if(!isset($user->team)) return false;
         if($user->team != $team) return false;
 

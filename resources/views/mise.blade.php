@@ -4,7 +4,7 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item"><a href="{{ url("/c/".$client->id) }}">店舗一覧</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/c/".$client->id) }}">{{ $client->name }}様店舗一覧</a></li>
 <li class="breadcrumb-item active">{{ $mise->name }}</li>
 @stop
 

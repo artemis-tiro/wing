@@ -30,6 +30,8 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/', "App\Http\Controllers\
 Route::any('/logout', "App\Http\Controllers\TopController@logout");
 //log
 Route::any('/log', "App\Http\Controllers\TopController@log");
+Route::any('/log/work', "App\Http\Controllers\TopController@work");
+Route::any('/log/line', "App\Http\Controllers\TopController@line");
 //mypage
 Route::middleware(['auth:sanctum', 'verified'])->any('/mypage', "App\Http\Controllers\MypageController@mypage");
 Route::middleware(['auth:sanctum', 'verified'])->any('/mypage/newpassword', "App\Http\Controllers\MypageController@newpassword");

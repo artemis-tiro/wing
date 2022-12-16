@@ -10,7 +10,7 @@
 
 @section('content')
 
-
+@if(isset($t)){!!nl2br($t)!!}@endif
 
 
 @stop

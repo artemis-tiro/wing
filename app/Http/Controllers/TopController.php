@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Log;
+use Carbon\Carbon;
 use App\Models\User;
 
 class TopController extends Controller{
@@ -47,6 +48,84 @@ class TopController extends Controller{
             return back();
         }
         return nl2br(view('log'));
+    }
+
+    //work
+    public static function work($action=null){
+        $date = date('Y-m-d');
+        $fileName = 'log-'.$date.'.txt';
+        $matomeFile = 'log-'.$date.'matome.txt';
+        $needle = '['.$date;
+        // Log::channel('daily')->info($fileName);
+        $path = storage_path("../resources/views/work/".$fileName);
+        $data = \File::get($path);
+        $array = explode("\n", $data);
+        $start = null;
+        $restart = null;
+        $end = null;
+        $befor = null;
+        $lastGo = 0;
+        $m = 0;
+        $t = $date."\n\n";
+        foreach($array as $a){
+            $col = explode(" ", $a);
+            if($col[0] == $needle){
+                $time = new Carbon(str_replace("[", "", explode("] ", $a)[0]));
+                if(!$start) $start = $time;
+                if(!$restart) $restart = $time;
+                if(!$befor) $befor = $time;
+                if(!$lastGo) $lastGo = 1;
+                $diff = $befor->diffInMinutes($time);
+                if($diff > 30){
+                    $s = $restart->diffInMinutes($befor);
+                    $m += $s;
+                    $t .= $restart->hour.':'.$restart->minute.'-'.$befor->hour.':'.$befor->minute.' '.$s."分\n";
+                    $restart = $time;
+                }
+                $befor = $time;
+                $end = $time;
+            }
+        }
+        if($lastGo){
+            $s = $restart->diffInMinutes($befor);
+            $m += $s;
+            $t .= $restart->hour.':'.$restart->minute.'-'.$befor->hour.':'.$befor->minute.' '.$s."分\n";
+        }
+        $h = floor($m/60);
+        $m = $m%60;
+        $t .= "\n稼働時間合計\n【".$h."時間".$m."分】";
+        $path = storage_path("../resources/views/work/".$matomeFile);
+        // $data = \File::exists($path)? \File::get($path): '';
+        \File::delete($path);
+        \File::append($path, $t);
+        $count=3;
+        if($action == 'line'){
+            return $t;
+            $files = \File::files(storage_path("../resources/views/work/"));
+                return var_dump($files);
+            foreach(array_reverse($files) as $f){
+                return var_dump($f->pathName);
+                if(!strpos($f['fileName'], $date) && strpos($f->fileName, 'matome')){
+                    $data = \File::get($f->pathName);
+                    $t .= $data;
+                    $count--;
+                    if(!$count) brake;
+                }
+            }
+            return $t;
+        }
+        return view ('test', [
+            't'=>$t
+       ]);
+    }
+
+    //line
+    public function line(){
+        $data = $this->work('line');
+        return view ('test', [
+            't'=>$data
+        ]);
+
     }
 
     // mypage

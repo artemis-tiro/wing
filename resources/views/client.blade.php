@@ -4,7 +4,7 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item active" aria-current="page">店舗一覧</li>
+<li class="breadcrumb-item active" aria-current="page">{{ $client->name }}様店舗一覧</li>
 @stop
 
 @section('content')

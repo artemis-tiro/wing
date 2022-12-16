@@ -15,3 +15,5 @@ yarn-error.log
 /.idea
 /.vscode
 log.blade.php
+/resources/views/log.blade.php
+/resources/views/work
