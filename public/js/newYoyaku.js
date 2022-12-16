@@ -8,31 +8,8 @@ function displayRepeater() {
     visit[1].checked = true;
 }
 
-// function radioChk() {
-//     // オプション
-//     $('.radio_option input ').click(function() {
-
-//         alert('option');
-
-
-//         if($(this).attr('checked') === checked){
-//             $(this).checked = false;
-//         }
-//     });
-
-//     // 割引
-//     $('.radio_waribiki input ').click(function() {
-
-//         if($(this).attr('checked') === checked){
-//             $(this).checked = false;
-//         }
-//     });
-
-//     // クレーム対応
-//     $('.radio_claim input ').click(function() {
-
-//         if($(this).attr('checked') === checked){
-//             $(this).checked = false;
-//         }
-//     });
-// }
+// 引数で渡されたname[index]の要素にチェックを入れる
+function yoyakuEditChk(name,index){
+    let ElementName = document.getElementsByName(name);
+    ElementName[index].checked = true;
+}

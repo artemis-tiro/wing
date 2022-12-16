@@ -79,22 +79,7 @@
                         <div class="row text-nowrap text-end">
                             <h3 class="col-sm-2 lh2 h6 text-end">調整金</h3>
                         </div>
-
-{{--                        @foreach($adjustList  as $a)
-                            <div class="row text-nowrap mb-4 text-end">
-                                <div class="col-sm-5">
-                                    @php $name=isset($adjustList->adjust_name)? $adjustList->adjust_name: ''; @endphp
-                                    {{ Form::text('adjust_name'.'$index+1', $a->adjust_name, ['class'=>'form-control', 'autocomplete'=>'off']) }}
-                                </div>
-                                <div class="col input-group">
-                                    @php $many=isset($adjustList->adjust_many)? $adjustList->adjust_many: ''; @endphp
-                                    {{ Form::number('adjust_many'.'$index+1', $a->adjust_many, ['class'=>'form-control', 'autocomplete'=>'off']) }}
-                                    <span class="input-group-text">円</span>
-                                </div>
-                                <div class="col"></div>
-                            </div>
-                        @endforeach
---}}
+                        
                         @for($i=0; $i<3; $i++)
                             <div class="row text-nowrap mb-4 text-end">
                                 <div class="col-sm-5">
@@ -206,9 +191,9 @@
                                 
                                 <!-- オプション -->
                                 @if(isset($y->optionPrice->price))
-                                    <span>オプション    {{ $y->optionPrice->price }}円</span>
-                                @else
                                     <span>オプション    無し</span>
+                                @else
+                                    <span>オプション    {{ $y->optionPrice->price }}円</span>
                                 @endif
                                 
                                 <!-- バック -->
@@ -222,9 +207,9 @@
                                 
                                 <!-- オプション -->
                                 @if(isset($y->optionPrice->back))
-                                    <span>オプション    {{ $y->optionPrice->back }}円</span>
-                                @else
                                     <span>オプション    無し</span>
+                                @else
+                                    <span>オプション    {{ $y->optionPrice->back }}円</span>
                                 @endif
 
                                 <br>

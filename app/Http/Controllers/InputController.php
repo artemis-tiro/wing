@@ -82,7 +82,7 @@ class InputController extends Controller{
         ]);
     }
 
-    //予約一覧ページ
+    // 予約一覧ページ
     public function yoyaku(Request $request, $miseId,$therapistId){
 
         $kokyakuData = null;
@@ -109,6 +109,11 @@ class InputController extends Controller{
 
         // 電話番号検索
         $telsearch = kokyaku::telSearch($request->input('telsearch'));
+
+        // オプション有無確認
+        $optionfind = yoyaku::optionFind($yoyakuList);
+
+        log::info($optionfind);
 
         // 予約コース
         yoyaku::courseNameList($yoyakuList);
@@ -139,6 +144,7 @@ class InputController extends Controller{
             'yoyakuAfterList' => $yoyakuAfterList,
             'kokyakuData' => $kokyakuData,
             'formflag' => $formflag,
+            'optionfind' => $optionfind,
             'inputTel' => $inputTel,
             'courseList' => $courseList,
             'visitList' => $visitList,
@@ -174,7 +180,7 @@ class InputController extends Controller{
             'start_day' => ['required'],
             'start_time' => ['required'],
             'name' => ['required'],
-            'tel' => ['required','regex:/^[0-9]+$/i'],
+            'tel' => ['required','regex:/^[0-9]+$/i','min:10','max:11'],
         ];
         $message = [
             'start_day.required' => '予約日をしてください。',
@@ -182,6 +188,8 @@ class InputController extends Controller{
             'name.required' => 'お客様名を入力してください。',
             'tel.required' => '電話番号を入力してください。',
             'tel.regex' => '半角数字で入力してください。',
+            'tel.min' => '10文字または11文字でで入力してください。',
+            'tel.max' => '10文字または11文字でで入力してください。',
         ];
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();
@@ -291,7 +299,7 @@ class InputController extends Controller{
         return back();
     }
 
-    //予約削除
+    // 予約削除
     public function yoyakudel(Request $request, $miseId, $therapistId, $id){
 
         $yoyaku = yoyaku::find($id);
@@ -300,7 +308,7 @@ class InputController extends Controller{
         return back();
     }
 
-    //予約延長
+    // 予約延長
     public function yoyakuencho(Request $request, $miseId, $therapistId, $id){
 
         // DB更新
@@ -315,11 +323,26 @@ class InputController extends Controller{
         return back();
     }
 
-    //予約編集
+    // 予約編集
     public function yoyakuedit(Request $request, $miseId, $therapistId, $id){
 
         // DB更新
         $result = yoyaku::yoyakuedit($request, $id);
+
+        if($result){
+            return back()->with(['message' => '変更されました。']);
+        }else{
+            return back()->with(['error' => '変更されませんでした。']);
+        }
+
+        return back();
+    }
+
+    // 予約編集(オプション)
+    public function yoyakuoption(Request $request, $miseId, $therapistId, $id){
+
+        // DB更新
+        $result = yoyaku::yoyakuoption($request, $id);
 
         if($result){
             return back()->with(['message' => '変更されました。']);
