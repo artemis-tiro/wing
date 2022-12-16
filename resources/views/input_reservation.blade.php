@@ -16,6 +16,14 @@
 
                 <h1 class="h2">{{ $therapist->business_name }}さんスケジュール</h1>
 
+
+                @include('common.validator')
+                @include('common.error')
+                @include('common.success')
+
+
+
+
                 <!-- 予約リスト -->
                 <div class="card my-4">
                     <!-- カードのタイトル -->
@@ -48,7 +56,9 @@
 
                                     <!-- 非同期処理 -->
                                     <!-- で来店日時とコース時間を参照してステータスを変動 -->
-                                    <td>未実装</td>
+
+                                    <!-- <td>未実装</td> -->
+                                    <td>{{ $y->id }}</td>
 
                                     <!-- 終了時間を来店日時＋コース時間で表示 -->
                                     <td>
@@ -80,8 +90,8 @@
                                         @endif
                                         
                                     </td>
-                                    <td><a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#yoyakuOptionModal" data-whatever="aa">オプション</a></td>
-                                    <td><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#yoyakuEditModal">編集</a></td>
+                                    <td><a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#yoyakuOptionModal" data-yoyakuId="{{ $y->id }}">オプション</a></td>
+                                    <td><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#yoyakuEditModal" data-yoyakuId="{{ $y->id  }}">編集</a></td>
                                     <td>
                                         @component('componets.modal')
                                             @slot('type', 'del')
@@ -91,7 +101,7 @@
                                             @slot('url', url('/i/'.$mise->id.'/'.$therapist->id.'/'.$y->id.'/del'))
                                         @endcomponent
                                     </td>
-                                    <td><a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#yoyakuEnchoModal">延長</a></td>
+                                    <td><a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#yoyakuEnchoModal" data-yoyakuId="{{ $y->id  }}">延長</a></td>
                                 </tr>
 
 
@@ -110,6 +120,7 @@
 
                                             <!-- フォームの開始 -->
                                             {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/'.$y->id.'/yoyakuoption')]) }}
+                                            {{ Form::hidden('yoyakuId', $y->id) }}
                                             
                                             <!-- モーダルの内容 -->
                                             <div class="modal-body">
@@ -199,12 +210,13 @@
 
                                             <!-- フォームの開始 -->
                                             {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/'.$y->id.'/yoyakuedit')]) }}
+                                            {{ Form::hidden('yoyakuId', $y->id) }}
                                             
                                             <!-- モーダルの内容 -->
                                             <div class="modal-body">
 
                                                 <!-- コース -->
-                                                <div class="row text-nowrap mb-2 text-end radio_course">
+                                                <div class="row text-nowrap mb-2 text-end">
                                                     <div class="col-sm-3 text-end">コース<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                                                     
                                                     @foreach($courseList  as $c)
@@ -307,7 +319,6 @@
                                                 </div>
 
                                                 <!-- 予約済コースにチェック -->
-                                                @foreach($yoyakuList  as $y)
                                                     @foreach($courseList  as $c)
                                                         @if( $y->courseName === $c->name )
                                                             <script>
@@ -315,10 +326,8 @@
                                                             </script>
                                                         @endif
                                                     @endforeach
-                                                @endforeach
 
                                                 <!-- 予約済指名にチェック -->
-                                                @foreach($yoyakuList  as $y)
                                                     @foreach($shimeiList  as $s)
                                                         @if( $y->courseShimei === $s->name )
                                                             <script>
@@ -326,10 +335,8 @@
                                                             </script>
                                                         @endif
                                                     @endforeach
-                                                @endforeach
 
                                                 <!-- 予約済割引にチェック -->
-                                                @foreach($yoyakuList  as $y)
                                                     @foreach($waribikiList  as $w)
                                                         @if( $y->courseWaribiki === $w->name )
                                                             <script>
@@ -337,7 +344,6 @@
                                                             </script>
                                                         @endif
                                                     @endforeach
-                                                @endforeach
                                             </div>
 
                                             <!-- モーダルのフッター -->
@@ -370,13 +376,14 @@
 
                                             <!-- フォームの開始 -->
                                             {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/'.$y->id.'/yoyakuencho')]) }}
+                                            {{ Form::hidden('yoyakuId', $y->id) }}
                                             
                                             <!-- モーダルの内容 -->
                                             <div class="modal-body">
 
                                                 @if(isset($enchoList))
                                                     <!-- 延長 -->
-                                                    <div class="row text-nowrap text-end radio_course">
+                                                    <div class="row text-nowrap text-end">
                                                         <div class="col-sm-3 text-end">延長<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                                                         
                                                         @foreach($enchoList  as $e)
@@ -457,8 +464,8 @@
                             </tbody>
                         </table>
 
-                        @if($getOption === 'therapist')
-                            @if($optionfind === '有り')
+                        @if($getOption->name === 'therapist')
+                            @if($optionfind)
                                 <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" >給料計算へ</a>
                             @else
                                 <a class="m-2 btn btn-info disabled" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" disabled>給料計算へ</a>
@@ -602,10 +609,6 @@
                     @if($formflag == 1)
 
                         {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/reservation')]) }}
-
-                        @include('common.validator')
-                        @include('common.error')
-                        @include('common.success')
 
                         <!-- 電話番号 -->
                         <label class="row text-nowrap mb-4 text-end">

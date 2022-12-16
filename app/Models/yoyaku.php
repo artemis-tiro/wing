@@ -125,9 +125,9 @@ class Yoyaku extends Model
         $result = $yoyaku->save();
 
         //インサート失敗時
-        if(!$result) return '新規作成に失敗しました。';
+        if(!$result) return false;
 
-        return null;
+        return true;
     }
 
     // inputerに予約経験あるか
@@ -149,9 +149,11 @@ class Yoyaku extends Model
     }
 
     // 延長編集
-    public static function yoyakuencho($input, $id){
+    public static function yoyakuencho($input,$id){
+
+        log::info($id);
         
-        $yoyaku = yoyaku::find($id);
+        $yoyaku = yoyaku::find($input['yoyakuId']);
 
         $count = 0;
         $inputId = null;
@@ -169,15 +171,15 @@ class Yoyaku extends Model
         $result = $yoyaku->save();
 
         //インサート失敗時
-        if(!$result) return '失敗しました。';
+        if(!$result) return false;
 
-        return null;
+        return true;
     }
 
     // 延長編集
-    public static function yoyakuedit($input, $id){
+    public static function yoyakuedit($input,$id){
         
-        $yoyaku = yoyaku::find($id);
+        $yoyaku = yoyaku::find($input['yoyakuId']);
 
         $input_price_id = '';
 
@@ -209,15 +211,15 @@ class Yoyaku extends Model
         $result = $yoyaku->save();
 
         //インサート失敗時
-        if(!$result) return '失敗しました。';
+        if(!$result) return false;
 
-        return null;
+        return true;
     }
 
-    // 延長編集
-    public static function yoyakuoption($input, $id){
-        
-        $yoyaku = yoyaku::find($id);
+    // オプション編集
+    public static function yoyakuoption($input,$id){
+
+        $yoyaku = yoyaku::find($input['yoyakuId']);
 
         $input_price_id = '';
 
@@ -242,9 +244,9 @@ class Yoyaku extends Model
         $result = $yoyaku->save();
 
         //インサート失敗時
-        if(!$result) return '失敗しました。';
+        if(!$result) return false;
 
-        return null;
+        return true;
     }
 
     // オプション有無確認
@@ -259,10 +261,10 @@ class Yoyaku extends Model
                 $courseName = price::find($p);
                 if(!$courseName) continue;
                 if($courseName->type == 'option'){
-                    return '有り';
+                    return true;
                 };
             }
         }
-        return '無し';
+        return false;
     }
 }

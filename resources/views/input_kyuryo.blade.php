@@ -84,11 +84,11 @@
                             <div class="row text-nowrap mb-4 text-end">
                                 <div class="col-sm-5">
                                     @php $name=isset($adjustList[$i]->adjust_name)? $adjustList[$i]->adjust_name: ''; @endphp
-                                    {{ Form::text('adjust_name'.'$i+1', $name, ['class'=>'form-control', 'autocomplete'=>'off']) }}
+                                    {{ Form::text('adjust_name'.$i + 1, $name, ['class'=>'form-control', 'autocomplete'=>'off']) }}
                                 </div>
                                 <div class="col input-group">
                                     @php $many=isset($adjustList[$i]->adjust_many)? $adjustList[$i]->adjust_many: ''; @endphp
-                                    {{ Form::number('adjust_many'.'$i+1', $many, ['class'=>'form-control', 'autocomplete'=>'off']) }}
+                                    {{ Form::number('adjust_many'.$i + 1, $many, ['class'=>'form-control', 'autocomplete'=>'off']) }}
                                     <span class="input-group-text">円</span>
                                 </div>
                                 <div class="col"></div>
@@ -114,27 +114,41 @@
                         <div class="card-body table-responsive text-nowrap">
 
                             <!-- セラピスト名 -->
-                            {{ $therapist->business_name }}
+                            {{ $therapist->business_name }}さん
 
                             <br>
                             <br>
 
                             @foreach($yoyakuList  as $y)
+                                <!-- 件数 -->
                                 <span>{{ $loop->index+1 }}件目</span>
 
                                 <!-- 発生料金 -->
                                 <span>{{ $y->totalPrice }}円</span>
-
-                                <br>
                             @endforeach
 
-                            <!-- ajyast1 -->
+                            <br>
+                            <br>
                             
-                            <!-- ajyast2 -->
+                            <!-- 調整金 -->
+                            @if(isset($adjustList))
+                                @foreach($adjustList  as $a)
+                                    <!-- 項目名 -->
+                                    <span>{{ $a->adjust_name }}円</span>
 
-                            <!-- ajyast3 -->
+                                    <!-- 金額 -->
+                                    <span>{{ $a->adjust_many }}円</span>
 
-                            <!-- 当日の予約の合計 -->
+                                    <br>
+                                @endforeach
+                            @else
+                                <span>調整金無し</span>
+
+                                <br>
+                            @endif
+
+
+                            <span>{{ $y->dailyPrice }}</span>
 
 
                             <!-- 　　　　今回未実装 　　　　　-->

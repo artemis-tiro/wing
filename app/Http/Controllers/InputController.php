@@ -113,8 +113,6 @@ class InputController extends Controller{
         // オプション有無確認
         $optionfind = yoyaku::optionFind($yoyakuList);
 
-        log::info($optionfind);
-
         // 予約コース
         yoyaku::courseNameList($yoyakuList);
         yoyaku::courseNameList($yoyakuAfterList);
@@ -156,6 +154,7 @@ class InputController extends Controller{
             'enchoList' => $enchoList,
             'getOption' => $getOption,
             'getRepeater' => $getRepeater,
+            'message' => session('message'),
             'error' => session('error'),
         ]);
     }
@@ -187,9 +186,9 @@ class InputController extends Controller{
             'start_time.required' => '予約時刻を入力してください。',
             'name.required' => 'お客様名を入力してください。',
             'tel.required' => '電話番号を入力してください。',
-            'tel.regex' => '半角数字で入力してください。',
-            'tel.min' => '10文字または11文字でで入力してください。',
-            'tel.max' => '10文字または11文字でで入力してください。',
+            'tel.regex' => '電話番号は半角数字で入力してください。',
+            'tel.min' => '電話番号は10文字または11文字でで入力してください。',
+            'tel.max' => '電話番号は10文字または11文字でで入力してください。',
         ];
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();
@@ -207,13 +206,7 @@ class InputController extends Controller{
 
         // yoyaku作成
         $yoyaku = yoyaku::yoyakuCreate($request->input(), $miseId, $therapistId, $kokyaku);
-        if($yoyaku) return back()->with(['error' => $yoyaku])->withInput();
-
-        if($kokyaku){
-            return back()->with(['message' => '予約が完了しました。']);
-        }else{
-            return back()->with(['error' => '予約に失敗しました。']);
-        }
+        // if($yoyaku) return back()->with(['error' => $yoyaku])->withInput();
 
         if($yoyaku){
             return back()->with(['message' => '予約が完了しました。']);
@@ -242,8 +235,8 @@ class InputController extends Controller{
         // 予約一覧
         $yoyakuList = yoyaku::yoyakuList($therapistId, date('Y-m-d'));
 
-        // 予約一覧
-        $adjustList = kyuryo::adjustList($miseId, $therapistId);
+        // 調整金予約一覧
+        $adjustList = kyuryo::adjustList($miseId, $therapistId, date('Y-m-d'));
 
         // お茶情報
         $otyaList = price::otyaList($miseId,$therapist->back_name);
@@ -253,6 +246,9 @@ class InputController extends Controller{
         
         // 予約コース
         yoyaku::courseNameList($yoyakuList);
+
+        // 予約コース＋調整金
+        kyuryo::dailyPriceCul($yoyakuList, $adjustList);
 
         return view ('input_kyuryo', [
             'mise' => $mise,
@@ -292,6 +288,12 @@ class InputController extends Controller{
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();
 
+
+
+        log::info($request->input());
+
+
+
         // kyuryo作成
         $kyuryo = kyuryo::kyuryoCreate($request->input(), $miseId, $therapistId, date('Y-m-d H:i:s'));
         if($kyuryo) return back()->with(['error' => $kyuryo])->withInput();
@@ -312,12 +314,12 @@ class InputController extends Controller{
     public function yoyakuencho(Request $request, $miseId, $therapistId, $id){
 
         // DB更新
-        $result = yoyaku::yoyakuencho($request, $id);
+        $result = yoyaku::yoyakuencho($request,$id);
 
         if($result){
-            return back()->with(['message' => '変更されました。']);
+            return back()->with(['message' => '予約が延長されました。']);
         }else{
-            return back()->with(['error' => '変更されませんでした。']);
+            return back()->with(['error' => '予約が延長されませんでした。']);
         }
 
         return back();
@@ -327,12 +329,12 @@ class InputController extends Controller{
     public function yoyakuedit(Request $request, $miseId, $therapistId, $id){
 
         // DB更新
-        $result = yoyaku::yoyakuedit($request, $id);
+        $result = yoyaku::yoyakuedit($request,$id);
 
         if($result){
-            return back()->with(['message' => '変更されました。']);
+            return back()->with(['message' => '予約が変更されました。']);
         }else{
-            return back()->with(['error' => '変更されませんでした。']);
+            return back()->with(['error' => '予約が変更されませんでした。']);
         }
 
         return back();
@@ -342,12 +344,12 @@ class InputController extends Controller{
     public function yoyakuoption(Request $request, $miseId, $therapistId, $id){
 
         // DB更新
-        $result = yoyaku::yoyakuoption($request, $id);
+        $result = yoyaku::yoyakuoption($request,$id);
 
         if($result){
-            return back()->with(['message' => '変更されました。']);
+            return back()->with(['message' => 'オプションが変更されました。']);
         }else{
-            return back()->with(['error' => '変更されませんでした。']);
+            return back()->with(['error' => 'オプションが変更されませんでした。']);
         }
 
         return back();
