@@ -14,7 +14,7 @@ class TiroController extends Controller{
 
     //権限チェック
     public function levelCheck(){
-        Log::info('tiroトップへアクセス');//★★★log★★★
+        Log::channel('daily')->info('');
 
         //権限チェック
         if(!in_array(Auth::user()->access_level, [

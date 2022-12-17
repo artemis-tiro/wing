@@ -13,6 +13,7 @@ class TopController extends Controller{
     // login後最初の処理
     public function route(){
 
+        Log::channel('daily')->info('');
         switch(Auth::user()->access_level){
             case 'tiro':
                 return redirect('/tiro');
@@ -58,7 +59,7 @@ class TopController extends Controller{
         $needle = '['.$date;
         // Log::channel('daily')->info($fileName);
         $path = storage_path("../resources/views/work/".$fileName);
-        $data = \File::get($path);
+        $data = \File::exists($path)? \File::get($path): '';
         $array = explode("\n", $data);
         $start = null;
         $restart = null;
@@ -98,16 +99,25 @@ class TopController extends Controller{
         // $data = \File::exists($path)? \File::get($path): '';
         \File::delete($path);
         \File::append($path, $t);
-        $count=3;
+        $count=5;
         if($action == 'line'){
-            return $t;
-            $files = \File::files(storage_path("../resources/views/work/"));
-                return var_dump($files);
+            // return $t;
+            $path = resource_path('../resources/views/work/*.*');
+            $files = glob($path);
             foreach(array_reverse($files) as $f){
-                return var_dump($f->pathName);
-                if(!strpos($f['fileName'], $date) && strpos($f->fileName, 'matome')){
-                    $data = \File::get($f->pathName);
-                    $t .= $data;
+                if(!strpos($f, $date) && strpos($f, 'matome')){
+                    $data = \File::get($f);
+                    $t .= "\n\n";
+                    $data=explode("\n",$data);
+                    $t .= "--".$data[0]."--\n";
+                    $flag = null;
+                    foreach($data as $d){
+                        if($d=="稼働時間合計"){
+                            $flag = 1;
+                            continue;
+                        }
+                        if($flag) $t .= $d; 
+                    }
                     $count--;
                     if(!$count) brake;
                 }

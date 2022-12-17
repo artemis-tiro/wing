@@ -20,6 +20,7 @@ class TherapistController extends Controller{
 
     //権限チェック
     public function levelCheck(){
+        Log::channel('daily')->info('');
         //権限チェック
         if(!in_array(Auth::user()->access_level, [
             //アクセスできる権限

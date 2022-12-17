@@ -19,6 +19,7 @@ class MypageController extends Controller{
 
         // アクセス情報取得
         $accessLevel = Auth::user()->access_level;
+        Log::channel('daily')->info('');
 
         switch ($accessLevel) {
             case 'therapist':

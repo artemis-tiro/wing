@@ -32,6 +32,10 @@ Route::any('/logout', "App\Http\Controllers\TopController@logout");
 Route::any('/log', "App\Http\Controllers\TopController@log");
 Route::any('/log/work', "App\Http\Controllers\TopController@work");
 Route::any('/log/line', "App\Http\Controllers\TopController@line");
+
+// Luna
+Route::any('/luna', "App\Http\Controllers\LunaController@top");
+
 //mypage
 Route::middleware(['auth:sanctum', 'verified'])->any('/mypage', "App\Http\Controllers\MypageController@mypage");
 Route::middleware(['auth:sanctum', 'verified'])->any('/mypage/newpassword', "App\Http\Controllers\MypageController@newpassword");
