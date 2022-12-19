@@ -44,7 +44,7 @@ class TopController extends Controller{
         if($request->input('action')=='del'){
             \File::delete($path);
             //\File::append($path, "　　<a href='".url('log?action=del')."'>ログ削除</a>　　<a href='".url('log')."'>更新</a>　　<a href='".url('tiro')."'>tiroトップ</a>　　\n\n");
-            //\File::append($path, "");
+            \File::append($path, "");
             //Log::info('log削除しました');//★★★log★★★
             return back();
         }

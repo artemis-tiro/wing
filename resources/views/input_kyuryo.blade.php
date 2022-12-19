@@ -121,23 +121,24 @@
 
                             @foreach($yoyakuList  as $y)
                                 <!-- 件数 -->
-                                <span>{{ $loop->index+1 }}件目</span>
+                                <span>{{ number_format($loop->index+1) }}件目</span>
 
                                 <!-- 発生料金 -->
-                                <span>{{ $y->totalPrice }}円</span>
+                                <span>{{ number_format($y->totalPrice) }}円</span>
+
+                                <br>
                             @endforeach
 
-                            <br>
                             <br>
                             
                             <!-- 調整金 -->
                             @if(isset($adjustList))
                                 @foreach($adjustList  as $a)
                                     <!-- 項目名 -->
-                                    <span>{{ $a->adjust_name }}円</span>
+                                    <span>{{ $a->adjust_name }}</span>
 
                                     <!-- 金額 -->
-                                    <span>{{ $a->adjust_many }}円</span>
+                                    <span>{{ number_format($a->adjust_many) }}円</span>
 
                                     <br>
                                 @endforeach
@@ -147,8 +148,10 @@
                                 <br>
                             @endif
 
+                            <br>
 
-                            <span>{{ $y->dailyPrice }}</span>
+                            <!-- 予約　＋　調整金 -->
+                            <span>合計{{ number_format($y->dailyPrice) }}円</span>
 
 
                             <!-- 　　　　今回未実装 　　　　　-->

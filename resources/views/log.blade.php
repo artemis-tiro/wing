@@ -1,71 +1,103 @@
-[2022-12-16 18:02:11] local.INFO: tiroトップへアクセス  
-[2022-12-17 09:21:48] local.ERROR: File does not exist at path C:\Users\81903.DESKTOP-GBA336J.000\Dropbox\project\wing\laravel\wing\storage\../resources/views/work/log-2022-12-17.txt. {"userId":1,"exception":"[object] (Illuminate\\Contracts\\Filesystem\\FileNotFoundException(code: 0): File does not exist at path C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\../resources/views/work/log-2022-12-17.txt. at C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php:59)
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------price------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: 546  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------price------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: 555  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------price------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: 556  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------price------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: 559  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------price------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: 550  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------price------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: 551  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------adjust------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.INFO: 3  
+[2022-12-19 14:13:23] local.INFO: ------------------------------------------------------------------------------------  
+[2022-12-19 14:13:23] local.ERROR: Property [adjust_many] does not exist on this collection instance. {"userId":1,"exception":"[object] (Exception(code: 0): Property [adjust_many] does not exist on this collection instance. at C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Collections\\Traits\\EnumeratesValues.php:940)
 [stacktrace]
-#0 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Filesystem\\Filesystem->get('C:\\\\Users\\\\81903....')
-#1 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\app\\Http\\Controllers\\TopController.php(61): Illuminate\\Support\\Facades\\Facade::__callStatic('get', Array)
-#2 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\app\\Http\\Controllers\\TopController.php(124): App\\Http\\Controllers\\TopController::work('line')
-#3 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\TopController->line()
-#4 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('line', Array)
-#5 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\TopController), 'line')
-#6 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
-#7 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Route->run()
-#8 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
-#9 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#10 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#11 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#12 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#13 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#14 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#15 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#16 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
-#17 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#18 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#19 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#20 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#21 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#22 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#23 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#24 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
-#25 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
-#26 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
-#27 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
-#28 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
-#29 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#30 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#31 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#32 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#33 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#34 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#35 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#36 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#37 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#38 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#39 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#40 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#41 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#42 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#43 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#44 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#45 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#46 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#47 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
-#48 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
-#49 {main}
+#0 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\app\\Models\\Kyuryo.php(111): Illuminate\\Support\\Collection->__get('adjust_many')
+#1 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\app\\Models\\Kyuryo.php(60): App\\Models\\kyuryo::getDailyPrice(Array, Object(Illuminate\\Database\\Eloquent\\Collection))
+#2 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\app\\Http\\Controllers\\InputController.php(251): App\\Models\\kyuryo::dailyPriceCul(Object(Illuminate\\Database\\Eloquent\\Collection), Object(Illuminate\\Database\\Eloquent\\Collection))
+#3 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\InputController->kyuryo('1', '16')
+#4 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('kyuryo', Array)
+#5 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\InputController), 'kyuryo')
+#6 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#7 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Route->run()
+#8 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#9 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#13 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#14 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'sanctum')
+#15 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#16 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#17 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#21 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#28 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#30 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#31 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#33 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#37 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#42 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#48 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#49 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#50 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#51 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#52 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#53 {main}
 "} 
-[2022-12-17 09:22:06] local.INFO: tiroトップへアクセス  
-[2022-12-17 09:22:06] local.ERROR: File does not exist at path C:\Users\81903.DESKTOP-GBA336J.000\Dropbox\project\wing\laravel\wing\storage\../resources/views/work/log-2022-12-17.txt. {"view":{"view":"C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\resources\\views\\common\\sidemenu.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1606038680 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#567</a><samp data-depth=1 class=sf-dump-expanded>
+[2022-12-19 14:16:27] local.ERROR: Call to undefined method App\Http\Controllers\TopController::work() {"view":{"view":"C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\resources\\views\\common\\sidemenu.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-656111394 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#567</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
-</pre><script>Sfdump(\"sf-dump-1606038680\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","teamList":"<pre class=sf-dump id=sf-dump-1075284346 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1561</a><samp data-depth=1 class=sf-dump-expanded>
-  #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:2</span> [<samp data-depth=2 class=sf-dump-compact>
+</pre><script>Sfdump(\"sf-dump-656111394\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","teamList":"<pre class=sf-dump id=sf-dump-1409761095 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1558</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
     <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\User
-\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>User</span> {<a class=sf-dump-ref>#1562</a><samp data-depth=3 class=sf-dump-compact>
-      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
-      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: <span class=sf-dump-note>array:3</span> [ &#8230;3]
-      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: <span class=sf-dump-note>array:4</span> [ &#8230;4]
-      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:2</span> [ &#8230;2]
-      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>User</span> {<a class=sf-dump-ref>#1559</a><samp data-depth=3 class=sf-dump-compact>
       #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
       #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"5 characters\">users</span>\"
       #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
@@ -81,52 +113,21 @@
       #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:19</span> [ &#8230;19]
       #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:18</span> [ &#8230;18]
       #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
-      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
-      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
-      #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
-      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
-      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
-      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
-      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
-      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
-      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
-      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
-      #<span class=sf-dump-protected title=\"Protected property\">rememberTokenName</span>: \"<span class=sf-dump-str title=\"14 characters\">remember_token</span>\"
-      #<span class=sf-dump-protected title=\"Protected property\">accessToken</span>: <span class=sf-dump-const>null</span>
-      #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
-    </samp>}
-    <span class=sf-dump-index>1</span> => <span class=sf-dump-note title=\"App\\Models\\User
-\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>User</span> {<a class=sf-dump-ref>#1563</a><samp data-depth=3 class=sf-dump-compact>
-      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
-      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: <span class=sf-dump-note>array:3</span> [ &#8230;3]
-      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: <span class=sf-dump-note>array:4</span> [ &#8230;4]
       #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:2</span> [ &#8230;2]
-      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
-      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
-      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"5 characters\">users</span>\"
-      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
-      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
-      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
-      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
-      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
-      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
-      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
-      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
-      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
-      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
-      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:19</span> [ &#8230;19]
-      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:18</span> [ &#8230;18]
-      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
       #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
       #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
       #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
       #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
       #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
       #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
       #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
       #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
       +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: <span class=sf-dump-note>array:4</span> [ &#8230;4]
       #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: <span class=sf-dump-note>array:3</span> [ &#8230;3]
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
       #<span class=sf-dump-protected title=\"Protected property\">rememberTokenName</span>: \"<span class=sf-dump-str title=\"14 characters\">remember_token</span>\"
       #<span class=sf-dump-protected title=\"Protected property\">accessToken</span>: <span class=sf-dump-const>null</span>
       #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
@@ -134,954 +135,1545 @@
   </samp>]
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
-</pre><script>Sfdump(\"sf-dump-1075284346\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","error":"<pre class=sf-dump id=sf-dump-1174909540 data-indent-pad=\"  \"><span class=sf-dump-const>null</span>
-</pre><script>Sfdump(\"sf-dump-1174909540\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"userId":1,"exception":"[object] (Spatie\\LaravelIgnition\\Exceptions\\ViewException(code: 0): File does not exist at path C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\../resources/views/work/log-2022-12-17.txt. at C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php:59)
+</pre><script>Sfdump(\"sf-dump-1409761095\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","error":"<pre class=sf-dump id=sf-dump-921621978 data-indent-pad=\"  \"><span class=sf-dump-const>null</span>
+</pre><script>Sfdump(\"sf-dump-921621978\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+"}},"userId":1,"exception":"[object] (Spatie\\LaravelIgnition\\Exceptions\\ViewException(code: 0): Call to undefined method App\\Http\\Controllers\\TopController::work() at C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\storage\\framework\\views\\ec3dbe5c475363d23bfbbef8d788afc5c1cc0a5a.php:109)
 [stacktrace]
-#0 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Filesystem\\Filesystem->get('C:\\\\Users\\\\81903....')
-#1 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\app\\Http\\Controllers\\TopController.php(61): Illuminate\\Support\\Facades\\Facade::__callStatic('get', Array)
-#2 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\framework\\views\\15b13228fbe49396000eb88fd7738ead71b9224d.php(109): App\\Http\\Controllers\\TopController::work('line')
-#3 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\81903....')
-#4 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
-#5 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\81903....', Array)
-#6 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#7 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#8 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#9 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#10 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
-#11 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
-#12 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\framework\\views\\7ab4d67d1346a6b4ae130d0d44d88f8b9a57537d.php(4): Illuminate\\View\\View->render()
-#13 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\81903....')
-#14 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
-#15 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\81903....', Array)
-#16 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#17 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#18 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#19 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#20 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
-#21 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
-#22 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
-#23 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
-#24 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
-#25 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
-#26 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
-#27 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
-#28 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#29 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#30 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#31 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#32 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#33 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'sanctum')
-#34 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#35 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#36 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#37 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#38 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#39 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
-#40 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#41 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#42 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#43 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#44 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#45 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#46 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#47 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
-#48 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
-#49 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
-#50 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
-#51 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
-#52 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#53 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#54 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#55 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#56 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#57 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#58 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#59 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#60 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#61 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#62 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#63 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#64 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#65 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#66 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#67 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#68 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#69 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#70 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
-#71 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
-#72 {main}
+#0 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require()
+#1 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#2 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\owner\\\\...', Array)
+#3 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\owner\\\\...', Array)
+#4 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\owner\\\\...', Array)
+#5 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\owner\\\\...', Array)
+#6 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\owner\\\\...', Array)
+#7 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
+#8 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
+#9 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\storage\\framework\\views\\4b561471c9ed169713d858e0595d98d59f19b8d4.php(4): Illuminate\\View\\View->render()
+#10 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\owner\\\\...')
+#11 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#12 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\owner\\\\...', Array)
+#13 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\owner\\\\...', Array)
+#14 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\owner\\\\...', Array)
+#15 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\owner\\\\...', Array)
+#16 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\owner\\\\...', Array)
+#17 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
+#18 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
+#19 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
+#20 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#21 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#22 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#23 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#24 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#25 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'sanctum')
+#31 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#37 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#44 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#45 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#46 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#47 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#48 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#49 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#50 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#53 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#54 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#55 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#56 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#59 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#60 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#61 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#62 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#63 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#64 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#65 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#66 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#67 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#68 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#69 {main}
 
-[previous exception] [object] (Illuminate\\Contracts\\Filesystem\\FileNotFoundException(code: 0): File does not exist at path C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\../resources/views/work/log-2022-12-17.txt. at C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php:59)
+[previous exception] [object] (Error(code: 0): Call to undefined method App\\Http\\Controllers\\TopController::work() at C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\storage\\framework\\views\\ec3dbe5c475363d23bfbbef8d788afc5c1cc0a5a.php:109)
 [stacktrace]
-#0 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Filesystem\\Filesystem->get('C:\\\\Users\\\\81903....')
-#1 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\app\\Http\\Controllers\\TopController.php(61): Illuminate\\Support\\Facades\\Facade::__callStatic('get', Array)
-#2 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\framework\\views\\15b13228fbe49396000eb88fd7738ead71b9224d.php(109): App\\Http\\Controllers\\TopController::work('line')
-#3 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\81903....')
-#4 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
-#5 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\81903....', Array)
-#6 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#7 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#8 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#9 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#10 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
-#11 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
-#12 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\framework\\views\\7ab4d67d1346a6b4ae130d0d44d88f8b9a57537d.php(4): Illuminate\\View\\View->render()
-#13 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\81903....')
-#14 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
-#15 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\81903....', Array)
-#16 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#17 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#18 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#19 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#20 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
-#21 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
-#22 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
-#23 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
-#24 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
-#25 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
-#26 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
-#27 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
-#28 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#29 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#30 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#31 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#32 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#33 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'sanctum')
-#34 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#35 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#36 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#37 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#38 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#39 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
-#40 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#41 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#42 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#43 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#44 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#45 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#46 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#47 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
-#48 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
-#49 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
-#50 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
-#51 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
-#52 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#53 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#54 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#55 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#56 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#57 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#58 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#59 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#60 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#61 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#62 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#63 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#64 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#65 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#66 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#67 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#68 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#69 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#70 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
-#71 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
-#72 {main}
+#0 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require()
+#1 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#2 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\owner\\\\...', Array)
+#3 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\owner\\\\...', Array)
+#4 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\owner\\\\...', Array)
+#5 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\owner\\\\...', Array)
+#6 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\owner\\\\...', Array)
+#7 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
+#8 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
+#9 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\storage\\framework\\views\\4b561471c9ed169713d858e0595d98d59f19b8d4.php(4): Illuminate\\View\\View->render()
+#10 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\owner\\\\...')
+#11 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#12 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\owner\\\\...', Array)
+#13 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\owner\\\\...', Array)
+#14 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\owner\\\\...', Array)
+#15 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\owner\\\\...', Array)
+#16 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\owner\\\\...', Array)
+#17 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
+#18 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
+#19 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
+#20 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#21 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#22 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#23 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#24 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#25 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'sanctum')
+#31 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#37 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#44 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#45 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#46 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#47 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#48 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#49 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#50 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#53 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#54 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#55 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#56 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#59 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#60 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#61 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#62 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#63 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#64 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#65 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#66 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#67 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#68 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#69 {main}
 "} 
-[2022-12-17 09:23:46] local.INFO: tiroトップへアクセス  
-[2022-12-17 09:23:53] local.INFO: tiroトップへアクセス  
-[2022-12-17 09:23:55] local.INFO: tiroトップへアクセス  
-[2022-12-17 09:23:57] local.INFO: tiroトップへアクセス  
-[2022-12-17 09:24:22] local.INFO: tiroトップへアクセス  
-[2022-12-17 09:24:24] local.INFO: tiroトップへアクセス  
-[2022-12-17 09:53:04] local.ERROR: Undefined variable $t {"userId":1,"exception":"[object] (ErrorException(code: 0): Undefined variable $t at C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\app\\Http\\Controllers\\LunaController.php:17)
+[2022-12-19 14:47:17] local.ERROR: Property [adjust_many] does not exist on this collection instance. {"userId":1,"exception":"[object] (Exception(code: 0): Property [adjust_many] does not exist on this collection instance. at C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Collections\\Traits\\EnumeratesValues.php:940)
 [stacktrace]
-#0 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(268): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Undefined varia...', 'C:\\\\Users\\\\81903....', 17)
-#1 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\app\\Http\\Controllers\\LunaController.php(17): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'Undefined varia...', 'C:\\\\Users\\\\81903....', 17)
-#2 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\LunaController->top()
-#3 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('top', Array)
-#4 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\LunaController), 'top')
-#5 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
-#6 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Route->run()
-#7 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
-#8 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#9 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#10 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#11 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#12 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#13 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#14 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#15 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
-#16 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#17 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#18 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#19 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#20 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#21 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#22 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#23 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
-#24 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
-#25 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
-#26 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
-#27 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
-#28 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#29 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#30 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#31 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#32 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#33 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#34 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#35 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#36 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#37 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#38 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#39 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#40 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#41 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#42 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#43 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#44 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#45 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#46 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
-#47 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
-#48 {main}
+#0 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\app\\Models\\Kyuryo.php(111): Illuminate\\Support\\Collection->__get('adjust_many')
+#1 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\app\\Models\\Kyuryo.php(60): App\\Models\\kyuryo::getDailyPrice(Array, Object(Illuminate\\Database\\Eloquent\\Collection))
+#2 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\app\\Http\\Controllers\\InputController.php(251): App\\Models\\kyuryo::dailyPriceCul(Object(Illuminate\\Database\\Eloquent\\Collection), Object(Illuminate\\Database\\Eloquent\\Collection))
+#3 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\InputController->kyuryo('1', '16')
+#4 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('kyuryo', Array)
+#5 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\InputController), 'kyuryo')
+#6 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#7 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Route->run()
+#8 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#9 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#13 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#14 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'sanctum')
+#15 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#16 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#17 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#21 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#28 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#30 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#31 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#33 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#37 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#42 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#48 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#49 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#50 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#51 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#52 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#53 {main}
 "} 
-[2022-12-17 09:59:10] local.ERROR: file(https://docs.google.com/spreadsheets/d/e/2PACX-1vT6aDhs7Xy0kiBvZF5wGCEoDtY1eh5s2nr9vLLnMOzSwQJZXpSrGNdfjgtxW957g_GPK69AP323IgHz/pub?gid=1452767706&amp;single=true&amp;output=csv): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
- {"userId":1,"exception":"[object] (ErrorException(code: 0): file(https://docs.google.com/spreadsheets/d/e/2PACX-1vT6aDhs7Xy0kiBvZF5wGCEoDtY1eh5s2nr9vLLnMOzSwQJZXpSrGNdfjgtxW957g_GPK69AP323IgHz/pub?gid=1452767706&amp;single=true&amp;output=csv): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
-
- at C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\app\\Http\\Controllers\\LunaController.php:17)
-[stacktrace]
-#0 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(268): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'file(https://do...', 'C:\\\\Users\\\\81903....', 17)
-#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'file(https://do...', 'C:\\\\Users\\\\81903....', 17)
-#2 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\app\\Http\\Controllers\\LunaController.php(17): file('https://docs.go...')
-#3 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\LunaController->top()
-#4 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('top', Array)
-#5 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\LunaController), 'top')
-#6 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
-#7 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Route->run()
-#8 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
-#9 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#10 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#11 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#12 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#13 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#14 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#15 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#16 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
-#17 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#18 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#19 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#20 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#21 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#22 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#23 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#24 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
-#25 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
-#26 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
-#27 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
-#28 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
-#29 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#30 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#31 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#32 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#33 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#34 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#35 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#36 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#37 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#38 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#39 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#40 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#41 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#42 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#43 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#44 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#45 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#46 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#47 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
-#48 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
-#49 {main}
-"} 
-[2022-12-17 10:04:07] local.ERROR: nl2br(): Argument #1 ($string) must be of type string, array given {"view":{"view":"C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\resources\\views\\test.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-56773883 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#557</a><samp data-depth=1 class=sf-dump-expanded>
+[2022-12-19 15:06:33] local.ERROR: number_format(): Argument #1 ($num) must be of type float, string given {"view":{"view":"C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\resources\\views\\input_kyuryo.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1913170241 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#584</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
-</pre><script>Sfdump(\"sf-dump-56773883\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","t":"<pre class=sf-dump id=sf-dump-811728807 data-indent-pad=\"  \"><span class=sf-dump-note>array:61</span> [<samp data-depth=1 class=sf-dump-expanded>
-  <span class=sf-dump-index>0</span> => \"<span class=sf-dump-str title=\"272 characters\">,,,&#12363;&#12411;,&#12360;&#12414;,&#12363;&#12360;&#12391;,&#12394;&#12388;,&#12414;&#12356;,&#12373;&#12388;&#12365;,&#12402;&#12394;,&#12415;&#12363;,&#12415;&#12358;,&#27801;&#32340;&#12373;&#12435;,&#12394;&#12394;&#12371;,&#12427;&#12356;,,&#20107;&#21069;&#20104;&#32004;,&#38754;&#25509;,,&#12365;&#12371;,&#12354;&#12426;&#12377;,&#12411;&#12398;&#12363;,,,,,,,,,,,&#12354;&#12378;&#12415;,&#12402;&#12417;&#12363;,&#12373;&#12411;,&#12422;&#12414;,&#12426;&#12435;,&#12379;&#12356;&#12394;,&#12428;&#12394;,&#20778;&#24076;,&#12398;&#12360;,&#12360;&#12426;&#12394;,&#12415;&#12365;,&#12415;&#12422;&#12358;,&#12394;&#12388;&#12365;,&#20778;&#23376;,&#12414;&#12356;,&#12415;&#12394;,&#12414;&#12422;,&#12363;&#12394;&#12371;,&#12426;&#12388;,&#12422;&#12417;,&#12373;&#12392;&#12415;,&#12394;&#12394;,&#12495;&#12531;&#12490;,&#12354;&#12415;,&#12428;&#12394;,&#12363;&#12378;&#12365;,&#12414;&#12375;&#12429;,&#12388;&#12363;&#12373;,&#12415;&#12394;&#12415;,&#12394;&#12388;,&#12417;&#12356;,&#12373;&#12367;&#12425;,&#12399;&#12394;,&#12354;&#12415;&#12394;,&#12377;&#12378;,&#12426;&#12435;,&#12414;&#12426;&#12394;,&#12415;&#12363;,&#12363;&#12428;&#12435;,&#12394;&#12394;,&#12356;&#12392;,&#12415;&#12377;&#12378;,&#12385;&#12356;,&#12398;&#12382;&#12415;,&#12427;&#12394;,&#12354;&#12356;&#12426;,&#12354;&#12363;&#12426;,&#12373;&#12367;&#12425;,&#12371;&#12371;,&#12422;&#12398;,&#12402;&#12394;&#12398;,&#12373;&#12425;,&#12354;&#12363;&#12397;,&#12422;&#12365;&#12398;,&#12414;&#12371;,&#12418;&#12394;,&#12385;&#12363;<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>1</span> => \"<span class=sf-dump-str title=\"114 characters\">,,,,&#21322;&#24180;5000&#20870;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3&#12363;&#26376;1&#19975;,3&#12363;&#26376;1&#19975;,,,,,,,&#21322;&#24180;5000&#20870;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>2</span> => \"<span class=sf-dump-str title=\"105 characters\">12/1,&#26408;,,,12-20,,,,,11-20,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>3</span> => \"<span class=sf-dump-str title=\"141 characters\">12/2,&#37329;,,18-3,,14-21,,,,11-18,,17-24&#9747;,13.5-20&#9747;,13.5-20&#9747;,,,,&#27801;&#32340;&#12373;&#12435;12&#26178;-&#38754;&#25509;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>4</span> => \"<span class=sf-dump-str title=\"111 characters\">12/3,&#22303;,,,,,11-18,,,11-17,,17-24&#215;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>5</span> => \"<span class=sf-dump-str title=\"111 characters\">12/4,&#26085;,,,11-17,,15-22,,,,,17-24&#215;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>6</span> => \"<span class=sf-dump-str title=\"123 characters\">12/5,&#26376;,,,,13-20,,,20.5-1,,,,,14.5-20,,,,&#27801;&#32340;&#12373;&#12435;13&#26178;-&#38754;&#25509;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>7</span> => \"<span class=sf-dump-str title=\"107 characters\">12/6,&#28779;,,,,11-18,,,,,,,,,18.5-23,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>8</span> => \"<span class=sf-dump-str title=\"105 characters\">12/7,&#27700;,,,,,20-24,12-17,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>9</span> => \"<span class=sf-dump-str title=\"110 characters\">12/8,&#26408;,,,12-20,11-18,,,,18-24,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>10</span> => \"<span class=sf-dump-str title=\"119 characters\">12/9,&#37329;,,,12-18,,,17-24,,,,,,,,,&quot;11--17,18--5&quot;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>11</span> => \"<span class=sf-dump-str title=\"111 characters\">12/10,&#22303;,,,12-17,,,,,13-20,,,,,,,20--5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>12</span> => \"<span class=sf-dump-str title=\"106 characters\">12/11,&#26085;,,,,,,,,11-18,,,,,,,11--5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>13</span> => \"<span class=sf-dump-str title=\"106 characters\">12/12,&#26376;,,,,14-21,,,,,,,,,,,11--5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>14</span> => \"<span class=sf-dump-str title=\"106 characters\">12/13,&#28779;,,,,,,,,14-21,,,,,,,11--5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>15</span> => \"<span class=sf-dump-str title=\"111 characters\">12/14,&#27700;,,,,14-21,,,,11-18,,,,,,,18--5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>16</span> => \"<span class=sf-dump-str title=\"111 characters\">12/15,&#26408;,,,13-20,11-18,,,,,,,,,,,18--5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>17</span> => \"<span class=sf-dump-str title=\"111 characters\">12/16,&#37329;,,,12-18,,,,,17-22,,,,,,,18--5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>18</span> => \"<span class=sf-dump-str title=\"117 characters\">12/17,&#22303;,,,,,11-17,,20.5-1,11-18,,,,,,,11--5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>19</span> => \"<span class=sf-dump-str title=\"117 characters\">12/18,&#26085;,,,,,11-17,,20.5-1,11-18,,,,,,,11--5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>20</span> => \"<span class=sf-dump-str title=\"101 characters\">12/19,&#26376;,,,13-19,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>21</span> => \"<span class=sf-dump-str title=\"106 characters\">12/20,&#28779;,,,13-20,,,,,14-21,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>22</span> => \"<span class=sf-dump-str title=\"106 characters\">12/21,&#27700;,,,,,20-24,,,14-21,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>23</span> => \"<span class=sf-dump-str title=\"106 characters\">12/22,&#26408;,,,,11-18,,,,11-18,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>24</span> => \"<span class=sf-dump-str title=\"111 characters\">12/23,&#37329;,,,12-18,13-20,20-24,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>25</span> => \"<span class=sf-dump-str title=\"96 characters\">12/24,&#22303;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>26</span> => \"<span class=sf-dump-str title=\"106 characters\">12/25,&#26085;,,,,13-20,11-18,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>27</span> => \"<span class=sf-dump-str title=\"96 characters\">12/26,&#26376;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>28</span> => \"<span class=sf-dump-str title=\"96 characters\">12/27,&#28779;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>29</span> => \"<span class=sf-dump-str title=\"96 characters\">12/28,&#27700;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>30</span> => \"<span class=sf-dump-str title=\"96 characters\">12/29,&#26408;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>31</span> => \"<span class=sf-dump-str title=\"96 characters\">12/30,&#37329;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>32</span> => \"<span class=sf-dump-str title=\"96 characters\">12/31,&#22303;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>33</span> => \"<span class=sf-dump-str title=\"94 characters\">1/1,&#26085;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>34</span> => \"<span class=sf-dump-str title=\"94 characters\">1/2,&#26376;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>35</span> => \"<span class=sf-dump-str title=\"94 characters\">1/3,&#28779;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>36</span> => \"<span class=sf-dump-str title=\"94 characters\">1/4,&#27700;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>37</span> => \"<span class=sf-dump-str title=\"94 characters\">1/5,&#26408;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>38</span> => \"<span class=sf-dump-str title=\"94 characters\">1/6,&#37329;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>39</span> => \"<span class=sf-dump-str title=\"94 characters\">1/7,&#22303;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>40</span> => \"<span class=sf-dump-str title=\"94 characters\">1/8,&#26085;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>41</span> => \"<span class=sf-dump-str title=\"94 characters\">1/9,&#26376;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>42</span> => \"<span class=sf-dump-str title=\"95 characters\">1/10,&#28779;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>43</span> => \"<span class=sf-dump-str title=\"95 characters\">1/11,&#27700;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>44</span> => \"<span class=sf-dump-str title=\"95 characters\">1/12,&#26408;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>45</span> => \"<span class=sf-dump-str title=\"95 characters\">1/13,&#37329;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>46</span> => \"<span class=sf-dump-str title=\"95 characters\">1/14,&#22303;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>47</span> => \"<span class=sf-dump-str title=\"95 characters\">1/15,&#26085;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>48</span> => \"<span class=sf-dump-str title=\"90 characters\">,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>49</span> => \"<span class=sf-dump-str title=\"90 characters\">,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>50</span> => \"<span class=sf-dump-str title=\"90 characters\">,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>51</span> => \"<span class=sf-dump-str title=\"90 characters\">,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>52</span> => \"<span class=sf-dump-str title=\"90 characters\">,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>53</span> => \"<span class=sf-dump-str title=\"173 characters\">,,&#36933;&#21051;,,&#26412;&#25351;10&#20214;,&#26412;&#25351;8&#20214;,&#26412;&#25351;4&#20214;,,&#26412;&#25351;1&#20214;,&#26412;&#25351;1&#20214;,,,,,,,,,,,&#26412;&#25351;3&#20214;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,&#26412;&#25351;1&#20214;,,&#26412;&#25351;1&#20214;,,,&#26412;&#25351;1&#20214;,,&#26412;&#25351;1&#20214;,,,&#26412;&#25351;8&#20214;,,,,,,,,,,&#26412;&#25351;1&#20214;,&#26412;&#25351;6&#20214;,&#26412;&#25351;1&#20214;,,,&#26412;&#25351;1&#20214;,&#26412;&#25351;2&#20214;,&#26412;&#25351;3&#20214;,&#26412;&#25351;1&#20214;,&#26412;&#25351;7&#20214;,,&#26412;&#25351;1&#20214;,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>54</span> => \"<span class=sf-dump-str title=\"191 characters\">,,&#24403;&#27424;,,&#28288;&#20102;,11/3&#12414;&#12391;,12/11&#12414;&#12391;,,&#32066;&#20102;,2/24&#12414;&#12391;,,5/18&#12414;&#12391;,,,,,,,,,10/2&#12414;&#12391;,4/12&#12414;&#12391;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,&#8593;8/4&#12414;&#12391;,,,,,,,,,,&#32066;&#20102;,,,,,,,,,,,1/23&#12414;&#12391;,,,,,&#32066;&#20102;,&#12508;&#12540;&#12490;&#12473;&#32066;&#20102;,6/16&#12414;&#12391;,8/2&#12414;&#12391;,,10/24&#12414;&#12391;,3/29&#12414;&#12391;,,4/19&#12414;&#12391;,,,9/13&#12414;&#12391;,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>55</span> => \"<span class=sf-dump-str title=\"90 characters\">,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>56</span> => \"<span class=sf-dump-str title=\"90 characters\">,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>57</span> => \"<span class=sf-dump-str title=\"401 characters\">ID,,,kaho,ema,kaede,natu,mai,satuki,hina,mika,miu,,nanako,rui,,,,,kiko,arisu,honoka,,,,,,,,,,,azumi,himeka,saho,yuma,rin,seina,,yuuki,,erina,miki,miyuu,natuki,yuuko,mai,mina,mayu,kanako,ritu,yume,satomi,nana,hanna,ami,rena,kaduki,mashiro,tukasa,minami,natu,mei,sakura,,amina,suzu,rin,marina,mika,karen,nana,ito,misuzu,,nozomi,runa,airi,akari,sakura,koko,yuno,hinano,sara,akane,yukino,mako,mona,chika<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>58</span> => \"<span class=sf-dump-str title=\"227 characters\">age,,,26,25,19,35,29,21,21,28,23,,32,30,,,,,24,19,18,,,,,,,,,,,24,29,23,26,18,20,23,32,,28,23,24,22,,30,19,19,19,26,24,20,27,28,29,21,20,21,26,24,25,25,28,,24,18,18,27,28,22,26,28,25,,28,27,25,25,23,21,19,25,28,20,21,38,22,30<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>59</span> => \"<span class=sf-dump-str title=\"385 characters\">name,,,&#26612;&#21682;&#12363;&#12411;,&#29255;&#28716;&#12360;&#12414;,&#20024;&#23665;&#12363;&#12360;&#12391;,&#37202;&#20117;&#12394;&#12388;,&#26449;&#19978;&#12414;&#12356;,&#26412;&#22810;&#12373;&#12388;&#12365;,&#35373;&#27005;&#12402;&#12394;,&#12415;&#12363;,&#20304;&#34276;&#12415;&#12358;,,&#24066;&#24029;&#12394;&#12394;&#12371;,&#22856;&#33391;&#22338;&#12427;&#12356;,,,,,&#31435;&#33457;&#12365;&#12371;,&#19971;&#28716;&#12354;&#12426;&#12377;,&#30333;&#38634;&#12411;&#12398;&#12363;,,,,,,,,,,,&#12354;&#12378;&#12415;,&#12402;&#12417;&#12363;,&#28193;&#37096;&#12373;&#12411;,&#35199;&#24029;&#12422;&#12414;,&#26089;&#20057;&#22899;&#12426;&#12435;,&#23431;&#37326;&#12379;&#12356;&#12394;,,&#38632;&#23470;&#20778;&#24076;,,&#20210;&#26412;&#12360;&#12426;&#12394;,&#39640;&#27211;&#12415;&#12365;,&#26397;&#26085;&#22856;&#12415;&#12422;&#12358;,&#12394;&#12388;&#12365;,&#20778;&#23376;,&#39640;&#27131;&#12414;&#12356;,&#24195;&#28716;&#12415;&#12394;,&#32190;&#37326;&#12414;&#12422;,&#34276;&#23798;&#21152;&#22856;&#23376;,&#30333;&#30707;&#12426;&#12388;,&#26716;&#30000;&#12422;&#12417;,&#21069;&#30000;&#12373;&#12392;&#12415;,&#35199;&#37326;&#12394;&#12394;,&#21322;&#27810;&#12495;&#12531;&#12490;,&#19971;&#28716;&#12354;&#12415;,&#12428;&#12394;,&#26376;&#20035;&#12363;&#12389;&#12365;,&#26894;&#21517;&#12414;&#12375;&#12429;,&#23551;&#12388;&#12363;&#12373;,&#26647;&#21407;&#12415;&#12394;&#12415;,&#27704;&#37326;&#12394;&#12388;,&#21271;&#26465;&#12417;&#12356;,&#26149;&#37326;&#12373;&#12367;&#12425;,,&#37428;&#26408;&#12354;&#12415;&#12394;,&#38263;&#23947;&#12377;&#12378;,&#26089;&#20057;&#22899;&#12426;&#12435;,&#23019;&#23470;&#12414;&#12426;&#12394;,&#38263;&#35895;&#24029;&#12415;&#12363;,&#40180;&#28716;&#12363;&#12428;&#12435;,&#20234;&#34276;&#12394;&#12394;,&#21682;&#37326;&#12356;&#12392;,&#24029;&#37326;&#12415;&#12377;&#12378;,, &#39321;&#21462;&#12398;&#12382;&#12415;,&#22825;&#37326;&#12427;&#12394;,&#32654;&#26376;&#12354;&#12356;&#12426;,&#33865;&#26376;&#12354;&#12363;&#12426;,&#30333;&#30707;&#12373;&#12367;&#12425;,&#38619;&#37326;&#12371;&#12371;,&#28193;&#36794;&#12422;&#12398;,&#20117;&#19978;&#12402;&#12394;&#12398;,&#22799;&#24029;&#12373;&#12425;,&#21335;&#12354;&#12363;&#12397;,&#20304;&#12293;&#26408;&#12422;&#12365;&#12398;,&#21152;&#34276;&#12414;&#12371;,&#20304;&#34276;&#12418;&#12394;,&#34276;&#21407;&#21315;&#33457;<span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
-  <span class=sf-dump-index>60</span> => \"<span class=sf-dump-str title=\"771 characters\">copy,,,G&#12459;&#12483;&#12503;&#12398;&#12362;&#23330;&#12373;&#12414;&#9734;,&#24859;&#23308;&#12383;&#12387;&#12407;&#12426;&#12450;&#12452;&#12489;&#12523;&#9734;,&#12416;&#12387;&#12385;&#12426;&#24859;&#12373;&#12428;&#31995;&#9734;,&#22727;&#34588;&#20284;&#12398;&#12362;&#33394;&#27671;&#32654;&#20154;&#9734;,&#12514;&#12487;&#12523;&#32026;&#12473;&#12524;&#12531;&#12480;&#12540;&#32654;&#22899;&#9734;,F&#12459;&#12483;&#12503;&#12503;&#12522;&#12531;&#12475;&#12473;&#9734;,&#12461;&#12517;&#12540;&#12488;&#12394;&#22825;&#20351;&#12385;&#12419;&#12435;&#9734;,&#20778;&#12375;&#12356;&#32186;&#40599;&#12394;&#12362;&#22985;&#27096;&#9734;,148cm&#12398;&#26399;&#24453;&#12398;&#26032;&#20154;&#12373;&#12435;&#9734;,,G&#12459;&#12483;&#12503;&#36575;&#20307;&#30290;&#12471;&#12473;&#12488;&#9734;,,,,,,&#31505;&#38996;&#12398;&#12363;&#12431;&#12356;&#12373;&#28288;&#28857;&#9734;,&#12362;&#12387;&#12392;&#12426;&#30290;&#12375;&#31995;&#9734;,&#26368;&#24180;&#23569;18&#27507;&#12398;&#12362;&#12387;&#12392;&#12426;F&#12459;&#12483;&#12503;&#9734;,,,,,,,,,,,&#20778;&#12375;&#12356;&#21205;&#29289;&#22909;&#12365;&#23019;&#9734;,&#33394;&#30333;&#12473;&#12524;&#12531;&#12480;&#12540;,&#22899;&#23376;&#12450;&#12490;&#39080;&#32654;&#20154;&#12373;&#12435;&#9734;,&#22934;&#33398;&#12394;&#39749;&#21147;&#12398;&#32654;&#20154;&#12373;&#12435;&#9734;,18&#27507;&#12398;&#12363;&#12431;&#12356;&#12356;&#23376;&#9734;,&#28165;&#26970;&#12394;&#22899;&#23376;&#22823;&#29983;&#9734;,&#39640;&#23994;&#12398;&#33457;&#12462;&#12515;&#12523;&#9734;,&#20778;&#12375;&#12356;G&#12459;&#12483;&#12503;&#9734;,,&#32076;&#39443;&#35914;&#23500;&#12394;G&#12459;&#12483;&#12503;,&#12362;&#12387;&#12392;&#12426;&#20778;&#12375;&#12356;&#32654;&#20154;&#12373;&#12435;,&#12461;&#12517;&#12540;&#12488;&#12394;&#12473;&#12524;&#12531;&#12480;&#12540;,K-pop&#12450;&#12452;&#12489;&#12523;&#31995;,&#12475;&#12463;&#12471;&#12540;&#12394;&#12362;&#22985;&#27096;,&#38563;&#12398;&#32186;&#40599;&#12394;&#12362;&#22985;&#12373;&#12435;,&#38263;&#36523;&#12473;&#12524;&#12531;&#12480;&#12540;&#22899;&#23376;&#22823;&#29983;&#9734;,&#21487;&#24859;&#12356;&#20803;&#27671;&#12387;&#23376;&#9734;,&#26126;&#12427;&#12356;&#12452;&#12510;&#12489;&#12461;&#22899;&#23376;&#9734;,&#30333;&#32908;&#36879;&#26126;&#24863;&#12398;&#22825;&#20351;&#9734;,&#12473;&#12524;&#12531;&#12480;&#12540;&#12394;&#20170;&#12393;&#12365;&#22899;&#23376;&#9734;,&#12501;&#12524;&#12483;&#12471;&#12517;&#65318;&#12459;&#12483;&#12503;&#9734;,&#33853;&#12385;&#30528;&#12356;&#12383;&#38640;&#22258;&#27671;&#12398;E&#12459;&#12483;&#12503;,&#26126;&#12427;&#12356;&#33391;&#12356;&#23376;,&#12464;&#12521;&#12510;&#12521;&#12473;F&#12459;&#12483;&#12503;&#9734;,&#23613;&#12367;&#12375;&#31995;&#32654;&#20154;,&#12458;&#12471;&#12515;&#12524;&#12394;&#20803;&#27671;&#12387;&#23376;&#9734;,&#38929;&#24373;&#12426;&#23627;&#12373;&#12435;&#12394;&#12500;&#12517;&#12450;&#12460;&#12540;&#12523;,&#12473;&#12524;&#12531;&#12480;&#12540;&#65317;&#12459;&#12483;&#12503;&#9734;,&#12363;&#12431;&#12356;&#12356;&#12362;&#38996;&#12398;&#12362;&#12387;&#12392;&#12426;&#12373;&#12435;&#9734;,&#12363;&#12431;&#12356;&#12356;&#12458;&#12471;&#12515;&#12524;&#22899;&#23376;&#9734;,&#12473;&#12524;&#12531;&#12480;&#12540;&#12394;&#12461;&#12524;&#12452;&#32654;&#20154;&#9734;,&#12473;&#12479;&#12452;&#12523;&#25244;&#32676;&#65319;&#12459;&#12483;&#12503;&#9734;,,,&#12500;&#12517;&#12450;&#12394;&#32020;&#31883;&#12460;&#12540;&#12523;&#9734;,18&#27507;&#12398;&#12500;&#12517;&#12450;&#12460;&#12540;&#12523;&#9734;,&#12363;&#12431;&#12356;&#12356;&#12392;&#32186;&#40599;&#12398;&#34701;&#21512;&#9734;,&#12473;&#12524;&#12531;&#12480;&#12540;E&#12459;&#12483;&#12503;&#32654;&#20154;&#9734;,&#12411;&#12435;&#12431;&#12363;&#22899;&#23376;&#22823;&#29983;&#9734;,&#12473;&#12524;&#12531;&#12480;&#12540;&#32654;&#20154;&#12373;&#12435;&#9734;,&#20778;&#12375;&#12356;&#12510;&#12483;&#12469;&#12540;&#12472;&#19978;&#25163;&#9734;,&#20803;&#27671;&#12391;&#26126;&#12427;&#12356;E&#12459;&#12483;&#12503;&#9734;,,&#12461;&#12524;&#12452;&#31995;&#32654;&#20154;&#12373;&#12435;&#9734;,&#12363;&#12431;&#12356;&#12367;&#12390;F&#12459;&#12483;&#12503;&#9734;,&#12461;&#12524;&#12452;&#12394;&#12525;&#12531;&#12464;&#12504;&#12450;&#12540;&#32654;&#20154;&#9734;,&#21069;&#20195;&#26410;&#32862;&#12398;I&#12459;&#12483;&#12503;&#9734;,&#23478;&#24237;&#30340;&#12394;F&#12459;&#12483;&#12503;&#32654;&#22899;&#9734;,&#12525;&#12522;&#12459;&#12527;&#22969;&#12461;&#12515;&#12521;&#9734;,&#12411;&#12435;&#12431;&#12363;&#20778;&#12375;&#12356;19&#27507;&#9734;,&#12525;&#12522;&#12392;&#33394;&#27671;&#12398;&#34701;&#21512;&#9734;,&#12458;&#12471;&#12515;&#12524;&#12394;&#12452;&#12465;&#12452;&#12465;&#22899;&#23376;&#9734;,&#26126;&#12427;&#12367;&#12500;&#12517;&#12450;&#12394;&#20803;&#27671;&#12387;&#23376;&#9734;,&#21487;&#24859;&#12425;&#12375;&#12356;&#20803;&#27671;&#12387;&#23376;&#9734;,&#31505;&#38996;&#12398;&#21487;&#24859;&#12356;&#12362;&#22985;&#27096;&#9734;,&#12458;&#12471;&#12515;&#12524;&#12394;&#22969;&#12385;&#12419;&#12435;&#9734;,&#12362;&#12387;&#12392;&#12426;&#20778;&#12375;&#12356;&#23613;&#12367;&#12375;&#31995;</span>\"
+</pre><script>Sfdump(\"sf-dump-1913170241\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","mise":"<pre class=sf-dump id=sf-dump-1410515742 data-indent-pad=\"  \"><span class=sf-dump-note>App\\Models\\mise</span> {<a class=sf-dump-ref>#1571</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"4 characters\">mise</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+  +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+  +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+  +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+  +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:14</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>1</span>
+    \"<span class=sf-dump-key>client_id</span>\" => <span class=sf-dump-num>3</span>
+    \"<span class=sf-dump-key>team_id</span>\" => <span class=sf-dump-num>2</span>
+    \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"7 characters\">aroma&#12458;&#12464;</span>\"
+    \"<span class=sf-dump-key>yomi</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>area</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#39640;&#23798;&#24179;</span>\"
+    \"<span class=sf-dump-key>tel</span>\" => \"<span class=sf-dump-str title=\"6 characters\">090444</span>\"
+    \"<span class=sf-dump-key>hp</span>\" => \"<span class=sf-dump-str title=\"4 characters\">http</span>\"
+    \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>active</span>\" => <span class=sf-dump-num>1</span>
+    \"<span class=sf-dump-key>hearing_sheet</span>\" => \"<span class=sf-dump-str title=\"4 characters\">here</span>\"
+    \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-11-10 15:40:46</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-11-10 15:40:46</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:14</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>1</span>
+    \"<span class=sf-dump-key>client_id</span>\" => <span class=sf-dump-num>3</span>
+    \"<span class=sf-dump-key>team_id</span>\" => <span class=sf-dump-num>2</span>
+    \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"7 characters\">aroma&#12458;&#12464;</span>\"
+    \"<span class=sf-dump-key>yomi</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>area</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#39640;&#23798;&#24179;</span>\"
+    \"<span class=sf-dump-key>tel</span>\" => \"<span class=sf-dump-str title=\"6 characters\">090444</span>\"
+    \"<span class=sf-dump-key>hp</span>\" => \"<span class=sf-dump-str title=\"4 characters\">http</span>\"
+    \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>active</span>\" => <span class=sf-dump-num>1</span>
+    \"<span class=sf-dump-key>hearing_sheet</span>\" => \"<span class=sf-dump-str title=\"4 characters\">here</span>\"
+    \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-11-10 15:40:46</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-11-10 15:40:46</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>deleted_at</span>\" => \"<span class=sf-dump-str title=\"8 characters\">datetime</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+  #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+  +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => \"\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1410515742\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","therapist":"<pre class=sf-dump id=sf-dump-544709085 data-indent-pad=\"  \"><span class=sf-dump-note>App\\Models\\Therapist</span> {<a class=sf-dump-ref>#1574</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"9 characters\">therapist</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+  +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+  +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+  +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+  +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:20</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>16</span>
+    \"<span class=sf-dump-key>mise_id</span>\" => <span class=sf-dump-num>1</span>
+    \"<span class=sf-dump-key>business_name</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#12383;&#12365;&#12371;</span>\"
+    \"<span class=sf-dump-key>business_age</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>size</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>cup</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>name</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>yomi</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>address</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>tel</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>mail</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>line</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>birthday</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>joinday</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>kyc</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>back_name</span>\" => \"<span class=sf-dump-str title=\"7 characters\">default</span>\"
+    \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-08 15:56:39</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-08 15:56:39</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:20</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>16</span>
+    \"<span class=sf-dump-key>mise_id</span>\" => <span class=sf-dump-num>1</span>
+    \"<span class=sf-dump-key>business_name</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#12383;&#12365;&#12371;</span>\"
+    \"<span class=sf-dump-key>business_age</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>size</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>cup</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>name</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>yomi</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>address</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>tel</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>mail</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>line</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>birthday</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>joinday</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>kyc</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>back_name</span>\" => \"<span class=sf-dump-str title=\"7 characters\">default</span>\"
+    \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-08 15:56:39</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-08 15:56:39</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>deleted_at</span>\" => \"<span class=sf-dump-str title=\"8 characters\">datetime</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+  #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+  +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => \"\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-544709085\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","kokyakuList":"<pre class=sf-dump id=sf-dump-1226003538 data-indent-pad=\"  \"><span class=sf-dump-note>array:2</span> [<samp data-depth=1 class=sf-dump-expanded>
+  <span class=sf-dump-key>46</span> => <span class=sf-dump-note title=\"App\\Models\\Kokyaku
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Kokyaku</span> {<a class=sf-dump-ref>#1578</a><samp data-depth=2 class=sf-dump-compact>
+    #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+    #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"7 characters\">kokyaku</span>\"
+    #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+    #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+    +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+    #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+    +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+    #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+    +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+    +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+    #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+    #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:9</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>46</span>
+      \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#39135;&#12497;&#12531;</span>\"
+      \"<span class=sf-dump-key>tel</span>\" => \"<span class=sf-dump-str title=\"10 characters\">0312345678</span>\"
+      \"<span class=sf-dump-key>mail</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>ng</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-16 08:57:19</span>\"
+      \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-16 08:57:19</span>\"
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:9</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>46</span>
+      \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#39135;&#12497;&#12531;</span>\"
+      \"<span class=sf-dump-key>tel</span>\" => \"<span class=sf-dump-str title=\"10 characters\">0312345678</span>\"
+      \"<span class=sf-dump-key>mail</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>ng</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-16 08:57:19</span>\"
+      \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-16 08:57:19</span>\"
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>deleted_at</span>\" => \"<span class=sf-dump-str title=\"8 characters\">datetime</span>\"
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+    #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+    +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+    #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=3 class=sf-dump-compact>
+      <span class=sf-dump-index>0</span> => \"\"
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+  </samp>}
+  <span class=sf-dump-key>47</span> => <span class=sf-dump-note title=\"App\\Models\\Kokyaku
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Kokyaku</span> {<a class=sf-dump-ref>#1579</a><samp data-depth=2 class=sf-dump-compact>
+    #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+    #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"7 characters\">kokyaku</span>\"
+    #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+    #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+    +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+    #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+    +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+    #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+    +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+    +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+    #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+    #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:9</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>47</span>
+      \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"6 characters\">&#12463;&#12525;&#12527;&#12483;&#12469;&#12531;</span>\"
+      \"<span class=sf-dump-key>tel</span>\" => \"<span class=sf-dump-str title=\"11 characters\">08012345678</span>\"
+      \"<span class=sf-dump-key>mail</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>ng</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-16 08:57:58</span>\"
+      \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-16 08:57:58</span>\"
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:9</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>47</span>
+      \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"6 characters\">&#12463;&#12525;&#12527;&#12483;&#12469;&#12531;</span>\"
+      \"<span class=sf-dump-key>tel</span>\" => \"<span class=sf-dump-str title=\"11 characters\">08012345678</span>\"
+      \"<span class=sf-dump-key>mail</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>ng</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-16 08:57:58</span>\"
+      \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-16 08:57:58</span>\"
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>deleted_at</span>\" => \"<span class=sf-dump-str title=\"8 characters\">datetime</span>\"
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+    #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+    +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+    #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=3 class=sf-dump-compact>
+      <span class=sf-dump-index>0</span> => \"\"
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+  </samp>}
 </samp>]
-</pre><script>Sfdump(\"sf-dump-811728807\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"userId":1,"exception":"[object] (Spatie\\LaravelIgnition\\Exceptions\\ViewException(code: 0): nl2br(): Argument #1 ($string) must be of type string, array given at C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\framework\\views\\b60dd442e6527a17eb6ccac648ce8acc0d3a1192.php:12)
+</pre><script>Sfdump(\"sf-dump-1226003538\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","yoyakuList":"<pre class=sf-dump id=sf-dump-28455269 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1580</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\Yoyaku
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Yoyaku</span> {<a class=sf-dump-ref>#1581</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"6 characters\">yoyaku</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:22</span> [ &#8230;22]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:13</span> [ &#8230;13]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+    </samp>}
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-28455269\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","adjustList":"<pre class=sf-dump id=sf-dump-752549953 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1582</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">items</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-752549953\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","otyaList":"<pre class=sf-dump id=sf-dump-793952891 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1588</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:2</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\price
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>price</span> {<a class=sf-dump-ref>#1589</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"5 characters\">price</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:12</span> [ &#8230;12]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:12</span> [ &#8230;12]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+    </samp>}
+    <span class=sf-dump-index>1</span> => <span class=sf-dump-note title=\"App\\Models\\price
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>price</span> {<a class=sf-dump-ref>#1590</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"5 characters\">price</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:12</span> [ &#8230;12]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:12</span> [ &#8230;12]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+    </samp>}
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-793952891\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","yoyakuListCnt":"<pre class=sf-dump id=sf-dump-1281735686 data-indent-pad=\"  \"><span class=sf-dump-num>1</span>
+</pre><script>Sfdump(\"sf-dump-1281735686\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","error":"<pre class=sf-dump id=sf-dump-1224637295 data-indent-pad=\"  \"><span class=sf-dump-const>null</span>
+</pre><script>Sfdump(\"sf-dump-1224637295\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+"}},"userId":1,"exception":"[object] (Spatie\\LaravelIgnition\\Exceptions\\ViewException(code: 0): number_format(): Argument #1 ($num) must be of type float, string given at C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\storage\\framework\\views\\810fd84d719b9d05a428f05c81009e04c4d5fb20.php:108)
 [stacktrace]
-#0 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\framework\\views\\b60dd442e6527a17eb6ccac648ce8acc0d3a1192.php(12): nl2br(Array)
-#1 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\81903....')
-#2 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
-#3 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\81903....', Array)
-#4 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#5 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#6 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#7 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#8 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
-#9 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
-#10 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
-#11 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
-#12 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
-#13 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
-#14 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
-#15 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
-#16 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#17 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#18 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#19 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#20 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#21 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#22 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#23 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
-#24 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#25 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#26 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#27 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#28 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#29 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#30 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#31 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
-#32 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
-#33 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
-#34 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
-#35 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
-#36 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#37 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#38 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#39 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#40 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#41 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#42 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#43 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#44 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#45 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#46 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#47 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#48 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#49 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#50 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#51 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#52 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#53 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#54 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
-#55 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
-#56 {main}
+#0 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\storage\\framework\\views\\810fd84d719b9d05a428f05c81009e04c4d5fb20.php(108): number_format('\\xE3\\x81\\x9F\\xE3\\x81\\x8D\\xE3\\x81\\x93')
+#1 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\owner\\\\...')
+#2 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#3 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\owner\\\\...', Array)
+#4 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\owner\\\\...', Array)
+#5 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\owner\\\\...', Array)
+#6 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\owner\\\\...', Array)
+#7 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\owner\\\\...', Array)
+#8 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
+#9 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
+#10 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
+#11 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#12 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#13 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#14 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#15 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#16 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'sanctum')
+#22 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#28 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#35 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#37 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#40 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#51 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#54 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#55 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#56 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#57 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#58 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#59 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#60 {main}
 
-[previous exception] [object] (TypeError(code: 0): nl2br(): Argument #1 ($string) must be of type string, array given at C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\framework\\views\\b60dd442e6527a17eb6ccac648ce8acc0d3a1192.php:12)
+[previous exception] [object] (TypeError(code: 0): number_format(): Argument #1 ($num) must be of type float, string given at C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\storage\\framework\\views\\810fd84d719b9d05a428f05c81009e04c4d5fb20.php:108)
 [stacktrace]
-#0 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\framework\\views\\b60dd442e6527a17eb6ccac648ce8acc0d3a1192.php(12): nl2br(Array)
-#1 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\81903....')
-#2 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
-#3 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\81903....', Array)
-#4 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#5 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#6 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#7 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#8 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
-#9 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
-#10 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
-#11 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
-#12 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
-#13 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
-#14 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
-#15 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
-#16 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#17 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#18 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#19 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#20 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#21 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#22 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#23 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
-#24 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#25 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#26 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#27 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#28 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#29 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#30 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#31 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
-#32 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
-#33 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
-#34 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
-#35 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
-#36 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#37 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#38 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#39 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#40 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#41 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#42 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#43 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#44 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#45 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#46 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#47 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#48 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#49 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#50 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#51 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#52 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#53 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#54 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
-#55 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
-#56 {main}
+#0 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\storage\\framework\\views\\810fd84d719b9d05a428f05c81009e04c4d5fb20.php(108): number_format('\\xE3\\x81\\x9F\\xE3\\x81\\x8D\\xE3\\x81\\x93')
+#1 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\owner\\\\...')
+#2 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#3 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\owner\\\\...', Array)
+#4 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\owner\\\\...', Array)
+#5 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\owner\\\\...', Array)
+#6 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\owner\\\\...', Array)
+#7 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\owner\\\\...', Array)
+#8 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
+#9 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
+#10 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
+#11 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#12 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#13 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#14 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#15 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#16 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'sanctum')
+#22 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#28 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#35 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#37 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#40 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#51 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#54 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#55 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#56 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#57 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#58 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#59 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#60 {main}
 "} 
-[2022-12-17 10:16:23] local.ERROR: nl2br(): Argument #1 ($string) must be of type string, array given {"view":{"view":"C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\resources\\views\\test.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-678415624 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#557</a><samp data-depth=1 class=sf-dump-expanded>
+[2022-12-19 15:09:00] local.INFO: {"id":47,"name":"\u30af\u30ed\u30ef\u30c3\u30b5\u30f3","tel":"08012345678","mail":null,"ng":null,"memo":null,"deleted_at":null,"created_at":"2022-12-15T23:57:58.000000Z","updated_at":"2022-12-15T23:57:58.000000Z"}  
+[2022-12-19 15:19:06] local.ERROR: number_format(): Argument #1 ($num) must be of type float, string given {"view":{"view":"C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\resources\\views\\input_kyuryo.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1974109419 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#584</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
-</pre><script>Sfdump(\"sf-dump-678415624\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","t":"<pre class=sf-dump id=sf-dump-1893096662 data-indent-pad=\"  \"><span class=sf-dump-note>array:89</span> [<samp data-depth=1 class=sf-dump-expanded>
-  <span class=sf-dump-index>0</span> => \"<span class=sf-dump-str title=\"5 characters\">12/17</span>\"
-  <span class=sf-dump-index>1</span> => \"<span class=sf-dump-str>&#22303;</span>\"
-  <span class=sf-dump-index>2</span> => \"\"
-  <span class=sf-dump-index>3</span> => \"\"
-  <span class=sf-dump-index>4</span> => \"\"
-  <span class=sf-dump-index>5</span> => \"\"
-  <span class=sf-dump-index>6</span> => \"<span class=sf-dump-str title=\"5 characters\">11-17</span>\"
-  <span class=sf-dump-index>7</span> => \"\"
-  <span class=sf-dump-index>8</span> => \"<span class=sf-dump-str title=\"6 characters\">20.5-1</span>\"
-  <span class=sf-dump-index>9</span> => \"<span class=sf-dump-str title=\"5 characters\">11-18</span>\"
-  <span class=sf-dump-index>10</span> => \"\"
-  <span class=sf-dump-index>11</span> => \"\"
-  <span class=sf-dump-index>12</span> => \"\"
-  <span class=sf-dump-index>13</span> => \"\"
-  <span class=sf-dump-index>14</span> => \"\"
-  <span class=sf-dump-index>15</span> => \"\"
-  <span class=sf-dump-index>16</span> => \"<span class=sf-dump-str title=\"5 characters\">11--5</span>\"
-  <span class=sf-dump-index>17</span> => \"\"
-  <span class=sf-dump-index>18</span> => \"\"
-  <span class=sf-dump-index>19</span> => \"\"
-  <span class=sf-dump-index>20</span> => \"\"
-  <span class=sf-dump-index>21</span> => \"\"
-  <span class=sf-dump-index>22</span> => \"\"
-  <span class=sf-dump-index>23</span> => \"\"
-  <span class=sf-dump-index>24</span> => \"\"
-  <span class=sf-dump-index>25</span> => \"\"
-  <span class=sf-dump-index>26</span> => \"\"
-  <span class=sf-dump-index>27</span> => \"\"
-  <span class=sf-dump-index>28</span> => \"\"
-  <span class=sf-dump-index>29</span> => \"\"
-  <span class=sf-dump-index>30</span> => \"\"
-  <span class=sf-dump-index>31</span> => \"\"
-  <span class=sf-dump-index>32</span> => \"\"
-  <span class=sf-dump-index>33</span> => \"\"
-  <span class=sf-dump-index>34</span> => \"\"
-  <span class=sf-dump-index>35</span> => \"\"
-  <span class=sf-dump-index>36</span> => \"\"
-  <span class=sf-dump-index>37</span> => \"\"
-  <span class=sf-dump-index>38</span> => \"\"
-  <span class=sf-dump-index>39</span> => \"\"
-  <span class=sf-dump-index>40</span> => \"\"
-  <span class=sf-dump-index>41</span> => \"\"
-  <span class=sf-dump-index>42</span> => \"\"
-  <span class=sf-dump-index>43</span> => \"\"
-  <span class=sf-dump-index>44</span> => \"\"
-  <span class=sf-dump-index>45</span> => \"\"
-  <span class=sf-dump-index>46</span> => \"\"
-  <span class=sf-dump-index>47</span> => \"\"
-  <span class=sf-dump-index>48</span> => \"\"
-  <span class=sf-dump-index>49</span> => \"\"
-  <span class=sf-dump-index>50</span> => \"\"
-  <span class=sf-dump-index>51</span> => \"\"
-  <span class=sf-dump-index>52</span> => \"\"
-  <span class=sf-dump-index>53</span> => \"\"
-  <span class=sf-dump-index>54</span> => \"\"
-  <span class=sf-dump-index>55</span> => \"\"
-  <span class=sf-dump-index>56</span> => \"\"
-  <span class=sf-dump-index>57</span> => \"\"
-  <span class=sf-dump-index>58</span> => \"\"
-  <span class=sf-dump-index>59</span> => \"\"
-  <span class=sf-dump-index>60</span> => \"\"
-  <span class=sf-dump-index>61</span> => \"\"
-  <span class=sf-dump-index>62</span> => \"\"
-  <span class=sf-dump-index>63</span> => \"\"
-  <span class=sf-dump-index>64</span> => \"\"
-  <span class=sf-dump-index>65</span> => \"\"
-  <span class=sf-dump-index>66</span> => \"\"
-  <span class=sf-dump-index>67</span> => \"\"
-  <span class=sf-dump-index>68</span> => \"\"
-  <span class=sf-dump-index>69</span> => \"\"
-  <span class=sf-dump-index>70</span> => \"\"
-  <span class=sf-dump-index>71</span> => \"\"
-  <span class=sf-dump-index>72</span> => \"\"
-  <span class=sf-dump-index>73</span> => \"\"
-  <span class=sf-dump-index>74</span> => \"\"
-  <span class=sf-dump-index>75</span> => \"\"
-  <span class=sf-dump-index>76</span> => \"\"
-  <span class=sf-dump-index>77</span> => \"\"
-  <span class=sf-dump-index>78</span> => \"\"
-  <span class=sf-dump-index>79</span> => \"\"
-  <span class=sf-dump-index>80</span> => \"\"
-  <span class=sf-dump-index>81</span> => \"\"
-  <span class=sf-dump-index>82</span> => \"\"
-  <span class=sf-dump-index>83</span> => \"\"
-  <span class=sf-dump-index>84</span> => \"\"
-  <span class=sf-dump-index>85</span> => \"\"
-  <span class=sf-dump-index>86</span> => \"\"
-  <span class=sf-dump-index>87</span> => \"\"
-  <span class=sf-dump-index>88</span> => \"<span class=sf-dump-str title=\"2 characters\"><span class=\"sf-dump-default sf-dump-ns\">\\r\\n</span></span>\"
+</pre><script>Sfdump(\"sf-dump-1974109419\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","mise":"<pre class=sf-dump id=sf-dump-1775831645 data-indent-pad=\"  \"><span class=sf-dump-note>App\\Models\\mise</span> {<a class=sf-dump-ref>#1571</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"4 characters\">mise</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+  +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+  +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+  +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+  +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:14</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>1</span>
+    \"<span class=sf-dump-key>client_id</span>\" => <span class=sf-dump-num>3</span>
+    \"<span class=sf-dump-key>team_id</span>\" => <span class=sf-dump-num>2</span>
+    \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"7 characters\">aroma&#12458;&#12464;</span>\"
+    \"<span class=sf-dump-key>yomi</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>area</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#39640;&#23798;&#24179;</span>\"
+    \"<span class=sf-dump-key>tel</span>\" => \"<span class=sf-dump-str title=\"6 characters\">090444</span>\"
+    \"<span class=sf-dump-key>hp</span>\" => \"<span class=sf-dump-str title=\"4 characters\">http</span>\"
+    \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>active</span>\" => <span class=sf-dump-num>1</span>
+    \"<span class=sf-dump-key>hearing_sheet</span>\" => \"<span class=sf-dump-str title=\"4 characters\">here</span>\"
+    \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-11-10 15:40:46</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-11-10 15:40:46</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:14</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>1</span>
+    \"<span class=sf-dump-key>client_id</span>\" => <span class=sf-dump-num>3</span>
+    \"<span class=sf-dump-key>team_id</span>\" => <span class=sf-dump-num>2</span>
+    \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"7 characters\">aroma&#12458;&#12464;</span>\"
+    \"<span class=sf-dump-key>yomi</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>area</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#39640;&#23798;&#24179;</span>\"
+    \"<span class=sf-dump-key>tel</span>\" => \"<span class=sf-dump-str title=\"6 characters\">090444</span>\"
+    \"<span class=sf-dump-key>hp</span>\" => \"<span class=sf-dump-str title=\"4 characters\">http</span>\"
+    \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>active</span>\" => <span class=sf-dump-num>1</span>
+    \"<span class=sf-dump-key>hearing_sheet</span>\" => \"<span class=sf-dump-str title=\"4 characters\">here</span>\"
+    \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-11-10 15:40:46</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-11-10 15:40:46</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>deleted_at</span>\" => \"<span class=sf-dump-str title=\"8 characters\">datetime</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+  #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+  +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => \"\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1775831645\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","therapist":"<pre class=sf-dump id=sf-dump-1434585132 data-indent-pad=\"  \"><span class=sf-dump-note>App\\Models\\Therapist</span> {<a class=sf-dump-ref>#1574</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"9 characters\">therapist</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+  +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+  +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+  +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+  +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:20</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>16</span>
+    \"<span class=sf-dump-key>mise_id</span>\" => <span class=sf-dump-num>1</span>
+    \"<span class=sf-dump-key>business_name</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#12383;&#12365;&#12371;</span>\"
+    \"<span class=sf-dump-key>business_age</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>size</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>cup</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>name</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>yomi</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>address</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>tel</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>mail</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>line</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>birthday</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>joinday</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>kyc</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>back_name</span>\" => \"<span class=sf-dump-str title=\"7 characters\">default</span>\"
+    \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-08 15:56:39</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-08 15:56:39</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:20</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>16</span>
+    \"<span class=sf-dump-key>mise_id</span>\" => <span class=sf-dump-num>1</span>
+    \"<span class=sf-dump-key>business_name</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#12383;&#12365;&#12371;</span>\"
+    \"<span class=sf-dump-key>business_age</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>size</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>cup</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>name</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>yomi</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>address</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>tel</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>mail</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>line</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>birthday</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>joinday</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>kyc</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>back_name</span>\" => \"<span class=sf-dump-str title=\"7 characters\">default</span>\"
+    \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-08 15:56:39</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-08 15:56:39</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>deleted_at</span>\" => \"<span class=sf-dump-str title=\"8 characters\">datetime</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+  #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+  +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => \"\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1434585132\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","kokyakuList":"<pre class=sf-dump id=sf-dump-328559938 data-indent-pad=\"  \"><span class=sf-dump-note>array:2</span> [<samp data-depth=1 class=sf-dump-expanded>
+  <span class=sf-dump-key>46</span> => <span class=sf-dump-note title=\"App\\Models\\Kokyaku
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Kokyaku</span> {<a class=sf-dump-ref>#1578</a><samp data-depth=2 class=sf-dump-compact>
+    #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+    #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"7 characters\">kokyaku</span>\"
+    #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+    #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+    +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+    #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+    +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+    #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+    +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+    +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+    #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+    #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:9</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>46</span>
+      \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#39135;&#12497;&#12531;</span>\"
+      \"<span class=sf-dump-key>tel</span>\" => \"<span class=sf-dump-str title=\"10 characters\">0312345678</span>\"
+      \"<span class=sf-dump-key>mail</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>ng</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-16 08:57:19</span>\"
+      \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-16 08:57:19</span>\"
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:9</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>46</span>
+      \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#39135;&#12497;&#12531;</span>\"
+      \"<span class=sf-dump-key>tel</span>\" => \"<span class=sf-dump-str title=\"10 characters\">0312345678</span>\"
+      \"<span class=sf-dump-key>mail</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>ng</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-16 08:57:19</span>\"
+      \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-16 08:57:19</span>\"
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>deleted_at</span>\" => \"<span class=sf-dump-str title=\"8 characters\">datetime</span>\"
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+    #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+    +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+    #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=3 class=sf-dump-compact>
+      <span class=sf-dump-index>0</span> => \"\"
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+  </samp>}
+  <span class=sf-dump-key>47</span> => <span class=sf-dump-note title=\"App\\Models\\Kokyaku
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Kokyaku</span> {<a class=sf-dump-ref>#1579</a><samp data-depth=2 class=sf-dump-compact>
+    #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+    #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"7 characters\">kokyaku</span>\"
+    #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+    #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+    +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+    #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+    +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+    #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+    +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+    +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+    #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+    #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:9</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>47</span>
+      \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"6 characters\">&#12463;&#12525;&#12527;&#12483;&#12469;&#12531;</span>\"
+      \"<span class=sf-dump-key>tel</span>\" => \"<span class=sf-dump-str title=\"11 characters\">08012345678</span>\"
+      \"<span class=sf-dump-key>mail</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>ng</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-16 08:57:58</span>\"
+      \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-16 08:57:58</span>\"
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:9</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>47</span>
+      \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"6 characters\">&#12463;&#12525;&#12527;&#12483;&#12469;&#12531;</span>\"
+      \"<span class=sf-dump-key>tel</span>\" => \"<span class=sf-dump-str title=\"11 characters\">08012345678</span>\"
+      \"<span class=sf-dump-key>mail</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>ng</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+      \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-16 08:57:58</span>\"
+      \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-16 08:57:58</span>\"
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=3 class=sf-dump-compact>
+      \"<span class=sf-dump-key>deleted_at</span>\" => \"<span class=sf-dump-str title=\"8 characters\">datetime</span>\"
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+    #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+    +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+    #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+    #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=3 class=sf-dump-compact>
+      <span class=sf-dump-index>0</span> => \"\"
+    </samp>]
+    #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+  </samp>}
 </samp>]
-</pre><script>Sfdump(\"sf-dump-1893096662\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"userId":1,"exception":"[object] (Spatie\\LaravelIgnition\\Exceptions\\ViewException(code: 0): nl2br(): Argument #1 ($string) must be of type string, array given at C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\framework\\views\\b60dd442e6527a17eb6ccac648ce8acc0d3a1192.php:12)
-[stacktrace]
-#0 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\framework\\views\\b60dd442e6527a17eb6ccac648ce8acc0d3a1192.php(12): nl2br(Array)
-#1 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\81903....')
-#2 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
-#3 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\81903....', Array)
-#4 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#5 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#6 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#7 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#8 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
-#9 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
-#10 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
-#11 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
-#12 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
-#13 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
-#14 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
-#15 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
-#16 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#17 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#18 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#19 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#20 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#21 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#22 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#23 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
-#24 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#25 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#26 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#27 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#28 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#29 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#30 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#31 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
-#32 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
-#33 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
-#34 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
-#35 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
-#36 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#37 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#38 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#39 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#40 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#41 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#42 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#43 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#44 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#45 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#46 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#47 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#48 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#49 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#50 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#51 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#52 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#53 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#54 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
-#55 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
-#56 {main}
-
-[previous exception] [object] (TypeError(code: 0): nl2br(): Argument #1 ($string) must be of type string, array given at C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\framework\\views\\b60dd442e6527a17eb6ccac648ce8acc0d3a1192.php:12)
-[stacktrace]
-#0 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\framework\\views\\b60dd442e6527a17eb6ccac648ce8acc0d3a1192.php(12): nl2br(Array)
-#1 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\81903....')
-#2 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
-#3 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\81903....', Array)
-#4 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#5 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#6 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#7 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#8 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
-#9 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
-#10 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
-#11 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
-#12 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
-#13 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
-#14 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
-#15 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
-#16 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#17 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#18 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#19 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#20 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#21 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#22 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#23 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
-#24 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#25 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#26 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#27 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#28 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#29 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#30 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#31 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
-#32 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
-#33 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
-#34 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
-#35 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
-#36 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#37 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#38 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#39 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#40 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#41 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#42 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#43 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#44 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#45 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#46 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#47 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#48 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#49 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#50 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#51 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#52 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#53 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#54 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
-#55 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
-#56 {main}
-"} 
-[2022-12-17 11:08:02] local.ERROR: syntax error, unexpected variable "$end" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected variable \"$end\" at C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\app\\Http\\Controllers\\LunaController.php:24)
-[stacktrace]
-#0 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile('C:\\\\Users\\\\81903....')
-#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Http\\\\Contro...')
-#2 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1091): is_a('App\\\\Http\\\\Contro...', 'Illuminate\\\\Rout...', true)
-#3 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1030): Illuminate\\Routing\\Route->controllerMiddleware()
-#4 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(810): Illuminate\\Routing\\Route->gatherMiddleware()
-#5 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(792): Illuminate\\Routing\\Router->gatherRouteMiddleware(Object(Illuminate\\Routing\\Route))
-#6 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
-#7 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
-#8 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
-#9 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
-#10 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
-#11 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#12 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#13 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#14 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#15 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#16 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#17 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#18 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#19 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#20 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#21 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#22 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#23 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#24 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#25 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#26 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#27 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#28 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#29 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
-#30 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
-#31 {main}
-"} 
-[2022-12-17 11:08:14] local.ERROR: syntax error, unexpected token "}" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"}\" at C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\app\\Http\\Controllers\\LunaController.php:58)
-[stacktrace]
-#0 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile('C:\\\\Users\\\\81903....')
-#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Http\\\\Contro...')
-#2 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1091): is_a('App\\\\Http\\\\Contro...', 'Illuminate\\\\Rout...', true)
-#3 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1030): Illuminate\\Routing\\Route->controllerMiddleware()
-#4 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(810): Illuminate\\Routing\\Route->gatherMiddleware()
-#5 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(792): Illuminate\\Routing\\Router->gatherRouteMiddleware(Object(Illuminate\\Routing\\Route))
-#6 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
-#7 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
-#8 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
-#9 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
-#10 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
-#11 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#12 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#13 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#14 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#15 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#16 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#17 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#18 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#19 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#20 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#21 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#22 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#23 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#24 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#25 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#26 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#27 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#28 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#29 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
-#30 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
-#31 {main}
-"} 
-[2022-12-17 11:08:23] local.ERROR: Undefined variable $statu {"userId":1,"exception":"[object] (ErrorException(code: 0): Undefined variable $statu at C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\app\\Http\\Controllers\\LunaController.php:25)
-[stacktrace]
-#0 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(268): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Undefined varia...', 'C:\\\\Users\\\\81903....', 25)
-#1 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\app\\Http\\Controllers\\LunaController.php(25): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'Undefined varia...', 'C:\\\\Users\\\\81903....', 25)
-#2 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\LunaController->top()
-#3 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('top', Array)
-#4 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\LunaController), 'top')
-#5 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
-#6 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Route->run()
-#7 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
-#8 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#9 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#10 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#11 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#12 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#13 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#14 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#15 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
-#16 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#17 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#18 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#19 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#20 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#21 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#22 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#23 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
-#24 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
-#25 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
-#26 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
-#27 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
-#28 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#29 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#30 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#31 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#32 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#33 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#34 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#35 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#36 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#37 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#38 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#39 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#40 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#41 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#42 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#43 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#44 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#45 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#46 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
-#47 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
-#48 {main}
-"} 
-[2022-12-17 11:32:17] local.ERROR: file_put_contents(C:\Users\81903.DESKTOP-GBA336J.000\Dropbox\project\wing\laravel\wing\storage\../resources/views/work/log-2022-12-17matome.txt): Failed to open stream: Permission denied {"view":{"view":"C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\resources\\views\\common\\sidemenu.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1956871188 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#557</a><samp data-depth=1 class=sf-dump-expanded>
-  #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
+</pre><script>Sfdump(\"sf-dump-328559938\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","yoyakuList":"<pre class=sf-dump id=sf-dump-1315948918 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1581</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:2</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\Yoyaku
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Yoyaku</span> {<a class=sf-dump-ref>#1582</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"6 characters\">yoyaku</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:22</span> [ &#8230;22]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:13</span> [ &#8230;13]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+    </samp>}
+    <span class=sf-dump-index>1</span> => <span class=sf-dump-note title=\"App\\Models\\Yoyaku
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Yoyaku</span> {<a class=sf-dump-ref>#1583</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"6 characters\">yoyaku</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:22</span> [ &#8230;22]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:13</span> [ &#8230;13]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+    </samp>}
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
-</pre><script>Sfdump(\"sf-dump-1956871188\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","t":"<pre class=sf-dump id=sf-dump-1557934686 data-indent-pad=\"  \"><span class=sf-dump-const>null</span>
-</pre><script>Sfdump(\"sf-dump-1557934686\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"userId":1,"exception":"[object] (Spatie\\LaravelIgnition\\Exceptions\\ViewException(code: 0): file_put_contents(C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\../resources/views/work/log-2022-12-17matome.txt): Failed to open stream: Permission denied at C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php:255)
+</pre><script>Sfdump(\"sf-dump-1315948918\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","adjustList":"<pre class=sf-dump id=sf-dump-2102062752 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1586</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:2</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\kyuryo
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>kyuryo</span> {<a class=sf-dump-ref>#1587</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"6 characters\">kyuryo</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:11</span> [ &#8230;11]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:11</span> [ &#8230;11]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+    </samp>}
+    <span class=sf-dump-index>1</span> => <span class=sf-dump-note title=\"App\\Models\\kyuryo
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>kyuryo</span> {<a class=sf-dump-ref>#1588</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"6 characters\">kyuryo</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:11</span> [ &#8230;11]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:11</span> [ &#8230;11]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+    </samp>}
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-2102062752\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","otyaList":"<pre class=sf-dump id=sf-dump-47460452 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1591</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:2</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\price
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>price</span> {<a class=sf-dump-ref>#1592</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"5 characters\">price</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:12</span> [ &#8230;12]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:12</span> [ &#8230;12]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+    </samp>}
+    <span class=sf-dump-index>1</span> => <span class=sf-dump-note title=\"App\\Models\\price
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>price</span> {<a class=sf-dump-ref>#1593</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"5 characters\">price</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:12</span> [ &#8230;12]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:12</span> [ &#8230;12]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+    </samp>}
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-47460452\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","yoyakuListCnt":"<pre class=sf-dump id=sf-dump-1077742755 data-indent-pad=\"  \"><span class=sf-dump-num>2</span>
+</pre><script>Sfdump(\"sf-dump-1077742755\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","error":"<pre class=sf-dump id=sf-dump-1157492864 data-indent-pad=\"  \"><span class=sf-dump-const>null</span>
+</pre><script>Sfdump(\"sf-dump-1157492864\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+"}},"userId":1,"exception":"[object] (Spatie\\LaravelIgnition\\Exceptions\\ViewException(code: 0): number_format(): Argument #1 ($num) must be of type float, string given at C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\storage\\framework\\views\\810fd84d719b9d05a428f05c81009e04c4d5fb20.php:129)
 [stacktrace]
-#0 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(268): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'file_put_conten...', 'C:\\\\Users\\\\81903....', 255)
-#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'file_put_conten...', 'C:\\\\Users\\\\81903....', 255)
-#2 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(255): file_put_contents('C:\\\\Users\\\\81903....', '2022-12-17\\n\\n9:2...', 8)
-#3 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Filesystem\\Filesystem->append('C:\\\\Users\\\\81903....', '2022-12-17\\n\\n9:2...')
-#4 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\app\\Http\\Controllers\\TopController.php(101): Illuminate\\Support\\Facades\\Facade::__callStatic('append', Array)
-#5 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\framework\\views\\15b13228fbe49396000eb88fd7738ead71b9224d.php(109): App\\Http\\Controllers\\TopController::work('line')
-#6 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\81903....')
-#7 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
-#8 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\81903....', Array)
-#9 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#10 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#11 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#12 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#13 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
-#14 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
-#15 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\framework\\views\\b60dd442e6527a17eb6ccac648ce8acc0d3a1192.php(3): Illuminate\\View\\View->render()
-#16 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\81903....')
-#17 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
-#18 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\81903....', Array)
-#19 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#20 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#21 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#22 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#23 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
-#24 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
-#25 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
-#26 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
-#27 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
-#28 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
-#29 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
-#30 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
-#31 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#32 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#33 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#34 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#35 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#36 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#37 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#38 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
-#39 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#40 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#41 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#42 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#43 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#44 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#45 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#46 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
-#47 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
-#48 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
-#49 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
-#50 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
-#51 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#52 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#53 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#54 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#55 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#56 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#57 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#58 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#59 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#60 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#61 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#62 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#63 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#64 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#65 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#66 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#67 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#68 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#69 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
-#70 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
-#71 {main}
+#0 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\storage\\framework\\views\\810fd84d719b9d05a428f05c81009e04c4d5fb20.php(129): number_format('\\xE3\\x82\\x82\\xE3\\x82\\x89\\xE3\\x81\\x84\\xE5\\xBF\\x98\\xE3\\x82\\x8C')
+#1 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\owner\\\\...')
+#2 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#3 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\owner\\\\...', Array)
+#4 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\owner\\\\...', Array)
+#5 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\owner\\\\...', Array)
+#6 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\owner\\\\...', Array)
+#7 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\owner\\\\...', Array)
+#8 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
+#9 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
+#10 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
+#11 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#12 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#13 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#14 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#15 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#16 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'sanctum')
+#22 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#28 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#35 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#37 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#40 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#51 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#54 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#55 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#56 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#57 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#58 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#59 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#60 {main}
 
-[previous exception] [object] (ErrorException(code: 0): file_put_contents(C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\../resources/views/work/log-2022-12-17matome.txt): Failed to open stream: Permission denied at C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php:255)
+[previous exception] [object] (TypeError(code: 0): number_format(): Argument #1 ($num) must be of type float, string given at C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\storage\\framework\\views\\810fd84d719b9d05a428f05c81009e04c4d5fb20.php:129)
 [stacktrace]
-#0 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(268): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'file_put_conten...', 'C:\\\\Users\\\\81903....', 255)
-#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'file_put_conten...', 'C:\\\\Users\\\\81903....', 255)
-#2 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(255): file_put_contents('C:\\\\Users\\\\81903....', '2022-12-17\\n\\n9:2...', 8)
-#3 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(338): Illuminate\\Filesystem\\Filesystem->append('C:\\\\Users\\\\81903....', '2022-12-17\\n\\n9:2...')
-#4 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\app\\Http\\Controllers\\TopController.php(101): Illuminate\\Support\\Facades\\Facade::__callStatic('append', Array)
-#5 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\framework\\views\\15b13228fbe49396000eb88fd7738ead71b9224d.php(109): App\\Http\\Controllers\\TopController::work('line')
-#6 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\81903....')
-#7 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
-#8 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\81903....', Array)
-#9 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#10 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#11 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#12 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#13 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
-#14 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
-#15 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\storage\\framework\\views\\b60dd442e6527a17eb6ccac648ce8acc0d3a1192.php(3): Illuminate\\View\\View->render()
-#16 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\81903....')
-#17 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
-#18 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\81903....', Array)
-#19 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#20 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\81903....', Array)
-#21 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#22 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\81903....', Array)
-#23 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
-#24 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
-#25 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
-#26 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
-#27 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
-#28 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
-#29 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
-#30 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
-#31 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#32 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#33 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#34 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#35 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#36 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#37 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#38 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
-#39 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#40 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#41 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#42 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#43 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#44 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#45 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#46 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
-#47 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
-#48 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
-#49 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
-#50 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
-#51 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#52 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#53 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#54 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#55 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#56 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#57 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#58 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#59 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#60 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#61 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#62 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#63 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#64 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#65 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#66 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#67 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#68 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
-#69 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
-#70 C:\\Users\\81903.DESKTOP-GBA336J.000\\Dropbox\\project\\wing\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
-#71 {main}
+#0 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\storage\\framework\\views\\810fd84d719b9d05a428f05c81009e04c4d5fb20.php(129): number_format('\\xE3\\x82\\x82\\xE3\\x82\\x89\\xE3\\x81\\x84\\xE5\\xBF\\x98\\xE3\\x82\\x8C')
+#1 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\owner\\\\...')
+#2 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#3 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\owner\\\\...', Array)
+#4 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\owner\\\\...', Array)
+#5 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\owner\\\\...', Array)
+#6 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\owner\\\\...', Array)
+#7 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\owner\\\\...', Array)
+#8 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
+#9 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
+#10 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
+#11 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#12 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#13 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#14 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#15 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#16 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'sanctum')
+#22 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#28 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#35 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#37 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#40 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#51 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#54 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#55 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#56 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#57 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#58 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#59 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#60 {main}
+"} 
+[2022-12-19 15:31:29] local.INFO: {"id":47,"name":"\u30af\u30ed\u30ef\u30c3\u30b5\u30f3","tel":"08012345678","mail":null,"ng":null,"memo":null,"deleted_at":null,"created_at":"2022-12-15T23:57:58.000000Z","updated_at":"2022-12-15T23:57:58.000000Z"}  
+[2022-12-19 15:41:02] local.INFO: {"id":46,"name":"\u98df\u30d1\u30f3","tel":"0312345678","mail":null,"ng":null,"memo":null,"deleted_at":null,"created_at":"2022-12-15T23:57:19.000000Z","updated_at":"2022-12-15T23:57:19.000000Z"}  
+[2022-12-19 16:12:48] local.ERROR: Method Illuminate\Database\Eloquent\Collection::delete does not exist. {"userId":1,"exception":"[object] (BadMethodCallException(code: 0): Method Illuminate\\Database\\Eloquent\\Collection::delete does not exist. at C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Macroable\\Traits\\Macroable.php:113)
+[stacktrace]
+#0 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\app\\Models\\Kyuryo.php(24): Illuminate\\Support\\Collection->__call('delete', Array)
+#1 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\app\\Http\\Controllers\\InputController.php(292): App\\Models\\kyuryo::kyuryoCreate(Array, '1', '16', '2022-12-19 16:1...')
+#2 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\InputController->calculation(Object(Illuminate\\Http\\Request), '1', '16')
+#3 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('calculation', Array)
+#4 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\InputController), 'calculation')
+#5 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#6 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Route->run()
+#7 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#8 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#10 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#11 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#12 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#13 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'sanctum')
+#14 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#16 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#20 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#27 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#28 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#29 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#31 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#34 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#35 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#37 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#39 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#50 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#51 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#52 {main}
+"} 
+[2022-12-19 16:15:41] local.ERROR: SQLSTATE[22007]: Invalid datetime format: 1292 Truncated incorrect datetime value: '2022-12-19 16:15:41 06:00:00' (SQL: update `kyuryo` set `deleted_at` = 2022-12-19 16:15:41, `kyuryo`.`updated_at` = 2022-12-19 16:15:41 where `working_day` between 2022-12-19 16:15:41 06:00:00 and 2022-12-20 05:59:59 and `kyuryo`.`deleted_at` is null) {"userId":1,"exception":"[object] (Illuminate\\Database\\QueryException(code: 22007): SQLSTATE[22007]: Invalid datetime format: 1292 Truncated incorrect datetime value: '2022-12-19 16:15:41 06:00:00' (SQL: update `kyuryo` set `deleted_at` = 2022-12-19 16:15:41, `kyuryo`.`updated_at` = 2022-12-19 16:15:41 where `working_day` between 2022-12-19 16:15:41 06:00:00 and 2022-12-20 05:59:59 and `kyuryo`.`deleted_at` is null) at C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:760)
+[stacktrace]
+#0 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('update `kyuryo`...', Array, Object(Closure))
+#1 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(577): Illuminate\\Database\\Connection->run('update `kyuryo`...', Array, Object(Closure))
+#2 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(510): Illuminate\\Database\\Connection->affectingStatement('update `kyuryo`...', Array)
+#3 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3301): Illuminate\\Database\\Connection->update('update `kyuryo`...', Array)
+#4 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1003): Illuminate\\Database\\Query\\Builder->update(Array)
+#5 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\SoftDeletingScope.php(42): Illuminate\\Database\\Eloquent\\Builder->update(Array)
+#6 [internal function]: Illuminate\\Database\\Eloquent\\SoftDeletingScope->Illuminate\\Database\\Eloquent\\{closure}(Object(Illuminate\\Database\\Eloquent\\Builder))
+#7 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1178): call_user_func(Object(Closure), Object(Illuminate\\Database\\Eloquent\\Builder))
+#8 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\app\\Models\\Kyuryo.php(23): Illuminate\\Database\\Eloquent\\Builder->delete()
+#9 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\app\\Http\\Controllers\\InputController.php(292): App\\Models\\kyuryo::kyuryoCreate(Array, '1', '16', '2022-12-19 16:1...')
+#10 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\InputController->calculation(Object(Illuminate\\Http\\Request), '1', '16')
+#11 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('calculation', Array)
+#12 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\InputController), 'calculation')
+#13 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#14 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Route->run()
+#15 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#16 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'sanctum')
+#22 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#28 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#35 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#37 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#40 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#51 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#54 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#55 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#56 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#57 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#58 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#59 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#60 {main}
+
+[previous exception] [object] (PDOException(code: 22007): SQLSTATE[22007]: Invalid datetime format: 1292 Truncated incorrect datetime value: '2022-12-19 16:15:41 06:00:00' at C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:570)
+[stacktrace]
+#0 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(570): PDOStatement->execute()
+#1 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(753): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('update `kyuryo`...', Array)
+#2 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('update `kyuryo`...', Array, Object(Closure))
+#3 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(577): Illuminate\\Database\\Connection->run('update `kyuryo`...', Array, Object(Closure))
+#4 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(510): Illuminate\\Database\\Connection->affectingStatement('update `kyuryo`...', Array)
+#5 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3301): Illuminate\\Database\\Connection->update('update `kyuryo`...', Array)
+#6 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1003): Illuminate\\Database\\Query\\Builder->update(Array)
+#7 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\SoftDeletingScope.php(42): Illuminate\\Database\\Eloquent\\Builder->update(Array)
+#8 [internal function]: Illuminate\\Database\\Eloquent\\SoftDeletingScope->Illuminate\\Database\\Eloquent\\{closure}(Object(Illuminate\\Database\\Eloquent\\Builder))
+#9 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1178): call_user_func(Object(Closure), Object(Illuminate\\Database\\Eloquent\\Builder))
+#10 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\app\\Models\\Kyuryo.php(23): Illuminate\\Database\\Eloquent\\Builder->delete()
+#11 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\app\\Http\\Controllers\\InputController.php(292): App\\Models\\kyuryo::kyuryoCreate(Array, '1', '16', '2022-12-19 16:1...')
+#12 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\InputController->calculation(Object(Illuminate\\Http\\Request), '1', '16')
+#13 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('calculation', Array)
+#14 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\InputController), 'calculation')
+#15 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#16 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Route->run()
+#17 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#18 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'sanctum')
+#24 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#30 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#37 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#39 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#40 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#41 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#42 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#48 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#49 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#51 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#54 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#55 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#56 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#57 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#58 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#59 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#60 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#61 C:\\Users\\owner\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#62 {main}
 "} 
