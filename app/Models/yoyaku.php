@@ -42,6 +42,10 @@ class Yoyaku extends Model
             // コース名を取得
             $y->courseName = price::getCourseName($priceId);
 
+            // $yoyakuListに「optionName」を追加
+            // コース名を取得
+            $y->optionName = price::getOptionName($priceId);
+
             // $yoyakuListに「courseShimei」を追加
             // 指名を取得
             $y->courseShimei = price::getCourseShimei($priceId);
@@ -150,8 +154,6 @@ class Yoyaku extends Model
 
     // 延長編集
     public static function yoyakuencho($input,$id){
-
-        log::info($input['yoyakuId']);
         
         $yoyaku = yoyaku::find($input['yoyakuId']);
 
@@ -188,7 +190,7 @@ class Yoyaku extends Model
         
         // course,shimei,waribiki以外でprice_id_listを作成
         foreach($priceid as $p){
-            $courseName = price::find($p);
+            $courseName = price::withTrashed()->find($p);
             if(!$courseName) continue;
             // 編集で入力する項目以外
             if(!($courseName->type == 'course'||$courseName->type == 'shimei'||$courseName->type == 'waribiki')){
@@ -202,7 +204,8 @@ class Yoyaku extends Model
                         'waribikiEx'];
 
         foreach($input_array as $arr){
-            if(isset($input[$arr])){
+            if(!(isset($input[$arr]))) continue;
+            if(is_numeric($input[$arr])){
                 $input_price_id .= 'P'.$input[$arr];
             }
         }
@@ -228,7 +231,7 @@ class Yoyaku extends Model
         
         // option以外でprice_id_listを作成
         foreach($priceid as $p){
-            $courseName = price::find($p);
+            $courseName = price::withTrashed()->find($p);
             if(!$courseName) continue;
             // 編集で入力する項目以外
             if(!($courseName->type == 'option')){
@@ -237,7 +240,9 @@ class Yoyaku extends Model
         }
 
         if(isset($input['optionEx'])){
-            $input_price_id .= 'P'.$input['optionEx'];
+            if(is_numeric($input['optionEx'])){
+                $input_price_id .= 'P'.$input['optionEx'];
+            }
         }
 
         $yoyaku->price_id_list = $input_price_id;

@@ -89,3 +89,8 @@ function ml3() {
         $this.val(v);
     });
 }
+
+// モーダルの表示切り替え
+$(function() {
+    $('.show').modal('show');
+});
