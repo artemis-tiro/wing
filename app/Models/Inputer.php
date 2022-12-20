@@ -21,7 +21,8 @@ class inputer extends Model
         //インサート
         $inputer = new inputer();
         $inputer->id = $id;
-        $inputer->name = $input['name'];
+        $name = isset($input['name'])? $input['name']: '';
+        $inputer->name = $name;
         $result = $inputer->save();
 
         //インサート失敗時

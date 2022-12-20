@@ -9,6 +9,7 @@ use Log;
 use Illuminate\Validation\Rule;
 
 use App\Models\User;
+use App\Models\Inputer;
 
 class TiroController extends Controller{
 
@@ -72,7 +73,12 @@ class TiroController extends Controller{
         if($result['error']) return back()->with(['message' => $result['error']])->withInput();
 
         //team作成
-        $result = user::teamCreate($result['id']);
+        $id = $result['id'];
+        $result = user::teamCreate($id);
+
+        //inputer作成
+        inputer::inputerCreate($request->input(), $id);
+        // if($error) return back()->with(['error' => $error])->withInput();
 
         return back();
     }

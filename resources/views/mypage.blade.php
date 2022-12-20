@@ -129,6 +129,19 @@
                             </label>
                         @endif
 
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $key=>$error)
+                <li>{{ $error }}</li>
+                <li>{{ $key }}</li>
+            @endforeach
+
+
+        </ul>
+    </div>
+                        @endif
+
                         <!-- パスワード -->
                         <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#passwordModal">
                             パスワードを変更
