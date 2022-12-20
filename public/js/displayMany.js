@@ -141,7 +141,7 @@ $(function() {
 });
 
 // modalの値を渡す
-$('#yoyakuOptionModal').on('show.bs.modal', function (event) {
+$('#yoyakuEnchoModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) //モーダルを呼び出すときに使われたボタンを取得
     var recipient = button.data('yoyakuId') //data-whatever の値を取得
   

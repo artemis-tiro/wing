@@ -247,7 +247,7 @@ class InputController extends Controller{
         // 予約コース
         yoyaku::courseNameList($yoyakuList);
 
-        // 予約コース＋調整金
+        // 予約コース総額　＋　調整金
         kyuryo::dailyPriceCul($yoyakuList, $adjustList);
 
         return view ('input_kyuryo', [
@@ -288,14 +288,8 @@ class InputController extends Controller{
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();
 
-
-
-        log::info($request->input());
-
-
-
         // kyuryo作成
-        $kyuryo = kyuryo::kyuryoCreate($request->input(), $miseId, $therapistId, date('Y-m-d H:i:s'));
+        $kyuryo = kyuryo::kyuryoCreate($request->input(), $miseId, $therapistId, date('Y-m-d'));
         if($kyuryo) return back()->with(['error' => $kyuryo])->withInput();
 
         return back();
