@@ -278,13 +278,13 @@ class price extends Model
         }
     }
 
-    // コース名取得
+    // オプション名取得
     public static function getOptionName($priceIdList){
         foreach($priceIdList as $p){
             $courseName = price::withTrashed()->find($p);
             if(!$courseName) continue;
             if($courseName->type == 'option'){
-                return $courseName->name;
+                return $courseName;
             }
         }
     }

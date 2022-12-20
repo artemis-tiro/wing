@@ -130,36 +130,28 @@
                                                     <div class="col-sm-3 text-end">オプション<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                                                     
                                                     @foreach($optionList  as $o)
-                                                        @if($loop->index == 0)
-                                                            <label class="col-sm-3">
-                                                                {{ Form::radio('optionEx', $o->id, false, ['class'=>'form-check-input', 'required']) }}
-                                                                {{ $o->name }}
-                                                            </label>
-                                                            <label class="col-sm-2">
-                                                                <span class="mx-2 badge rounded-pill bg-info">{{ number_format($o->price) }}円</span>
-                                                            </label>
-                                                <!-- 項目縦表示のためここで１つ目のdivをとじる -->
-                                                </div>
-                                                        @else
+                                                        @php $check = $y->optionId == $o->id? true: false; @endphp
+                                                        @if($loop->index != 0)
                                                 <div class="row text-nowrap mb-2 text-end">
                                                             <!-- 項目の場所合わせ -->
                                                             <div class="col-sm-3"></div>
+                                                        @endif
                                                             <label class="col-sm-3">
-                                                                {{ Form::radio('optionEx', $o->id, false, ['class'=>'form-check-input', 'required']) }}
+                                                                {{ Form::radio('optionEx', $o->id, $check, ['class'=>'form-check-input', 'required']) }}
                                                                 {{ $o->name }}
                                                             </label>
                                                             <label class="col-sm-2">
                                                                 <span class="mx-2 badge rounded-pill bg-info">{{ number_format($o->price) }}円</span>
                                                             </label>
                                                 </div>
-                                                        @endif
                                                     @endforeach
                                                 <div class="row text-nowrap mt-2 text-end radio_course">
                                                     <!-- 項目の場所合わせ -->
                                                     <div class="col-sm-3"></div>
 
                                                     <label class="col-sm-3">
-                                                        {{ Form::radio('optionEx', null, true, ['class'=>'form-check-input', 'required']) }}
+                                                    @php $OPnothing = $y->optionId? false: true; @endphp
+                                                        {{ Form::radio('optionEx', null, $OPnothing, ['class'=>'form-check-input', 'required']) }}
                                                         オプション無し
                                                     </label>
                                                     <label class="col-sm-2">
@@ -167,16 +159,7 @@
                                                     </label>
                                                 </div>
 
-                                                <!-- 予約済オプションにチェック -->
-                                                @foreach($yoyakuList  as $y)
-                                                    @foreach($optionList  as $o)
-                                                        @if( $y->optionName === $o->name )
-                                                            <script>
-                                                                yoyakuEditChk('optionEx', {{ $loop->index }});
-                                                            </script>
-                                                        @endif
-                                                    @endforeach
-                                                @endforeach
+                                                
 
                                             </div>
 
@@ -222,7 +205,7 @@
                                                     @foreach($courseList  as $c)
                                                         @if($loop->index == 0)
                                                             <label class="col-sm-3">
-                                                                {{ Form::radio('courseEx', $c->id, false, ['class'=>'form-check-input', 'required']) }}
+                                                                {{ Form::radio('courseEx'.$y->id, $c->id, false, ['class'=>'form-check-input', 'required']) }}
                                                                 {{ $c->name }}
                                                             </label>
                                                             <label class="col-sm-2">
@@ -235,7 +218,7 @@
                                                             <!-- 項目の場所合わせ -->
                                                             <div class="col-sm-3"></div>
                                                             <label class="col-sm-3">
-                                                                {{ Form::radio('courseEx', $c->id, false, ['class'=>'form-check-input', 'required']) }}
+                                                                {{ Form::radio('courseEx'.$y->id, $c->id, false, ['class'=>'form-check-input', 'required']) }}
                                                                 {{ $c->name }}
                                                             </label>
                                                             <label class="col-sm-2">
@@ -252,7 +235,7 @@
                                                     @foreach($shimeiList  as $s)
                                                         @if($loop->index == 0)
                                                             <label class="col-sm-3">
-                                                                {{ Form::radio('shimeiEx', $s->id, false, ['class'=>'form-check-input', 'required']) }}
+                                                                {{ Form::radio('shimeiEx'.$y->id, $s->id, false, ['class'=>'form-check-input', 'required']) }}
                                                                 {{ $s->name }}
                                                             </label>
                                                             <label class="col-sm-2">
@@ -265,7 +248,7 @@
                                                             <!-- 項目の場所合わせ -->
                                                             <div class="col-sm-3"></div>
                                                             <label class="col-sm-3">
-                                                                {{ Form::radio('shimeiEx', $s->id, false, ['class'=>'form-check-input', 'required']) }}
+                                                                {{ Form::radio('shimeiEx'.$y->id, $s->id, false, ['class'=>'form-check-input', 'required']) }}
                                                                 {{ $s->name }}
                                                             </label>
                                                             <label class="col-sm-2">
@@ -282,7 +265,7 @@
                                                     @foreach($waribikiList  as $w)
                                                         @if($loop->index == 0)
                                                             <label class="col-sm-3">
-                                                                {{ Form::radio('waribikiEx', $w->id, false, ['class'=>'form-check-input', 'required']) }}
+                                                                {{ Form::radio('waribikiEx'.$y->id, $w->id, false, ['class'=>'form-check-input', 'required']) }}
                                                                 {{ $w->name }}
                                                             </label>
                                                             <label class="col-sm-2">
@@ -296,7 +279,7 @@
                                                             <!-- 項目の場所合わせ -->
                                                             <div class="col-sm-3"></div>
                                                             <label class="col-sm-3">
-                                                                {{ Form::radio('waribikiEx', $w->id, false, ['class'=>'form-check-input', 'required']) }}
+                                                                {{ Form::radio('waribikiEx'.$y->id, $w->id, false, ['class'=>'form-check-input', 'required']) }}
                                                                 {{ $w->name }}
                                                             </label>
                                                             <label class="col-sm-2">
@@ -310,40 +293,13 @@
                                                     <div class="col-sm-3"></div>
 
                                                     <label class="col-sm-3">
-                                                        {{ Form::radio('waribikiEx', null, true, ['class'=>'form-check-input', 'required']) }}
+                                                        {{ Form::radio('waribikiEx'.$y->id, null, true, ['class'=>'form-check-input', 'required']) }}
                                                         割引無し
                                                     </label>
                                                     <label class="col-sm-2">
                                                         <span class="mx-2 badge rounded-pill bg-danger">0円</span>
                                                     </label>
                                                 </div>
-
-                                                <!-- 予約済コースにチェック -->
-                                                    @foreach($courseList  as $c)
-                                                        @if( $y->courseName === $c->name )
-                                                            <script>
-                                                                yoyakuEditChk('courseEx', {{ $loop->index }});
-                                                            </script>
-                                                        @endif
-                                                    @endforeach
-
-                                                <!-- 予約済指名にチェック -->
-                                                    @foreach($shimeiList  as $s)
-                                                        @if( $y->courseShimei === $s->name )
-                                                            <script>
-                                                                yoyakuEditChk('shimeiEx', {{ $loop->index }});
-                                                            </script>
-                                                        @endif
-                                                    @endforeach
-
-                                                <!-- 予約済割引にチェック -->
-                                                    @foreach($waribikiList  as $w)
-                                                        @if( $y->courseWaribiki === $w->name )
-                                                            <script>
-                                                                yoyakuEditChk('waribikiEx', {{ $loop->index }});
-                                                            </script>
-                                                        @endif
-                                                    @endforeach
                                             </div>
 
                                             <!-- モーダルのフッター -->
@@ -463,6 +419,47 @@
                                 @endforeach
                             </tbody>
                         </table>
+
+
+
+
+                        @foreach($yoyakuList as $y)
+
+
+
+
+                            <!-- 予約済オプションにチェック -->
+                            @foreach($optionList  as $o)
+                                @if( $y->optionName === $o->name )
+                                    <script>yoyakuEditChk('optionEx'.{{ $y->id }}, {{ $loop->index }});</script>
+                                @endif
+                            @endforeach
+
+                            <!-- 予約済コースにチェック -->
+                            @foreach($courseList  as $c)
+                                @if( $y->courseName === $c->name )
+                                    <script>yoyakuEditChk('courseEx'.{{ $y->id }}, {{ $loop->index }});</script>
+                                @endif
+                            @endforeach
+
+                            <!-- 予約済指名にチェック -->
+                            @foreach($shimeiList  as $s)
+                                @if( $y->courseShimei === $s->name )
+                                    <script>yoyakuEditChk('shimeiEx'.{{ $y->id }}, {{ $loop->index }});</script>
+                                @endif
+                            @endforeach
+
+                            <!-- 予約済割引にチェック -->
+                            @foreach($waribikiList  as $w)
+                                @if( $y->courseWaribiki === $w->name )
+                                    <script>yoyakuEditChk('waribikiEx'.{{ $y->id }}, {{ $loop->index }});</script>
+                                @endif
+                            @endforeach
+                        @endforeach
+
+
+
+                        
 
                         @if($getOption->name === 'therapist')
                             @if($optionfind)

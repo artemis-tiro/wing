@@ -44,7 +44,14 @@ class Yoyaku extends Model
 
             // $yoyakuListに「optionName」を追加
             // コース名を取得
-            $y->optionName = price::getOptionName($priceId);
+            $option = price::getOptionName($priceId);
+            if($option){
+                $y->optionName = $option->name;
+                $y->optionId = $option->id;
+            }else{
+                $y->optionName = '';
+                $y->optionId = '';
+            }
 
             // $yoyakuListに「courseShimei」を追加
             // 指名を取得
