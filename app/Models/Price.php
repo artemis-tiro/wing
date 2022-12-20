@@ -206,11 +206,11 @@ class price extends Model
 
     // オプション取得
     public static function optionList($miseId,$backName){
-        $priceList = price::where('mise_id', $miseId)
+        $List = price::where('mise_id', $miseId)
             ->where('back_name', $backName)
             ->where('type', 'option')
             ->get();
-        return $priceList;
+        return $List;
     }
 
     // 自動割引取得
@@ -273,6 +273,17 @@ class price extends Model
             $courseName = price::withTrashed()->find($p);
             if(!$courseName) continue;
             if($courseName->type == 'course'){
+                return $courseName->name;
+            }
+        }
+    }
+
+    // コース名取得
+    public static function getOptionName($priceIdList){
+        foreach($priceIdList as $p){
+            $courseName = price::withTrashed()->find($p);
+            if(!$courseName) continue;
+            if($courseName->type == 'option'){
                 return $courseName->name;
             }
         }
@@ -360,7 +371,7 @@ class price extends Model
         return $totalPrice;
     }
 
-    // オプション取得
+    // オプション選択取得
     public static function getOption($miseId,$backName){
         $priceList = price::withTrashed()
             ->where('mise_id', $miseId)

@@ -53,9 +53,9 @@ class inputer extends Model
         $result = $inputer->save();
 
         //インサート失敗時
-        if(!$result) return '失敗しました。';
+        if(!$result) return false;
 
-        return null;
+        return true;
     }
 
     //  アカウント情報変更(住所)
@@ -67,9 +67,9 @@ class inputer extends Model
         $result = $inputer->save();
 
         //インサート失敗時
-        if(!$result) return '失敗しました。';
+        if(!$result) return false;
 
-        return null;
+        return true;
     }
 
     //  アカウント情報変更(電話番号)
@@ -81,9 +81,9 @@ class inputer extends Model
         $result = $inputer->save();
 
         //インサート失敗時
-        if(!$result) return '失敗しました。';
+        if(!$result) return false;
 
-        return null;
+        return true;
     }
 
     //  アカウント情報変更(メールアドレス)
@@ -95,9 +95,9 @@ class inputer extends Model
         $result = $inputer->save();
 
         //インサート失敗時
-        if(!$result) return '失敗しました。';
+        if(!$result) return false;
 
-        return null;
+        return true;
     }
 
     //  アカウント情報変更(生年月日)
@@ -109,9 +109,9 @@ class inputer extends Model
         $result = $inputer->save();
 
         //インサート失敗時
-        if(!$result) return '失敗しました。';
+        if(!$result) return false;
 
-        return null;
+        return true;
     }
 
     //inputer詳細を追加

@@ -90,8 +90,8 @@
                                         @endif
                                         
                                     </td>
-                                    <td><a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#yoyakuOptionModal" data-yoyakuId="{{ $y->id }}">オプション</a></td>
-                                    <td><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#yoyakuEditModal" data-yoyakuId="{{ $y->id  }}">編集</a></td>
+                                    <td><a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#yoyakuOptionModal{{ $y->id }}">オプション</a></td>
+                                    <td><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#yoyakuEditModal{{ $y->id }}">編集</a></td>
                                     <td>
                                         @component('componets.modal')
                                             @slot('type', 'del')
@@ -101,20 +101,20 @@
                                             @slot('url', url('/i/'.$mise->id.'/'.$therapist->id.'/'.$y->id.'/del'))
                                         @endcomponent
                                     </td>
-                                    <td><a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#yoyakuEnchoModal" data-yoyakuId="{{ $y->id  }}">延長</a></td>
+                                    <td><a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#yoyakuEnchoModal{{ $y->id }}">延長</a></td>
                                 </tr>
 
 
                                 <!-- モーダル設定 -->
                                 <!-- オプションボタン -->
-                                <div class="modal fade" id="yoyakuOptionModal" tabindex="-1" aria-labelledby="yoyakuOptionModal" data-bs-backdrop="static">
+                                <div class="modal fade" id="yoyakuOptionModal{{ $y->id }}" tabindex="-1" aria-labelledby="yoyakuOptionModal{{ $y->id }}" data-bs-backdrop="static">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             
                                             <!-- モーダルのヘッダー -->
                                             <div class="modal-header">
                                                 <!-- モーダルタイトル -->
-                                                <h1 class="modal-title h4" id="yoyakuOptionModalLabel">オプション選択</h1>
+                                                <h1 class="modal-title h4" id="yoyakuOptionModal{{ $y->id }}Label">オプション選択</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
                                             </div>
 
@@ -170,7 +170,7 @@
                                                 <!-- 予約済オプションにチェック -->
                                                 @foreach($yoyakuList  as $y)
                                                     @foreach($optionList  as $o)
-                                                        @if( $y->courseName === $o->name )
+                                                        @if( $y->optionName === $o->name )
                                                             <script>
                                                                 yoyakuEditChk('optionEx', {{ $loop->index }});
                                                             </script>
@@ -197,14 +197,14 @@
                                 </div>
 
                                 <!-- 編集ボタン -->
-                                <div class="modal fade" id="yoyakuEditModal" tabindex="-1" aria-labelledby="yoyakuEditModal" data-bs-backdrop="static">
+                                <div class="modal fade" id="yoyakuEditModal{{ $y->id }}" tabindex="-1" aria-labelledby="yoyakuEditModal{{ $y->id }}" data-bs-backdrop="static">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             
                                             <!-- モーダルのヘッダー -->
                                             <div class="modal-header">
                                                 <!-- モーダルタイトル -->
-                                                <h1 class="modal-title h4" id="yoyakuEditModalLabel">予約編集</h1>
+                                                <h1 class="modal-title h4" id="yoyakuEditModal{{ $y->id }}Label">予約編集</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
                                             </div>
 
@@ -363,14 +363,14 @@
                                 </div>
 
                                 <!-- 延長ボタン -->
-                                <div class="modal fade" id="yoyakuEnchoModal" tabindex="-1" aria-labelledby="yoyakuEnchoModal" data-bs-backdrop="static">
+                                <div class="modal fade" id="yoyakuEnchoModal{{ $y->id }}" tabindex="-1" aria-labelledby="yoyakuEnchoModal{{ $y->id }}" data-bs-backdrop="static">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             
                                             <!-- モーダルのヘッダー -->
                                             <div class="modal-header">
                                                 <!-- モーダルタイトル -->
-                                                <h1 class="modal-title h4" id="yoyakuEnchoModalLabel">延長・オプション入力</h1>
+                                                <h1 class="modal-title h4" id="yoyakuEnchoModal{{ $y->id }}Label">延長・オプション入力</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
                                             </div>
 

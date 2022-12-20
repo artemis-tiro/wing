@@ -102,13 +102,13 @@
                           </a>
                         </li>
 
-                        {{--localhostでのみ表示--}}
+                        <!-- {{--localhostでのみ表示--}}
                         @if(strpos(url()->current(),'localhost'))
                         <li class="nav-item" style="margin: 20px auto 0;">
                           本日の作業時間<br>
                           {!!nl2br(App\Http\Controllers\TopController::work('line'))!!}
                         </li>
-                        @endif
+                        @endif -->
 
                       </ul>
                   </div>

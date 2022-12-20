@@ -63,9 +63,9 @@ class client extends Model
         $result = $client->save();
 
         //インサート失敗時
-        if(!$result) return '失敗しました。';
+        if(!$result) return false;
 
-        return null;
+        return true;
     }
 
     //  アカウント情報変更(住所)
@@ -76,9 +76,9 @@ class client extends Model
         $result = $client->save();
 
         //インサート失敗時
-        if(!$result) return '失敗しました。';
+        if(!$result) return false;
 
-        return null;
+        return true;
     }
 
     //  アカウント情報変更(電話番号)
@@ -89,9 +89,9 @@ class client extends Model
         $result = $client->save();
 
         //インサート失敗時
-        if(!$result) return '失敗しました。';
+        if(!$result) return false;
 
-        return null;
+        return true;
     }
 
     //  アカウント情報変更(メールアドレス)
@@ -102,9 +102,9 @@ class client extends Model
         $result = $client->save();
 
         //インサート失敗時
-        if(!$result) return '失敗しました。';
+        if(!$result) return false;
 
-        return null;
+        return true;
     }
 
     //  アカウント情報変更(生年月日)
@@ -115,9 +115,9 @@ class client extends Model
         $result = $client->save();
 
         //インサート失敗時
-        if(!$result) return '失敗しました。';
+        if(!$result) return false;
 
-        return null;
+        return true;
     }
 
     // therapist名取得

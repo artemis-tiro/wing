@@ -11,6 +11,14 @@
                 <!-- タイトル -->
                 <h1 class="h2">マイページ</h1>
 
+
+
+                
+                @include('common.success')
+
+
+
+
                 <!-- 売上 -->
                 <div class="card my-4 col-12 col-xl-10 mb-lg-0">
                     <!-- カードのタイトル -->
@@ -136,7 +144,11 @@
 
                         <!-- モーダルの設定 -->
                         <!-- 名前 -->
+                        @if($errors->has('kana') || $errors->has('name'))
+                        <div class="modal show" id="nameModal" tabindex="-1" aria-labelledby="nameModalLabel" data-bs-backdrop="static">
+                        @else
                         <div class="modal fade" id="nameModal" tabindex="-1" aria-labelledby="nameModalLabel" data-bs-backdrop="static">
+                        @endif
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     
@@ -203,7 +215,11 @@
                         </div>
 
                         <!-- 住所 -->
+                        @if ($errors->has('address'))
+                        <div class="modal show" id="addressModal" tabindex="-1" aria-labelledby="addressModalLabel" data-bs-backdrop="static">
+                        @else
                         <div class="modal fade" id="addressModal" tabindex="-1" aria-labelledby="addressModalLabel" data-bs-backdrop="static">
+                        @endif
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     
@@ -256,7 +272,11 @@
                         </div>
 
                         <!-- 電話番号 -->
+                        @if ($errors->has('tel'))
+                        <div class="modal show" id="telModal" tabindex="-1" aria-labelledby="telModalLabel" data-bs-backdrop="static">
+                        @else
                         <div class="modal fade" id="telModal" tabindex="-1" aria-labelledby="telModalLabel" data-bs-backdrop="static">
+                        @endif
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     
@@ -309,7 +329,11 @@
                         </div>
 
                         <!-- メールアドレス -->
+                        @if ($errors->has('mail'))
+                        <div class="modal show" id="mailModal" tabindex="-1" aria-labelledby="mailModalLabel" data-bs-backdrop="static">
+                        @else
                         <div class="modal fade" id="mailModal" tabindex="-1" aria-labelledby="mailModalLabel" data-bs-backdrop="static">
+                        @endif
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     
@@ -362,7 +386,11 @@
                         </div>
 
                         <!-- 生年月日 -->
+                        @if ($errors->has('birthday'))
+                        <div class="modal show" id="birthdayModal" tabindex="-1" aria-labelledby="birthdayModalLabel" data-bs-backdrop="static">
+                        @else
                         <div class="modal fade" id="birthdayModal" tabindex="-1" aria-labelledby="birthdayModalLabel" data-bs-backdrop="static">
+                        @endif
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     
@@ -412,7 +440,11 @@
 
                         <!-- セラピストのみ表示 -->
                         <!-- 営業プロフィール -->
+                        @if ($errors->has('age') || $errors->has('3size') || $errors->has('cup') || $errors->has('line'))
+                        <div class="modal show" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" data-bs-backdrop="static">
+                        @else
                         <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" data-bs-backdrop="static">
+                        @endif
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     
@@ -510,7 +542,11 @@
                         </div>
 
                         <!-- パスワード -->
+                        @if ($errors->has('newpassword'))
+                        <div class="modal show" id="passwordModal" tabindex="-1" aria-labelledby="passwordModalLabel" data-bs-backdrop="static">
+                        @else
                         <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="passwordModalLabel" data-bs-backdrop="static">
+                        @endif
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     
