@@ -35,6 +35,7 @@ Route::any('/log/line', "App\Http\Controllers\TopController@line");
 
 // Luna
 Route::any('/luna', "App\Http\Controllers\LunaController@top");
+Route::any('/twitter', "App\Http\Controllers\TwitterController@index");
 
 //mypage
 Route::middleware(['auth:sanctum', 'verified'])->any('/mypage', "App\Http\Controllers\MypageController@mypage");

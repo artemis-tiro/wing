@@ -37,7 +37,6 @@ $('.add_input').click(function() {
 $(function() {
     canma();
     ml3();
-    $('.show').modal('show');
 });
 
 function canma() {
