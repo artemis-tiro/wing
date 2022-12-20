@@ -208,9 +208,9 @@
                                 
                                 <!-- オプション -->
                                 @if(isset($y->optionPrice->price))
-                                    <span>オプション    無し</span>
-                                @else
                                     <span>オプション    {{ $y->optionPrice->price }}円</span>
+                                @else
+                                    <span>オプション    無し</span>
                                 @endif
                                 
                                 <!-- バック -->
@@ -224,9 +224,9 @@
                                 
                                 <!-- オプション -->
                                 @if(isset($y->optionPrice->back))
-                                    <span>オプション    無し</span>
-                                @else
                                     <span>オプション    {{ $y->optionPrice->back }}円</span>
+                                @else
+                                    <span>オプション    無し</span>
                                 @endif
 
                                 <br>

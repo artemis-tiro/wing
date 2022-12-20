@@ -151,7 +151,7 @@ class Yoyaku extends Model
     // 延長編集
     public static function yoyakuencho($input,$id){
 
-        log::info($id);
+        log::info($input['yoyakuId']);
         
         $yoyaku = yoyaku::find($input['yoyakuId']);
 

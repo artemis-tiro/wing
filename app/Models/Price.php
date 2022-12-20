@@ -270,7 +270,7 @@ class price extends Model
     // コース名取得
     public static function getCourseName($priceIdList){
         foreach($priceIdList as $p){
-            $courseName = price::find($p);
+            $courseName = price::withTrashed()->find($p);
             if(!$courseName) continue;
             if($courseName->type == 'course'){
                 return $courseName->name;
@@ -281,7 +281,7 @@ class price extends Model
     // 指名取得
     public static function getCourseShimei($priceIdList){
         foreach($priceIdList as $p){
-            $courseName = price::find($p);
+            $courseName = price::withTrashed()->find($p);
             if(!$courseName) continue;
             if($courseName->type == 'shimei'){
                 return $courseName->name;
@@ -292,7 +292,7 @@ class price extends Model
     // 割引取得
     public static function getCourseWaribiki($priceIdList){
         foreach($priceIdList as $p){
-            $courseWaribki = price::find($p);
+            $courseWaribki = price::withTrashed()->find($p);
             if(!$courseWaribki) continue;
             if($courseWaribki->type == 'waribiki'){
                 return $courseWaribki->name;
@@ -303,7 +303,7 @@ class price extends Model
     // コース時間取得
     public static function getCoursetime($priceIdList){
         foreach($priceIdList as $p){
-            $courseName = price::find($p);
+            $courseName = price::withTrashed()->find($p);
             if(!$courseName) continue;
             if($courseName->type == 'course'){
                 return $courseName->time;
@@ -314,7 +314,7 @@ class price extends Model
     // コース金額取得
     public static function getCoursePrice($priceIdList){
         foreach($priceIdList as $p){
-            $getCourse = price::find($p);
+            $getCourse = price::withTrashed()->find($p);
             if(!$getCourse) continue;
             if($getCourse->type == 'course'){
                 return $getCourse;
@@ -325,7 +325,7 @@ class price extends Model
     // 指名金額取得
     public static function getShimeiPrice($priceIdList){
         foreach($priceIdList as $p){
-            $getShimei = price::find($p);
+            $getShimei = price::withTrashed()->find($p);
             if(!$getShimei) continue;
             if($getShimei->type == 'shimei'){
                 return $getShimei;
@@ -336,7 +336,7 @@ class price extends Model
     // オプション金額取得
     public static function getOptionPrice($priceIdList){
         foreach($priceIdList as $p){
-            $getOption = price::find($p);
+            $getOption = price::withTrashed()->find($p);
             if(!$getOption) continue;
             if($getOption->type == 'option'){
                 return $getOption;
@@ -351,7 +351,7 @@ class price extends Model
 
         foreach($priceIdList as $p){
             
-            $coursePrice = price::find($p);
+            $coursePrice = price::withTrashed()->find($p);
 
             if($coursePrice){
                 $totalPrice += $coursePrice->price;
@@ -362,7 +362,8 @@ class price extends Model
 
     // オプション取得
     public static function getOption($miseId,$backName){
-        $priceList = price::where('mise_id', $miseId)
+        $priceList = price::withTrashed()
+            ->where('mise_id', $miseId)
             ->where('back_name', $backName)
             ->where('type', 'optionGet')
             ->first();
@@ -371,7 +372,8 @@ class price extends Model
 
     // リピーターのみ取得
     public static function getRepeater($miseId,$backName){
-        $priceList = price::where('mise_id', $miseId)
+        $priceList = price::withTrashed()
+            ->where('mise_id', $miseId)
             ->where('back_name', $backName)
             ->where('name', 'リピーター')
             ->first();
