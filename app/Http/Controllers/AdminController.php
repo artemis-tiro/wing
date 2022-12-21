@@ -162,8 +162,6 @@ class AdminController extends Controller{
        ]);
     }
 
-
-
     //client新規作成
     public function newClient(Request $request){
         //権限チェック
@@ -233,7 +231,6 @@ class AdminController extends Controller{
 
         return back()->with(['mes1' => $mes]);
     }
-
 
     //パスワードリセット
     public function passReset(Request $request){

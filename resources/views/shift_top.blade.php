@@ -5,29 +5,84 @@
 @include('common.pan')
 
 @section('pan2')
-<li class="breadcrumb-item active" aria-current="page">シフト入力店舗一覧</li>
+<li class="breadcrumb-item active" aria-current="page">シフト入力クライアント一覧</li>
 @stop
 
 @section('content')
+<?php 
+    $teamName = App\Models\user::teamName(auth()->user()->team);
+?>
 
-                <h1 class="h2">シフト入力店舗一覧</h1>
+                <h1 class="h2">クライアント一覧</h1>
 
+                <!-- クライアント一覧 -->
                 <div class="card my-4">
                     <!-- カードのタイトル -->
-                    <h2 class="card-header h5">シフトを入力する店舗を選択してください。</h2>
+                    <h2 class="card-header h5">一覧</h2>
                     <!-- カードの要素 -->
                     <div class="card-body table-responsive text-nowrap">
 
 
 
 
+                        {{--
+                        @component('componets.message')
+                            @slot('type', 'info')
+                            @slot('mes', $mes1)
+                        @endcomponent
+                        --}}
 
 
 
 
+                        <!-- テーブル -->
+                        <table class="table table-hover">
+                            <thead>
+                                <!-- カテゴリ -->
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">代表者名</th>
+                                    <th scope="col">店舗数</th>
+                                    <th scope="col">メイン店舗</th>
+                                    <!-- <th scope="col">状態</th> -->
+                                    <!-- <th scope="col"></th>
+                                    <th scope="col"></th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($clientList as $c)
+                                    <?php 
+                                        $level = $c->access_level=='admin'?'管理者':'メンバー'; 
+                                        $active = $c->active?'アクティブ':'停止中'; 
+                                        $action = $c->active?'stop':'go'; 
+                                        $actionComment = $c->active?'停止':'再開'; 
+                                    ?>
+
+                                    <tr class="account_{{ $action }}">
+                                        <th>{{ $loop->index+1 }}</th>
+                                        <td>{{ $c->name }}</td>
+                                        <td><a href="{{ url('/shift/'.$clientId) }}">{{ $c->client->name }}</a></td>
+                                        <td>{{ $c->miseCountActive }}</td>
+                                        <td>{{ $c->miseMain }}</td>
+                                        <!-- <td>{{ $active }}</td> -->
+                                        <!-- <td><a class="btn btn-sm btn-info" href="{{ url('/admin/editclient') }}/{{ $c->id }}/{{ $action }}">{{ $actionComment }}</a></td>
+                                        <td>
+                                            @if($c->miseCount==0)
+                                                @component('componets.modal')
+                                                    @slot('type', 'del')
+                                                    @slot('name', $c->client->name)
+                                                    @slot('id', $c->client->name.$loop->index)
+                                                    @slot('text', $c->client->name."は店舗の登録がないので削除できます。")
+                                                    @slot('url', url('/admin/editclient').'/'.$c->id.'/del')
+                                                @endcomponent
+                                            @endif
+                                        </td> -->
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-
-
 
 @stop

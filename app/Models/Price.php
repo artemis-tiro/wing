@@ -270,10 +270,10 @@ class price extends Model
     // コース名取得
     public static function getCourseName($priceIdList){
         foreach($priceIdList as $p){
-            $courseName = price::withTrashed()->find($p);
-            if(!$courseName) continue;
-            if($courseName->type == 'course'){
-                return $courseName->name;
+            $course = price::withTrashed()->find($p);
+            if(!$course) continue;
+            if($course->type == 'course'){
+                return $course;
             }
         }
     }
@@ -281,10 +281,10 @@ class price extends Model
     // オプション名取得
     public static function getOptionName($priceIdList){
         foreach($priceIdList as $p){
-            $courseName = price::withTrashed()->find($p);
-            if(!$courseName) continue;
-            if($courseName->type == 'option'){
-                return $courseName;
+            $option = price::withTrashed()->find($p);
+            if(!$option) continue;
+            if($option->type == 'option'){
+                return $option;
             }
         }
     }
@@ -292,10 +292,10 @@ class price extends Model
     // 指名取得
     public static function getCourseShimei($priceIdList){
         foreach($priceIdList as $p){
-            $courseName = price::withTrashed()->find($p);
-            if(!$courseName) continue;
-            if($courseName->type == 'shimei'){
-                return $courseName->name;
+            $shimei = price::withTrashed()->find($p);
+            if(!$shimei) continue;
+            if($shimei->type == 'shimei'){
+                return $shimei;
             }
         }
     }
@@ -303,10 +303,10 @@ class price extends Model
     // 割引取得
     public static function getCourseWaribiki($priceIdList){
         foreach($priceIdList as $p){
-            $courseWaribki = price::withTrashed()->find($p);
-            if(!$courseWaribki) continue;
-            if($courseWaribki->type == 'waribiki'){
-                return $courseWaribki->name;
+            $waribiki = price::withTrashed()->find($p);
+            if(!$waribiki) continue;
+            if($waribiki->type == 'waribiki'){
+                return $waribiki;
             }
         }
     }

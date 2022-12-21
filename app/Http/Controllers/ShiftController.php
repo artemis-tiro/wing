@@ -41,12 +41,38 @@ class ShiftController extends Controller{
         //権限チェック
         if($ng = $this->levelCheck()) return $ng;
 
-        // 店舗一覧
-        // (Auth::user()->access_levelがclientなら自分のmise
-        // (Auth::user()->access_levelがtiroかadminなら全mise
+        // クライアント一覧
+        $clientList = user::clientList(Auth::user()->team);
+        client::addDetail($clientList);
 
         return view ('shift_top', [
+            'clientList' => $clientList,
+            'error' => session('error'),
             '' => '',
+       ]);
+    }
+
+    public function miselist(){
+
+        //権限チェック
+        if($ng = $this->levelCheck($id)) return $ng;
+
+        //client詳細
+        $client = client::detail($id);
+
+        //マイmise一覧
+        $myMiseList = mise::myMiseList($id);
+
+        //room情報添付
+        room::addDetail($myMiseList);
+
+        //therapist情報添付
+        therapist::addDetail($myMiseList);
+
+        return view ('shift_mise', [
+            'client' => $client,
+            'myMiseList' => $myMiseList,
+            'mes1' => session('mes1'),
        ]);
     }
 
