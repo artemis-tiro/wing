@@ -254,7 +254,6 @@ class ClientController extends Controller{
         return back()->with(['mes1' => $mes]);
     }
 
-
     //料金システム
     public function price($clientId, $miseId, $backName){
         //権限チェック
@@ -493,6 +492,5 @@ class ClientController extends Controller{
 
         return back()->with(['mes7' => '店舗情報を編集しました。']);
     }
-
 
 }

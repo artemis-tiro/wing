@@ -40,19 +40,47 @@ class Yoyaku extends Model
 
             // $yoyakuListに「courseName」を追加
             // コース名を取得
-            $y->courseName = price::getCourseName($priceId);
+            $name = price::getCourseName($priceId);
+            if($name){
+                $y->courseName = $name->name;
+                $y->courseId = $name->id;
+            }else{
+                $y->courseName = '';
+                $y->courseId = '';
+            }
 
             // $yoyakuListに「optionName」を追加
             // コース名を取得
-            $y->optionName = price::getOptionName($priceId);
+            $option = price::getOptionName($priceId);
+            if($option){
+                $y->optionName = $option->name;
+                $y->optionId = $option->id;
+            }else{
+                $y->optionName = '';
+                $y->optionId = '';
+            }
 
             // $yoyakuListに「courseShimei」を追加
             // 指名を取得
-            $y->courseShimei = price::getCourseShimei($priceId);
+            $shimei = price::getCourseShimei($priceId);
+            if($shimei){
+                $y->courseShimei = $shimei->name;
+                $y->shimeiId = $shimei->id;
+            }else{
+                $y->courseShimei = '';
+                $y->shimeiId = '';
+            }
 
             // $yoyakuListに「courseWaribiki」を追加
             // 割引を取得
-            $y->courseWaribiki = price::getCourseWaribiki($priceId);
+            $waribiki = price::getCourseWaribiki($priceId);
+            if($waribiki){
+                $y->WaribikiName = $waribiki->name;
+                $y->WaribikiId = $waribiki->id;
+            }else{
+                $y->WaribikiName = '';
+                $y->WaribikiId = '';
+            }
 
             // $yoyakuListに「coursePrice」を追加
             // コース金額を取得
@@ -233,7 +261,6 @@ class Yoyaku extends Model
         foreach($priceid as $p){
             $courseName = price::withTrashed()->find($p);
             if(!$courseName) continue;
-            // 編集で入力する項目以外
             if(!($courseName->type == 'option')){
                 $input_price_id .= 'P'.$p;
             }
@@ -246,6 +273,7 @@ class Yoyaku extends Model
         }
 
         $yoyaku->price_id_list = $input_price_id;
+        $yoyaku->option = 1;
         $result = $yoyaku->save();
 
         //インサート失敗時
@@ -259,17 +287,15 @@ class Yoyaku extends Model
         
         // 予約にオプションがない場合true
         foreach($yoyakuList as $y){
-            $priceList = $y->price_id_list;
-            $priceId = explode('P', $priceList);
 
-            foreach($priceId as $p){
-                $courseName = price::find($p);
-                if(!$courseName) continue;
-                if($courseName->type == 'option'){
-                    return true;
-                };
+            $yoyakuId = $y->id;
+
+            $yoyaku = yoyaku::withTrashed()->find($yoyakuId);
+
+            if($yoyaku->option === null){
+                return false;
             }
         }
-        return false;
+        return true;
     }
 }
