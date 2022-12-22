@@ -255,7 +255,12 @@ class price extends Model
             ->where('back_name', $backName)
             ->where('type', 'encho')
             ->get();
-        return $enchoList;
+
+        if($enchoList -> count() != 0 ){
+            return $enchoList;
+        }
+        
+        return false;
     }
 
     // コースが存在するか

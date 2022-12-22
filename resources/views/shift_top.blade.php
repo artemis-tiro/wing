@@ -45,9 +45,7 @@
                                     <th scope="col">代表者名</th>
                                     <th scope="col">店舗数</th>
                                     <th scope="col">メイン店舗</th>
-                                    <!-- <th scope="col">状態</th> -->
-                                    <!-- <th scope="col"></th>
-                                    <th scope="col"></th> -->
+                                    <th scope="col">状態</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,22 +60,10 @@
                                     <tr class="account_{{ $action }}">
                                         <th>{{ $loop->index+1 }}</th>
                                         <td>{{ $c->name }}</td>
-                                        <td><a href="{{ url('/shift/'.$clientId) }}">{{ $c->client->name }}</a></td>
+                                        <td><a href="{{ url('/shift/'.$c->id) }}">{{ $c->client->name }}</a></td>
                                         <td>{{ $c->miseCountActive }}</td>
                                         <td>{{ $c->miseMain }}</td>
-                                        <!-- <td>{{ $active }}</td> -->
-                                        <!-- <td><a class="btn btn-sm btn-info" href="{{ url('/admin/editclient') }}/{{ $c->id }}/{{ $action }}">{{ $actionComment }}</a></td>
-                                        <td>
-                                            @if($c->miseCount==0)
-                                                @component('componets.modal')
-                                                    @slot('type', 'del')
-                                                    @slot('name', $c->client->name)
-                                                    @slot('id', $c->client->name.$loop->index)
-                                                    @slot('text', $c->client->name."は店舗の登録がないので削除できます。")
-                                                    @slot('url', url('/admin/editclient').'/'.$c->id.'/del')
-                                                @endcomponent
-                                            @endif
-                                        </td> -->
+                                        <td>{{ $active }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

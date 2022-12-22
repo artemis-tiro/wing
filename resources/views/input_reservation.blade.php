@@ -101,9 +101,7 @@
                                             @slot('url', url('/i/'.$mise->id.'/'.$therapist->id.'/'.$y->id.'/del'))
                                         @endcomponent
                                     </td>
-                                    @if($enchoList === [])
-                                    <td><a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#yoyakuEnchoModal{{ $y->id }}" disabled>延長</a></td>
-                                    @else
+                                    @if($enchoList)
                                     <td><a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#yoyakuEnchoModal{{ $y->id }}">延長</a></td>
                                     @endif
                                 </tr>
@@ -320,26 +318,28 @@
                                                 <div class="row text-nowrap text-end">
                                                     <div class="col-sm-3 text-end">延長<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
                                                     
-                                                    @foreach($enchoList  as $e)
-                                                        @if($loop->index != 0)
-                                                    <div class="row text-nowrap mt-2 text-end radio_course">
-                                                            <!-- 項目の場所合わせ -->
-                                                            <div class="col-sm-3"></div>
-                                                        @endif
-                                                
-                                                            <label class="col-sm-3">
-                                                                {{ Form::radio('courseEx', $e->id, false, ['class'=>'form-check-input', 'required']) }}
-                                                                {{ $e->name }}
-                                                            </label>
-                                                            <label class="col-sm-2">
-                                                                <span class="mx-2 badge rounded-pill bg-info">{{ number_format($e->price) }}円</span>
-                                                            </label>
-                                                            ×
-                                                            <div class="col-sm-2">
-                                                                {{ Form::number('courseExCnt'.$e->id, null, ['class'=>'form-control', 'autocomplete'=>'off']) }}
-                                                            </div>
+                                                    @if($enchoList)
+                                                        @foreach($enchoList  as $e)
+                                                            @if($loop->index != 0)
+                                                <div class="row text-nowrap mt-2 text-end radio_course">
+                                                                <!-- 項目の場所合わせ -->
+                                                                <div class="col-sm-3"></div>
+                                                            @endif
+                                                    
+                                                                <label class="col-sm-3">
+                                                                    {{ Form::radio('courseEx', $e->id, false, ['class'=>'form-check-input', 'required']) }}
+                                                                    {{ $e->name }}
+                                                                </label>
+                                                                <label class="col-sm-2">
+                                                                    <span class="mx-2 badge rounded-pill bg-info">{{ number_format($e->price) }}円</span>
+                                                                </label>
+                                                                ×
+                                                                <div class="col-sm-2">
+                                                                    {{ Form::number('courseExCnt'.$e->id, null, ['class'=>'form-control', 'autocomplete'=>'off']) }}
+                                                                </div>
                                                 </div>
-                                                    @endforeach
+                                                        @endforeach
+                                                    @endif
                                                 <div class="row text-nowrap mt-2 text-end radio_course">
                                                     <!-- 項目の場所合わせ -->
                                                     <div class="col-sm-3"></div>

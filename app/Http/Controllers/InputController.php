@@ -130,7 +130,7 @@ class InputController extends Controller{
         $enchoList = price::enchoList($miseId,$therapist->back_name);
 
 
-        log::info($enchoList);
+        log::info($waribikiList);
 
         if($request->input('telsearch')){
             $kokyakuData = $telsearch;

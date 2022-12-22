@@ -13,6 +13,7 @@ use App\Models\User;
 use App\Models\Inputer;
 use App\Models\Client;
 use App\Models\Mise;
+use App\Models\Room;
 use App\Models\Therapist;
 use App\Models\Yoyaku;
 use App\Models\Kokyaku;
@@ -22,20 +23,34 @@ use App\Models\Kyuryo;
 class ShiftController extends Controller{
 
     //権限チェック
-    public function levelCheck($miseId=null){
-        Log::channel('daily')->info('');
-        //権限チェック
+    public function levelCheck($id=null){
+        
+        // 権限チェック
         if(!in_array(Auth::user()->access_level, [
             //アクセスできる権限
             "tiro",
             "admin",
-            "client",
+            "inputer",
+            "therapist"
         ])) return redirect('/');
+
+        // 他teamのデータ参照
+        if($id && !user::teamCheck($id, Auth::user()->team)) return redirect('/');
+
+        // アクティブではない
+        if(!Auth::user()->active){
+            return view ('error', ['mess'=>'アカウントが停止されています。']);
+        }
+
+        // teamがアクティブではない
+        if(!user::teamActiveCheck(Auth::user()->team)){
+            return view ('error', ['mess'=>'teamが停止されています。']);
+        }
 
         return null;
     }
 
-    // 店舗一覧
+    // クライアント一覧
     public function top(){
 
         //権限チェック
@@ -48,31 +63,25 @@ class ShiftController extends Controller{
         return view ('shift_top', [
             'clientList' => $clientList,
             'error' => session('error'),
-            '' => '',
        ]);
     }
 
-    public function miselist(){
+    // 店舗一覧
+    public function miselist($id){
 
-        //権限チェック
-        if($ng = $this->levelCheck($id)) return $ng;
+        //　権限チェック
+        if($ng = $this->levelCheck()) return $ng;
 
-        //client詳細
+        // クライアント詳細
         $client = client::detail($id);
 
-        //マイmise一覧
+        // マイ店舗一覧
         $myMiseList = mise::myMiseList($id);
-
-        //room情報添付
-        room::addDetail($myMiseList);
-
-        //therapist情報添付
-        therapist::addDetail($myMiseList);
 
         return view ('shift_mise', [
             'client' => $client,
             'myMiseList' => $myMiseList,
-            'mes1' => session('mes1'),
+            'error' => session('error'),
        ]);
     }
 
@@ -90,6 +99,4 @@ class ShiftController extends Controller{
             '' => '',
        ]);
     }
-
-
 }
