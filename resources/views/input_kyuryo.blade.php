@@ -8,8 +8,6 @@
 <li class="breadcrumb-item"><a href="{{ url("/i/".$mise->id) }}">{{ $mise->name }}</a></li>
 <li class="breadcrumb-item"><a href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/') }}">{{ $therapist->business_name }} さん</a></li>
 <li class="breadcrumb-item active">給与計算</li>
-
-<li class="breadcrumb-item active"></li>
 @stop
 
 @section('content')

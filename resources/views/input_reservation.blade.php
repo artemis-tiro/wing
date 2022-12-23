@@ -335,7 +335,7 @@
                                                                 </label>
                                                                 ×
                                                                 <div class="col-sm-2">
-                                                                    {{ Form::number('courseExCnt'.$e->id, null, ['class'=>'form-control', 'autocomplete'=>'off']) }}
+                                                                    {{ Form::number('courseExCnt'.$e->id, null, ['class'=>'form-control', "placeholder"=>"1", 'autocomplete'=>'off']) }}
                                                                 </div>
                                                 </div>
                                                         @endforeach
