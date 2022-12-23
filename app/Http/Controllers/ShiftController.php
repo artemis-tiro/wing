@@ -69,14 +69,20 @@ class ShiftController extends Controller{
     // 店舗一覧
     public function miselist($id){
 
-        //　権限チェック
-        if($ng = $this->levelCheck()) return $ng;
+        // 権限チェック
+        if($ng = $this->levelCheck($id)) return $ng;
 
-        // クライアント詳細
+        // client詳細
         $client = client::detail($id);
 
-        // マイ店舗一覧
+        // マイmise一覧
         $myMiseList = mise::myMiseList($id);
+
+        // room情報添付
+        room::addDetail($myMiseList);
+
+        // therapist情報添付
+        therapist::addDetail($myMiseList);
 
         return view ('shift_mise', [
             'client' => $client,
@@ -86,17 +92,25 @@ class ShiftController extends Controller{
     }
 
     // シフト入力
-    public function shift($miseId){
+    public function shift($clientId, $miseId){
 
-        //権限チェック
-        if($ng = $this->levelCheck($miseId)) return $ng;
+        // 権限チェック
+        if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
 
-        // 店舗一覧
-        // (Auth::user()->access_levelがclientなら自分のmise
-        // (Auth::user()->access_levelがtiroかadminなら全mise
+        // client情報
+        $client = client::detail($clientId);
 
-        return view ('', [
-            '' => '',
+        // mise情報
+        $mise = mise::detail($miseId);
+
+        // therapistリスト
+        $therapistList = therapist::List($miseId);
+
+        return view ('shift_input', [
+            'mise' => $mise,
+            'client' => $client,
+            'therapistList' => $therapistList,
+            'error' => session('error'),
        ]);
     }
 }

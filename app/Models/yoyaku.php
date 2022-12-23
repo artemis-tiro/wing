@@ -185,7 +185,8 @@ class Yoyaku extends Model
         
         $yoyaku = yoyaku::find($input['yoyakuId']);
 
-        $count = 0;
+        // 空白でも1にする
+        $count = 1;
         $inputId = null;
 
         if($input['courseExCnt'.$input['courseEx']]){
