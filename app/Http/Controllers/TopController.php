@@ -119,7 +119,7 @@ class TopController extends Controller{
                         if($flag) $t .= $d; 
                     }
                     $count--;
-                    if(!$count) brake;
+                    if(!$count) break;
                 }
             }
             return $t;

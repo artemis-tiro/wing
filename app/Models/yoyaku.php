@@ -102,6 +102,22 @@ class Yoyaku extends Model
             // コース時間を取得
             $y->courseTime =  price::getCourseTime($priceId);
         }
+
+        foreach($yoyakuList as $y){
+            $encho = $y->encho_id_list;
+            $priceId = explode('P', $encho);
+
+            // $yoyakuListに「encho」を追加
+            // 延長名を取得
+            $encho = price::getencho($priceId);
+            if($encho){
+                $y->enchoName = $encho->name;
+                $y->enchoId = $encho->id;
+            }else{
+                $y->enchoName = '';
+                $y->enchoId = '';
+            }
+        }
         return null;
     }
 
@@ -147,6 +163,13 @@ class Yoyaku extends Model
         $yoyaku->inputer_id = Auth::user()->id;
         
         $yoyaku->price_id_list = $input_price_id;
+
+        if(price::getOption($miseId,$therapist->back_name) != "therapist"){
+            $yoyaku->option = 1;  
+        }
+
+
+
         $yoyaku->encho_id_list = null;
 
         $yoyaku->visit_day = $input['start_day'].' '.$input['start_time'];

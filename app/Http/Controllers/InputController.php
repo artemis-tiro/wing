@@ -129,9 +129,6 @@ class InputController extends Controller{
         $getRepeater = price::getRepeater($miseId,$therapist->back_name);
         $enchoList = price::enchoList($miseId,$therapist->back_name);
 
-
-        log::info($waribikiList);
-
         if($request->input('telsearch')){
             $kokyakuData = $telsearch;
             $formflag = 1;
