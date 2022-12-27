@@ -256,6 +256,13 @@ class price extends Model
             ->where('type', 'encho')
             ->get();
 
+
+
+            log::info($enchoList);
+
+
+
+
         if($enchoList -> count() != 0 ){
             return $enchoList;
         }
@@ -312,6 +319,17 @@ class price extends Model
             if(!$waribiki) continue;
             if($waribiki->type == 'waribiki'){
                 return $waribiki;
+            }
+        }
+    }
+
+    // 延長取得
+    public static function getencho($priceIdList){
+        foreach($priceIdList as $p){
+            $encho = price::withTrashed()->find($p);
+            if(!$encho) continue;
+            if($encho->type == 'encho'){
+                return $encho;
             }
         }
     }

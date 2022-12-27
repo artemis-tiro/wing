@@ -320,6 +320,7 @@
                                                     
                                                     @if($enchoList)
                                                         @foreach($enchoList  as $e)
+                                                            @php $check = $y->enchoId == $e->id? true: false; @endphp
                                                             @if($loop->index != 0)
                                                 <div class="row text-nowrap mt-2 text-end radio_course">
                                                                 <!-- 項目の場所合わせ -->
@@ -327,7 +328,7 @@
                                                             @endif
                                                     
                                                                 <label class="col-sm-3">
-                                                                    {{ Form::radio('courseEx', $e->id, false, ['class'=>'form-check-input', 'required']) }}
+                                                                    {{ Form::radio('courseEx', $e->id, $check, ['class'=>'form-check-input', 'required']) }}
                                                                     {{ $e->name }}
                                                                 </label>
                                                                 <label class="col-sm-2">
