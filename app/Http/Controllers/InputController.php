@@ -102,7 +102,7 @@ class InputController extends Controller{
         $kokyakuList = kokyaku::kokyakuList();
 
         // 予約一覧
-        $yoyakuList = yoyaku::yoyakuList($therapistId, date('Y-m-d'));
+        $yoyakuList = yoyaku::yoyakuList($therapistId, date('Y-m-d H:i:s'));
 
         // 先行予約一覧
         $yoyakuAfterList = yoyaku::yoyakuAfterList($therapistId, date('Y-m-d'));
@@ -206,7 +206,6 @@ class InputController extends Controller{
 
         // yoyaku作成
         $yoyaku = yoyaku::yoyakuCreate($request->input(), $miseId, $therapistId, $kokyaku);
-        // if($yoyaku) return back()->with(['error' => $yoyaku])->withInput();
 
         if($yoyaku){
             return back()->with(['message' => '予約が完了しました。']);
@@ -233,7 +232,7 @@ class InputController extends Controller{
         $kokyakuList = kokyaku::kokyakuList();
 
         // 予約一覧
-        $yoyakuList = yoyaku::yoyakuList($therapistId, date('Y-m-d'));
+        $yoyakuList = yoyaku::yoyakuList($therapistId, date('Y-m-d H:i:s'));
 
         // 調整金予約一覧
         $adjustList = kyuryo::adjustList($miseId, $therapistId, date('Y-m-d'));

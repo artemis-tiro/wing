@@ -19,6 +19,7 @@ use App\Models\Yoyaku;
 use App\Models\Kokyaku;
 use App\Models\Price;
 use App\Models\Kyuryo;
+use App\Models\Shifuto;
 
 class ShiftController extends Controller{
 
@@ -105,6 +106,7 @@ class ShiftController extends Controller{
 
         // therapistリスト
         $therapistList = therapist::List($miseId);
+        shifuto::addTime($therapistList);
 
         return view ('shift_input', [
             'mise' => $mise,
@@ -112,5 +114,30 @@ class ShiftController extends Controller{
             'therapistList' => $therapistList,
             'error' => session('error'),
        ]);
+    }
+
+    // シフト登録
+    public function addshift(Request $request, $clientId, $miseId){
+        ///////     バリデーション      ///////
+        // shift  : 半角英数,ハイフンのみ
+        $rulus = [
+            // 'shift' => ['numeric'],
+        ];
+        $message = [
+            'shift.numeric' => '半角英数字で入力してください。',
+        ];
+        $validator = Validator::make($request->all(), $rulus, $message);
+        if($validator->fails()) return back()->withErrors($validator)->withInput();
+
+        // shift作成
+        $shift = Shifuto::shiftCreate($request->input(), $miseId);
+
+        if($shift){
+            return back()->with(['message' => 'シフト入力が完了しました。']);
+        }else{
+            return back()->with(['error' => 'シフト入力に失敗しました。']);
+        }
+
+        return back();
     }
 }

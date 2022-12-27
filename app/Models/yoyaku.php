@@ -17,9 +17,22 @@ class Yoyaku extends Model
 
     // 予約一覧
     public static function yoyakuList($therapistId,$time){
-        $yoyakuList = yoyaku::where('therapist_id', $therapistId)
-            ->whereBetween('visit_day', [$time.' 06:00:00', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
+        // 営業日の判別
+        // 6時よりも前
+        if($time < date('Y-m-d').' 06:00:00'){
+            $yoyakuList = yoyaku::where('therapist_id', $therapistId)
+            ->whereBetween('visit_day', [date('Y-m-d', strtotime("-1 day")).' 06:00:00', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
             ->get();
+        }else{
+            $yoyakuList = yoyaku::where('therapist_id', $therapistId)
+            ->whereBetween('visit_day', [date('Y-m-d').' 06:00:00', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
+            ->get();
+        }
+
+
+        // workingDay($day);
+
+        
         return $yoyakuList;
     }
 
@@ -60,7 +73,7 @@ class Yoyaku extends Model
                 $y->optionId = '';
             }
 
-            // $yoyakuListに「courseShimei」を追加
+            // $yoyakuListに「Shimei」を追加
             // 指名を取得
             $shimei = price::getCourseShimei($priceId);
             if($shimei){
@@ -71,15 +84,15 @@ class Yoyaku extends Model
                 $y->shimeiId = '';
             }
 
-            // $yoyakuListに「courseWaribiki」を追加
+            // $yoyakuListに「Waribiki」を追加
             // 割引を取得
             $waribiki = price::getCourseWaribiki($priceId);
             if($waribiki){
-                $y->WaribikiName = $waribiki->name;
-                $y->WaribikiId = $waribiki->id;
+                $y->waribikiName = $waribiki->name;
+                $y->waribikiId = $waribiki->id;
             }else{
-                $y->WaribikiName = '';
-                $y->WaribikiId = '';
+                $y->waribikiName = '';
+                $y->waribikiId = '';
             }
 
             // $yoyakuListに「coursePrice」を追加
@@ -97,6 +110,10 @@ class Yoyaku extends Model
             // $yoyakuListに「totalPrice」を追加
             // コース総額を取得
             $y->totalPrice =  price::getTotalPrice($priceId);
+
+            // $yoyakuListに「totalBack」を追加
+            // コース総額(バック)を取得
+            $y->totalBack =  price::getTotalBack($priceId);
 
             // $yoyakuListに「courseTime」を追加
             // コース時間を取得
@@ -135,6 +152,9 @@ class Yoyaku extends Model
     public static function yoyakuCreate($input, $miseId, $therapistId, $kokyaku){
         
         $input_price_id = "";
+
+        // セラピスト情報
+        $therapist = therapist::detail($therapistId);
 
         // back_nameを取得
         $therapistBack = therapist::where('id',$therapistId)
@@ -177,6 +197,8 @@ class Yoyaku extends Model
         // 削除されるカラム
         $yoyaku->shimei = null;
         $yoyaku->waribiki = null;
+
+
         $result = $yoyaku->save();
 
         //インサート失敗時
@@ -321,5 +343,26 @@ class Yoyaku extends Model
             }
         }
         return true;
+    }
+
+    // 営業日取得
+    public static function workingDay($day = null){
+
+        // 現在時間
+        $now = date("Y-m-d H:i:s");
+        $time;
+
+        // 日付が無ければ
+        if(!$day){
+            if($now < date('Y-m-d').' 06:00:00'){
+                $time = date($now, strtotime("-1 day"));
+    
+                log::info($time);
+            }
+        }
+
+        if($day < date('Y-m-d').' 06:00:00'){
+            $time = date($day, strtotime("-1 day"));
+        }
     }
 }

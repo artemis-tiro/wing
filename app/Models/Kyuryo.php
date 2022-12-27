@@ -95,7 +95,7 @@ class kyuryo extends Model
             $coursePrice = price::withTrashed()->find($p);
 
             if($coursePrice){
-                $dailyPrice += $coursePrice->price;
+                $dailyPrice += $coursePrice->back;
             }
         }
         
