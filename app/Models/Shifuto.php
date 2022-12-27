@@ -24,11 +24,12 @@ class Shifuto extends Model
             // shiftの名前がついてないなら次
             if(strpos($key, 'shift-')===false) continue;
 
-            //日付が空の場合
+            // 日付が空の場合
             if(!$i) continue;
 
-            //日付が入っていたらレコード削除。
-            
+            // 日付が入っていたらレコード削除。
+            // shifuto::where('mise_id', $miseId)
+            // ->delete();
 
             $arry = explode('-', $key);
             $therapistId = $arry[1]; //$key 'shift-4-20221229' 、[0]shift [1]4 [2]20221229
@@ -43,7 +44,7 @@ class Shifuto extends Model
             $shift->time = $i;
             $result = $shift->save();
 
-            //インサート失敗時
+            // インサート失敗時
             if(!$result) return false;
         }
 
