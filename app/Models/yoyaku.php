@@ -164,9 +164,9 @@ class Yoyaku extends Model
         
         $yoyaku->price_id_list = $input_price_id;
 
-        if(price::getOption($miseId,$therapist->back_name) != "therapist"){
-            $yoyaku->option = 1;  
-        }
+        // if(price::getOption($miseId,$therapist->back_name) != "therapist"){
+        //     $yoyaku->option = 1;  
+        // }
 
 
 
