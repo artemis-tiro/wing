@@ -106,7 +106,7 @@ class ShiftController extends Controller{
 
         // therapistリスト
         $therapistList = therapist::List($miseId);
-        shifuto::addTime($therapistList);
+        // shifuto::addTime($therapistList);
 
         return view ('shift_input', [
             'mise' => $mise,
