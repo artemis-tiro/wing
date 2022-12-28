@@ -57,7 +57,6 @@
                                     <!-- 非同期処理 -->
                                     <!-- で来店日時とコース時間を参照してステータスを変動 -->
 
-                                    <!-- <td>未実装</td> -->
                                     <td>{{ $y->id }}</td>
 
                                     <!-- 終了時間を来店日時＋コース時間で表示 -->
@@ -247,7 +246,6 @@
                                                 <!-- 追加割引 -->
                                                 <div class="row text-nowrap mb-2 text-end">
                                                     <div class="col-sm-3 text-end">追加割引<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
-                                                    
                                                     @foreach($waribikiList  as $w)
                                                         @php $check = $y->waribikiId == $w->id? true: false; @endphp
                                                         @if($loop->index != 0)
@@ -269,7 +267,7 @@
                                                     <div class="col-sm-3"></div>
 
                                                     <label class="col-sm-3">
-                                                        @php $WAnothing = $y->waribikiId? false: true; @endphp
+                                                        @php $WAnothing = $y->waribikiId == $w->id? false: true; @endphp
                                                         {{ Form::radio('waribikiEx', null, $WAnothing, ['class'=>'form-check-input', 'required']) }}
                                                         割引無し
                                                     </label>
@@ -346,7 +344,8 @@
                                                     <div class="col-sm-3"></div>
 
                                                     <label class="col-sm-3">
-                                                        {{ Form::radio('courseEx', null, true, ['class'=>'form-check-input', 'required']) }}
+                                                        @php $Enothing = $y->enchoId? false: true; @endphp
+                                                        {{ Form::radio('courseEx', null, $Enothing, ['class'=>'form-check-input', 'required']) }}
                                                         延長無し
                                                     </label>
                                                     <label class="col-sm-2">

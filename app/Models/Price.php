@@ -394,6 +394,22 @@ class price extends Model
         return $totalPrice;
     }
 
+    // コース総額取得(バック)
+    public static function getTotalBack($priceIdList){
+
+        $totalBack = 0;
+
+        foreach($priceIdList as $p){
+            
+            $courseBack = price::withTrashed()->find($p);
+
+            if($courseBack){
+                $totalBack += $courseBack->back;
+            }
+        }
+        return $totalBack;
+    }
+
     // オプション選択取得
     public static function getOption($miseId,$backName){
         $priceList = price::withTrashed()

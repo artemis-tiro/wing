@@ -122,7 +122,7 @@
                                 <span>{{ number_format($loop->index+1) }}件目</span>
 
                                 <!-- 発生料金 -->
-                                <span>{{ number_format($y->totalPrice) }}円</span>
+                                <span>{{ number_format($y->totalBack) }}円</span>
 
                                 <br>
                             @endforeach

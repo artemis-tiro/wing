@@ -13,70 +13,64 @@
 
 @section('content')
 
+@php
+$days = 10; //  シフトを入力できる日数
+@endphp
+
 <h1 class="h2">シフト入力</h1>
 
-<!-- セラピスト一覧 -->
+
+
+    @include('common.validator')
+    @include('common.error')
+    @include('common.success')
+
+
+
+
+<!-- シフト一覧 -->
 <div class="card my-4">
     <!-- カードのタイトル -->
-    <h2 class="card-header h5">{{ date('m-d', strtotime("+1 day")) }}~</h2>
+    <h2 class="card-header h5">{{ date('m-d') }}~</h2>
     <!-- カードの要素 -->
     <div class="card-body table-responsive text-nowrap">
+
+        <!-- フォームの開始 -->
+        <!-- 現在のURL「url()->current()」 -->
+        {{ Form::open(['url' => url()->current().'/addshift']) }}
+
         <!-- テーブル -->
         <table class="table table-hover">
             <thead>
                 <!-- カテゴリ -->
                 <tr>
                     <th scope="col">源氏名</th>
-                    <th scope="col">{{ date('d', strtotime("+1 day")) }}</th>
-                    <th scope="col">{{ date('d', strtotime("+2 day")) }}</th>
-                    <th scope="col">{{ date('d', strtotime("+3 day")) }}</th>
-                    <th scope="col">{{ date('d', strtotime("+4 day")) }}</th>
-                    <th scope="col">{{ date('d', strtotime("+5 day")) }}</th>
-                    <th scope="col">{{ date('d', strtotime("+6 day")) }}</th>
-                    <th scope="col">{{ date('d', strtotime("+7 day")) }}</th>
-                    <th scope="col">{{ date('d', strtotime("+8 day")) }}</th>
-                    <th scope="col">{{ date('d', strtotime("+9 day")) }}</div></th>
-                    <th scope="col">{{ date('d', strtotime("+10 day")) }}</th>
+                    @for($i=0; $i<$days; $i++)
+                    <th scope="col" style="text-align: center;">{{ date('m/d', strtotime("+".$i." day")) }}</th>
+                    @endfor
                 </tr>
             </thead>
             <tbody>
-                @foreach($therapistList as $i)
+                @foreach($therapistList as $t)
                     <tr>
-                        <td>{{ $i->business_name }}</td>
-                        <td>
-                            {{ Form::text('start_time', null, ['class'=>'form-control', 'required']) }}
-                        </td>
-                        <td>
-                            {{ Form::text('start_time', null, ['class'=>'form-control', 'required']) }}
-                        </td>
-                        <td>
-                            {{ Form::text('start_time', null, ['class'=>'form-control', 'required']) }}
-                        </td>
-                        <td>
-                            {{ Form::text('start_time', null, ['class'=>'form-control', 'required']) }}
-                        </td>
-                        <td>
-                            {{ Form::text('start_time', null, ['class'=>'form-control', 'required']) }}
-                        </td>
-                        <td>
-                            {{ Form::text('start_time', null, ['class'=>'form-control', 'required']) }}
-                        </td>
-                        <td>
-                            {{ Form::text('start_time', null, ['class'=>'form-control', 'required']) }}
-                        </td>
-                        <td>
-                            {{ Form::text('start_time', null, ['class'=>'form-control', 'required']) }}
-                        </td>
-                        <td>
-                            {{ Form::text('start_time', null, ['class'=>'form-control', 'required']) }}
-                        </td>
-                        <td>
-                            {{ Form::text('start_time', null, ['class'=>'form-control', 'required']) }}
-                        </td>
+                        <td>{{ $t->business_name }}</td>
+                        @for($i=0; $i<$days; $i++)
+                        @php $date = date('Ymd', strtotime("+".$i." day")) @endphp
+                        <td>{{ Form::text('shift-'.$t->id.'-'.$date, $t->time, ['class'=>'form-control', 'autocomplete'=>'off']) }}</td>
+                        @endfor
                     </tr>
                 @endforeach
             </tbody>
         </table>
+
+
+
+        <!-- 送信ボタン -->
+        {{ Form::submit('確定',["class"=>"btn btn-info"]) }}
+
+        <!-- フォームの終わり -->
+        {{ Form::close() }}
+
     </div>
 </div>
 
