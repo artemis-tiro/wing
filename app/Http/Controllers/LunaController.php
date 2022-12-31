@@ -121,7 +121,7 @@ class LunaController extends Controller{
 
         //現在の営業日取得
         $today = date("G") < $kirikaejikan? date('n/j', strtotime('-1 day')): date("n/j");
-        $today = '1/6';//testデータ
+        // $today = '1/6';//testデータ
 
         $nameKey = null;
         $copyKey = null;
