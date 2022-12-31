@@ -99,6 +99,78 @@ class LunaController extends Controller{
         return view ('luna', ['t'=>$result]);
     }
 
+    // 朝一ツイッター
+    public function morning(){
+        Log::channel('daily')->info('');
+
+        //config
+        $kirikaejikan = 4; // 日付け切り替え時間
+        $url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT6aDhs7Xy0kiBvZF5wGCEoDtY1eh5s2nr9vLLnMOzSwQJZXpSrGNdfjgtxW957g_GPK69AP323IgHz/pub?output=csv';
+        $nanko = 15; //表示日数
+        $heya = 2; //部屋数
+        $start = 11; //シフト開始時間
+        $end = 5; //シフト終わり時間
+        if($end<$start) $end+=24;
+
+        //スプレットシートデータ取得
+        $csv_file = file($url);
+        $csv = [];
+        foreach($csv_file as $key => $value){
+            $csv[] = explode(",", $value);
+        }
+
+        //現在の営業日取得
+        $today = date("G") < $kirikaejikan? date('n/j', strtotime('-1 day')): date("n/j");
+        $today = '1/6';//testデータ
+
+        $nameKey = null;
+        $copyKey = null;
+        $ageKey = null;
+        foreach($csv as $key => $c){
+            if($c[0]=="name") $nameKey = $key;
+            if($c[0]=="copy") $copyKey = $key;
+            if($c[0]=="age") $ageKey = $key;
+        }
+
+
+        $text = "南越谷アロマルナ\n";
+        $text = null;
+        $text .= '⭐'.$today;
+
+        foreach($csv as $c){
+            if($c[0]==$today){
+                $text .= '（'.$c[1].'）出勤表⭐'."\n\n";
+                foreach($c as $key => $g){
+                    if($key==0||$key==1||!$g) continue;
+                    $temp = explode("-", $g);
+                    if(count($temp)!=2) continue;
+                    if($temp[0]<=0||$temp[0]>24) continue;
+                    if($temp[1]<=0||$temp[1]>24) continue;
+                    if(!is_numeric($temp[0])||!is_numeric($temp[1])) continue;
+                    $name = $csv[$nameKey][$key]?$csv[$nameKey][$key]:'期待の新人さん';
+                    $age = $csv[$ageKey][$key]?'('.$csv[$ageKey][$key].')':'';
+                    $text .= "❤".$name.$age."❤";
+                    if(strpos($temp[0],".5")){$temp[0] = str_replace(".5","時30分",$temp[0]);
+                    }else{$temp[0] .= '時';}
+                    if(strpos($temp[1],".5")){$temp[1] = str_replace(".5","時30分",$temp[1]);
+                    }else{$temp[1] .= '時';}
+                    $text .= $temp[0].'～'.$temp[1]."\n";
+                    $copy = [];
+                    $copy[] = $csv[$copyKey][$key];
+                    for($i=$copyKey+1;1;$i++){
+                        if(!isset($csv[$i][$key])) break;
+                        if(!$csv[$i][$key]) break;
+                        $copy[] = $csv[$i][$key];
+                    }
+                    $text .= $copy[array_rand($copy,1)]."\n\n";
+                }
+            }
+        }
+        $text .= "やみつきになる極液無料サービス⭐\nHP🌙 http://aroma-luna.net";
+
+        return view ('morning', ['t'=>$text]);
+
+    }
 
 
 

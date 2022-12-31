@@ -35,6 +35,7 @@ Route::any('/log/line', "App\Http\Controllers\TopController@line");
 
 // Luna
 Route::any('/luna', "App\Http\Controllers\LunaController@top");
+Route::any('/morning', "App\Http\Controllers\LunaController@morning");
 Route::any('/twitter', "App\Http\Controllers\TwitterController@index");
 
 //mypage
