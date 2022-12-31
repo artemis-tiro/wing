@@ -334,7 +334,8 @@
                                                                 </label>
                                                                 ×
                                                                 <div class="col-sm-2">
-                                                                    {{ Form::number('courseExCnt'.$e->id, null, ['class'=>'form-control', "placeholder"=>"1", 'autocomplete'=>'off']) }}
+                                                                    @php $cnt = $y->enchoId == $e->id? $y->enchoCnt: null; @endphp
+                                                                    {{ Form::number('courseExCnt'.$e->id, $cnt, ['class'=>'form-control', "placeholder"=>"1", 'autocomplete'=>'off']) }}
                                                                 </div>
                                                 </div>
                                                         @endforeach

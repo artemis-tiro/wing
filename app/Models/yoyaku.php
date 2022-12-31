@@ -123,13 +123,15 @@ class Yoyaku extends Model
         foreach($yoyakuList as $y){
             $encho = $y->encho_id_list;
             $priceId = explode('P', $encho);
-
+            $count = count($priceId);
+            
             // $yoyakuListに「encho」を追加
             // 延長名を取得
             $encho = price::getencho($priceId);
             if($encho){
                 $y->enchoName = $encho->name;
                 $y->enchoId = $encho->id;
+                $y->enchoCnt = $count -1;
             }else{
                 $y->enchoName = '';
                 $y->enchoId = '';
@@ -346,7 +348,7 @@ class Yoyaku extends Model
     }
 
     // 営業日取得
-    public static function workingDay($day = null){
+    public static function workingDay($day){
 
         // 現在時間
         $now = date("Y-m-d H:i:s");
@@ -356,13 +358,15 @@ class Yoyaku extends Model
         if(!$day){
             if($now < date('Y-m-d').' 06:00:00'){
                 $time = date($now, strtotime("-1 day"));
-    
-                log::info($time);
+
+                return $time;
             }
         }
 
         if($day < date('Y-m-d').' 06:00:00'){
             $time = date($day, strtotime("-1 day"));
+
+            return $time;
         }
     }
 }

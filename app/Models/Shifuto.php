@@ -53,9 +53,10 @@ class Shifuto extends Model
 
     // timeをセラピストリストに追加
     public static function addTime($therapistList){
+        $day = yoyaku::workingDay(date("Y-m-d"));
         foreach($therapistList as $t){
             $shift = shifuto::where('therapist_id', $t->id)
-                // ->where('working_day', '>=', today())//今日以降のシフト
+                ->where('working_day', '>=', $day)
                 ->get();
             foreach($shift as $s){
                 
