@@ -14,7 +14,8 @@
 @section('content')
 
 @php
-$days = 10; //  シフトを入力できる日数
+//  シフトを入力できる日数
+$days = 10; 
 @endphp
 
 <h1 class="h2">シフト入力</h1>

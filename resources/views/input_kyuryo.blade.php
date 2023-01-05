@@ -17,6 +17,10 @@
 
                 <h1 class="h2">{{ $therapist->business_name }}さん 給与明細</h1>
 
+                @include('common.validator')
+                @include('common.error')
+                @include('common.success')
+
                 <!-- 給料調整 -->
                 <div class="card my-4">
 
@@ -30,10 +34,6 @@
 
                     <!-- フォームの開始 -->
                     {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/calculation')]) }}
-
-                    @include('common.validator')
-                    @include('common.error')
-                    @include('common.success')
 
                     <!-- 予約が1件もない場合 -->
                     @if($yoyakuListCnt ===   0)

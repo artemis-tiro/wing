@@ -25,8 +25,8 @@ class kyuryo extends Model
             ->delete();
 
         for($i = 0; $i < 3; $i++){
-            if(!($input['adjust_name'. $i + 1])) break;
-            if(!($input['adjust_many'. $i + 1])) break;
+            if(!($input['adjust_name'. $i + 1])) continue;
+            if(!($input['adjust_many'. $i + 1])) continue;
             $newKyuryo = new kyuryo();
             $newKyuryo->mise_id = $miseId;
             $newKyuryo->therapist_id = $therapistId;
@@ -38,10 +38,10 @@ class kyuryo extends Model
             $result = $newKyuryo->save();
 
             // インサート失敗時
-            if(!$result) return '新規作成に失敗しました。';
+            if(!$result) return false;
         }
         
-        return null;
+        return true;
     }
 
     // 調整金取得
