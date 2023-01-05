@@ -289,7 +289,14 @@ class InputController extends Controller{
 
         // kyuryo作成
         $kyuryo = kyuryo::kyuryoCreate($request->input(), $miseId, $therapistId, date('Y-m-d'));
-        if($kyuryo) return back()->with(['error' => $kyuryo])->withInput();
+        // if($kyuryo) return back()->with(['error' => $kyuryo])->withInput();
+
+        // なぜはいらない？
+        if($kyuryo){
+            return back()->with(['message' => '給与計算ができました。']);
+        }else{
+            return back()->with(['error' => '給与計算ができません。']);
+        }
 
         return back();
     }

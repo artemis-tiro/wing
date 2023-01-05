@@ -31,8 +31,10 @@ class Shifuto extends Model
             // shifuto::where('mise_id', $miseId)
             // ->delete();
 
+            //$key = 'shift-4-20221229'
+            //$arry[] = [0]shift [1]therapistId [2]Y-m-d
             $arry = explode('-', $key);
-            $therapistId = $arry[1]; //$key 'shift-4-20221229' 、[0]shift [1]4 [2]20221229
+            $therapistId = $arry[1]; 
             $day = $arry[2];
 
             // インサート
@@ -53,13 +55,20 @@ class Shifuto extends Model
 
     // timeをセラピストリストに追加
     public static function addTime($therapistList){
-        $day = yoyaku::workingDay(date("Y-m-d"));
+
+        // 入力した時間の営業日を返す？
+        // $day = yoyaku::workingDay(date("Y-m-d H:i:s"));
+        $day = date("Y-m-d H:i:s");
+
         foreach($therapistList as $t){
             $shift = shifuto::where('therapist_id', $t->id)
                 ->where('working_day', '>=', $day)
                 ->get();
             foreach($shift as $s){
-                
+                log::info($s);
+                for(i = 0; i < 10 ; i++){
+                    // db->working_dayがinputの三番目と同じ？
+                }
             }
         }
     }            
