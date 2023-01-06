@@ -14,7 +14,8 @@
 @section('content')
 
 @php
-$days = 10; //  シフトを入力できる日数
+//  シフトを入力できる日数
+$days = 10; 
 @endphp
 
 <h1 class="h2">シフト入力</h1>
@@ -55,15 +56,17 @@ $days = 10; //  シフトを入力できる日数
                     <tr>
                         <td>{{ $t->business_name }}</td>
                         @for($i=0; $i<$days; $i++)
-                        @php $date = date('Ymd', strtotime("+".$i." day")) @endphp
-                        <td>{{ Form::text('shift-'.$t->id.'-'.$date, $t->time, ['class'=>'form-control', 'autocomplete'=>'off']) }}</td>
+                        @php 
+                            $date = date('Ymd', strtotime("+".$i." day"));
+                            $key = 'shiftTime'.$date;
+                            $shifuto = isset($t->$key) ? $t->$key : null;
+                        @endphp
+                        <td>{{ Form::text('shift-'.$t->id.'-'.$date, $shifuto, ['class'=>'form-control shiftTime','autocomplete'=>'off']) }}</td>
                         @endfor
                     </tr>
                 @endforeach
             </tbody>
         </table>
-
-
 
         <!-- 送信ボタン -->
         {{ Form::submit('確定',["class"=>"btn btn-info"]) }}
