@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2023-01-06 16:08:07] local.INFO: array (
   '_token' => 'LztNk81TcXVo7qWuojhKfpAxxVJgDuKt4a62RrLy',
   'shift-4-20230106' => '789789',
@@ -11690,3 +11691,8 @@
 [2023-01-06 17:56:14] local.INFO:   
 [2023-01-06 17:56:14] local.INFO:   
 [2023-01-06 17:56:14] local.INFO:   
+=======
+[2023-01-05 18:52:20] local.INFO: {"id":6,"mise_id":3,"therapist_id":19,"user_id":1,"working_day":"2023-01-09 00:00:00","time":"918","deleted_at":null,"created_at":"2023-01-05T09:49:26.000000Z","updated_at":"2023-01-05T09:49:26.000000Z"}  
+[2023-01-05 18:52:20] local.INFO: {"id":8,"mise_id":3,"therapist_id":19,"user_id":1,"working_day":"2023-01-06 00:00:00","time":"414","deleted_at":null,"created_at":"2023-01-05T09:49:49.000000Z","updated_at":"2023-01-05T09:49:49.000000Z"}  
+[2023-01-05 18:52:20] local.INFO: {"id":9,"mise_id":3,"therapist_id":19,"user_id":1,"working_day":"2023-01-08 00:00:00","time":"918","deleted_at":null,"created_at":"2023-01-05T09:49:49.000000Z","updated_at":"2023-01-05T09:49:49.000000Z"}  
+>>>>>>> 6a8eeb332cb962f2e6e652642a9ed7ce3193e45f
