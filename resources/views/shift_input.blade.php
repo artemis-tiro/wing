@@ -47,7 +47,16 @@ $days = 10;
                 <tr>
                     <th scope="col">源氏名</th>
                     @for($i=0; $i<$days; $i++)
-                    <th scope="col" style="text-align: center;">{{ date('m/d', strtotime("+".$i." day")) }}</th>
+                        @switch(date('N', strtotime(date('Y-m-d', strtotime("+".$i." day")))))
+                            @case (6)
+                    <th scope="col" class="text-primary" style="text-align: center">{{ date('m/d', strtotime("+".$i." day")) }}</th>
+                                @break
+                            @case (7)
+                    <th scope="col" class="text-danger" style="text-align: center">{{ date('m/d', strtotime("+".$i." day")) }}</th>
+                                @break
+                            @default
+                    <th scope="col" style="text-align: center">{{ date('m/d', strtotime("+".$i." day")) }}</th>
+                        @endswitch
                     @endfor
                 </tr>
             </thead>
@@ -56,15 +65,17 @@ $days = 10;
                     <tr>
                         <td>{{ $t->business_name }}</td>
                         @for($i=0; $i<$days; $i++)
-                        @php $date = date('Ymd', strtotime("+".$i." day")) @endphp
-                        <td>{{ Form::text('shift-'.$t->id.'-'.$date, $t->time, ['class'=>'form-control', 'autocomplete'=>'off']) }}</td>
+                        @php 
+                            $date = date('Ymd', strtotime("+".$i." day"));
+                            $key = 'shiftTime'.$date;
+                            $shifuto = isset($t->$key) ? $t->$key : null;
+                        @endphp
+                        <td>{{ Form::text('shift-'.$t->id.'-'.$date, $shifuto, ['class'=>'form-control shiftTime','autocomplete'=>'off']) }}</td>
                         @endfor
                     </tr>
                 @endforeach
             </tbody>
         </table>
-
-
 
         <!-- 送信ボタン -->
         {{ Form::submit('確定',["class"=>"btn btn-info"]) }}

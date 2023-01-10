@@ -19,17 +19,28 @@ class Shifuto extends Model
     // 予約新規作成
     public static function shiftCreate($input, $miseId){
                 
+        // 日付が入っていたらレコード削除。
+        // shifuto::where('mise_id', $miseId)
+        // ->delete();
+
         // foreachで１行ずつ取得して
         foreach($input as $key =>$i){
             // shiftの名前がついてないなら次
             if(strpos($key, 'shift-')===false) continue;
 
             // 日付が空の場合
-            if(!$i) continue;
+            // DBのworking_dayを検索してレコードが存在していれば物理削除する
+            $arry = explode('-', $key);
+            $therapistId = $arry[1]; 
+            $day = $arry[2];
 
-            // 日付が入っていたらレコード削除。
-            // shifuto::where('mise_id', $miseId)
-            // ->delete();
+            if(!$i) {
+                shifuto::where('mise_id', $miseId)
+                    ->where('therapist_id', $therapistId)
+                    ->where('working_day', $day)
+                    ->forceDelete();
+                continue;
+            }
 
             //$key = 'shift-4-20221229'
             //$arry[] = [0]shift [1]therapistId [2]Y-m-d
@@ -58,19 +69,35 @@ class Shifuto extends Model
 
         // 入力した時間の営業日を返す？
         // $day = yoyaku::workingDay(date("Y-m-d H:i:s"));
-        $day = date("Y-m-d H:i:s");
+        $day = date("Y-m-d");
+
+        // 表示したい日数
+        $days = 10;
 
         foreach($therapistList as $t){
             $shift = shifuto::where('therapist_id', $t->id)
                 ->where('working_day', '>=', $day)
                 ->get();
             foreach($shift as $s){
-                log::info($s);
-                for(i = 0; i < 10 ; i++){
-                    // db->working_dayがinputの三番目と同じ？
-                }
+                // DBのdetatime型を変える
+                // yyyy-mm-dd HH:ii:ss
+                // [0]yyyy-mm-dd [1]HH:ii:ss
+                $arr = explode(' ', $s->working_day);
+
+                // 「-」を消す
+                // yyyy-mm-dd
+                // yyyymmdd
+                $str = str_replace('-', '', $arr[0]);
+
+                $key = 'shiftTime'.$str;
+                $t->$key = $s->time;
+
+                log::info($t->shiftTime);
+                log::info($t->shiftDay);
+
             }
-        }
+    }
+        return null;
     }            
 
 

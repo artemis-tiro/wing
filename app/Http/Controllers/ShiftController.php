@@ -112,6 +112,7 @@ class ShiftController extends Controller{
             'mise' => $mise,
             'client' => $client,
             'therapistList' => $therapistList,
+            'message' => session('message'),
             'error' => session('error'),
        ]);
     }
