@@ -6,16 +6,49 @@ $(function() {
     // 入力したinoutのnameを取得
     var name = inputs.attr('name')
 
-    // slass「shiftTime」に入力した時
+    // class「shiftTime」に入力した時
     $(inputs).on('input', function() {
 
         // 入力された値が「.」であるか
         if($(this).val().slice(-1) === '.'){
-            if("$(this).val():contains('-')"){
-                $(this).val($(this).val() + "5-");
-            }else{
-                $(this).val($(this).val() + "5");
+
+            // 文字列にハイフンがあるかどうか
+            // true  5
+            // false 5-
+
+
+            $time = $(this).val();
+
+            if(strpos($time, '-') === false){
+                alert('strpos');
+                $(this).val($time + "5-");
             }
+
+            if(mb_strpos($time, '-') === false){
+                alert('mb_strpos');
+                $(this).val($time + "5-");
+            }
+
+            if(mb_strstr($time, '-') === false){
+                alert('mb_strstr');
+                $(this).val($time + "5-");
+            }
+
+            if(mb_strstr($time, '-') === false){
+                alert('mb_strstr');
+                $(this).val($time + "5-");
+            }
+
+            if($(this).val().indexOf('-') === -1){
+                alert('indexOf');
+                $(this).val($time + "5-");
+            }
+
+            if($(this).val().includes('-') === false){
+                alert('includes');
+                $(this).val($time + "5-");
+            }
+            
         }        
     });
 });
