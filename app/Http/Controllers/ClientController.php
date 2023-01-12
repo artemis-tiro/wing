@@ -173,13 +173,24 @@ class ClientController extends Controller{
     public function newTherapist(Request $request, $clientId, $miseId){
         //権限チェック
         if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
+        $id = isset($request->input()['edit'])?$request->input()['edit']:null;
 
         //バリデーション
         $rulus = [
             'business_name' => ['required', Rule::unique('therapist','business_name')->whereNull('deleted_at')->where('mise_id', $miseId)],
             'login_id' => ['required','regex:/^[0-9a-zA-Z\\-\\_]+$/', Rule::unique('users','name')->whereNull('deleted_at')],
+            'age' => ['nullable', 'regex:/^|([0-9][0-9]|[0-9])$/'],
+            'cup' => ['nullable', 'regex:/^|[A-Za-z]$/'],
+            'tall' => ['nullable', 'regex:/^|([12][0-9][0-9])$/'],
             //'pass' => 'required | min:4 | regex:/^[[a-zA-Z0-9]+$/',
         ];
+        if($id){
+            $rulus = [
+                'age' => ['nullable', 'regex:/^|([0-9][0-9]|[0-9])$/'],
+                'cup' => ['nullable', 'regex:/^|[A-Za-z]$/'],
+                'tall' => ['nullable', 'regex:/^|([12][0-9][0-9])$/'],
+            ];
+        }
         $message = [
             'business_name.required' => '源氏名を入力してください。',
             'business_name.unique' => '登録されている源氏名です。',
@@ -189,9 +200,17 @@ class ClientController extends Controller{
             'pass.required' => 'パスワードを入力してください。',
             'pass.min' => 'パスワードは4文字以上で入力してください。',
             'pass.regex' => 'パスワードは半角英数字で入力して下さい。',
+            'age.regex' => '年齢は0～99で入力して下さい。',
+            'cup.regex' => 'カップ数はアルファベット一文字で入力して下さい。',
+            'tall.regex' => '身長は100～299の間で入力して下さい。',
         ];
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();
+
+        if($id){
+            therapist::therapistEdit($request->input(), $id);
+            return back()->with(['mes1' => 'プロフィールを編集しました。']);
+        }
 
         //user作成
         $result = user::userCreate($request->input(), 'therapist');
@@ -202,7 +221,6 @@ class ClientController extends Controller{
         if($error) return back()->with(['error' => $error])->withInput();
 
         return back()->with(['mes1' => '「'.$request->input()['business_name'].'」を作成しました。']);
-        return back();
     }
     
     //therapist

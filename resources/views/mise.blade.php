@@ -54,7 +54,51 @@
                                     <td><a href="{{ url('/c/'.$client->id.'/'.$mise->id.'/'.$i->id) }}">{{ $i->business_name }}</a></td>
                                     <td>{{ Form::open(['url' => url()->current().'/'.$i->id."/edit/backchange",'class'=>'form-horizontal']) }}{{ Form::select('back_name', ['default'=>'default']+$backList, $i->back_name, ['class'=>'form-select form-select-sm pass', 'onchange'=>'submit(this.form)']) }}{{ Form::close() }}</td>
                                     <td>{{ $active }}</td>
-                                    <td><a class="btn btn-sm btn-info" href="{{ url()->current() }}/{{ $i->id }}/edit/{{ $action }}">{{ $actionComment }}</a></td>
+                                    <td><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#edit{{ $i->id }}">編集</a></td>
+                                    <div class="modal fade" id="edit{{ $i->id }}" tabindex="-1" aria-labelledby="edit{{ $i->id }}" data-bs-backdrop="static">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title h4" id="edit{{ $i->id }}">セラピスト情報編集</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
+                                                </div>
+
+                                                {{ Form::open(['url' => url()->current().'/newtherapist']) }}
+                                                {{ Form::hidden('edit', $i->id) }}
+                                                
+                                                <div class="modal-body">
+                                                    <label class="row text-nowrap mb-4">
+                                                        <span class="col-sm-2 lh2">年齢</span>
+                                                        <div class="col-sm-10">
+                                                            {{ Form::text('age', $i->business_age, ['class'=>'form-control pass', 'pattern'=>'^([0-9][0-9]|[0-9])$', 'style'=>'width:70px;display:inline;', 'title'=>'0～99']) }} 歳
+                                                        </div>
+                                                    </label>
+
+                                                    <label class="row text-nowrap mb-4">
+                                                        <span class="col-sm-2 lh2">カップ数</span>
+                                                        <div class="col-sm-10">
+                                                            {{ Form::text('cup', $i->cup, ['class'=>'form-control pass', 'pattern'=>'^[A-Za-z]$', 'style'=>'width:70px;display:inline;', 'title'=>'アルファベット一文字']) }} カップ
+                                                        </div>
+                                                    </label>
+
+                                                    <label class="row text-nowrap mb-4">
+                                                        <span class="col-sm-2 lh2">身長</span>
+                                                        <div class="col-sm-10">
+                                                            {{ Form::text('tall', $i->tall, ['class'=>'form-control pass', 'pattern'=>'^([12][0-9][0-9])$', 'style'=>'width:70px;display:inline;', 'title'=>'100～299']) }} cm
+                                                        </div>
+                                                    </label>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                                                    {{ Form::submit('更新',["class"=>"btn btn-info"])}}
+                                                </div>
+                                                {{ Form::close() }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <td><a class="btn btn-sm btn-success" href="{{ url()->current() }}/{{ $i->id }}/edit/{{ $action }}">{{ $actionComment }}</a></td>
                                     <td>
                                         @if(!$i->yoyaku)
                                         @component('componets.modal')
@@ -117,6 +161,27 @@
                             <span class="col-sm-2 lh2">給料形態 *</span>
                             <div class="col-sm-10">
                                 {{ Form::select('back_name', ['default'=>'default']+$backList, 'default', ['class'=>'form-select pass', 'required'=>'required']) }}
+                            </div>
+                        </label>
+
+                        <label class="row text-nowrap mb-4">
+                            <span class="col-sm-2 lh2">年齢</span>
+                            <div class="col-sm-10">
+                                {{ Form::text('age', null, ['class'=>'form-control pass', 'pattern'=>'^([0-9][0-9]|[0-9])$', 'style'=>'width:70px;display:inline;', 'title'=>'0～99']) }} 歳
+                            </div>
+                        </label>
+
+                        <label class="row text-nowrap mb-4">
+                            <span class="col-sm-2 lh2">カップ数</span>
+                            <div class="col-sm-10">
+                                {{ Form::text('cup', null, ['class'=>'form-control pass', 'pattern'=>'^[A-Za-z]$', 'style'=>'width:70px;display:inline;', 'title'=>'アルファベット一文字']) }} カップ
+                            </div>
+                        </label>
+
+                        <label class="row text-nowrap mb-4">
+                            <span class="col-sm-2 lh2">身長</span>
+                            <div class="col-sm-10">
+                                {{ Form::text('tall', null, ['class'=>'form-control pass', 'pattern'=>'^([12][0-9][0-9])$', 'style'=>'width:70px;display:inline;', 'title'=>'100～299']) }} cm
                             </div>
                         </label>
 

@@ -24,6 +24,25 @@ class Therapist extends Model
         $therapist->business_name = $input['business_name'];
         $therapist->mise_id = $miseId;
         $therapist->back_name = $input['back_name'];
+        $therapist->business_age = $input['age'];
+        $therapist->cup = strtoupper($input['cup']);
+        $therapist->tall = $input['tall'];
+        $result = $therapist->save();
+
+        //インサート失敗時
+        if(!$result) return '新規作成に失敗しました。';
+
+        return null;
+    }
+
+    //therapist編集
+    public static function therapistEdit($input, $id){
+        $therapist = therapist::find($id);
+
+        //インサート
+        $therapist->business_age = $input['age'];
+        $therapist->cup = strtoupper($input['cup']);
+        $therapist->tall = $input['tall'];
         $result = $therapist->save();
 
         //インサート失敗時
