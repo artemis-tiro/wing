@@ -18,11 +18,6 @@ class Shifuto extends Model
 
     // 予約新規作成
     public static function shiftCreate($input, $miseId){
-                
-        // 日付が入っていたらレコード削除。
-        // shifuto::where('mise_id', $miseId)
-        // ->delete();
-
         // foreachで１行ずつ取得して
         foreach($input as $key =>$i){
             // shiftの名前がついてないなら次
@@ -96,9 +91,15 @@ class Shifuto extends Model
                 log::info($t->shiftDay);
 
             }
-    }
+        }
         return null;
     }            
 
+    public static function shiftList($miseId){
+        $shiftList = shifuto::where('mise_id', $miseId)
+            ->where('working_day', date('Y-m-d'))
+            ->get();
+        return $shiftList;
+    }
 
 }

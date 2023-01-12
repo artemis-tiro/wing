@@ -104,8 +104,11 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/shift/{clientId}/{miseId}
 //therapist
 Route::middleware(['auth:sanctum', 'verified'])->any('/t', "App\Http\Controllers\TherapistController@top");
 
+//kokyaku
+Route::middleware(['auth:sanctum', 'verified'])->any('/{kokyakuId}/{miseId}', "App\Http\Controllers\KokyakuController@top");
+
 //test
-Route::middleware(['auth:sanctum', 'verified'])->any('/test', "App\Http\Controllers\TopController@test");
+Route::middleware(['auth:sanctum', 'verified'])->any('/test', "App\Http\Controllers\Controller@test");
 
 /*
 admin

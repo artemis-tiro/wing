@@ -18,6 +18,7 @@ use App\Models\Yoyaku;
 use App\Models\Kokyaku;
 use App\Models\Price;
 use App\Models\Kyuryo;
+use App\Models\shifuto;
 
 class InputController extends Controller{
 
@@ -75,9 +76,13 @@ class InputController extends Controller{
         // セラピスト一覧
         $zenTherapistList = therapist::zenTherapistList($miseId);
 
+        // シフト一覧
+        $shifutoList = shifuto::shiftList($miseId);
+
         return view ('input_therapist', [
             'mise' => $mise,
             'zenTherapistList' => $zenTherapistList,
+            'shifutoList' => $shifutoList,
             'error' => session('error'),
         ]);
     }
