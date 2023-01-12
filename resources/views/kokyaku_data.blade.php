@@ -5,7 +5,7 @@
 @include('common.pan')
 @section('pan2')
 <li class="breadcrumb-item"><a href="{{url("/i")}}">店舗選択</a></li>
-<li class="breadcrumb-item active">{{$mise->name}}</li>
+<li class="breadcrumb-item active">{{ $mise->name }}</li>
 
 @stop
 
@@ -14,7 +14,7 @@
     $teamName = App\Models\user::teamName(auth()->user()->team);
 ?>
 
-                <h1 class="h2">{{$mise->name}}</h1>
+                <h1 class="h2">{{ $mise->name }}</h1>
 
                 <!-- セラピスト一覧 -->
                 <div class="card my-4">
