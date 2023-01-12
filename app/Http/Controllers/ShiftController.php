@@ -122,10 +122,12 @@ class ShiftController extends Controller{
         ///////     バリデーション      ///////
         // shift  : 半角英数,ハイフンのみ
         $rulus = [
-            // 'shift' => ['numeric'],
+            'shift' => ['min|max|regex:/^[0-9\.]{0,3}\-[0-9\.]{0,3}$/'],
         ];
         $message = [
-            'shift.numeric' => '半角英数字で入力してください。',
+            'shift.min' => '4文字(ハイフン、ドット含め)以上で入力してください。',
+            'shift.max' => '9文字(ハイフン、ドット含め)以下で入力してください。',
+            'regex' => '半角英数字(ハイフン、ドット含め)で入力してください。',
         ];
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();

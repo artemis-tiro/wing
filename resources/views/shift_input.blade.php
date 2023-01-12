@@ -15,7 +15,8 @@
 
 @php
 //  シフトを入力できる日数
-$days = 10; 
+$days = 10;
+$week = ['日', '月', '火', '水', '木', '金', '土']
 @endphp
 
 <h1 class="h2">シフト入力</h1>
@@ -49,13 +50,13 @@ $days = 10;
                     @for($i=0; $i<$days; $i++)
                         @switch(date('N', strtotime(date('Y-m-d', strtotime("+".$i." day")))))
                             @case (6)
-                    <th scope="col" class="text-primary" style="text-align: center">{{ date('m/d', strtotime("+".$i." day")) }}</th>
+                    <th scope="col" class="text-primary" style="text-align: center">{{ date('m/d', strtotime("+".$i." day")).'('.$week[date('w', strtotime(date('Y-m-d', strtotime("+".$i." day"))))].')' }}</th>
                                 @break
                             @case (7)
-                    <th scope="col" class="text-danger" style="text-align: center">{{ date('m/d', strtotime("+".$i." day")) }}</th>
+                    <th scope="col" class="text-danger" style="text-align: center">{{ date('m/d', strtotime("+".$i." day")).'('.$week[date('w', strtotime(date('Y-m-d', strtotime("+".$i." day"))))].')' }}</th>
                                 @break
                             @default
-                    <th scope="col" style="text-align: center">{{ date('m/d', strtotime("+".$i." day")) }}</th>
+                    <th scope="col" style="text-align: center">{{ date('m/d', strtotime("+".$i." day")).'('.$week[date('w', strtotime(date('Y-m-d', strtotime("+".$i." day"))))].')' }}</th>
                         @endswitch
                     @endfor
                 </tr>
@@ -79,6 +80,8 @@ $days = 10;
 
         <!-- 送信ボタン -->
         {{ Form::submit('確定',["class"=>"btn btn-info"]) }}
+        ※「SHIFT」+「矢印」を押すと入力欄を移動できます。
+        ※「.」を押すと開始時間では「5」と「-」が終了時間では「5」が自動入力されます。
 
         <!-- フォームの終わり -->
         {{ Form::close() }}
