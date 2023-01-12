@@ -28,16 +28,28 @@
                                 <!-- カテゴリ -->
                                 <tr>
                                     <th scope="col"></th>
+                                    <th scope="col">アクティブ</th>
                                     <th scope="col">セラピスト名</th>
+                                    <th scope="col">年齢</th>
+                                    <th scope="col">バスト</th>
+                                    <th scope="col">身長</th>
                                     <th scope="col">給料形態</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($zenTherapistList as $t)
+                                {{--
+                                @php $active = $t->id == $shifutoList->id? $shifutoList->time: '-' ; @endphp
+                                --}}
                                 <tr>
-                                    <th>{{$loop->index+1}}</th>
-                                    <td><a href="{{url('/i/'.$mise->id.'/'.$t->id.'/')}}">{{$t->business_name}}</a></td>
-                                    <td>{{$t->back_name}}</td>
+                                    <th>{{ $loop->index+1 }}</th>
+                                    <th> active </th>
+                                    <!-- <th>{{-- $active --}}</th> -->
+                                    <td><a href="{{url('/i/'.$mise->id.'/'.$t->id.'/')}}">{{$t->business_name }}</a></td>
+                                    <td>{{ $t->business_age }}</td>
+                                    <td>{{ $t->cup }}</td>
+                                    <td>{{ $t->back_name }}</td>
+                                    <td>{{ $t->back_name }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
