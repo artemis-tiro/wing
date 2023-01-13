@@ -120,17 +120,15 @@ class ShiftController extends Controller{
     // シフト登録
     public function addshift(Request $request, $clientId, $miseId){
         ///////     バリデーション      ///////
-        // shift  : 半角英数,ハイフンのみ
+        // shift  : 半角英数,ハイフン,ドットのみ
         $rulus = [
-            'shift-\d?\D?\d?' => ['regex:/^([0-9]|[01][0-9]|2[0-4])(|\.5)-([0-9]|[01][0-9]|2[0-4])(|\.5)$/'],
+            // 'shift' => ['regex:/^([0-9]|[01][0-9]|2[0-4])(|\.5)-([0-9]|[01][0-9]|2[0-4])(|\.5)$/'],
 
-            // 'shift' => ['regex:/^\d?\D?\d?$/'],
-            // 'shift' => ['max:9,regex:/^[0-9\.]{0,3}\-[0-9\.]{0,3}$/'],
-            // 'shift' => ['max:9,regex:/^[0-9\.]{0,3}\-[0-9\.]{0,3}$/'],
+            'shift-\d?\D?\d?' => ['max:9, regex:/^\d?\D?\d?$/'],
         ];
         $message = [
-            'shift.max' => '9文字(ハイフン、ドット含め)以下で入力してください。',
-            'regex' => '半角英数字(ハイフン、ドット含め)で入力してください。',
+            'shift-\d?\D?\d?.max' => '9文字(ハイフン、ドット含め)以下で入力してください。',
+            'shift-\d?\D?\d?.regex' => '半角英数字(ハイフン、ドット含め)で入力してください。',
         ];
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();

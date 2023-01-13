@@ -26,6 +26,10 @@ class Shifuto extends Model
             $arry = explode('-', $key);
             $therapistId = $arry[1]; 
             $day = $arry[2];
+            
+            $aaa = shifuto::where('mise_id', $miseId)
+                    ->where('therapist_id', $therapistId)
+                    ->where('working_day', $day);
 
             // 日付が空の場合
             // DBのworking_dayを検索してレコードが存在していれば物理削除する
@@ -37,11 +41,13 @@ class Shifuto extends Model
                 continue;
             }
 
-            // shifuto::where('mise_id', $miseId)
-            //     ->where('therapist_id', $therapistId)
-            //     ->where('working_day', $day)
-            //     ->forceDelete();
-            // continue;
+            // if($aaa){
+            //     shifuto::where('mise_id', $miseId)
+            //         ->where('therapist_id', $therapistId)
+            //         ->where('working_day', $day)
+            //         ->forceDelete();
+            //     continue;
+            // }
 
             // インサート
             $shift = new shifuto();
@@ -95,21 +101,28 @@ class Shifuto extends Model
         return null;
     }            
 
+    // シフト取得
     public static function shiftList($miseId){
         $shiftList = shifuto::where('mise_id', $miseId)
             ->where('working_day', date('Y-m-d'))
             ->get();
         return $shiftList;
-
-        // foreach($therapistList as $therapist){
-        //     $aaa = $therapist->id;
-        // }
-
-        // $shiftList = shifuto::where('mise_id', $miseId)
-        //     ->where('therapist_id', $aaa)
-        //     ->where('working_day', date('Y-m-d'))
-        //     ->get();
-        // return $shiftList;
     }
 
+    public static function getTime($zenTherapistList){
+        foreach($zenTherapistList as $z){
+            $time = shifuto::where('therapist_id', $z->id)
+                ->where('working_day', shifuto::getWorkignDay())
+                ->value('time');
+            $z->time = $time;
+        }
+        return null;
+    }
+
+    public static function getWorkignDay(){
+        if(date('H')<6){
+            return date('Y-m-d', strtotime("-1 day"));
+        }
+        return date('Y-m-d');
+    }
 }
