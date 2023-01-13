@@ -78,12 +78,15 @@ class InputController extends Controller{
 
         // シフト一覧
         $shifutoList = shifuto::shiftList($miseId);
+        // $shifutoList = shifuto::shiftList($miseId, $zenTherapistList);
+
 
         return view ('input_therapist', [
             'mise' => $mise,
             'zenTherapistList' => $zenTherapistList,
             'shifutoList' => $shifutoList,
             'error' => session('error'),
+            'message' => session('message'),
         ]);
     }
 
