@@ -16,19 +16,19 @@ class Shifuto extends Model
     protected $table = 'Shifuto';
     protected $guarded = [''];
 
-    // 予約新規作成
+    // シフト新規作成
     public static function shiftCreate($input, $miseId){
         // foreachで１行ずつ取得して
         foreach($input as $key =>$i){
             // shiftの名前がついてないなら次
             if(strpos($key, 'shift-')===false) continue;
 
-            // 日付が空の場合
-            // DBのworking_dayを検索してレコードが存在していれば物理削除する
             $arry = explode('-', $key);
             $therapistId = $arry[1]; 
             $day = $arry[2];
 
+            // 日付が空の場合
+            // DBのworking_dayを検索してレコードが存在していれば物理削除する
             if(!$i) {
                 shifuto::where('mise_id', $miseId)
                     ->where('therapist_id', $therapistId)
@@ -37,11 +37,11 @@ class Shifuto extends Model
                 continue;
             }
 
-            //$key = 'shift-4-20221229'
-            //$arry[] = [0]shift [1]therapistId [2]Y-m-d
-            $arry = explode('-', $key);
-            $therapistId = $arry[1]; 
-            $day = $arry[2];
+            // shifuto::where('mise_id', $miseId)
+            //     ->where('therapist_id', $therapistId)
+            //     ->where('working_day', $day)
+            //     ->forceDelete();
+            // continue;
 
             // インサート
             $shift = new shifuto();
@@ -100,6 +100,16 @@ class Shifuto extends Model
             ->where('working_day', date('Y-m-d'))
             ->get();
         return $shiftList;
+
+        // foreach($therapistList as $therapist){
+        //     $aaa = $therapist->id;
+        // }
+
+        // $shiftList = shifuto::where('mise_id', $miseId)
+        //     ->where('therapist_id', $aaa)
+        //     ->where('working_day', date('Y-m-d'))
+        //     ->get();
+        // return $shiftList;
     }
 
 }

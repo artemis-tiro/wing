@@ -38,19 +38,26 @@
                             </thead>
                             <tbody>
                                 @foreach($zenTherapistList as $t)
-                                {{--
-                                @php $active = $t->id == $shifutoList->id? $shifutoList->time: '-' ; @endphp
-                                --}}
-                                <tr>
-                                    <th>{{ $loop->index+1 }}</th>
-                                    <th> active </th>
-                                    <!-- <th>{{-- $active --}}</th> -->
-                                    <td><a href="{{url('/i/'.$mise->id.'/'.$t->id.'/')}}">{{$t->business_name }}</a></td>
-                                    <td>{{ $t->business_age }}</td>
-                                    <td>{{ $t->cup }}</td>
-                                    <td>{{ $t->tall }}</td>
-                                    <td>{{ $t->back_name }}</td>
-                                </tr>
+                                    @foreach($shifutoList as $s)
+                                    {{--
+                                    @php $active = $t->id === $shifutoList->therapist_id? $shifutoList->time: '-' ; @endphp
+                                    --}}
+                                    
+                                    @php $active = $t->id === $s->therapist_id? $s->time: '-' ; @endphp
+                                    
+                                    {{-- @endforeach --}}
+                                    <tr>
+                                        <th>{{ $loop->index+1 }}</th>
+                                        <!-- <th> active </th> -->
+                                        <th>{{ $active }}</th>
+                                        <td><a href="{{url('/i/'.$mise->id.'/'.$t->id.'/')}}">{{$t->business_name }}</a></td>
+                                        <td>{{ $t->business_age }}</td>
+                                        <td>{{ $t->cup }}</td>
+                                        <td>{{ $t->tall }}</td>
+                                        <td>{{ $t->back_name }}</td>
+                                    </tr>
+                                    @endforeach
+                                    {{-- @endforeach --}}
                                 @endforeach
                             </tbody>
                         </table>
