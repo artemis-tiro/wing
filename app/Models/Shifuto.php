@@ -125,4 +125,8 @@ class Shifuto extends Model
         }
         return date('Y-m-d');
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> f92d4e330e1cd545eb08430fa919519bb1c78c95
 }
