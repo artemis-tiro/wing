@@ -27,12 +27,7 @@ class Yoyaku extends Model
             $yoyakuList = yoyaku::where('therapist_id', $therapistId)
             ->whereBetween('visit_day', [date('Y-m-d').' 06:00:00', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
             ->get();
-        }
-
-
-        // workingDay($day);
-
-        
+        }        
         return $yoyakuList;
     }
 
@@ -40,6 +35,22 @@ class Yoyaku extends Model
     public static function yoyakuAfterList($therapistId,$time){
         $yoyakuList = yoyaku::where('therapist_id', $therapistId)
             ->whereNotBetween('visit_day', [date('Y-m-d', strtotime("-10 year")).' 05:59:59', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
+            ->get();
+        return $yoyakuList;
+    }
+
+    // 過去予約一覧(顧客ID)
+    public static function yoyakuBeforList($kokyakuId){
+        $yoyakuList = yoyaku::where('kokyaku_id', $kokyakuId)
+            ->whereBetween('visit_day', [date('Y-m-d', strtotime("-10 year")).' 05:59:59', date('Y-m-d', strtotime("-1 day")).' 05:59:59'] )
+            ->get();
+        return $yoyakuList;
+    }
+
+    // 過去予約一覧(店ID)
+    public static function yoyakuBefor2List($miseId){
+        $yoyakuList = yoyaku::where('mise_id', $miseId)
+            ->whereBetween('visit_day', [date('Y-m-d', strtotime("-10 year")).' 05:59:59', date('Y-m-d', strtotime("-1 day")).' 05:59:59'] )
             ->get();
         return $yoyakuList;
     }
@@ -120,6 +131,7 @@ class Yoyaku extends Model
             $y->courseTime =  price::getCourseTime($priceId);
         }
 
+        // 延長
         foreach($yoyakuList as $y){
             $encho = $y->encho_id_list;
             $priceId = explode('P', $encho);
@@ -137,6 +149,24 @@ class Yoyaku extends Model
                 $y->enchoId = '';
             }
         }
+
+        // 来店一覧
+        foreach($yoyakuList as $y){
+
+            // 店舗名
+            $mise = mise::detail($y->mise_id);
+            if($mise){
+                $y->miseName = $mise->name;
+            }
+
+            // セラピスト名
+            $therapist = therapist::detail($y->therapist_id);
+            if($therapist){
+                $y->therapistName = $therapist->business_name;
+            }
+        }
+
+
         return null;
     }
 
@@ -368,5 +398,20 @@ class Yoyaku extends Model
 
             return $time;
         }
+    }
+
+    // 顧客名取得
+    public static function yoyakuKokyaku($yoyakuList){
+        foreach($yoyakuList as $y){
+            $kokyaku = kokyaku::where('kokyaku_id', $y->kokyaku_id)
+                ->first();
+            $y->kokyakuid = $kokyaku->id;
+            $y->kokyakuName = $kokyaku->name;
+            $y->kokyakuTel = $kokyaku->tel;
+            $y->kokyakuMail = $kokyaku->mail;
+            $y->kokyakuNg = $kokyaku->ng;
+            $y->kokyakuMemo = $kokyaku->memo;
+        }
+        return null;
     }
 }

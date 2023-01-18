@@ -15,6 +15,12 @@ class Kokyaku extends Model
     protected $table = 'kokyaku';
     protected $guarded = [''];
 
+    // mise情報
+    public static function detail($id){
+        $kokyaku = kokyaku::find($id);
+        return $kokyaku;
+    }
+
     // 顧客一覧
     public static function kokyakuList(){
         $kokyakuList = kokyaku::get();

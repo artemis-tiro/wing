@@ -29,7 +29,8 @@ class Shifuto extends Model
             
             $aaa = shifuto::where('mise_id', $miseId)
                     ->where('therapist_id', $therapistId)
-                    ->where('working_day', $day);
+                    ->where('working_day', $day)
+                    ->first();
 
             // 日付が空の場合
             // DBのworking_dayを検索してレコードが存在していれば物理削除する
@@ -50,7 +51,8 @@ class Shifuto extends Model
             // }
 
             // インサート
-            $shift = new shifuto();
+            // $shift = new shifuto();
+            $shift = $aaa?? new shifuto(); // $shift = $aaa? $aaa: new shifuto();
             $shift->mise_id = $miseId;
             $shift->therapist_id = $therapistId;
             $shift->user_id = Auth::user()->id;
@@ -125,8 +127,4 @@ class Shifuto extends Model
         }
         return date('Y-m-d');
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> f92d4e330e1cd545eb08430fa919519bb1c78c95
 }

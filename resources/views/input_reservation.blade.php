@@ -70,7 +70,7 @@
                                      
                                     <td>{{ $y->courseShimei }}</td>
 
-                                    <td><a href="/{$kokyakuList[$y->kokyaku_id]}/{ $mise->id }">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
+                                    <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
                                     
                                     <td>
                                         <!-- mb_strlen()文字数カウント -->
