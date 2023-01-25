@@ -108,10 +108,19 @@ class KokyakuController extends Controller{
         $kokyaku = kokyaku::detail($kokyakuId);
 
         // 過去予約一覧
-        $yoyakuList = yoyaku::yoyakuBeforList($kokyakuId);
+        $yoyakuList = yoyaku::yoyakuBefor2List($kokyakuId);
 
         // シフト一覧
         $shifutoList = shifuto::shiftList($miseId);
+
+        // miseidでセラピスト全取得
+        $therapistList = therapist::zenTherapistList($miseId);
+
+        // NGセラピスト取得
+        // $ng = kokyaku::ngTherapist($kokyakuId, $therapistList);
+
+        // NGセラピスト取得
+        $ng = therapist::ngTherapist($kokyakuId, $therapistList);
 
         // 店、セラピスト名取得
         yoyaku::courseNameList($yoyakuList);
@@ -120,6 +129,7 @@ class KokyakuController extends Controller{
             'mise' => $mise,
             'kokyaku' => $kokyaku,
             'yoyakuList' => $yoyakuList,
+            'ng' => $ng,
             'error' => session('error'),
             'message' => session('message'),
         ]);

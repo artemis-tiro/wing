@@ -84,4 +84,26 @@ class Kokyaku extends Model
 
         return $kokyaku;
     }
+
+    // ng
+    public static function ngTherapist($kokyakuId ,$therapistList){
+
+        $List = '';
+
+        // 顧客のNGをとる
+        $kokyakuData = kokyaku::detail($kokyakuId);
+
+        $ngList = $kokyakuData->ng;
+
+        foreach($therapistList as $t){
+            $List .= 'T' .$t->id;
+        }
+
+        // NGではないセラピストを検索
+        $selectNg = str_replace($ngList, '', $List);
+
+        $therapistId = explode('T', $selectNg);
+
+        return $therapistId;
+    }
 }

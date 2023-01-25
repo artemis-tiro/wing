@@ -101,7 +101,7 @@
 
         <!-- モーダルの設定 -->
         <!-- 名前 -->
-        @if($errors->has('kana') || $errors->has('name'))
+        @if($errors->has('name'))
         <div class="modal show" id="nameModal" tabindex="-1" aria-labelledby="nameModalLabel" data-bs-backdrop="static">
         @else
         <div class="modal fade" id="nameModal" tabindex="-1" aria-labelledby="nameModalLabel" data-bs-backdrop="static">
@@ -128,31 +128,16 @@
                             @if ($errors->has('name'))
                                 <div class="mt-2 text-danger text-end">{{ $errors->first('name') }}</div>
                             @else
-                                <div class="mt-2 text-info text-end">名前</div>
+                                <div class="mt-2 text-info text-end">名前(カタカナ)</div>
                             @endif
 
                             <div class="col-sm-12">
 
                                 <!-- 半角などのチェック -->
                                 <!-- Form::タイプ('NAME', VALUE, ['class'=>'クラス']) -->
-                                {{ Form::text('name', $kokyaku->name, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required', 'placeholder'=>'(例) 山田沙也加']) }}
+                                {{ Form::text('name', $kokyaku->name, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required', 'placeholder'=>'(例) ヤマダ']) }}
                             </div>
                         </label>
-
-                        <!-- かな -->
-                        <label class="row">
-                            @if ($errors->has('kana'))
-                                <div class="mt-2 text-danger text-end">{{ $errors->first('kana') }}</div>
-                            @else
-                                <div class="mt-2 text-info text-end">かな</div>
-                            @endif
-                            <div class="col-sm-12">
-
-                                <!-- 上のパスワードと同じかの確認をする -->
-                                {{ Form::text('kana', $kokyaku->yomi, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required', 'placeholder'=>'(例) やまださやか']) }}
-                            </div>
-                        </label>
-
                     </div>
 
                     <!-- モーダルのフッター -->
@@ -319,7 +304,9 @@
                             <div class="col-sm-12">
 
                                 <!-- 半角などのチェック -->
-                                {{ Form::text('ng', $kokyaku->ng, ['class'=>'form-control']) }}
+                                {{ Form::select('age', [$ng]) }}
+                                {{ Form::select('age', ['4','4','4','4','10','10','10','10','13','13','13','13','14','14','14','15','15','15','16','16','16',]) }}
+                                {{ Form::select('age', ['Under 18', '19 to 64', 'Over 65']) }}
                             </div>
                         </label>
 
@@ -410,7 +397,6 @@
                 <!-- カテゴリ -->
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">店舗名</th>
                     <th scope="col">セラピスト名</th>
                     <th scope="col">来店日時</th>
                     <th scope="col">メモ</th>
@@ -420,7 +406,6 @@
                 @foreach($yoyakuList as $y)
                 <tr>
                     <th>{{ $loop->index+1 }}</th>
-                    <td>{{ $y->miseName }}</td>
                     <td>{{ $y->therapistName }}</td>
                     <td>{{ $y->visit_day }}</td>
                     <td>{{ $kokyaku->memo }}</td>

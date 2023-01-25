@@ -39,7 +39,7 @@
                 @foreach($yoyakuList as $y)
                 <tr>
                     <th>{{ $loop->index+1 }}</th>
-                    <td>{{ $y->kokyakuName }}</td>
+                    <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id) }}">{{ $y->kokyakuName }}</a> 様</td>
                     <td>{{ $y->kokyakuTel }}</td>
                     <td>{{ $y->kokyakuMail }}</td>
                     <td>{{ $y->kokyakuNg }}</td>

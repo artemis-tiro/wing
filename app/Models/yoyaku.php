@@ -50,7 +50,8 @@ class Yoyaku extends Model
     // 過去予約一覧(店ID)
     public static function yoyakuBefor2List($miseId){
         $yoyakuList = yoyaku::where('mise_id', $miseId)
-            ->whereBetween('visit_day', [date('Y-m-d', strtotime("-10 year")).' 05:59:59', date('Y-m-d', strtotime("-1 day")).' 05:59:59'] )
+            ->distinct()
+            ->select('kokyaku_id')
             ->get();
         return $yoyakuList;
     }
@@ -403,7 +404,7 @@ class Yoyaku extends Model
     // 顧客名取得
     public static function yoyakuKokyaku($yoyakuList){
         foreach($yoyakuList as $y){
-            $kokyaku = kokyaku::where('kokyaku_id', $y->kokyaku_id)
+            $kokyaku = kokyaku::where('id', $y->kokyaku_id)
                 ->first();
             $y->kokyakuid = $kokyaku->id;
             $y->kokyakuName = $kokyaku->name;

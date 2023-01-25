@@ -235,4 +235,35 @@ class Therapist extends Model
         $therapist = therapist::find($therapistId);
         return $therapist->business_name;
     }
+
+    // NGを除いたセラピスト
+    public static function ngTherapist($kokyakuId, $therapistList){
+        
+        // selectbox
+        $select = '';
+
+        // kokyakuのng
+        $kokyakuData = kokyaku::detail($kokyakuId);
+
+        $ng = $kokyakuData->ng;
+
+        $ngList = explode('T', $ng);
+
+        $ngCount = count($ngList);
+        
+        // 店ごとセラピストリスト
+        foreach($therapistList as $t){
+            for($i = 0; $i < $ngCount; $i++){
+                // mglistに無ければ加える
+                if(!($t->id == $ngList[$i])){
+                    $select .= "'".$t->id."'".','; 
+                }
+            }
+        }
+
+
+        log::info($select);
+
+        return $select;
+    }
 }
