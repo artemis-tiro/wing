@@ -7,8 +7,9 @@
   $c2 = strpos($path,'i') === 0?'active':'';
   $c3 = strpos($path,'admin/inputer') === 0?'active':'';
   $c4 = strpos($path,'admin/client') === 0?'active':'';
-  $c5 = strpos($path,'mypage') === 0?'active':'';
+  $c5 = strpos($path,'k') === 0?'active':'';
   $c6 = strpos($path,'shift') === 0?'active':'';
+  $c7 = strpos($path,'mypage') === 0?'active':'';
 ?>
 
             <!-- サイドバー -->
@@ -92,7 +93,7 @@
 
                         <!-- カテゴリ7 -->
                         <li class="nav-item">
-                          <a class="nav-link {{$c5}}" href="{{url("/mypage")}}">
+                          <a class="nav-link {{$c7}}" href="{{url("/mypage")}}">
                           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>

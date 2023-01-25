@@ -241,29 +241,78 @@ class Therapist extends Model
         
         // selectbox
         $select = '';
+        $se = '';
 
         // kokyakuのng
         $kokyakuData = kokyaku::detail($kokyakuId);
 
-        $ng = $kokyakuData->ng;
+        // $ng = $kokyakuData->ng;
 
-        $ngList = explode('T', $ng);
+        // $ngList = explode('T', $ng);
 
-        $ngCount = count($ngList);
+        // $ngCount = count($ngList);
         
         // 店ごとセラピストリスト
         foreach($therapistList as $t){
-            for($i = 0; $i < $ngCount; $i++){
-                // mglistに無ければ加える
-                if(!($t->id == $ngList[$i])){
-                    $select .= "'".$t->id."'".','; 
-                }
+            $se .= 'T'.$t->id;
+        }
+
+        $ng = str_replace($kokyakuData->ng, '', $se);
+
+        $arr = explode('T', $ng);
+
+        $count = count($arr);
+
+        for($i = 0; $i < $count; $i++){
+            // 最初の空白をはじく
+            if(!($arr[$i])) continue;
+
+            // arrのセラピストIDで名前をとる
+            $therapist = therapist::detail($arr[$i]);
+
+            // 最初だけカンマいらない            
+            if(empty($select)){
+                $select .= "'".$therapist->business_name."'";
+            }else{
+                $select .= ','."'".$therapist->business_name."'";
             }
         }
 
-
-        log::info($select);
-
         return $select;
     }
+
+    // NGセラピスト名取得
+    public static function getTherapistName($kokyaku){
+
+        // 顧客のNGセラピストリスト取得
+        $ngList = $kokyaku->ng;
+        $ngId = explode('T', $ngList);
+        $ngCount = count($ngId);
+
+        // 出力文字
+        $display = '';
+
+        // NGセラピストリストの数だけ回す
+        for($i = 0; $i < $ngCount; $i++){
+
+            // ngIdで名前をとる
+            $therapist = therapist::detail($ngId[$i]);
+
+            if(!($therapist)) continue;
+
+            // 最初以外カンマ付き
+            if(empty($display)){
+                $display .= $therapist->business_name;                
+            }else{
+                $display .= ' ,'.$therapist->business_name; 
+            }
+        }
+
+        // ngNameを付与
+        $kokyaku->ngName = $display;
+
+        return null;
+
+    }
+
 }

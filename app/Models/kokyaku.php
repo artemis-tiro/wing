@@ -85,7 +85,7 @@ class Kokyaku extends Model
         return $kokyaku;
     }
 
-    // ng
+    // NGセラピスト取得
     public static function ngTherapist($kokyakuId ,$therapistList){
 
         $List = '';
@@ -105,5 +105,75 @@ class Kokyaku extends Model
         $therapistId = explode('T', $selectNg);
 
         return $therapistId;
+    }
+
+    // 顧客名前変更
+    public static function kokyakuNameEdit($id, $input){
+        //インサート
+        $kokyaku = kokyaku::find($id);
+        
+        $kokyaku->name = $input['name'];
+        $result = $kokyaku->save();
+
+        //インサート失敗時
+        if(!$result) return false;
+
+        return true;
+    }
+
+    // 顧客電話番号変更
+    public static function kokyakuTelEdit($id, $input){
+        //インサート
+        $kokyaku = kokyaku::find($id);
+
+        $kokyaku->tel = $input['tel'];
+        $result = $kokyaku->save();
+
+        //インサート失敗時
+        if(!$result) return false;
+
+        return true;
+    }
+
+    // 顧客メールアドレス変更
+    public static function kokyakuMailEdit($id, $input){
+        //インサート
+        $kokyaku = kokyaku::find($id);
+
+        $kokyaku->mail = $input['mail'];
+        $result = $kokyaku->save();
+
+        //インサート失敗時
+        if(!$result) return false;
+
+        return true;
+    }
+
+    // 顧客NGセラピスト変更
+    public static function kokyakuNgEdit($id, $input){
+        //インサート
+        $kokyaku = kokyaku::find($id);
+
+        $kokyaku->mail = $input['ng'];
+        $result = $kokyaku->save();
+
+        //インサート失敗時
+        if(!$result) return false;
+
+        return true;
+    }
+
+    // 顧客メモ変更
+    public static function kokyakuMemoEdit($id, $input){
+        //インサート
+        $kokyaku = kokyaku::find($id);
+
+        $kokyaku->mail = $input['memo'];
+        $result = $kokyaku->save();
+
+        //インサート失敗時
+        if(!$result) return false;
+
+        return true;
     }
 }

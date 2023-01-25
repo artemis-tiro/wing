@@ -79,7 +79,7 @@ class KokyakuController extends Controller{
         $mise = mise::detail($miseId);
 
         // 店毎予約一覧
-        $yoyakuList = yoyaku::yoyakuBefor2List($miseId);
+        $yoyakuList = yoyaku::yoyakuMiseKokyakuList($miseId);
 
         // 顧客情報
         yoyaku::yoyakuKokyaku($yoyakuList);
@@ -108,7 +108,7 @@ class KokyakuController extends Controller{
         $kokyaku = kokyaku::detail($kokyakuId);
 
         // 過去予約一覧
-        $yoyakuList = yoyaku::yoyakuBefor2List($kokyakuId);
+        $yoyakuList = yoyaku::yoyakuMiseLogList($miseId);
 
         // シフト一覧
         $shifutoList = shifuto::shiftList($miseId);
@@ -120,18 +120,123 @@ class KokyakuController extends Controller{
         // $ng = kokyaku::ngTherapist($kokyakuId, $therapistList);
 
         // NGセラピスト取得
-        $ng = therapist::ngTherapist($kokyakuId, $therapistList);
+        // $ng = therapist::ngTherapist($kokyakuId, $therapistList);
 
-        // 店、セラピスト名取得
+        // NGセラピスト名取得
+        therapist::getTherapistName($kokyaku);
+
+        // セラピスト名取得
         yoyaku::courseNameList($yoyakuList);
 
         return view ('kokyaku_data', [
             'mise' => $mise,
             'kokyaku' => $kokyaku,
             'yoyakuList' => $yoyakuList,
-            'ng' => $ng,
             'error' => session('error'),
             'message' => session('message'),
         ]);
+    }
+
+    // 名前の変更
+    public function namechange($kokyakuId ,Request $request){
+
+        ///////     バリデーション      ///////
+        // NULLではない
+        $rulus = [
+            'name' => ['required'],
+        ];
+        $message = [
+            'name.required' => '名前を入力してください。',
+        ];
+        $validator = Validator::make($request->all(), $rulus, $message);
+        if($validator->fails()) return back()->withErrors($validator)->withInput();
+
+        // DB更新
+        $result = kokyaku::kokyakuNameEdit($kokyakuId ,$request);
+
+        if($result){
+            return back()->with(['message' => '変更されました。']);
+        }else{
+            return back()->with(['error' => '変更されませんでした。']);
+        }
+
+        return back();
+
+    }
+
+    // 電話番号の変更
+    public function telchange($kokyakuId ,Request $request){
+
+        ///////     バリデーション      ///////
+        // NULLではない
+        // 数字であるか
+        $rulus = [
+            'tel' => ['numeric'],
+        ];
+        $message = [
+            'tel.numeric' => '数字を入力してください。',
+        ];
+        $validator = Validator::make($request->all(), $rulus, $message);
+        if($validator->fails()) return back()->withErrors($validator)->withInput();
+
+        // DB更新
+        $result = kokyaku::kokyakuTelEdit($kokyakuId ,$request);
+
+        if($result){
+            return back()->with(['message' => '変更されました。']);
+        }else{
+            return back()->with(['error' => '変更されませんでした。']);
+        }
+
+        return back();
+
+    }
+
+    // メールアドレスの変更
+    public function mailchange($kokyakuId ,Request $request){
+
+        // DB更新
+        $result = kokyaku::kokyakuMailEdit($kokyakuId ,$request);
+
+        if($result){
+            return back()->with(['message' => '変更されました。']);
+        }else{
+            return back()->with(['error' => '変更されませんでした。']);
+        }
+
+        return back();
+
+    }
+    
+    // NGセラピストの変更
+    public function ngchange($kokyakuId ,Request $request){
+
+        // DB更新
+        $result = kokyaku::kokyakuNgEdit($kokyakuId ,$request);
+
+        if($result){
+            return back()->with(['message' => '変更されました。']);
+        }else{
+            return back()->with(['error' => '変更されませんでした。']);
+        }
+
+        return back();
+
+    }
+
+    // メモ
+    public function memochange(Request $request){
+
+        // DB更新
+        $result = kokyaku::kokyakuMemoEdit($kokyakuId ,$request);
+
+        if($result){
+            return back()->with(['message' => '変更されました。']);
+        }else{
+            return back()->with(['error' => '変更されませんでした。']);
+        }
+
+        return back();
+
     }
 }

@@ -4,7 +4,7 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item"><a href="{{url("/i")}}">店舗選択</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/k/".$mise->id) }}">顧客一覧</a></li>
 <li class="breadcrumb-item active">{{ $kokyaku->name }}</li>
 
 @stop
@@ -78,7 +78,7 @@
             <!-- ラベル -->
             <div class="mt-2 text-info text-end">NGセラピスト</div>
             <div class="col-sm-3">
-                <label class="mt-2">{{ $kokyaku->ng }}</label>
+                <label class="mt-2">{{ $kokyaku->ngName }}</label>
             </div>
             <!-- ボタン -->
             <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#ngModal">
@@ -116,7 +116,7 @@
                     </div>
 
                     <!-- フォームの開始 -->
-                    {{-- Form::open(['url' => url\('/k/namechange')]) --}}
+                    {{ Form::open(['url' => url('/k/$kokyaku->id/namechange')]) }}
                     
                     <!-- モーダルの内容 -->
                     <div class="modal-body">
@@ -150,7 +150,7 @@
                     </div>
 
                     <!-- フォームの終わり -->
-                    {{-- Form::close() --}}
+                    {{ Form::close() }}
 
                 </div>
             </div>
@@ -172,7 +172,7 @@
                     </div>
 
                     <!-- フォームの開始 -->
-                    {{-- Form::open(['url' => url\('/k/telchange')]) --}}
+                    {{ Form::open(['url' => url('/k/$kokyaku->id/telchange')]) }}
                     
                     <!-- モーダルの内容 -->
                     <div class="modal-body">
@@ -207,7 +207,7 @@
                     </div>
 
                     <!-- フォームの終わり -->
-                    {{-- Form::close() --}}
+                    {{ Form::close() }}
 
                 </div>
             </div>
@@ -229,7 +229,7 @@
                     </div>
 
                     <!-- フォームの開始 -->
-                    {{-- Form::open(['url' => url\('/k/mailchange')]) --}}
+                    {{ Form::open(['url' => url('/k/$kokyaku->id/mailchange')]) }}
                     
                     <!-- モーダルの内容 -->
                     <div class="modal-body">
@@ -264,7 +264,7 @@
                     </div>
 
                     <!-- フォームの終わり -->
-                    {{-- Form::close() --}}
+                    {{ Form::close() }}
 
                 </div>
             </div>
@@ -286,7 +286,7 @@
                     </div>
 
                     <!-- フォームの開始 -->
-                    {{-- Form::open(['url' => url\('/k/ngchange')]) --}}
+                    {{-- Form::open(['url' => url('/k/$kokyaku->id/ngchange')]) --}}
                     
                     <!-- モーダルの内容 -->
                     <div class="modal-body">
@@ -304,9 +304,7 @@
                             <div class="col-sm-12">
 
                                 <!-- 半角などのチェック -->
-                                {{ Form::select('age', [$ng]) }}
-                                {{ Form::select('age', ['4','4','4','4','10','10','10','10','13','13','13','13','14','14','14','15','15','15','16','16','16',]) }}
-                                {{ Form::select('age', ['Under 18', '19 to 64', 'Over 65']) }}
+                                {{ Form::select('age', ['ゆうこ','しょうこ','くにこ']) }}
                             </div>
                         </label>
 
@@ -344,7 +342,7 @@
                     </div>
 
                     <!-- フォームの開始 -->
-                    {{-- Form::open(['url' => url\('/k/memochange')]) --}}
+                    {{ Form::open(['url' => url('/k/$kokyaku->id/memochange')]) }}
                     
                     <!-- モーダルの内容 -->
                     <div class="modal-body">
@@ -377,7 +375,7 @@
                     </div>
 
                     <!-- フォームの終わり -->
-                    {{-- Form::close() --}}
+                    {{ Form::close() }}
 
                 </div>
             </div>

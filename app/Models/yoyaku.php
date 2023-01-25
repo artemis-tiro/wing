@@ -47,11 +47,19 @@ class Yoyaku extends Model
         return $yoyakuList;
     }
 
-    // 過去予約一覧(店ID)
-    public static function yoyakuBefor2List($miseId){
+    // 店ごと顧客一覧
+    public static function yoyakuMiseKokyakuList($miseId){
         $yoyakuList = yoyaku::where('mise_id', $miseId)
             ->distinct()
             ->select('kokyaku_id')
+            ->get();
+        return $yoyakuList;
+    }
+
+    // 来店一覧
+    public static function yoyakuMiseLogList($miseId){
+        $yoyakuList = yoyaku::where('mise_id', $miseId)
+            ->orderByDesc('visit_day')
             ->get();
         return $yoyakuList;
     }
@@ -153,13 +161,6 @@ class Yoyaku extends Model
 
         // 来店一覧
         foreach($yoyakuList as $y){
-
-            // 店舗名
-            $mise = mise::detail($y->mise_id);
-            if($mise){
-                $y->miseName = $mise->name;
-            }
-
             // セラピスト名
             $therapist = therapist::detail($y->therapist_id);
             if($therapist){
