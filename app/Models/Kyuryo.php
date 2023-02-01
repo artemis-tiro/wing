@@ -19,6 +19,10 @@ class kyuryo extends Model
     // インサート
     public static function kyuryoCreate($input, $miseId, $therapistId, $time){
 
+        if($input){
+            dd($input->ocha[0]);
+        }
+
         $adjustList = kyuryo::where('mise_id', $miseId)
             ->where('therapist_id', $therapistId)
             ->whereBetween('working_day', [$time.' 06:00:00', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )

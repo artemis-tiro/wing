@@ -254,8 +254,10 @@ class InputController extends Controller{
         // 予約コース
         yoyaku::courseNameList($yoyakuList);
 
-        // 予約コース総額　＋　調整金
-        kyuryo::dailyPriceCul($yoyakuList, $adjustList);
+        if($yoyakuListCnt > 0){
+            // 予約コース総額　＋　調整金
+            kyuryo::dailyPriceCul($yoyakuList, $adjustList);
+        }
 
         return view ('input_kyuryo', [
             'mise' => $mise,
@@ -296,6 +298,20 @@ class InputController extends Controller{
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();
 
+        // kyuryo作成
+        $kyuryo = kyuryo::kyuryoCreate($request->input(), $miseId, $therapistId, date('Y-m-d'));
+
+        if($kyuryo){
+            return back()->with(['message' => '給与計算ができました。']);
+        }else{
+            return back()->with(['error' => '給与計算ができません。']);
+        }
+
+        return back();
+    }
+
+    // 給与計算
+    public function calculation2(Request $request, $miseId, $therapistId){
         // kyuryo作成
         $kyuryo = kyuryo::kyuryoCreate($request->input(), $miseId, $therapistId, date('Y-m-d'));
 

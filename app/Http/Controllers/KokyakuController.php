@@ -225,7 +225,7 @@ class KokyakuController extends Controller{
     }
 
     // メモ
-    public function memochange(Request $request){
+    public function memochange($kokyakuId ,Request $request){
 
         // DB更新
         $result = kokyaku::kokyakuMemoEdit($kokyakuId ,$request);

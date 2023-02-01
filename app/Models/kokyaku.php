@@ -168,7 +168,7 @@ class Kokyaku extends Model
         //インサート
         $kokyaku = kokyaku::find($id);
 
-        $kokyaku->mail = $input['memo'];
+        $kokyaku->memo = $input['memo'];
         $result = $kokyaku->save();
 
         //インサート失敗時

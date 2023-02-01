@@ -255,14 +255,6 @@ class price extends Model
             ->where('back_name', $backName)
             ->where('type', 'encho')
             ->get();
-
-
-
-            log::info($enchoList);
-
-
-
-
         if($enchoList -> count() != 0 ){
             return $enchoList;
         }

@@ -116,7 +116,7 @@
                     </div>
 
                     <!-- フォームの開始 -->
-                    {{ Form::open(['url' => url('/k/$kokyaku->id/namechange')]) }}
+                    {{ Form::open(['url' => url("/k/$kokyaku->id/namechange")]) }}
                     
                     <!-- モーダルの内容 -->
                     <div class="modal-body">
@@ -172,7 +172,7 @@
                     </div>
 
                     <!-- フォームの開始 -->
-                    {{ Form::open(['url' => url('/k/$kokyaku->id/telchange')]) }}
+                    {{ Form::open(['url' => url("/k/$kokyaku->id/telchange")]) }}
                     
                     <!-- モーダルの内容 -->
                     <div class="modal-body">
@@ -229,7 +229,7 @@
                     </div>
 
                     <!-- フォームの開始 -->
-                    {{ Form::open(['url' => url('/k/$kokyaku->id/mailchange')]) }}
+                    {{ Form::open(['url' => url("/k/$kokyaku->id/mailchange")]) }}
                     
                     <!-- モーダルの内容 -->
                     <div class="modal-body">
@@ -286,7 +286,7 @@
                     </div>
 
                     <!-- フォームの開始 -->
-                    {{-- Form::open(['url' => url('/k/$kokyaku->id/ngchange')]) --}}
+                    {{-- Form::open(['url' => url("/k/$kokyaku->id/ngchange")]) --}}
                     
                     <!-- モーダルの内容 -->
                     <div class="modal-body">
@@ -342,7 +342,7 @@
                     </div>
 
                     <!-- フォームの開始 -->
-                    {{ Form::open(['url' => url('/k/$kokyaku->id/memochange')]) }}
+                    {{ Form::open(['url' => url("/k/$kokyaku->id/memochange")]) }}
                     
                     <!-- モーダルの内容 -->
                     <div class="modal-body">

@@ -33,10 +33,10 @@
                     <div class="card-body">
 
                     <!-- フォームの開始 -->
-                    {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/calculation')]) }}
 
                     <!-- 予約が1件もない場合 -->
-                    @if($yoyakuListCnt ===   0)
+                    @if($yoyakuListCnt === 0)
+                        {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/calculation2')]) }}
                         <!-- お茶 -->
                         <div class="row text-nowrap mb-4 text-end radio_visit">
                             <div class="col-sm-2 text-end">お茶</div>
@@ -51,6 +51,7 @@
                     @endif
                     
                     @if($yoyakuListCnt != 0)
+                        {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/calculation')]) }}
                         <!-- 　　　　今回未実装 　　　　　-->
                         {{--
                         <!-- ポーチ -->
@@ -93,7 +94,6 @@
                             </div>
                         @endfor
                     @endif
-
 
                     <!-- 送信ボタン -->
                     {{ Form::submit('給料計算',["class"=>"btn btn-info"]) }}

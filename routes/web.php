@@ -73,6 +73,7 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}'
 Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}/reservation', "App\Http\Controllers\InputController@reservation");
 Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}/kyuryo', "App\Http\Controllers\InputController@kyuryo");
 Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}/calculation', "App\Http\Controllers\InputController@calculation");
+Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}/calculation2', "App\Http\Controllers\InputController@calculation2");
 Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}/{id}/del', "App\Http\Controllers\InputController@yoyakudel");
 Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}/{id}/yoyakuedit', "App\Http\Controllers\InputController@yoyakuedit");
 Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}/{id}/yoyakuencho', "App\Http\Controllers\InputController@yoyakuencho");
@@ -107,12 +108,12 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/t', "App\Http\Controllers
 //kokyaku
 Route::middleware(['auth:sanctum', 'verified'])->any('/k', "App\Http\Controllers\KokyakuController@top");
 Route::middleware(['auth:sanctum', 'verified'])->any('/k/{miseId}', "App\Http\Controllers\KokyakuController@kokyakulist");
-Route::middleware(['auth:sanctum', 'verified'])->any('/k/{miseId}/{kokyakuId}', "App\Http\Controllers\KokyakuController@kokyakudata");
 Route::middleware(['auth:sanctum', 'verified'])->any('/k/{kokyakuId}/namechange', "App\Http\Controllers\KokyakuController@namechange");
 Route::middleware(['auth:sanctum', 'verified'])->any('/k/{kokyakuId}/telchange', "App\Http\Controllers\KokyakuController@telchange");
 Route::middleware(['auth:sanctum', 'verified'])->any('/k/{kokyakuId}/mailchange', "App\Http\Controllers\KokyakuController@mailchange");
 Route::middleware(['auth:sanctum', 'verified'])->any('/k/{kokyakuId}/ngchange', "App\Http\Controllers\KokyakuController@ngchange");
 Route::middleware(['auth:sanctum', 'verified'])->any('/k/{kokyakuId}/memochange', "App\Http\Controllers\KokyakuController@memochange");
+Route::middleware(['auth:sanctum', 'verified'])->any('/k/{miseId}/{kokyakuId}', "App\Http\Controllers\KokyakuController@kokyakudata");
 
 //test
 Route::middleware(['auth:sanctum', 'verified'])->any('/test', "App\Http\Controllers\Controller@test");
