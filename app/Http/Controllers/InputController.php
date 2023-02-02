@@ -167,6 +167,47 @@ class InputController extends Controller{
         ]);
     }
 
+    // 過去予約一覧ページ
+    public function yoyakuBefor($miseId,$therapistId){
+
+        $kokyakuData = null;
+
+        // 権限チェック
+        if($ng = $this->levelCheck()) return $ng;
+
+        // 店舗情報
+        $mise = mise::detail($miseId);
+
+        // セラピスト情報
+        $therapist = therapist::detail($therapistId);
+
+        // 顧客情報
+        $kokyakuList = kokyaku::kokyakuList();
+
+        // 予約一覧
+        $yoyakuList = yoyaku::yoyakuBeforList2($therapistId, '2023-02-02');
+
+        // 調整金予約一覧
+        $adjustList = kyuryo::adjustList($miseId, $therapistId, '2023-02-02');
+
+        // 予約コース
+        yoyaku::courseNameList($yoyakuList);
+
+        if($yoyakuList){
+            // 予約コース総額　＋　調整金
+            kyuryo::dailyPriceCul($yoyakuList, $adjustList);
+        }
+
+        return view ('input_befor', [
+            'mise' => $mise,
+            'therapist' => $therapist,
+            'kokyakuList' => $kokyakuList,
+            'yoyakuList' => $yoyakuList,
+            'message' => session('message'),
+            'error' => session('error'),
+        ]);
+    }
+
     // 予約新規作成
     public function reservation(Request $request, $miseId, $therapistId){
         ///////     バリデーション      ///////
@@ -313,7 +354,7 @@ class InputController extends Controller{
     // 給与計算
     public function calculation2(Request $request, $miseId, $therapistId){
         // kyuryo作成
-        $kyuryo = kyuryo::kyuryoCreate($request->input(), $miseId, $therapistId, date('Y-m-d'));
+        $kyuryo = kyuryo::kyuryoCreate2($request->input(), $miseId, $therapistId, date('Y-m-d'));
 
         if($kyuryo){
             return back()->with(['message' => '給与計算ができました。']);

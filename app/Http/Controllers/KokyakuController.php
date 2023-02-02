@@ -116,11 +116,8 @@ class KokyakuController extends Controller{
         // miseidでセラピスト全取得
         $therapistList = therapist::zenTherapistList($miseId);
 
-        // NGセラピスト取得
-        // $ng = kokyaku::ngTherapist($kokyakuId, $therapistList);
-
-        // NGセラピスト取得
-        // $ng = therapist::ngTherapist($kokyakuId, $therapistList);
+        // セラピスト取得
+        $selectNg = therapist::ngTherapist($kokyakuId, $therapistList);
 
         // NGセラピスト名取得
         therapist::getTherapistName($kokyaku);
@@ -132,6 +129,7 @@ class KokyakuController extends Controller{
             'mise' => $mise,
             'kokyaku' => $kokyaku,
             'yoyakuList' => $yoyakuList,
+            'selectNg' => $selectNg,
             'error' => session('error'),
             'message' => session('message'),
         ]);

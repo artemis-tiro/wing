@@ -286,7 +286,7 @@
                     </div>
 
                     <!-- フォームの開始 -->
-                    {{-- Form::open(['url' => url("/k/$kokyaku->id/ngchange")]) --}}
+                    {{ Form::open(['url' => url("/k/$kokyaku->id/ngchange")]) }}
                     
                     <!-- モーダルの内容 -->
                     <div class="modal-body">
@@ -298,13 +298,13 @@
                             @if ($errors->has('ng'))
                                 <div class="mt-2 text-danger text-end">{{ $errors->first('ng') }}</div>
                             @else
-                                <div class="mt-2 text-info text-end">ng</div>
+                                <div class="mt-2 text-info text-end">セラピスト一覧</div>
                             @endif
 
                             <div class="col-sm-12">
 
                                 <!-- 半角などのチェック -->
-                                {{ Form::select('age', ['ゆうこ','しょうこ','くにこ']) }}
+                                {{ Form::select('ng', $selectNg) }}
                             </div>
                         </label>
 

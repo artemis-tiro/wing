@@ -19,23 +19,22 @@ class kyuryo extends Model
     // インサート
     public static function kyuryoCreate($input, $miseId, $therapistId, $time){
 
-        if($input){
-            dd($input->ocha[0]);
-        }
+        $cnt = 0;
 
         $adjustList = kyuryo::where('mise_id', $miseId)
             ->where('therapist_id', $therapistId)
             ->whereBetween('working_day', [$time.' 06:00:00', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
-            ->delete();
+            ->forceDelete();
 
         for($i = 0; $i < 3; $i++){
             if(!($input['adjust_name'. $i + 1])) continue;
             if(!($input['adjust_many'. $i + 1])) continue;
+
+            $cnt++;
+
             $newKyuryo = new kyuryo();
             $newKyuryo->mise_id = $miseId;
             $newKyuryo->therapist_id = $therapistId;
-            // $newKyuryo->pouch_name = ;
-            // $newKyuryo->pouch_many = ;
             $newKyuryo->adjust_name = $input['adjust_name'. $i + 1];
             $newKyuryo->adjust_many = $input['adjust_many'. $i + 1];
             $newKyuryo->working_day = date('Y-m-d H:i:s');
@@ -44,6 +43,43 @@ class kyuryo extends Model
             // インサート失敗時
             if(!$result) return false;
         }
+
+        if($cnt === 0){
+            $newKyuryo = new kyuryo();
+            $newKyuryo->mise_id = $miseId;
+            $newKyuryo->therapist_id = $therapistId;
+            $newKyuryo->working_day = date('Y-m-d H:i:s');
+            $result = $newKyuryo->save();
+
+            // インサート失敗時
+            if(!$result) return false;
+        }
+
+
+        
+        return true;
+    }
+
+    // インサート
+    public static function kyuryoCreate2($input, $miseId, $therapistId, $time){
+
+        $adjustList = kyuryo::where('mise_id', $miseId)
+            ->where('therapist_id', $therapistId)
+            ->whereBetween('working_day', [$time.' 06:00:00', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
+            ->delete();
+
+        $ocha = price::find($input["ocha"]);
+
+        $newKyuryo = new kyuryo();
+        $newKyuryo->mise_id = $miseId;
+        $newKyuryo->therapist_id = $therapistId;
+        $newKyuryo->adjust_name = $ocha->name;
+        $newKyuryo->adjust_many = $ocha->back;
+        $newKyuryo->working_day = date('Y-m-d H:i:s');
+        $result = $newKyuryo->save();
+
+        // インサート失敗時
+        if(!$result) return false;
         
         return true;
     }
@@ -81,6 +117,7 @@ class kyuryo extends Model
                 $dailyPrice += $adjustPrice->adjust_many;
             }
         }
+
 
         $y->dailyPrice = $dailyPrice;
 

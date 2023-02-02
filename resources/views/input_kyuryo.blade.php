@@ -102,6 +102,50 @@
                     {{ Form::close() }}
                     </div>
                 </div>
+                
+                @if($yoyakuListCnt === 0)
+                    <!-- コピペ用 -->
+                    <div class="card my-4">
+                        <!-- カードのタイトル -->
+                        <h2 class="card-header h5">コピペ用</h2>
+                        <!-- カードの要素 -->
+                        <div class="card-body table-responsive text-nowrap">
+
+                            <!-- セラピスト名 -->
+                            {{ $therapist->business_name }}さん
+
+                            <br>
+                            <br>
+                            
+                            <!-- お茶 -->
+                            @if(isset($adjustList))
+                                @foreach($adjustList  as $a)
+                                    <!-- 項目名 -->
+                                    <span>{{ $a->adjust_name }}</span>
+
+                                    <!-- 金額 -->
+                                    <span>{{ number_format($a->adjust_many) }}円</span>
+
+                                    <br>
+                                @endforeach
+                            @else
+                                <span>お茶無し</span>
+                                <br>
+                            @endif
+
+                            <br>
+
+                            <!-- お茶金 -->
+                            <span>合計{{ number_format($a->adjust_many) }}円</span>
+
+                            <br>
+                            <br>
+                            
+                            今日も一日お疲れ様でした。
+                            
+                        </div>
+                    </div>
+                @endif
 
                 @if($yoyakuListCnt != 0)
                     <!-- コピペ用 -->
@@ -117,7 +161,7 @@
                             <br>
                             <br>
 
-                            @foreach($yoyakuList  as $y)
+                            @foreach($yoyakuList as $y)
                                 <!-- 件数 -->
                                 <span>{{ number_format($loop->index+1) }}件目</span>
 

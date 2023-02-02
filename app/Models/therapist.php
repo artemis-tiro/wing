@@ -239,46 +239,37 @@ class Therapist extends Model
     // NGを除いたセラピスト
     public static function ngTherapist($kokyakuId, $therapistList){
         
-        // selectbox
-        $select = '';
-        $se = '';
+        $replace = '';
+        $selectNg = array();
 
         // kokyakuのng
         $kokyakuData = kokyaku::detail($kokyakuId);
-
-        // $ng = $kokyakuData->ng;
-
-        // $ngList = explode('T', $ng);
-
-        // $ngCount = count($ngList);
         
         // 店ごとセラピストリスト
         foreach($therapistList as $t){
-            $se .= 'T'.$t->id;
+            $replace .= 'T'.$t->id;
         }
 
-        $ng = str_replace($kokyakuData->ng, '', $se);
+        $ng = str_replace($kokyakuData->ng, '', $replace);
 
         $arr = explode('T', $ng);
 
-        $count = count($arr);
+        // 空白の配列削除
+        $arr = array_splice($arr, 1);
 
-        for($i = 0; $i < $count; $i++){
-            // 最初の空白をはじく
-            if(!($arr[$i])) continue;
+        $cnt = count($arr);
 
+        for($i = 0; $i < $cnt; $i++){
             // arrのセラピストIDで名前をとる
             $therapist = therapist::detail($arr[$i]);
 
-            // 最初だけカンマいらない            
-            if(empty($select)){
-                $select .= "'".$therapist->business_name."'";
-            }else{
-                $select .= ','."'".$therapist->business_name."'";
-            }
+            $replace = array($therapist->id => $therapist->business_name);
+
+            // $arrの中身を名前にする
+            $selectNg = array_replace($selectNg,$replace);
         }
 
-        return $select;
+        return $selectNg;
     }
 
     // NGセラピスト名取得

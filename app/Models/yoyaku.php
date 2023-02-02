@@ -47,6 +47,14 @@ class Yoyaku extends Model
         return $yoyakuList;
     }
 
+    // 過去予約一覧(セラピストID)
+    public static function yoyakuBeforList2($therapistId,$time){
+        $yoyakuList = yoyaku::where('therapist_id', $therapistId)
+            ->whereBetween('visit_day', [date($time, strtotime("-10 year")).' 05:59:59', date($time, strtotime("-1 day")).' 05:59:59'] )
+            ->get();
+        return $yoyakuList;
+    }
+
     // 店ごと顧客一覧
     public static function yoyakuMiseKokyakuList($miseId){
         $yoyakuList = yoyaku::where('mise_id', $miseId)
