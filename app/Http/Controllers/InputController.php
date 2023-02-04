@@ -140,6 +140,14 @@ class InputController extends Controller{
         if($request->input('telsearch')){
             $kokyakuData = $telsearch;
             $formflag = 1;
+            
+            // NGセラピスト
+            $nglist = explode('T', $kokyakuData->ng);
+
+            foreach($nglist as $n){
+                if(!($n)) continue;
+                if($n === $therapistId) $ng = '※NG客';
+            }
         }
 
         return view ('input_reservation', [
@@ -150,6 +158,7 @@ class InputController extends Controller{
             'yoyakuAfterList' => $yoyakuAfterList,
             'kokyakuData' => $kokyakuData,
             'formflag' => $formflag,
+            'ng' => $ng,
             'optionfind' => $optionfind,
             'inputTel' => $inputTel,
             'courseList' => $courseList,
@@ -171,8 +180,9 @@ class InputController extends Controller{
     public function yoyakuBefor(Request $request, $miseId,$therapistId){
 
         $kokyakuData = null;
-        $flag = 0;
+        $card = 0;
         $dailyPrice = 0;
+        $day = $request->input('day');
 
         // 権限チェック
         if($ng = $this->levelCheck()) return $ng;
@@ -186,30 +196,38 @@ class InputController extends Controller{
         // 顧客情報
         $kokyakuList = kokyaku::kokyakuList();
 
-        $day = $request->input('day');
-
         // 過去予約一覧
         $yoyakuList = yoyaku::yoyakuBeforList2($therapistId, $request->input('day'));
 
         // 調整金予約一覧
         $adjustList = kyuryo::adjustList($miseId, $therapistId, $request->input('day'));
 
-        // 予約コース
-        yoyaku::courseNameList($yoyakuList);
-
+        // 日付選択していれば
         if($request->input('day')){
-            $flag = 1;
-
+            $card = 1;
+            if(count($yoyakuList) === 0) $card = 2;
             // 予約コース総額　＋　調整金
             $dailyPrice =kyuryo::dailyPriceCul($yoyakuList, $adjustList);
+        }else{
+            // 過去予約一覧
+            $yoyakuList = yoyaku::yoyakuBeforList3($therapistId, date('Y-m-d'));
+
+            foreach($yoyakuList as $y){
+                $day = $y->visit_day;
+
+                $adjustList = kyuryo::adjustList($miseId, $therapistId, $day);
+            }
         }
+
+        // 予約コース
+        yoyaku::courseNameList($yoyakuList);
 
         return view ('input_befor', [
             'mise' => $mise,
             'therapist' => $therapist,
             'kokyakuList' => $kokyakuList,
             'yoyakuList' => $yoyakuList,
-            'flag' => $flag,
+            'card' => $card,
             'day' => $day,
             'dailyPrice' => $dailyPrice,
             'message' => session('message'),

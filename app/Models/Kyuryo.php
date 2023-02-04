@@ -118,8 +118,7 @@ class kyuryo extends Model
             }
         }
 
-
-        $y->dailyPrice = $dailyPrice;
+        if(count($yoyakuList)) $y->dailyPrice = $dailyPrice;
 
         return $dailyPrice;
     }
