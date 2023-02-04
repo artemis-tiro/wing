@@ -121,7 +121,7 @@ class kyuryo extends Model
 
         $y->dailyPrice = $dailyPrice;
 
-        return null;
+        return $dailyPrice;
     }
 
     // 日当計算
@@ -133,6 +133,7 @@ class kyuryo extends Model
 
             if(!($p)) continue;
             
+            // withTrashed() 論理削除(deleted_at)を含む
             $coursePrice = price::withTrashed()->find($p);
 
             if($coursePrice){

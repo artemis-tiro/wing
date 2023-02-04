@@ -168,9 +168,11 @@ class InputController extends Controller{
     }
 
     // 過去予約一覧ページ
-    public function yoyakuBefor($miseId,$therapistId){
+    public function yoyakuBefor(Request $request, $miseId,$therapistId){
 
         $kokyakuData = null;
+        $flag = 0;
+        $dailyPrice = 0;
 
         // 権限チェック
         if($ng = $this->levelCheck()) return $ng;
@@ -184,18 +186,22 @@ class InputController extends Controller{
         // 顧客情報
         $kokyakuList = kokyaku::kokyakuList();
 
-        // 予約一覧
-        $yoyakuList = yoyaku::yoyakuBeforList2($therapistId, '2023-02-02');
+        $day = $request->input('day');
+
+        // 過去予約一覧
+        $yoyakuList = yoyaku::yoyakuBeforList2($therapistId, $request->input('day'));
 
         // 調整金予約一覧
-        $adjustList = kyuryo::adjustList($miseId, $therapistId, '2023-02-02');
+        $adjustList = kyuryo::adjustList($miseId, $therapistId, $request->input('day'));
 
         // 予約コース
         yoyaku::courseNameList($yoyakuList);
 
-        if($yoyakuList){
+        if($request->input('day')){
+            $flag = 1;
+
             // 予約コース総額　＋　調整金
-            kyuryo::dailyPriceCul($yoyakuList, $adjustList);
+            $dailyPrice =kyuryo::dailyPriceCul($yoyakuList, $adjustList);
         }
 
         return view ('input_befor', [
@@ -203,6 +209,9 @@ class InputController extends Controller{
             'therapist' => $therapist,
             'kokyakuList' => $kokyakuList,
             'yoyakuList' => $yoyakuList,
+            'flag' => $flag,
+            'day' => $day,
+            'dailyPrice' => $dailyPrice,
             'message' => session('message'),
             'error' => session('error'),
         ]);

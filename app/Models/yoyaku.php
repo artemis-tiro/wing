@@ -50,7 +50,7 @@ class Yoyaku extends Model
     // 過去予約一覧(セラピストID)
     public static function yoyakuBeforList2($therapistId,$time){
         $yoyakuList = yoyaku::where('therapist_id', $therapistId)
-            ->whereBetween('visit_day', [date($time, strtotime("-10 year")).' 05:59:59', date($time, strtotime("-1 day")).' 05:59:59'] )
+            ->whereBetween('visit_day', [$time.' 06:00:00', date('Y-m-d', strtotime('+1 day', strtotime($time))).' 05:59:59'])
             ->get();
         return $yoyakuList;
     }

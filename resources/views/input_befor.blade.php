@@ -14,7 +14,7 @@
     $teamName = App\Models\user::teamName(auth()->user()->team);
 ?>
 
-<h1 class="h2">{{ $therapist->business_name }}さんスケジュール</h1>
+<h1 class="h2">{{ $therapist->business_name }}さん過去予約一覧</h1>
 
 
 @include('common.validator')
@@ -22,13 +22,13 @@
 @include('common.success')
 
 
-{{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id)]) }}
+{{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/befor_day')]) }}
             
 <!-- 開始時間 -->
 <label class="row text-nowrap mb-4 text-end">
     <div class="mt-2 col-sm-1 text-end">日付選択<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
     <div class="col-sm-2">
-        {{ Form::date('start_day', date('Y-m-d'), ['class'=>'form-control', 'min'=>date('Y-m-d'), 'required']) }}
+        {{ Form::date('day', null, ['class'=>'form-control', 'required']) }}
     </div>
     <div class="col-sm-1">{{ Form::submit('検索',["class"=>"btn btn-info"]) }}</div>
 </label>
@@ -36,73 +36,72 @@
 <!-- フォームの終わり -->
 {{ Form::close() }}
 
+@if($flag != 0)
+    <!-- 過去予約リスト -->
+    <div class="card my-4">
+        <!-- カードのタイトル -->
+        <h2 class="card-header h5">{{ $day }} ( {{ number_format($dailyPrice) }}円 )</h2>
+        <!-- カードの要素 -->
+        <div class="card-body table-responsive text-nowrap">
+            <!-- テーブル -->
+            <table class="table table-hover">
+                <thead>
+                    <!-- カテゴリ -->
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">時間</th>
+                        <th scope="col">コース</th>
+                        <th scope="col">指名</th>
+                        <th scope="col">顧客名</th>
+                        <th scope="col">電話番号</th>
+                        <th scope="col">給料</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($yoyakuList  as $y)
+                    <tr>
+                        <th>{{ $loop->index+1 }}</th>
 
+                        <!-- 終了時間を来店日時＋コース時間で表示 -->
+                        <td>
+                            {{ date('H:i',strtotime(" $y->visit_day")) }} ~ 
+                            {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min ")) }}
+                        </td>
 
-<!-- 予約リスト -->
-<div class="card my-4">
-    <!-- カードのタイトル -->
-    <h2 class="card-header h5">過去予約一覧</h2>
-    <!-- カードの要素 -->
-    <div class="card-body table-responsive text-nowrap">
-        <!-- テーブル -->
-        <table class="table table-hover">
-            <thead>
-                <!-- カテゴリ -->
-                <tr>
-                    <th scope="col"></th>
-                    <th scope="col">時間</th>
-                    <th scope="col">コース</th>
-                    <th scope="col">指名</th>
-                    <th scope="col">顧客名</th>
-                    <th scope="col">電話番号</th>
-                    <th scope="col">給料</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($yoyakuList  as $y)
-                <tr>
-                    <th>{{ $loop->index+1 }}</th>
+                        <td>{{ $y->courseName }}</td>
+                            
+                        <td>{{ $y->courseShimei }}</td>
 
-                    <!-- 終了時間を来店日時＋コース時間で表示 -->
-                    <td>
-                        {{ date('H:i',strtotime(" $y->visit_day")) }} ~ 
-                        {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min ")) }}
-                    </td>
-
-                    <td>{{ $y->courseName }}</td>
+                        <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
                         
-                    <td>{{ $y->courseShimei }}</td>
+                        <td>
+                            <!-- mb_strlen()文字数カウント -->
+                            @if(mb_strlen($kokyakuList[$y->kokyaku_id]->tel) === 11)
+                            {{ 
+                                substr($kokyakuList[$y->kokyaku_id]->tel, 0, 3).'-'.
+                                substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
+                                substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
+                            }}
+                            @else
+                            {{ 
+                                substr($kokyakuList[$y->kokyaku_id]->tel, 0, 2).'-'.
+                                substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
+                                substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
+                            }}
+                            @endif
+                            
+                        </td>
 
-                    <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
-                    
-                    <td>
-                        <!-- mb_strlen()文字数カウント -->
-                        @if(mb_strlen($kokyakuList[$y->kokyaku_id]->tel) === 11)
-                        {{ 
-                            substr($kokyakuList[$y->kokyaku_id]->tel, 0, 3).'-'.
-                            substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                            substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                        }}
-                        @else
-                        {{ 
-                            substr($kokyakuList[$y->kokyaku_id]->tel, 0, 2).'-'.
-                            substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                            substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                        }}
-                        @endif
-                        
-                    </td>
+                        <td>{{ number_format($y->totalBack) }}円</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
 
-                    <td>{{-- number_format($y->dailyPrice) --}}円</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-
-        <span>{{ number_format($yoyakuList->dailyPrice) }}円</span>
-
-        <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id) }}" >戻る</a>
-        
+            <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id) }}" >戻る</a>
+            
+        </div>
     </div>
-</div>
+@endif
+
 @stop
