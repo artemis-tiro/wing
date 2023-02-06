@@ -35,7 +35,7 @@
                     <!-- フォームの開始 -->
 
                     <!-- 予約が1件もない場合 -->
-                    @if($yoyakuListCnt === 0)
+                    @if(count($yoyakuList) === 0)
                         {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/calculation2')]) }}
                         <!-- お茶 -->
                         <div class="row text-nowrap mb-4 text-end radio_visit">
@@ -50,7 +50,7 @@
                         </div>
                     @endif
                     
-                    @if($yoyakuListCnt != 0)
+                    @if(count($yoyakuList) != 0)
                         {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/calculation')]) }}
                         <!-- 　　　　今回未実装 　　　　　-->
                         {{--
@@ -103,7 +103,7 @@
                     </div>
                 </div>
                 
-                @if($yoyakuListCnt === 0)
+                @if(count($yoyakuList) === 0 && count($adjustList) != 0)
                     <!-- コピペ用 -->
                     <div class="card my-4">
                         <!-- カードのタイトル -->
@@ -147,7 +147,7 @@
                     </div>
                 @endif
 
-                @if($yoyakuListCnt != 0)
+                @if(count($yoyakuList) != 0)
                     <!-- コピペ用 -->
                     <div class="card my-4">
                         <!-- カードのタイトル -->

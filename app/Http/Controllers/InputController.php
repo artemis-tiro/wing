@@ -315,14 +315,11 @@ class InputController extends Controller{
 
         // お茶情報
         $otyaList = price::otyaList($miseId,$therapist->back_name);
-
-        // 予約数カウント
-        $yoyakuListCnt = yoyaku::yoyakuListCnt($therapistId, date('Y-m-d'));
         
         // 予約コース
         yoyaku::courseNameList($yoyakuList);
 
-        if($yoyakuListCnt > 0){
+        if(count($yoyakuList) > 0){
             // 予約コース総額　＋　調整金
             kyuryo::dailyPriceCul($yoyakuList, $adjustList);
         }
@@ -334,7 +331,6 @@ class InputController extends Controller{
             'yoyakuList' => $yoyakuList,
             'adjustList' => $adjustList,
             'otyaList' => $otyaList,
-            'yoyakuListCnt' => $yoyakuListCnt,
             'message' => session('message'),
             'error' => session('error'),
         ]);

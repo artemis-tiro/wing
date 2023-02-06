@@ -268,14 +268,6 @@ class Yoyaku extends Model
         return null;
     }
 
-    // 予約一覧カウント
-    public static function yoyakuListCnt($therapistId,$time){
-        $yoyakuListCnt = yoyaku::where('therapist_id', $therapistId)
-            ->whereBetween('visit_day', [$time.' 00:00:00', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
-            ->count();
-        return $yoyakuListCnt;
-    }
-
     // 延長編集
     public static function yoyakuencho($input,$id){
         
