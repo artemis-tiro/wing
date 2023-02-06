@@ -11,6 +11,11 @@
 @stop
 
 @section('content')
+
+@php
+    $check = false;
+@endphp
+
 <?php 
     $teamName = App\Models\user::teamName(auth()->user()->team);
 ?>
@@ -38,16 +43,31 @@
                     @if(count($yoyakuList) === 0)
                         {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/calculation2')]) }}
                         <!-- お茶 -->
-                        <div class="row text-nowrap mb-4 text-end radio_visit">
+                        <div class="row text-nowrap text-end">
                             <div class="col-sm-2 text-end">お茶</div>
-
+                            
                             @foreach($otyaList  as $ot)
-                                <label class="col-sm-1">
-                                    {{ Form::radio('ocha', $ot->id, false, ['class'=>'form-check-input', 'required']) }}
-                                    {{ $ot->name }}
-                                </label>
-                            @endforeach
+                                @if($otyacheck != null)
+                                    @php $check = $otyacheck->adjust_name == $ot->name? true: false; @endphp
+                                @endif
+                                @if($loop->index == 0)
+                                    <label class="col-sm-2">
+                                        {{ Form::radio('ocha', $ot->id, $check, ['class'=>'form-check-input', 'required']) }}
+                                        {{ $ot->name }}
+                                    </label>
+                        <!-- 項目縦表示のためここで１つ目のdivをとじる -->
                         </div>
+                                @else
+                        <div class="row text-nowrap mb-3 text-end">
+                                    <!-- 項目の場所合わせ -->
+                                    <div class="col-sm-2"></div>
+                                    <label class="col-sm-2">
+                                        {{ Form::radio('ocha', $ot->id, $check, ['class'=>'form-check-input', 'required']) }}
+                                        {{ $ot->name }}
+                                    </label>
+                        </div>
+                                @endif
+                            @endforeach
                     @endif
                     
                     @if(count($yoyakuList) != 0)

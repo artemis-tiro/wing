@@ -141,12 +141,14 @@ class InputController extends Controller{
             $kokyakuData = $telsearch;
             $formflag = 1;
             
-            // NGセラピスト
-            $nglist = explode('T', $kokyakuData->ng);
+            if($kokyakuData != null){
+                // NGセラピスト
+                $nglist = explode('T', $kokyakuData->ng);
 
-            foreach($nglist as $n){
-                if(!($n)) continue;
-                if($n === $therapistId) $ng = '※NG客';
+                foreach($nglist as $n){
+                    if(!($n)) continue;
+                    if($n === $therapistId) $ng = '※NG客';
+                }
             }
         }
 
@@ -323,6 +325,10 @@ class InputController extends Controller{
             // 予約コース総額　＋　調整金
             kyuryo::dailyPriceCul($yoyakuList, $adjustList);
         }
+        else{
+            // 選択されたお茶
+            $otyacheck = kyuryo::otyaList($miseId, $therapistId, date('Y-m-d'));
+        }
 
         return view ('input_kyuryo', [
             'mise' => $mise,
@@ -331,6 +337,7 @@ class InputController extends Controller{
             'yoyakuList' => $yoyakuList,
             'adjustList' => $adjustList,
             'otyaList' => $otyaList,
+            'otyacheck' => $otyacheck,
             'message' => session('message'),
             'error' => session('error'),
         ]);

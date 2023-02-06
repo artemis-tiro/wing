@@ -87,7 +87,8 @@
                         @endif
                         
                     </td>
-                    <td><a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#yoyakuOptionModal{{ $y->id }}">オプション</a></td>
+                    @php $f = $y->optionId? '': '※'; @endphp
+                    <td><a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#yoyakuOptionModal{{ $y->id }}">オプション{{ $f }}</a></td>
                     <td><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#yoyakuEditModal{{ $y->id }}">編集</a></td>
                     <td>
                         @component('componets.modal')
@@ -582,8 +583,6 @@
                     displayFirst();
                 @endif
             </script>
-            
-
         </div>
 
         <!-- コース -->
@@ -612,18 +611,29 @@
             @endforeach
 
         <!-- 指名 -->
-        <div class="row text-nowrap mb-4 text-end radio_shimei">                            
+        <div class="row text-nowrap text-end radio_shimei">
             <div class="col-sm-2 text-end">指名<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
             
-            <div class="col-sm-1 btn bg-info text-white shimeiMany">-----円</div>
-
             @foreach($shimeiList  as $s)
-                <label class="col-sm-1">
-                    {{ Form::radio('shimei', $s->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$s->price, 'required']) }}
-                    {{ $s->name }}
-                </label>
-            @endforeach
+                @if($loop->index == 0)
+                    <div class="col-sm-1 btn bg-info text-white courseMany">-----円</div>
+                    <label class="col-sm-2">
+                        {{ Form::radio('shimei', $s->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$s->price, 'required']) }}
+                        {{ $s->name }}
+                    </label>
+        <!-- 項目縦表示のためここで１つ目のdivをとじる -->
         </div>
+                @else
+        <div class="row text-nowrap mb-3 text-end radio_shimei">
+                    <!-- 項目の場所合わせ -->
+                    <div class="col-sm-3"></div>
+                    <label class="col-sm-2">
+                        {{ Form::radio('shimei', $s->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$s->price, 'required']) }}
+                        {{ $s->name }}
+                    </label>
+        </div>
+                @endif
+            @endforeach
 
         <!-- オプション -->
         <!-- priceDB->name = inputer のみ表示 -->

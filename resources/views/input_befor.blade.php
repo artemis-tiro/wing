@@ -183,63 +183,6 @@
 
             <h3>※出勤または予約がありません</h3>
 
-            {{--
-            <!-- テーブル -->
-            <table class="table table-hover">
-                <thead>
-                    <!-- カテゴリ -->
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">時間</th>
-                        <th scope="col">コース</th>
-                        <th scope="col">指名</th>
-                        <th scope="col">顧客名</th>
-                        <th scope="col">電話番号</th>
-                        <th scope="col">給料</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($yoyakuList  as $y)
-                    <tr>
-                        <th>{{ $loop->index+1 }}</th>
-
-                        <!-- 終了時間を来店日時＋コース時間で表示 -->
-                        <td>
-                            {{ date('H:i',strtotime(" $y->visit_day")) }} ~ 
-                            {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min ")) }}
-                        </td>
-
-                        <td>{{ $y->courseName }}</td>
-                            
-                        <td>{{ $y->courseShimei }}</td>
-
-                        <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
-                        
-                        <td>
-                            <!-- mb_strlen()文字数カウント -->
-                            @if(mb_strlen($kokyakuList[$y->kokyaku_id]->tel) === 11)
-                            {{ 
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 0, 3).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                            }}
-                            @else
-                            {{ 
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 0, 2).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                            }}
-                            @endif
-                            
-                        </td>
-
-                        <td>{{ number_format($y->totalBack) }}円</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            --}}
-
             <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id) }}" >戻る</a>
             
         </div>

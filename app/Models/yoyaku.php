@@ -60,6 +60,7 @@ class Yoyaku extends Model
     public static function yoyakuBeforList3($therapistId,$time){
         $yoyakuList = yoyaku::where('therapist_id', $therapistId)
             ->whereBetween('visit_day', [date('Y-m-d', strtotime('-10 day', strtotime($time))).' 06:00:00', $time.' 05:59:59'])
+            ->orderByDesc('id')
             ->get();
         return $yoyakuList;
     }

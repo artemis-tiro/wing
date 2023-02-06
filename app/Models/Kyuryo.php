@@ -88,7 +88,7 @@ class kyuryo extends Model
     public static function adjustList($miseId, $therapistId, $time){
         $adjustList = kyuryo::where('mise_id', $miseId)
             ->where('therapist_id', $therapistId)
-            ->whereBetween('working_day', [$time.' 06:00:00', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
+            ->whereBetween('working_day', [$time.' 06:00:00', date('Y-m-d', strtotime('+1 day', strtotime($time))).' 05:59:59'] )
             ->get();
         return $adjustList;
     }
@@ -141,5 +141,14 @@ class kyuryo extends Model
         }
         
         return $dailyPrice;
+    }
+
+    // お茶取得
+    public static function otyaList($miseId, $therapistId, $time){
+        $otyaList = kyuryo::where('mise_id', $miseId)
+            ->where('therapist_id', $therapistId)
+            ->whereBetween('working_day', [$time.' 06:00:00', date('Y-m-d', strtotime('+1 day', strtotime($time))).' 05:59:59'] )
+            ->first();
+        return $otyaList;
     }
 }
