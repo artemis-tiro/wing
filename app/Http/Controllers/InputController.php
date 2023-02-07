@@ -183,6 +183,7 @@ class InputController extends Controller{
 
         $kokyakuData = null;
         $card = 0;
+        $shift = '';
         $dailyPrice = 0;
         $day = $request->input('day');
 
@@ -208,11 +209,29 @@ class InputController extends Controller{
         if($request->input('day')){
             $card = 1;
             if(count($yoyakuList) === 0) $card = 2;
+            
             // 予約コース総額　＋　調整金
             $dailyPrice =kyuryo::dailyPriceCul($yoyakuList, $adjustList);
         }else{
+
+            // シフト一覧
+            $shifutotList = shifuto::getshiftList($miseId, $therapistId, date('Y-m-d'));
+
+            // foreach($shifutotList as $s){
+            //     $shift .= str_replace(' 00:00:00', '', $s->working_day).',';
+            // }
+
+            // $shiftDay = explode(',',$shift);
+
+            // foreach($shiftDay as $sd){
+            //     // 過去予約一覧
+            //     $yoyakuList = yoyaku::yoyakuBeforList3($therapistId, $sd);
+            // }
+
             // 過去予約一覧
             $yoyakuList = yoyaku::yoyakuBeforList3($therapistId, date('Y-m-d'));
+
+            dd($yoyakuList);
 
             foreach($yoyakuList as $y){
                 $day = $y->visit_day;

@@ -42,14 +42,6 @@ class Shifuto extends Model
                 continue;
             }
 
-            // if($aaa){
-            //     shifuto::where('mise_id', $miseId)
-            //         ->where('therapist_id', $therapistId)
-            //         ->where('working_day', $day)
-            //         ->forceDelete();
-            //     continue;
-            // }
-
             // インサート
             // $shift = new shifuto();
             $shift = $aaa?? new shifuto(); // $shift = $aaa? $aaa: new shifuto();
@@ -107,6 +99,15 @@ class Shifuto extends Model
     public static function shiftList($miseId){
         $shiftList = shifuto::where('mise_id', $miseId)
             ->where('working_day', date('Y-m-d'))
+            ->get();
+        return $shiftList;
+    }
+
+    // シフト取得
+    public static function getshiftList($miseId, $therapistId, $time){
+        $shiftList = shifuto::where('mise_id', $miseId)
+            ->where('therapist_id', $therapistId)
+            ->whereBetween('working_day', [date('Y-m-d', strtotime('-10 day', strtotime($time))), $time])
             ->get();
         return $shiftList;
     }
