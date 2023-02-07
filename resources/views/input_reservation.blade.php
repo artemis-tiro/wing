@@ -380,13 +380,13 @@
                 <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" >給料計算へ</a>
             @else
                 <a class="m-2 btn btn-info disabled" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" disabled>給料計算へ</a>
+                <a class="m-2 btn btn-secondary" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/befor') }}" >過去の予約</a>
                 <label class="text-danger">※オプションを選択してください</label>
             @endif
         @else
             <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" >給料計算へ</a>
+            <a class="m-2 btn btn-secondary" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/befor') }}" >過去の予約</a>
         @endif
-
-        <a class="m-2 btn btn-secondary" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/befor') }}" >過去の予約</a>
         
     </div>
 </div>
@@ -616,7 +616,7 @@
             
             @foreach($shimeiList  as $s)
                 @if($loop->index == 0)
-                    <div class="col-sm-1 btn bg-info text-white courseMany">-----円</div>
+                    <div class="col-sm-1 btn bg-info text-white shimeiMany">-----円</div>
                     <label class="col-sm-2">
                         {{ Form::radio('shimei', $s->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$s->price, 'required']) }}
                         {{ $s->name }}

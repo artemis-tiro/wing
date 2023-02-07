@@ -297,6 +297,8 @@ class InputController extends Controller{
     // 給与計算ページ
     public function kyuryo($miseId,$therapistId){
 
+        $otyacheck;
+
         // 権限チェック
         if($ng = $this->levelCheck()) return $ng;
 
@@ -317,6 +319,9 @@ class InputController extends Controller{
 
         // お茶情報
         $otyaList = price::otyaList($miseId,$therapist->back_name);
+
+        // 選択されたお茶
+        $otyacheck = kyuryo::otyaList($miseId, $therapistId, date('Y-m-d'));
         
         // 予約コース
         yoyaku::courseNameList($yoyakuList);
@@ -324,10 +329,6 @@ class InputController extends Controller{
         if(count($yoyakuList) > 0){
             // 予約コース総額　＋　調整金
             kyuryo::dailyPriceCul($yoyakuList, $adjustList);
-        }
-        else{
-            // 選択されたお茶
-            $otyacheck = kyuryo::otyaList($miseId, $therapistId, date('Y-m-d'));
         }
 
         return view ('input_kyuryo', [
