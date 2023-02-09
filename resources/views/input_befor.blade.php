@@ -183,8 +183,30 @@
         <!-- カードの要素 -->
         <div class="card-body table-responsive text-nowrap">
             
+            <!-- テーブル -->
+            <table class="table table-hover">
+                <thead>
+                    <!-- カテゴリ -->
+                    <tr>
+                        <th></th>
+                        <th scope="col">お茶名</th>
+                        <th scope="col">給料</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- お茶 -->
+                    @foreach($adjustList  as $a)
+                        
+                        <th>{{ $loop->index+1 }}</th>
+                        
+                        <!-- 項目名 -->
+                        <th>{{ $a->adjust_name }}</th>
 
-            <h3>※出勤または予約がありません</h3>
+                        <!-- 金額 -->
+                        <th>{{ number_format($a->adjust_many) }}円</th>
+                    @endforeach
+                </tbody>
+            </table>
 
             <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id) }}" >戻る</a>
             

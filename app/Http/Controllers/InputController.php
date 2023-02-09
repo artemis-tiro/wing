@@ -234,6 +234,7 @@ class InputController extends Controller{
             'therapist' => $therapist,
             'kokyakuList' => $kokyakuList,
             'yoyakuList' => $yoyakuList,
+            'adjustList' => $adjustList,
             'card' => $card,
             'day' => $day,
             'dailyPrice' => $dailyPrice,

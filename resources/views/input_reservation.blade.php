@@ -378,6 +378,7 @@
         @if($getOption->name === 'therapist')
             @if($optionfind)
                 <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" >給料計算へ</a>
+                <a class="m-2 btn btn-secondary" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/befor') }}" >過去の予約</a>
             @else
                 <a class="m-2 btn btn-info disabled" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" disabled>給料計算へ</a>
                 <a class="m-2 btn btn-secondary" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/befor') }}" >過去の予約</a>
@@ -434,7 +435,7 @@
                         
                     <td>{{ $ya->courseShimei }}</td>
 
-                    <td>{{ $kokyakuList[$ya->kokyaku_id]->name.' 様' }}</td>
+                    <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
                     
                     <td>
                         {{ 

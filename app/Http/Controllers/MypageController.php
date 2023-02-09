@@ -71,7 +71,7 @@ class MypageController extends Controller{
         // 現在設定してるパスワードと同じか
         // Hashチェック
         $result = Hash::check($request->nowpassword, Auth::user()->password);
-        if(!$result) return back()->with(['error' => 'パスワードが違います。'])->withInput();
+        if(!$result) return back()->with(['error' => 'パスワードが違います。']);
 
         // パスワードを変更
         $result = user::passwordUpdate(Auth::user()->id,Hash::make($request->newpassword));

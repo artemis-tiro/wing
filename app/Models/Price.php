@@ -113,7 +113,7 @@ class price extends Model
         return $name.'を作成しました。';
     }
 
-        // backリスト
+    // backリスト
     public static function list($miseId){
         $backList = price::where('mise_id', $miseId)
             ->get()
@@ -127,7 +127,7 @@ class price extends Model
         return $list;
     }
 
-        // backリスト
+    // backリスト
     public static function list2($miseId){
         $backList = price::where('mise_id', $miseId)
             ->get()

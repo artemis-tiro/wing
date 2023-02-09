@@ -192,7 +192,7 @@
                                 <!-- 半角などのチェック -->
                                 <!-- Form::タイプ -->
                                 <!-- 第一引数は「name=""」 -->
-                                {{ Form::number('tel', $kokyaku->tel, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'(例) 08021210007']) }}
+                                {{ Form::number('tel', $kokyaku->tel, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required', 'placeholder'=>'(例) 08021210007']) }}
                             </div>
                         </label>
                     </div>
