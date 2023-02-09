@@ -74,11 +74,13 @@
                 <div class="mt-2 text-info text-end">電話番号</div>
                 <div class="col-sm-3">
                     <label class="mt-2">
-                        {{ 
-                            substr($mydeta->tel, 0, 3).'-'.
-                            substr($mydeta->tel, 3, 4).'-'.
-                            substr($mydeta->tel, -4, 4)
-                        }}
+                        @if($mydeta->tel)
+                            {{ 
+                                substr($mydeta->tel, 0, 3).'-'.
+                                substr($mydeta->tel, 3, 4).'-'.
+                                substr($mydeta->tel, -4, 4)
+                            }}
+                        @endif
                     </label>
                 </div>
                 <!-- ボタン -->
@@ -106,11 +108,14 @@
                 <div class="mt-2 text-info text-end">生年月日</div>
                 <div class="col-sm-3">
                     <label class="mt-2">
-                        {{ 
-                            substr(str_replace('-', '', $mydeta->birthday), 0, 4).'年'.
-                            substr(str_replace('-', '', $mydeta->birthday), 4, 2).'月'.
-                            substr(str_replace('-', '', $mydeta->birthday), -2, 2).'日'
-                        }}
+                        @if($mydeta->birthday)
+                            {{ 
+                                substr(str_replace('-', '', $mydeta->birthday), 0, 4).'年'.
+                                substr(str_replace('-', '', $mydeta->birthday), 4, 2).'月'.
+                                substr(str_replace('-', '', $mydeta->birthday), -2, 2).'日'
+                            }}
+                        @endif
+
                     </label>
                 </div>
                 <!-- ボタン -->
