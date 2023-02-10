@@ -30156,3 +30156,393 @@ _token=VFqbpJ1rYyj5wKSNzmvqJMdimz4vTuc7jL0XZjy6&ng=19&_token=VFqbpJ1rYyj5wKSNzmv
 #58 {main}
 "} 
 [2023-02-10 09:45:47] local.INFO: {"id":51,"name":"ll","tel":"09011111111","mail":null,"ng":null,"memo":null,"deleted_at":null,"created_at":"2022-12-20T07:24:42.000000Z","updated_at":"2022-12-20T07:24:42.000000Z"}  
+[2023-02-10 20:14:38] local.INFO:   
+[2023-02-10 20:14:38] local.INFO:   
+[2023-02-10 20:14:38] local.INFO:   
+[2023-02-10 20:14:38] local.INFO:   
+[2023-02-10 20:15:19] local.INFO:   
+[2023-02-10 20:15:19] local.INFO:   
+[2023-02-10 20:15:19] local.INFO:   
+[2023-02-10 20:15:19] local.INFO:   
+[2023-02-10 20:15:37] local.INFO:   
+[2023-02-10 20:15:37] local.INFO:   
+[2023-02-10 20:15:37] local.INFO:   
+[2023-02-10 20:15:37] local.INFO:   
+[2023-02-10 20:15:57] local.INFO:   
+[2023-02-10 20:15:57] local.INFO:   
+[2023-02-10 20:15:57] local.INFO:   
+[2023-02-10 20:15:57] local.INFO:   
+[2023-02-10 20:16:03] local.INFO:   
+[2023-02-10 20:16:03] local.INFO:   
+[2023-02-10 20:16:03] local.INFO:   
+[2023-02-10 20:16:03] local.INFO:   
+[2023-02-10 20:16:21] local.INFO:   
+[2023-02-10 20:16:21] local.INFO:   
+[2023-02-10 20:16:21] local.INFO:   
+[2023-02-10 20:16:21] local.INFO:   
+[2023-02-10 20:19:51] local.INFO:   
+[2023-02-10 20:19:51] local.INFO:   
+[2023-02-10 20:19:51] local.INFO:   
+[2023-02-10 20:19:51] local.INFO:   
+[2023-02-10 20:20:20] local.INFO:   
+[2023-02-10 20:20:20] local.INFO:   
+[2023-02-10 20:20:20] local.INFO:   
+[2023-02-10 20:20:20] local.INFO:   
+[2023-02-10 20:20:27] local.INFO:   
+[2023-02-10 20:20:27] local.INFO:   
+[2023-02-10 20:20:27] local.INFO:   
+[2023-02-10 20:20:27] local.INFO:   
+[2023-02-10 20:21:10] local.INFO:   
+[2023-02-10 20:21:10] local.INFO:   
+[2023-02-10 20:21:10] local.INFO:   
+[2023-02-10 20:21:10] local.INFO:   
+[2023-02-10 20:22:13] local.INFO:   
+[2023-02-10 20:22:13] local.INFO:   
+[2023-02-10 20:22:13] local.INFO:   
+[2023-02-10 20:22:13] local.INFO:   
+[2023-02-10 20:24:41] local.INFO:   
+[2023-02-10 20:24:41] local.INFO:   
+[2023-02-10 20:24:41] local.INFO:   
+[2023-02-10 20:24:41] local.INFO:   
+[2023-02-10 20:25:45] local.INFO:   
+[2023-02-10 20:25:45] local.INFO:   
+[2023-02-10 20:25:45] local.INFO:   
+[2023-02-10 20:25:45] local.INFO:   
+[2023-02-10 20:25:53] local.INFO:   
+[2023-02-10 20:25:53] local.INFO:   
+[2023-02-10 20:25:53] local.INFO:   
+[2023-02-10 20:25:53] local.INFO:   
+[2023-02-10 20:26:00] local.INFO:   
+[2023-02-10 20:26:00] local.INFO:   
+[2023-02-10 20:26:00] local.INFO:   
+[2023-02-10 20:26:00] local.INFO:   
+[2023-02-10 20:26:06] local.INFO:   
+[2023-02-10 20:26:06] local.INFO:   
+[2023-02-10 20:26:06] local.INFO:   
+[2023-02-10 20:26:06] local.INFO:   
+[2023-02-10 20:26:07] local.INFO:   
+[2023-02-10 20:26:07] local.INFO:   
+[2023-02-10 20:26:07] local.INFO:   
+[2023-02-10 20:26:07] local.INFO:   
+[2023-02-10 20:26:22] local.INFO:   
+[2023-02-10 20:26:22] local.INFO:   
+[2023-02-10 20:26:22] local.INFO:   
+[2023-02-10 20:26:22] local.INFO:   
+[2023-02-10 20:26:24] local.INFO:   
+[2023-02-10 20:26:24] local.INFO:   
+[2023-02-10 20:26:24] local.INFO:   
+[2023-02-10 20:26:24] local.INFO:   
+[2023-02-10 20:31:02] local.ERROR: Undefined variable $client {"view":{"view":"C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\resources\\views\\input_therapist.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-241285254 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#598</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
+</samp>}
+</pre><script>Sfdump(\"sf-dump-241285254\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","mise":"<pre class=sf-dump id=sf-dump-238768571 data-indent-pad=\"  \"><span class=sf-dump-note>App\\Models\\mise</span> {<a class=sf-dump-ref>#1585</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"4 characters\">mise</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+  +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+  +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+  +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+  +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:14</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>3</span>
+    \"<span class=sf-dump-key>client_id</span>\" => <span class=sf-dump-num>17</span>
+    \"<span class=sf-dump-key>team_id</span>\" => <span class=sf-dump-num>14</span>
+    \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"2 characters\">&#33836;&#23376;</span>\"
+    \"<span class=sf-dump-key>yomi</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#12414;&#12435;&#12378;</span>\"
+    \"<span class=sf-dump-key>area</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#26495;&#27211;&#21306;</span>\"
+    \"<span class=sf-dump-key>tel</span>\" => \"<span class=sf-dump-str title=\"11 characters\">08012345678</span>\"
+    \"<span class=sf-dump-key>hp</span>\" => \"<span class=sf-dump-str title=\"4 characters\">http</span>\"
+    \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>active</span>\" => <span class=sf-dump-num>1</span>
+    \"<span class=sf-dump-key>hearing_sheet</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#12414;&#12435;&#12378;</span>\"
+    \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-01 15:12:56</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-21 19:05:18</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:14</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>3</span>
+    \"<span class=sf-dump-key>client_id</span>\" => <span class=sf-dump-num>17</span>
+    \"<span class=sf-dump-key>team_id</span>\" => <span class=sf-dump-num>14</span>
+    \"<span class=sf-dump-key>name</span>\" => \"<span class=sf-dump-str title=\"2 characters\">&#33836;&#23376;</span>\"
+    \"<span class=sf-dump-key>yomi</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#12414;&#12435;&#12378;</span>\"
+    \"<span class=sf-dump-key>area</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#26495;&#27211;&#21306;</span>\"
+    \"<span class=sf-dump-key>tel</span>\" => \"<span class=sf-dump-str title=\"11 characters\">08012345678</span>\"
+    \"<span class=sf-dump-key>hp</span>\" => \"<span class=sf-dump-str title=\"4 characters\">http</span>\"
+    \"<span class=sf-dump-key>memo</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>active</span>\" => <span class=sf-dump-num>1</span>
+    \"<span class=sf-dump-key>hearing_sheet</span>\" => \"<span class=sf-dump-str title=\"3 characters\">&#12414;&#12435;&#12378;</span>\"
+    \"<span class=sf-dump-key>deleted_at</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-01 15:12:56</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2022-12-21 19:05:18</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>deleted_at</span>\" => \"<span class=sf-dump-str title=\"8 characters\">datetime</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+  #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+  +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => \"\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-238768571\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","zenTherapistList":"<pre class=sf-dump id=sf-dump-1658448102 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1589</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:3</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\Therapist
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Therapist</span> {<a class=sf-dump-ref>#1590</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"9 characters\">therapist</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:22</span> [ &#8230;22]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:21</span> [ &#8230;21]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+    </samp>}
+    <span class=sf-dump-index>1</span> => <span class=sf-dump-note title=\"App\\Models\\Therapist
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Therapist</span> {<a class=sf-dump-ref>#1591</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"9 characters\">therapist</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:22</span> [ &#8230;22]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:21</span> [ &#8230;21]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+    </samp>}
+    <span class=sf-dump-index>2</span> => <span class=sf-dump-note title=\"App\\Models\\Therapist
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Therapist</span> {<a class=sf-dump-ref>#1592</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"9 characters\">therapist</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:22</span> [ &#8230;22]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:21</span> [ &#8230;21]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dates</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+      #<span class=sf-dump-protected title=\"Protected property\">forceDeleting</span>: <span class=sf-dump-const>false</span>
+    </samp>}
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1658448102\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","error":"<pre class=sf-dump id=sf-dump-539195104 data-indent-pad=\"  \"><span class=sf-dump-const>null</span>
+</pre><script>Sfdump(\"sf-dump-539195104\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","message":"<pre class=sf-dump id=sf-dump-1736609992 data-indent-pad=\"  \"><span class=sf-dump-const>null</span>
+</pre><script>Sfdump(\"sf-dump-1736609992\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+"}},"userId":1,"exception":"[object] (Spatie\\LaravelIgnition\\Exceptions\\ViewException(code: 0): Undefined variable $client at C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\storage\\framework\\views\\576a871992fadeb0d7f735a4830a2c8760735219.php:54)
+[stacktrace]
+#0 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(259): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Undefined varia...', 'C:\\\\Users\\\\oguha\\\\...', 54)
+#1 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\storage\\framework\\views\\576a871992fadeb0d7f735a4830a2c8760735219.php(54): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'Undefined varia...', 'C:\\\\Users\\\\oguha\\\\...', 54)
+#2 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\oguha\\\\...')
+#3 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#4 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\oguha\\\\...', Array)
+#5 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\oguha\\\\...', Array)
+#6 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\oguha\\\\...', Array)
+#7 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\oguha\\\\...', Array)
+#8 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\oguha\\\\...', Array)
+#9 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
+#10 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
+#11 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
+#12 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#13 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#14 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#15 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#16 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'sanctum')
+#23 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#29 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#34 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#35 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#36 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#37 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#38 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#40 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#42 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#49 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#50 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#53 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#54 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#55 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#56 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#59 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#60 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#61 {main}
+
+[previous exception] [object] (ErrorException(code: 0): Undefined variable $client at C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\storage\\framework\\views\\576a871992fadeb0d7f735a4830a2c8760735219.php:54)
+[stacktrace]
+#0 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(259): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Undefined varia...', 'C:\\\\Users\\\\oguha\\\\...', 54)
+#1 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\storage\\framework\\views\\576a871992fadeb0d7f735a4830a2c8760735219.php(54): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'Undefined varia...', 'C:\\\\Users\\\\oguha\\\\...', 54)
+#2 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(109): require('C:\\\\Users\\\\oguha\\\\...')
+#3 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(110): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#4 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\oguha\\\\...', Array)
+#5 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(69): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\oguha\\\\...', Array)
+#6 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(70): Livewire\\LivewireViewCompilerEngine->evaluatePath('C:\\\\Users\\\\oguha\\\\...', Array)
+#7 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\ComponentConcerns\\RendersLivewireComponents.php(35): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\oguha\\\\...', Array)
+#8 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(152): Livewire\\LivewireViewCompilerEngine->get('C:\\\\Users\\\\oguha\\\\...', Array)
+#9 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(135): Illuminate\\View\\View->getContents()
+#10 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(104): Illuminate\\View\\View->renderContents()
+#11 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(69): Illuminate\\View\\View->render()
+#12 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#13 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(906): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#14 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(875): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#15 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#16 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'sanctum')
+#23 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#29 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#34 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#35 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(799): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#36 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#37 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#38 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#40 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#42 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Livewire\\DisableBrowserCache->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#49 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#50 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#53 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#54 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#55 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#56 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#59 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#60 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#61 {main}
+"} 

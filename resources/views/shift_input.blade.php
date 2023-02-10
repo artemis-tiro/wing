@@ -5,10 +5,10 @@
 @include('common.pan')
 
 @section('pan2')
-<li class="breadcrumb-item"><a href="{{ url("/shift") }}">シフト入力クライアント一覧</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/shift") }}">クライアント一覧</a></li>
 <li class="breadcrumb-item"><a href="{{ url('/shift/'.$client->id) }}">{{ $client->name }}様店舗一覧</a></li>
 
-<li class="breadcrumb-item active" aria-current="page">{{ $mise->name }}</li>
+<li class="breadcrumb-item active" aria-current="page">{{ $mise->name }}シフト入力</li>
 @stop
 
 @section('content')
@@ -19,13 +19,16 @@ $days = 10;
 $week = ['日', '月', '火', '水', '木', '金', '土']
 @endphp
 
-<h1 class="h2">シフト入力</h1>
+<!-- タイトル -->
+<h1 class="h2">{{ $mise->name }}シフト入力</h1>
 
 
 
     @include('common.validator')
     @include('common.error')
     @include('common.success')
+
+
 
 <!-- ミニ取説 -->
 <div class="row">
@@ -84,8 +87,12 @@ $week = ['日', '月', '火', '水', '木', '金', '土']
         <!-- 送信ボタン -->
         {{ Form::submit('確定',["class"=>"btn btn-info"]) }}
 
+        <!-- 戻るボタン -->
+        <a class="btn btn-dark" href="{{ url('/shift/'.$client->id) }}" >戻る</a>
+
         <!-- フォームの終わり -->
         {{ Form::close() }}
+
 
     </div>
 </div>

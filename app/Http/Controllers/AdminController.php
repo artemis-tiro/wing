@@ -264,6 +264,4 @@ class AdminController extends Controller{
             'mes' => $mes,
        ]);
     }
-
-
 }

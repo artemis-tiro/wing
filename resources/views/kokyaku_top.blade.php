@@ -13,10 +13,13 @@
     $teamName = App\Models\user::teamName(auth()->user()->team);
 ?>
 
+<!-- タイトル -->
+<h1 class="h2">店舗一覧</h1>
+
 <!-- 店舗一覧 -->
 <div class="card my-4 col-12 col-xl-10 mb-lg-0">
     <!-- カードのタイトル -->
-    <h2 class="card-header h5">店舗一覧</h2>
+    <h2 class="card-header h5">店舗を選択してください。</h2>
     <!-- カードの要素 -->
     <div class="card-body table-responsive text-nowrap">
         <!-- テーブル -->
@@ -25,7 +28,7 @@
                 <!-- カテゴリ -->
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">店名</th>
+                    <th scope="col">店舗名</th>
                     <th scope="col">地域</th>
                     <th scope="col">部屋数</th>
                     <th scope="col">在籍</th>

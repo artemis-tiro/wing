@@ -4,7 +4,7 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item"><a href="{{ url("/i") }}">店舗編集</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/i") }}">店舗一覧</a></li>
 <li class="breadcrumb-item"><a href="{{ url("/i/".$mise->id) }}">{{ $mise->name }}</a></li>
 <li class="breadcrumb-item active">{{ $therapist->business_name }} さん</li>
 @stop
@@ -99,7 +99,7 @@
                 </tbody>
             </table>
 
-            <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id) }}" >戻る</a>
+            <a class="m-2 btn btn-dark" href="{{ url('/i/'.$mise->id.'/'.$therapist->id) }}" >戻る</a>
             
         </div>
     </div>
@@ -168,7 +168,7 @@
                 </tbody>
             </table>
 
-            <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id) }}" >戻る</a>
+            <a class="m-2 btn btn-dark" href="{{ url('/i/'.$mise->id.'/'.$therapist->id) }}" >戻る</a>
             
         </div>
     </div>
@@ -208,7 +208,7 @@
                 </tbody>
             </table>
 
-            <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id) }}" >戻る</a>
+            <a class="m-2 btn btn-dark" href="{{ url('/i/'.$mise->id.'/'.$therapist->id) }}" >戻る</a>
             
         </div>
     </div>

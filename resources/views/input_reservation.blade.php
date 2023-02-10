@@ -4,7 +4,7 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item"><a href="{{ url("/i") }}">店舗編集</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/i") }}">店舗一覧</a></li>
 <li class="breadcrumb-item"><a href="{{ url("/i/".$mise->id) }}">{{ $mise->name }}</a></li>
 <li class="breadcrumb-item active">{{ $therapist->business_name }} さん</li>
 @stop
@@ -376,14 +376,17 @@
             @if($optionfind)
                 <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" >給料計算へ</a>
                 <a class="m-2 btn btn-secondary" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/befor') }}" >過去の予約</a>
+                <a class="m-2 btn btn-dark" href="{{ url('/i/'.$mise->id) }}" >戻る</a>
             @else
                 <a class="m-2 btn btn-info disabled" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" disabled>給料計算へ</a>
                 <a class="m-2 btn btn-secondary" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/befor') }}" >過去の予約</a>
+                <a class="m-2 btn btn-dark" href="{{ url('/i/'.$mise->id) }}" >戻る</a>
                 <label class="text-danger">※オプションを選択してください</label>
             @endif
         @else
             <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" >給料計算へ</a>
             <a class="m-2 btn btn-secondary" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/befor') }}" >過去の予約</a>
+            <a class="m-2 btn btn-dark" href="{{ url('/i/'.$mise->id) }}" >戻る</a>
         @endif
         
     </div>

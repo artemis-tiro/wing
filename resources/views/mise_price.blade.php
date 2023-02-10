@@ -199,11 +199,13 @@
                         @endcomponent
 
                         {{ Form::submit('保存',["class"=>"btn btn-info"]) }}
+                        
+                        <a href="{{ url('/c/'.$client->id.'/'.$mise->id) }}" class="btn btn-dark">戻る</a>
+
                         {{ Form::close() }}
 
                         <hr><br>
 
-                        <a href="{{ url('/c/'.$client->id.'/'.$mise->id) }}" class="mt-2 btn btn-secondary">← 戻る</a>
 
                     </div>
                 </div>

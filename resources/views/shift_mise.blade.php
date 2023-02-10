@@ -4,19 +4,20 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item"><a href="{{ url("/shift") }}">シフト入力クライアント一覧</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/shift") }}">クライアント一覧</a></li>
 
 <li class="breadcrumb-item active" aria-current="page">{{ $client->name }}様店舗一覧</li>
 @stop
 
 @section('content')
 
+<!-- タイトル -->
 <h1 class="h2">{{ $client->name }}様 店舗一覧</h1>
 
 <!-- 店舗一覧 -->
 <div class="card my-4">
     <!-- カードのタイトル -->
-    <h2 class="card-header h5">一覧</h2>
+    <h2 class="card-header h5">店舗を選択してください。</h2>
     <!-- カードの要素 -->
     <div class="card-body table-responsive text-nowrap">
 
@@ -26,7 +27,7 @@
                 <!-- カテゴリ -->
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">店名</th>
+                    <th scope="col">店舗名</th>
                     <th scope="col">地域</th>
                     <th scope="col">部屋数</th>
                     <th scope="col">在籍</th>
@@ -51,7 +52,10 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
+
+        <a class="btn btn-dark" href="{{ url('/shift') }}" >戻る</a>
+        
+    </div>    
 </div>
 
 @stop

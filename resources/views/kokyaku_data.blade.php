@@ -4,6 +4,7 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
+<li class="breadcrumb-item"><a href="{{url("/k")}}">店舗一覧</a></li>
 <li class="breadcrumb-item"><a href="{{ url("/k/".$mise->id) }}">顧客一覧</a></li>
 <li class="breadcrumb-item active">{{ $kokyaku->name }}</li>
 
@@ -380,6 +381,9 @@
                 </div>
             </div>
         </div>
+
+        <a class="mt-2 btn btn-dark" href="{{ url("/k/".$mise->id) }}" >戻る</a>
+
     </div>
 </div>
 

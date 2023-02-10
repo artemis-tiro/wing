@@ -5,7 +5,7 @@
 @include('common.pan')
 @section('pan2')
 <li class="breadcrumb-item"><a href="{{url("/k")}}">店舗一覧</a></li>
-<li class="breadcrumb-item active">{{ $mise->name }}</li>
+<li class="breadcrumb-item active">顧客一覧</li>
 
 @stop
 
@@ -14,12 +14,12 @@
     $teamName = App\Models\user::teamName(auth()->user()->team);
 ?>
 
-<h1 class="h2">{{ $mise->name }}店 顧客一覧</h1>
+<h1 class="h2">{{ $mise->name }} 顧客一覧</h1>
 
 <!-- 顧客一覧 -->
 <div class="card my-4 col-12 col-xl-10 mb-lg-0">
     <!-- カードのタイトル -->
-    <h2 class="card-header h5">顧客を選択してください</h2>
+    <h2 class="card-header h5">顧客を選択してください。</h2>
     <!-- カードの要素 -->
     <div class="card-body table-responsive text-nowrap">
         <!-- テーブル -->
@@ -48,6 +48,9 @@
                 @endforeach
             </tbody>
         </table>
+
+        <a class="btn btn-dark" href="{{ url("/k/") }}" >戻る</a>
+
     </div>
 </div>
 @stop

@@ -4,7 +4,7 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
-<li class="breadcrumb-item"><a href="{{ url("/i") }}">店舗編集</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/i") }}">店舗一覧</a></li>
 <li class="breadcrumb-item"><a href="{{ url("/i/".$mise->id) }}">{{ $mise->name }}</a></li>
 <li class="breadcrumb-item"><a href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/') }}">{{ $therapist->business_name }} さん</a></li>
 <li class="breadcrumb-item active">給与計算</li>
@@ -95,6 +95,9 @@
 
     <!-- 送信ボタン -->
     {{ Form::submit('給料計算',["class"=>"btn btn-info"]) }}
+
+    <!-- 戻る -->
+    <a href="{{ url("/i/".$mise->id) }}" class="btn btn-dark">戻る</a>
 
     <!-- フォームの終わり -->
     {{ Form::close() }}
