@@ -30155,3 +30155,4 @@ _token=VFqbpJ1rYyj5wKSNzmvqJMdimz4vTuc7jL0XZjy6&ng=19&_token=VFqbpJ1rYyj5wKSNzmv
 #57 C:\\Users\\oguha\\Dropbox\\project\\wing\\ogura\\laravel\\wing\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #58 {main}
 "} 
+[2023-02-10 09:45:47] local.INFO: {"id":51,"name":"ll","tel":"09011111111","mail":null,"ng":null,"memo":null,"deleted_at":null,"created_at":"2022-12-20T07:24:42.000000Z","updated_at":"2022-12-20T07:24:42.000000Z"}  

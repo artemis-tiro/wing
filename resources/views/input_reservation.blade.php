@@ -87,8 +87,8 @@
                         @endif
                         
                     </td>
-                    @php $f = $y->optionId? '': '※'; @endphp
-                    <td><a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#yoyakuOptionModal{{ $y->id }}">オプション{{ $f }}</a></td>
+                    @php $kome = $y->option != null? '': '※'; @endphp
+                    <td><a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#yoyakuOptionModal{{ $y->id }}">オプション{{ $kome }}</a></td>
                     <td><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#yoyakuEditModal{{ $y->id }}">編集</a></td>
                     <td>
                         @component('componets.modal')
@@ -158,9 +158,6 @@
                                         <span class="mx-2 badge rounded-pill bg-info">0円</span>
                                     </label>
                                 </div>
-
-                                
-
                             </div>
 
                             <!-- モーダルのフッター -->
@@ -510,7 +507,7 @@
         <label class="row text-nowrap text-end">
             <div class="mt-2 col-sm-2 text-end">電話番号<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
             <div class="col-sm-2">
-                {{ Form::number('telsearch', null, ['class'=>'form-control', 'autocomplete'=>'off', 'required']) }}
+                {{ Form::number('telsearch', null, ['class'=>'form-control', 'autocomplete'=>'off', 'min'=>'10', 'required']) }}
             </div>
             <div class="col-sm-1">{{ Form::submit('検索',["class"=>"btn btn-info"]) }}</div>
         </label>
