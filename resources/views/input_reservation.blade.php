@@ -28,6 +28,7 @@
     <h2 class="card-header h5">予約一覧</h2>
     <!-- カードの要素 -->
     <div class="card-body table-responsive text-nowrap">
+        @if(count($yoyakuList) != 0)
         <!-- テーブル -->
         <table class="table table-hover">
             <thead>
@@ -369,7 +370,10 @@
 
                 @endforeach
             </tbody>
-        </table>                        
+        </table>   
+        @else
+            <h2>※予約がありません</h2>
+        @endif                     
 
         <!-- 直接営業の場合 -->
         @if($getOption->name === 'therapist')
@@ -398,101 +402,108 @@
     <h2 class="card-header h5">予約一覧(翌日以降)</h2>
     <!-- カードの要素 -->
     <div class="card-body table-responsive text-nowrap">
-        <!-- テーブル -->
-        <table class="table table-hover">
-            <thead>
-                <!-- カテゴリ -->
-                <tr>
-                    <th scope="col"></th>
-                    <th scope="col">ステータス</th>
-                    <th scope="col">時間</th>
-                    <th scope="col">コース</th>
-                    <th scope="col">指名</th>
-                    <th scope="col">顧客名</th>
-                    <th scope="col">電話番号</th>
-                    <!-- 編集/削除ボタン -->
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($yoyakuAfterList  as $ya)
-                <tr>
-                    <th>{{ $loop->index+1 }}</th>
+        @if(count($yoyakuAfterList) != 0)
+            <!-- テーブル -->
+            <table class="table table-hover">
+                <thead>
+                    <!-- カテゴリ -->
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">ステータス</th>
+                        <th scope="col">時間</th>
+                        <th scope="col">コース</th>
+                        <th scope="col">指名</th>
+                        <th scope="col">顧客名</th>
+                        <th scope="col">電話番号</th>
+                        <!-- 編集/削除ボタン -->
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($yoyakuAfterList  as $ya)
+                    <tr>
+                        <th>{{ $loop->index+1 }}</th>
 
-                    <!-- 非同期処理 -->
-                    <!-- で来店日時とコース時間を参照してステータスを変動 -->
-                    <td>未実装</td>
+                        <!-- 非同期処理 -->
+                        <!-- で来店日時とコース時間を参照してステータスを変動 -->
+                        <td>未実装</td>
 
-                    <!-- 終了時間を来店日時＋コース時間で表示 -->
-                    <td>
-                        {{ \Carbon\Carbon::createFromTimeString($ya->visit_day)->format('m/d H:i') }} ~ 
-                        {{ date('H:i',strtotime(" $ya->visit_day +$ya->courseTime min ")) }}
-                    </td>
+                        <!-- 終了時間を来店日時＋コース時間で表示 -->
+                        <td>
+                            {{ \Carbon\Carbon::createFromTimeString($ya->visit_day)->format('m/d H:i') }} ~ 
+                            {{ date('H:i',strtotime(" $ya->visit_day +$ya->courseTime min ")) }}
+                        </td>
 
-                    <!-- priceテーブル作成まで仮 -->
-                    <td>{{ $ya->courseName }}</td>
+                        <!-- priceテーブル作成まで仮 -->
+                        <td>{{ $ya->courseName }}</td>
+                            
+                        <td>{{ $ya->courseShimei }}</td>
+
+                        <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
                         
-                    <td>{{ $ya->courseShimei }}</td>
-
-                    <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
-                    
-                    <td>
-                        {{ 
-                            substr($kokyakuList[$ya->kokyaku_id]->tel, 0, 3).'-'.
-                            substr($kokyakuList[$ya->kokyaku_id]->tel, 3, 4).'-'.
-                            substr($kokyakuList[$ya->kokyaku_id]->tel, -4, 4)
-                        }}
-                    </td>
-                    <td><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="">編集</a></td>
-                    <td>
-                        @component('componets.modal')
-                            @slot('type', 'del')
-                            @slot('name', '予約')
-                            @slot('id', $ya->id)
-                            @slot('text', "本当に削除しますか。")
-                            @slot('url', url('/i/'.$mise->id.'/'.$therapist->id.'/'.$ya->id.'/del'))
-                        @endcomponent
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+                        <td>
+                            {{ 
+                                substr($kokyakuList[$ya->kokyaku_id]->tel, 0, 3).'-'.
+                                substr($kokyakuList[$ya->kokyaku_id]->tel, 3, 4).'-'.
+                                substr($kokyakuList[$ya->kokyaku_id]->tel, -4, 4)
+                            }}
+                        </td>
+                        <td><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="">編集</a></td>
+                        <td>
+                            @component('componets.modal')
+                                @slot('type', 'del')
+                                @slot('name', '予約')
+                                @slot('id', $ya->id)
+                                @slot('text', "本当に削除しますか。")
+                                @slot('url', url('/i/'.$mise->id.'/'.$therapist->id.'/'.$ya->id.'/del'))
+                            @endcomponent
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <h2>※予約がありません</h2>
+        @endif
     </div>
 </div>
 
-<!-- コピペ用 -->
-<div class="card my-4">
-    <!-- カードのタイトル -->
-    <h2 class="card-header h5">コピペ用</h2>
-    <!-- カードの要素 -->
-    <div class="card-body table-responsive text-nowrap">
-        @foreach($yoyakuList  as $y)
-            <span>{{ $loop->index+1 }}</span>
-            
-            <!-- 指名 -->
-            <span>{{ $y->courseShimei }}</span>
 
-            <!-- コース -->
-            <span>{{ $y->courseName }}</span>
+@if(count($yoyakuList) != 0)
+    <!-- コピペ用 -->
+    <div class="card my-4">
+        <!-- カードのタイトル -->
+        <h2 class="card-header h5">コピペ用</h2>
+        <!-- カードの要素 -->
+        <div class="card-body table-responsive text-nowrap">
+            @foreach($yoyakuList  as $y)
+                <span>{{ $loop->index+1 }}</span>
+                
+                <!-- 指名 -->
+                <span>{{ $y->courseShimei }}</span>
 
-            <!-- お客様名 -->
-            <span>{{ $kokyakuList[$y->kokyaku_id]->name.' 様' }}</span>
+                <!-- コース -->
+                <span>{{ $y->courseName }}</span>
 
-            <!-- 発生料金 -->
-            <span>合計 {{ $y->totalPrice }}円</span>
+                <!-- お客様名 -->
+                <span>{{ $kokyakuList[$y->kokyaku_id]->name.' 様' }}</span>
 
-            <!-- 予約時間 -->
-            <span>
-                {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('H:i') }} ~ 
-                {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min ")) }}
-            </span>
+                <!-- 発生料金 -->
+                <span>合計 {{ $y->totalPrice }}円</span>
 
-            <br>
-            <br>
-        @endforeach
+                <!-- 予約時間 -->
+                <span>
+                    {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('H:i') }} ~ 
+                    {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min ")) }}
+                </span>
+
+                <br>
+                <br>
+            @endforeach
+        </div>
     </div>
-</div>
+@endif
 
 <!-- 予約フォーム -->
 <div class="card my-4">

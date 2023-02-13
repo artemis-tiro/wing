@@ -105,7 +105,7 @@
     </div>
 @endif
 
-<!-- 日付選択(データあり) -->
+<!-- 日付選択(予約あり) -->
 @if($card === 1)
     <!-- 過去予約リスト -->
     <div class="card my-4">
@@ -174,7 +174,7 @@
     </div>
 @endif
 
-<!-- 日付選択(データなし) -->
+<!-- 日付選択(予約なし) -->
 @if($card === 2)
     <!-- 過去予約リスト -->
     <div class="card my-4">
@@ -182,32 +182,37 @@
         <h2 class="card-header h5">{{ $day }} ( {{ number_format($dailyPrice) }}円 )</h2>
         <!-- カードの要素 -->
         <div class="card-body table-responsive text-nowrap">
-            
-            <!-- テーブル -->
-            <table class="table table-hover">
-                <thead>
-                    <!-- カテゴリ -->
-                    <tr>
-                        <th></th>
-                        <th scope="col">お茶名</th>
-                        <th scope="col">給料</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- お茶 -->
-                    @foreach($adjustList  as $a)
-                        
-                        <th>{{ $loop->index+1 }}</th>
-                        
-                        <!-- 項目名 -->
-                        <th>{{ $a->adjust_name }}</th>
+            @if(count($adjustList) != 0)
+                <!-- テーブル -->
+                <table class="table table-hover">
+                    <thead>
+                        <!-- カテゴリ -->
+                        <tr>
+                            <th></th>
+                            <th scope="col">お茶名</th>
+                            <th scope="col">給料</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <!-- お茶 -->
+                            @foreach($adjustList  as $a)
+                                
+                                <th>{{ $loop->index+1 }}</th>
+                                
+                                <!-- 項目名 -->
+                                <th>{{ $a->adjust_name }}</th>
 
-                        <!-- 金額 -->
-                        <th>{{ number_format($a->adjust_many) }}円</th>
-                    @endforeach
-                </tbody>
-            </table>
+                                <!-- 金額 -->
+                                <th>{{ number_format($a->adjust_many) }}円</th>
+                            @endforeach
 
+                    </tbody>
+                </table>
+            @elseif(count($shift) != 0)
+                <h2>※お茶がありません</h2>
+            @else
+                <h2>※出勤がありません</h2>
+            @endif
             <a class="m-2 btn btn-dark" href="{{ url('/i/'.$mise->id.'/'.$therapist->id) }}" >戻る</a>
             
         </div>

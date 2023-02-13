@@ -408,7 +408,7 @@
                 @foreach($yoyakuList as $y)
                 <tr>
                     <th>{{ $loop->index+1 }}</th>
-                    <td>{{ $y->therapistName }}</td>
+                    <td><a href="{{ url('/i/'.$mise->id.'/'.$y->therapist_id.'/') }}">{{ $y->therapistName }}</a></td>
                     <td>{{ $y->visit_day }}</td>
                     <td>{{ $kokyaku->memo }}</td>
                 </tr>

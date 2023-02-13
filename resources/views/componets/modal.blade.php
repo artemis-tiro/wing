@@ -1,3 +1,4 @@
+<!-- 削除 -->
 @if($type=="del")
 <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#a{{$id}}">削除</button>
 <div class="modal fade" id="a{{$id}}" tabindex="-1" aria-labelledby="a{{$id}}Label" aria-hidden="true">
@@ -19,6 +20,7 @@
 </div>
 @endif
 
+<!-- ヒアリングシート -->
 @if($type=="hearingSheet")
 <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#hearingSeet">編集</button>
 <div class="modal fade" id="hearingSeet" tabindex="-1" aria-labelledby="hearingSeetLabel" aria-hidden="true">
@@ -34,7 +36,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
         {{ Form::submit('保存',["class"=>"m-2 btn btn-info"])}}
       </div>
       {{ Form::close() }}
@@ -43,6 +45,7 @@
 </div>
 @endif
 
+<!-- 店舗情報 -->
 @if($type=="miseData")
 <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#miseData">編集</button>
 <div class="modal fade" id="miseData" tabindex="-1" aria-labelledby="miseDataLabel" aria-hidden="true">
@@ -65,7 +68,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
         {{ Form::submit('保存',["class"=>"m-2 btn btn-info"])}}
       </div>
       {{ Form::close() }}

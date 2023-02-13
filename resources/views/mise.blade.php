@@ -318,26 +318,67 @@
         </div>
         @endif
 
-        <table class="table table-hover">
-            <tbody>
-                @php
-                    $miseData = [
-                        '店名'=>'name',
-                        'フリガナ'=>'yomi',
-                        '地域'=>'area',
-                        '電話番号'=>'tel',
-                        'ホームページ'=>'hp',
-                    ];
-                @endphp
-                @foreach($miseData as $key => $i)
-                <tr>
-                    <th style="width:130px;">{{$key}}</th>
-                    <td>{{$mise->$i}}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+            <!-- 名前 -->
+            <label class="row">
+                <!-- ラベル -->
+                <div class="text-info text-end">店舗名</div>
+                <div class="col-sm-3">
+                    <label>{{ $mise->name }}</label>
+                </div>
+            </label>
 
+            <!-- フリガナ -->
+            <label class="row">
+                <!-- ラベル -->
+                <div class="text-info text-end">フリガナ</div>
+                <div class="col-sm-3">
+                    <label>{{ $mise->yomi }}</label>
+                </div>
+            </label>
+
+            <!-- 住所 -->
+            <label class="row">
+                <!-- ラベル -->
+                <div class="mt-2 text-info text-end">住所</div>
+                <div class="col-sm-3">
+                    <label>{{ $mise->area }}</label>
+                </div>
+            </label>
+
+            <!-- 電話番号 -->
+            <label class="row">
+                <!-- ラベル -->
+                <div class="mt-2 text-info text-end">電話番号</div>
+                <div class="col-sm-3">
+                    <label>
+                        @if($mise->tel)
+                            {{ 
+                                substr($mise->tel, 0, 3).'-'.
+                                substr($mise->tel, 3, 4).'-'.
+                                substr($mise->tel, -4, 4)
+                            }}
+                        @endif
+                    </label>
+                </div>
+            </label>
+
+            <!-- メールアドレス -->
+            <label class="row">
+                <!-- ラベル -->
+                <div class="mt-2 text-info text-end">メールアドレス</div>
+                <div class="col-sm-3">
+                    <label>{{ $mise->hp }}</label>
+                </div>
+            </label>
+        @php
+            $miseData = [
+                '店舗名'=>'name',
+                'フリガナ'=>'yomi',
+                '地域'=>'area',
+                '電話番号'=>'tel',
+                'ホームページ'=>'hp',
+            ];
+        @endphp
         @component('componets.modal')
             @slot('type', 'miseData')
             @slot('miseData', $miseData)
@@ -364,6 +405,7 @@
 </div>
 
 <!-- ルーム新規作成 -->
+{{--
 <div class="card my-4">
     <!-- カードのタイトル -->
     <h2 class="card-header h5">ルーム新規作成</h2>
@@ -371,4 +413,5 @@
     <div class="card-body table-responsive text-nowrap">
     </div>
 </div>
+--}}
 @stop

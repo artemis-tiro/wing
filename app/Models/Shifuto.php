@@ -112,7 +112,17 @@ class Shifuto extends Model
         return $shiftList;
     }
 
-    public static function getTime($zenTherapistList){
+    // シフト取得
+    public static function getTime($therapistId, $time){
+        $shift = shifuto::where('therapist_id', $therapistId)
+            ->where('working_day', $time)
+            ->get();
+
+        return $shift;
+    }
+
+    // シフトリスト取得
+    public static function getTimeList($zenTherapistList){
         foreach($zenTherapistList as $z){
             $time = shifuto::where('therapist_id', $z->id)
                 ->where('working_day', shifuto::getWorkignDay())

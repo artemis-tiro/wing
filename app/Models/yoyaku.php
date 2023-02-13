@@ -422,7 +422,32 @@ class Yoyaku extends Model
             $y->kokyakuName = $kokyaku->name;
             $y->kokyakuTel = $kokyaku->tel;
             $y->kokyakuMail = $kokyaku->mail;
-            $y->kokyakuNg = $kokyaku->ng;
+
+            // 顧客のNGセラピストリスト取得
+            $ngList = $kokyaku->ng;
+            $ngId = explode('T', $ngList);
+            $ngCount = count($ngId);
+
+            // 出力文字
+            $display = '';
+
+            // NGセラピストリストの数だけ回す
+            for($i = 0; $i < $ngCount; $i++){
+
+                // ngIdで名前をとる
+                $therapist = therapist::detail($ngId[$i]);
+
+                if(!($therapist)) continue;
+
+                // 最初以外カンマ付き
+                if(empty($display)){
+                    $display .= $therapist->business_name;                
+                }else{
+                    $display .= ' ,'.$therapist->business_name; 
+                }
+            }
+            
+            $y->kokyakuNg = $display;
             $y->kokyakuMemo = $kokyaku->memo;
         }
         return null;

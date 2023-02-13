@@ -69,6 +69,7 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/admin/passreset', "App\Ht
 //inputer
 Route::middleware(['auth:sanctum', 'verified'])->any('/i', "App\Http\Controllers\InputController@top");
 Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}', "App\Http\Controllers\InputController@therapist");
+Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/hearingsheetedit', "App\Http\Controllers\InputController@hearingsheetEdit");
 Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}', "App\Http\Controllers\InputController@yoyaku");
 Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}/reservation', "App\Http\Controllers\InputController@reservation");
 Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}/befor', "App\Http\Controllers\InputController@yoyakuBefor");

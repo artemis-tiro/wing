@@ -72,18 +72,112 @@
     <h2 class="card-header h5">本人情報</h2>
     <!-- カードの要素 -->
     <div class="card-body table-responsive text-nowrap">
-        <!-- テーブル -->
-        <table class="table table-hover">
-            <tr><td>ユーザーID</td><td>{{ $user->id }}</td></tr>
-            <tr><td>ログインID</td><td>{{ $user->name }}</td></tr>
-            <tr><td>名前</td><td>{{ $inputerDetail->name }}</td></tr>
-            <tr><td>電話番号</td><td>{{ $inputerDetail->tel }}</td></tr>
-            <tr><td>住所</td><td>{{ $inputerDetail->address }}</td></tr>
-            <tr><td>メールアドレス</td><td>{{ $inputerDetail->mail }}</td></tr>
-            <tr><td>生年月日</td><td>{{ $inputerDetail->birthday }}</td></tr>
-            <tr><td>入社日</td><td>{{ $inputerDetail->joinday }}</td></tr>
-            <tr><td>身分証提出</td><td>{{ $inputerDetail->kyc }}</td></tr>
-        </table>
+        <!-- ユーザーID -->
+        <label class="row">
+            <!-- ラベル -->
+            <div class="text-info text-end">ユーザーID</div>
+            <div class="col-sm-3">
+                <label >{{ $user->id }}</label>
+            </div>
+        </label>
+
+        <!-- ログインID -->
+        <label class="row">
+            <!-- ラベル -->
+            <div class="text-info text-end">ログインID</div>
+            <div class="col-sm-3">
+                <label>{{ $user->name }}</label>
+            </div>
+        </label>
+
+        <!-- 名前 -->
+        <label class="row">
+            <!-- ラベル -->
+            <div class="text-info text-end">名前</div>
+            <div class="col-sm-3">
+                <label >{{ $inputerDetail->name }}</label>
+            </div>
+        </label>
+
+        <!-- 電話番号 -->
+        <label class="row">
+            <!-- ラベル -->
+            <div class="mt-2 text-info text-end">電話番号</div>
+            <div class="col-sm-3">
+                <label >
+                    @if($inputerDetail->tel)
+                        {{ 
+                            substr($inputerDetail->tel, 0, 3).'-'.
+                            substr($inputerDetail->tel, 3, 4).'-'.
+                            substr($inputerDetail->tel, -4, 4)
+                        }}
+                    @endif
+                </label>
+            </div>
+        </label>
+
+        <!-- 住所 -->
+        <label class="row">
+            <!-- ラベル -->
+            <div class="mt-2 text-info text-end">住所</div>
+            <div class="col-sm-3">
+                <label >{{ $inputerDetail->address }}</label>
+            </div>
+        </label>
+
+        <!-- メールアドレス -->
+        <label class="row">
+            <!-- ラベル -->
+            <div class="mt-2 text-info text-end">メールアドレス</div>
+            <div class="col-sm-3">
+                <label >{{ $inputerDetail->mail }}</label>
+            </div>
+        </label>
+
+        <!-- 生年月日 -->
+        <label class="row">
+            <!-- ラベル -->
+            <div class="mt-2 text-info text-end">生年月日</div>
+            <div class="col-sm-3">
+                <label >
+                    @if($inputerDetail->birthday)
+                        {{ 
+                            substr(str_replace('-', '', $inputerDetail->birthday), 0, 4).'年'.
+                            substr(str_replace('-', '', $inputerDetail->birthday), 4, 2).'月'.
+                            substr(str_replace('-', '', $inputerDetail->birthday), -2, 2).'日'
+                        }}
+                    @endif
+
+                </label>
+            </div>
+        </label>
+
+        <!-- 入社日 -->
+        <label class="row">
+            <!-- ラベル -->
+            <div class="mt-2 text-info text-end">入社日</div>
+            <div class="col-sm-3">
+                <label >
+                    @if($inputerDetail->joinday)
+                        {{ 
+                            substr(str_replace('-', '', $inputerDetail->joinday), 0, 4).'年'.
+                            substr(str_replace('-', '', $inputerDetail->joinday), 4, 2).'月'.
+                            substr(str_replace('-', '', $inputerDetail->joinday), -2, 2).'日'
+                        }}
+                    @endif
+
+                </label>
+            </div>
+        </label>
+
+        <!-- 身分証提出 -->
+        <label class="row">
+            <!-- ラベル -->
+            <div class="mt-2 text-info text-end">身分証提出</div>
+            <div class="col-sm-3">
+                <label >{{ $inputerDetail->kyc }}</label>
+            </div>
+        </label>
     </div>
 </div>
 

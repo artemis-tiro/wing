@@ -78,7 +78,7 @@ class InputController extends Controller{
 
         // シフト一覧
         $shifutoList = shifuto::shiftList($miseId);
-        shifuto::getTime($zenTherapistList);
+        shifuto::getTimeList($zenTherapistList);
 
 
         return view ('input_therapist', [
@@ -205,6 +205,9 @@ class InputController extends Controller{
         // 調整金予約一覧
         $adjustList = kyuryo::adjustList($miseId, $therapistId, $request->input('day'));
 
+        // シフト取得
+        $shift = shifuto::getTime($therapistId, $request->input('day'));
+
         // 日付選択していれば
         if($request->input('day')){
             $card = 1;
@@ -232,6 +235,7 @@ class InputController extends Controller{
         return view ('input_befor', [
             'mise' => $mise,
             'therapist' => $therapist,
+            'shift' => $shift,
             'kokyakuList' => $kokyakuList,
             'yoyakuList' => $yoyakuList,
             'adjustList' => $adjustList,
@@ -454,5 +458,15 @@ class InputController extends Controller{
         }
 
         return back();
+    }
+
+    //ヒアリングシート編集
+    public function hearingsheetEdit(Request $request, $miseId){
+        //権限チェック
+        if($ng = $this->levelCheck()) return $ng;
+
+        mise::hearingsheetEdit($miseId, $request->input()['hearing_sheet']);
+
+        return back()->with(['mes6' => 'ヒアリングシートを編集しました。']);
     }
 }
