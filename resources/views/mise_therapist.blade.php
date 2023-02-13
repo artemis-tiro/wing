@@ -12,7 +12,7 @@
 @section('content')
 
 <!-- タイトル -->
-<h1 class="h2">{{ $therapist->business_name }}さんデータ</h1>
+<h1 class="h2">{{ $therapist->business_name }}さん詳細</h1>
 
 <!-- 成績 -->
 <div class="card my-4">
@@ -96,6 +96,29 @@
             <li>シフト</li>
             <li>住所氏名年齢などの本人確認情報</li>
         </ul>
+    </div>
+</div>
+
+<!-- ヒアリングシート -->
+<div class="card my-4">
+    <!-- カードのタイトル -->
+    <h2 class="card-header h5">ヒアリングシート</h2>
+    <!-- カードの要素 -->
+    <div class="card-body table-responsive text-nowrap">
+        @if ( !empty($mes6) )
+        <div class="alert alert-info d-flex align-items-center" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+            </svg>
+            <div class="align-items-center">{{ $mes6 }}</div>
+        </div>
+        @endif
+        <p>{!! nl2br(e($mise->hearing_sheet)) !!}</p>
+        @component('componets.modal')
+            @slot('type', 'hearingSheet')
+            @slot('text', $mise->hearing_sheet)
+            @slot('url', url()->current().'/hearingsheetedit')
+        @endcomponent
     </div>
 </div>
 @stop
