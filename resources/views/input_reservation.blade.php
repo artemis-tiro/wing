@@ -440,7 +440,7 @@
                             
                         <td>{{ $ya->courseShimei }}</td>
 
-                        <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
+                        <td><a href="{{ url('/k/'.$mise->id.'/'.$ya->kokyaku_id.'/') }}">{{ $kokyakuList[$ya->kokyaku_id]->name }}</a> 様</td>
                         
                         <td>
                             {{ 

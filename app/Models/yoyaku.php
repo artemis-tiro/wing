@@ -21,7 +21,7 @@ class Yoyaku extends Model
         // 6時よりも前
         if($time < date('Y-m-d').' 06:00:00'){
             $yoyakuList = yoyaku::where('therapist_id', $therapistId)
-            ->whereBetween('visit_day', [date('Y-m-d', strtotime("-1 day")).' 06:00:00', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
+            ->whereBetween('visit_day', [date('Y-m-d', strtotime("-1 day")).' 06:00:00', date('Y-m-d').' 05:59:59'] )
             ->get();
         }else{
             $yoyakuList = yoyaku::where('therapist_id', $therapistId)
@@ -33,9 +33,17 @@ class Yoyaku extends Model
 
     // 先行予約一覧
     public static function yoyakuAfterList($therapistId,$time){
-        $yoyakuList = yoyaku::where('therapist_id', $therapistId)
-            ->whereNotBetween('visit_day', [date('Y-m-d', strtotime("-10 year")).' 05:59:59', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
+        // 営業日の判別
+        // 6時よりも前
+        if($time < date('Y-m-d').' 06:00:00'){
+            $yoyakuList = yoyaku::where('therapist_id', $therapistId)
+            ->whereBetween('visit_day', [date('Y-m-d').' 06:00:00', date('Y-m-d', strtotime("+10 year")).' 05:59:59'] )
             ->get();
+        }else{
+            $yoyakuList = yoyaku::where('therapist_id', $therapistId)
+            ->whereBetween('visit_day', [date('Y-m-d', strtotime("+1 day")).' 06:00:00', date('Y-m-d', strtotime("+10 year")).' 05:59:59'] )
+            ->get();
+        }        
         return $yoyakuList;
     }
 
