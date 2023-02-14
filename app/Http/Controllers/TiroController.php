@@ -114,6 +114,4 @@ class TiroController extends Controller{
         user::nari($team);
         return redirect('/admin');
     }
-
-
 }

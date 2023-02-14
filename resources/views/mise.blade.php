@@ -115,7 +115,11 @@
                 @endforeach
             </tbody>
         </table>
-        ※フェーズ2以降追加機能
+
+        <!-- 戻るボタン -->
+        <a href="{{ url('/c/'.$client->id) }}" class="btn btn-dark">戻る</a>
+
+        <li>※フェーズ2以降追加機能</li>
         <ul>
             <li>順番の入れ替え</li>
             <li>シフト管理</li>
@@ -136,14 +140,14 @@
 
         {{ Form::open(['url' => url('/c/'.$client->id.'/'.$mise->id.'/newtherapist'),'class'=>'form-horizontal']) }}
         <label class="row text-nowrap mb-4 text-end">
-            <div class="col-sm-2 lh2 text-end">源氏名 *</div>
+            <div class="col-sm-2 lh2 text-end">源氏名<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
             <div class="col-sm-10">
                 {{ Form::text('business_name', null, ['class'=>'form-control jq_idToPass', 'autocomplete'=>'off', 'required'=>'required']) }}
             </div>
         </label>
 
         <label class="row text-nowrap mb-4 text-end">
-            <div class="col-sm-2 lh2 text-end">ログインID *</div>
+            <div class="col-sm-2 lh2 text-end">ログインID<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
             <div class="col-sm-10">
                 {{ Form::text('login_id', null, ['class'=>'form-control jq_idToPass', 'autocomplete'=>'off', 'required'=>'required', 'pattern'=>'^[0-9a-zA-Z\\-\\_]+$', 'title'=>'半角英数、ハイフン、アンダーバーのみ']) }}
                 <div class="form-text">「店名_源氏名」半角英数字。</div>
@@ -151,7 +155,7 @@
         </label>
 
         <label class="row text-nowrap mb-4">
-            <span class="col-sm-2 lh2">パスワード *</span>
+            <span class="col-sm-2 lh2">パスワード<span class="mx-2 badge rounded-pill bg-danger">必須</span></span>
             <div class="col-sm-10">
                 {{ Form::text('pass', null, ['class'=>'form-control pass', 'required'=>'required', 'disabled'=>'disabled']) }}
                 <div class="form-text">初期値はログインIDと同じ。</div>
@@ -159,7 +163,7 @@
         </label>
 
         <label class="row text-nowrap mb-4">
-            <span class="col-sm-2 lh2">給料形態 *</span>
+            <span class="col-sm-2 lh2">給料形態<span class="mx-2 badge rounded-pill bg-danger">必須</span></span>
             <div class="col-sm-10">
                 {{ Form::select('back_name', ['default'=>'default']+$backList, 'default', ['class'=>'form-select pass', 'required'=>'required']) }}
             </div>
@@ -263,7 +267,7 @@
         @endif
         {{ Form::open(['url' => url('/c/'.$client->id.'/'.$mise->id.'/newback'),'class'=>'form-horizontal', 'autocomplete'=>'off']) }}
         <label class="row text-nowrap mb-4 text-end">
-            <div class="col-sm-2 lh2 text-end">料金システム名 *</div>
+            <div class="col-sm-2 lh2 text-end">料金システム名<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
             <div class="col-sm-10">
                 {{ Form::text('back_name', null, ['class'=>'form-control jq_idToPass', 'required'=>'required']) }}
             </div>

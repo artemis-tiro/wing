@@ -117,7 +117,7 @@
         @include('common.error')
         {{ Form::open(['url' => url('/c/'.$client->id.'/newmise'),'class'=>'form-horizontal']) }}
         <label class="row text-nowrap mb-4 text-end">
-            <div class="col-sm-2 lh2 text-end">店舗名 *</div>
+            <div class="col-sm-2 lh2 text-end">店舗名<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
             <div class="col-sm-10">
                 {{ Form::text('name', null, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required']) }}
             </div>
@@ -131,28 +131,28 @@
         </label>
 
         <label class="row text-nowrap mb-4 text-end">
-            <div class="col-sm-2 lh2 text-end">地域 *</div>
+            <div class="col-sm-2 lh2 text-end">地域<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
             <div class="col-sm-10">
                 {{ Form::text('area', null, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required']) }}
             </div>
         </label>
 
         <label class="row text-nowrap mb-4 text-end">
-            <div class="col-sm-2 lh2 text-end">電話番号 *</div>
+            <div class="col-sm-2 lh2 text-end">電話番号<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
             <div class="col-sm-10">
                 {{ Form::text('tel', null, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required']) }}
             </div>
         </label>
 
         <label class="row text-nowrap mb-4 text-end">
-            <div class="col-sm-2 lh2 text-end">ホームページ *</div>
+            <div class="col-sm-2 lh2 text-end">ホームページ<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
             <div class="col-sm-10">
                 {{ Form::text('hp', null, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required']) }}
             </div>
         </label>
 
         <label class="row text-nowrap mb-4">
-            <span class="col-sm-2 lh2">ヒアリングシート *</span>
+            <span class="col-sm-2 lh2">ヒアリングシート<span class="mx-2 badge rounded-pill bg-danger">必須</span></span>
             <div class="col-sm-10">
                 {{ Form::textarea('hearing_sheet', null, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required']) }}
             </div>

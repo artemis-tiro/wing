@@ -716,7 +716,7 @@
                 @endif
             @endforeach
 
-        @if(!(isset($claimList)))
+        @if(count($claimList) != 0 )
         <!-- クレーム対応 -->
         <div class="row text-nowrap mb-4 text-end radio_claim">
             <div class="col-sm-2 text-end">クレーム対応<span class="mx-2 badge rounded-pill bg-secondary">任意</span></div>

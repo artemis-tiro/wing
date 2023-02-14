@@ -86,7 +86,7 @@
         @include('common.success')
         {{ Form::open(['url' => url('/admin/newclient'),'class'=>'form-horizontal']) }}
         <label class="row text-nowrap mb-4 text-end">
-            <div class="col-sm-2 lh2 text-end">ログインID *</div>
+            <div class="col-sm-2 lh2 text-end">ログインID<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
             <div class="col-sm-10">
                 {{ Form::text('login_id', null, ['class'=>'form-control jq_idToPass', 'autocomplete'=>'off', 'required'=>'required']) }}
                 <div class="form-text">半角英数字。ユニーク。</div>
@@ -94,7 +94,7 @@
         </label>
 
         <label class="row text-nowrap mb-4">
-            <span class="col-sm-2 lh2">パスワード *</span>
+            <span class="col-sm-2 lh2">パスワード<span class="mx-2 badge rounded-pill bg-danger">必須</span></span>
             <div class="col-sm-10">
                 {{ Form::text('pass', null, ['class'=>'form-control', 'required'=>'required', 'autocomplete'=>'off', 'disabled'=>'disabled']) }}
                 <div class="form-text">初期値はログインIDと同じ。</div>
@@ -102,7 +102,7 @@
         </label>
 
         <label class="row text-nowrap mb-4">
-            <span class="col-sm-2 lh2">名前 *</span>
+            <span class="col-sm-2 lh2">名前<span class="mx-2 badge rounded-pill bg-danger">必須</span></span>
             <div class="col-sm-10">
                 {{ Form::text('name', null, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required']) }}
                 <div class="form-text">初期設定で入力し直すので「〇〇さん」でも大丈夫です。</div>

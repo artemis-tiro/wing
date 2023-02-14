@@ -5,11 +5,11 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="a{{$id}}Label">{{$name}}を削除してもよろしいですか。</h5>
+        <h5 class="modal-title" id="a{{$id}}Label">削除確認</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
       </div>
       <div class="modal-body">
-        {{$text}}
+        {{$name}}を削除してもよろしいですか。
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
@@ -27,7 +27,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="hearingSeetLabel">ヒアリングシートを編集します</h5>
+        <h5 class="modal-title" id="hearingSeetLabel">ヒアリングシート編集</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="border: 1px solid;">×</button>
       </div>
       {{ Form::open(['url' => $url,'class'=>'form-horizontal']) }}
@@ -52,7 +52,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="hearingSeetLabel">店舗情報を編集します</h5>
+        <h5 class="modal-title" id="hearingSeetLabel">店舗情報編集</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="border: 1px solid;">×</button>
       </div>
       {{ Form::open(['url' => $url,'class'=>'form-horizontal']) }}
