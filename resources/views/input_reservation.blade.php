@@ -693,7 +693,7 @@
         </div>
 
         <!-- 追加割引 -->
-        <div class="row text-nowrap mb-4 text-end radio_waribiki">
+        <div class="row text-nowrap text-end radio_waribiki">
             <div class="col-sm-2 text-end">追加割引<span class="mx-2 badge rounded-pill bg-secondary">任意</span></div>
                                         
             @foreach($waribikiList  as $w)
@@ -716,20 +716,30 @@
                 @endif
             @endforeach
 
-        @if(count($claimList) != 0 )
+        @if(count($claimList) != 0)
         <!-- クレーム対応 -->
-        <div class="row text-nowrap mb-4 text-end radio_claim">
+        <div class="row text-nowrap text-end radio_claim">
             <div class="col-sm-2 text-end">クレーム対応<span class="mx-2 badge rounded-pill bg-secondary">任意</span></div>
-            
-            <div class="col-sm-1 btn bg-danger text-white claimMany"></div>
-
+                                        
             @foreach($claimList  as $cl)
-                <label class="col-sm-1">
-                    {{ Form::radio('claim', $cl->id, false, ['class'=>'form-check-input', 'onclick'=>'displayMany()', 'price'=>$w->price]) }}
-                    {{ $cl->name }}
-                </label>
-            @endforeach
+                @if($loop->index == 0)
+                    <div class="col-sm-1 btn bg-danger text-white claimMany ">-----円</div>
+                    <label class="col-sm-2">
+                        {{ Form::radio('claim', $cl->id, false, ['class'=>'form-check-input radioOnOff', 'onclick'=>'displayMany()', 'price'=>$cl->price]) }}
+                        {{ $cl->name }}
+                    </label>
         </div>
+                @else
+        <div class="row text-nowrap mb-3 text-end radio_claim">
+                    <!-- 項目の場所合わせ -->
+                    <div class="col-sm-3"></div>
+                    <label class="col-sm-2">
+                        {{ Form::radio('claim', $cl->id, false, ['class'=>'form-check-input radioOnOff', 'onclick'=>'displayMany()', 'price'=>$cl->price]) }}
+                        {{ $cl->name }}
+                    </label>
+        </div>
+                @endif
+            @endforeach
         @endif
 
         <!-- メモ -->
