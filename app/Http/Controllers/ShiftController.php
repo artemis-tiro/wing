@@ -144,4 +144,23 @@ class ShiftController extends Controller{
 
         return back();
     }
+
+    // 非同期
+    public function itemApi(Request $request)
+    {
+        $item = $request->input('item');
+
+        if($item==555) return false;
+
+        return json_encode(['item'=>$item]); //resに入る。
+
+
+        // //アイテム取得
+        // $itemNumber = $request->input('item');
+        // $item = Item::numberToItem($itemNumber);
+        // if(!$item) return false; //errorに入る。
+        // //アイテムをjson形式で返す
+        // $message = ['item'=>$item];
+        // return json_encode($message); //resに入る。
+    } 
 }

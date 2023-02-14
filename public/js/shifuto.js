@@ -3,48 +3,63 @@ $(function() {
     // キーボードを押したとき
     $(document).on("keydown", ".shiftTime", function(e){
 
-        var index       =   null;
-        var selector    =   ".shiftTime";
-        var time = $(this).val();
+        var index = null;
+        var selector = ".shiftTime";
+
+        console.log(document.getElementsByName);
+
+        // 数字とバックスペース以外の時は、イベントをキャンセルする  
+        if(!(e.keyCode >= 13 && e.keyCode <= 17
+            || e.keyCode >= 35 && e.keyCode <= 40
+            || e.keyCode >= 48 && e.keyCode <= 57
+            || e.keyCode >= 96 && e.keyCode <= 105
+            || e.keyCode == 8
+            || e.keyCode == 46
+            || e.keyCode == 17 && e.keyCode == 67
+            || e.keyCode == 17 && e.keyCode == 86
+            || e.KeyData == (Keys.Control | Keys.C)
+            || e.KeyData == (Keys.Control | Keys.V))){
+            return false;
+        }
 
         // 「shift」を押しながら矢印でフォーカス移動
         if(e.shiftKey){
-          if(e.keyCode === 37){
-            index   =   $(selector).index(this);
-            if (index > 0){
-                $(selector).eq(index-1).focus();
-            }
-            console.log('shift left');
-            return;
-          }
-
-          if(e.keyCode === 38){
-            index   =   $(selector).index(this);
-            if (index > 0){
-                console.log(index);
-                if(index > 10){
-                    $(selector).eq(index-10).focus();
+            if(e.keyCode == 37){
+                index = $(selector).index(this);
+                if (index > 0){
+                    $(selector).eq(index-1).focus();
                 }
+                console.log('shift left');
+                return;
             }
-            return;
-          }
 
-          if(e.keyCode === 39){
-            index   =   $(selector).index(this);
-            if (index < $(selector).length - 1 ){
-                $(selector).eq(index+1).focus();
+            if(e.keyCode == 38){
+                index = $(selector).index(this);
+                if (index > 0){
+                    console.log(index);
+                    if(index > 10){
+                        $(selector).eq(index-10).focus();
+                    }
+                }
+                return;
             }
-            return;
-          }
 
-          if(e.keyCode === 40){
-            index   =   $(selector).index(this);
-            if (index < $(selector).length - 1 ){
-                $(selector).eq(index+10).focus();
+            if(e.keyCode == 39){
+                index = $(selector).index(this);
+                if (index < $(selector).length - 1 ){
+                    $(selector).eq(index+1).focus();
+                }
+                return;
             }
-            return;
-          }
-        }   
+
+            if(e.keyCode == 40){
+                index = $(selector).index(this);
+                if (index < $(selector).length - 1 ){
+                    $(selector).eq(index+10).focus();
+                }
+                return;
+            }
+        }
     });
 
     // キーボードを押して離したとき
@@ -96,14 +111,32 @@ $(function() {
         if(e.keyCode == 8 || e.keyCode == 46){
             $(this).val(time);
         }
-
-        // if(!(e.keyCode <= 105 && e.keyCode >= 96 ||
-        //         e.keyCode <= 57 && e.keyCode >= 48 || 
-        //         e.keyCode === 110 ||
-        //         e.keyCode === 190)){
-        //     console.log(time);
-        //     $(this).val(time.slice(0,-1));
-        //     return;
-        // }
     });
+})
+
+// シフトformに文字を入力したとき
+$('[name=shift-4-20230214]').on('input', function(){
+    shiftTimeAjax();
 });
+
+// 非同期
+function shiftTimeAjax() {
+    var itemNumber = '555';
+
+    // データの形を定義
+    $.ajax({
+            type: "get", //HTTP通信の種類
+            url: '/shift/ajax?item=' + itemNumber, //通信したいURL
+            dataType: 'json'
+        })
+
+        //通信が成功したとき
+        .done((res) => {
+            console.log(res);
+            console.log(res.item);
+        })
+        //通信が失敗したとき
+        .fail((error) => {
+            alert('error....');
+        })
+};
