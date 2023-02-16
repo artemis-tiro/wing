@@ -6,9 +6,9 @@ $(function() {
         var index = null;
         var selector = ".shiftTime";
 
-        console.log(document.getElementsByName);
+        index = $(selector).index(this).selector;
 
-        // 数字とバックスペース以外の時は、イベントをキャンセルする  
+        // 「数字,バックスペース,矢印,delete,home,end,ctrl+a,ctrl+c,ctrl+v」以外の時は、イベントをキャンセルする  
         if(!(e.keyCode >= 13 && e.keyCode <= 17
             || e.keyCode >= 35 && e.keyCode <= 40
             || e.keyCode >= 48 && e.keyCode <= 57
@@ -17,8 +17,7 @@ $(function() {
             || e.keyCode == 46
             || e.keyCode == 17 && e.keyCode == 67
             || e.keyCode == 17 && e.keyCode == 86
-            || e.KeyData == (Keys.Control | Keys.C)
-            || e.KeyData == (Keys.Control | Keys.V))){
+            || e.keyCode == 110 && e.keyCode == 190)){
             return false;
         }
 
@@ -29,14 +28,12 @@ $(function() {
                 if (index > 0){
                     $(selector).eq(index-1).focus();
                 }
-                console.log('shift left');
                 return;
             }
 
             if(e.keyCode == 38){
                 index = $(selector).index(this);
                 if (index > 0){
-                    console.log(index);
                     if(index > 10){
                         $(selector).eq(index-10).focus();
                     }
@@ -66,20 +63,43 @@ $(function() {
     $(document).on("keyup", ".shiftTime", function(e){
 
         var time = $(this).val();
+        var index = null;
+        var count = null;
+        var selector = ".shiftTime";
+
+        index = $(selector).index(this).selector;
+
+        if($(this).val().indexOf('.') != -1){
+            count = time.match(/\./g).length;
+        }
+
+        // 「数字,バックスペース,矢印,delete,home,end,ctrl+a,ctrl+c,ctrl+v」以外の時は、イベントをキャンセルする  
+        if(!(e.keyCode >= 13 && e.keyCode <= 17
+            || e.keyCode >= 35 && e.keyCode <= 40
+            || e.keyCode >= 48 && e.keyCode <= 57
+            || e.keyCode >= 96 && e.keyCode <= 105
+            || e.keyCode == 8
+            || e.keyCode == 46
+            || e.keyCode == 17 && e.keyCode == 67
+            || e.keyCode == 17 && e.keyCode == 86
+            || e.keyCode == 110 
+            || e.keyCode == 190)){
+            return false;
+        }
 
         // 「.」の場合
         if( e.keyCode == 110 || e.keyCode == 190){
             // 開始時間(区切り文字「-」がない)で「.」を打った時
             if(time.length <= 3){
                 if($(this).val().includes('-') === false){
-                    $(this).val(time + "5-");
+                    $(this).val(time + ".5-");
                 }
             }
             
             // 終了時間(区切り文字「-」がある)で「.」を打った時
             if(time.length > 3){
                 if($(this).val().includes('-') != false){
-                    $(this).val(time + "5");
+                    $(this).val(time + ".5");
                 }
             }
         }
@@ -111,6 +131,30 @@ $(function() {
         if(e.keyCode == 8 || e.keyCode == 46){
             $(this).val(time);
         }
+
+        // 文字数を制限する(.5が無い)
+        if(count == null){
+            if($(this).val().length > 5){
+                $(this).val(time.slice(0,5));
+            }
+        }
+
+        // 文字数を制限する(.5が1つある)
+        if(count == 1){
+            if($(this).val().length > 7){
+                $(this).val(time.slice(0,7));
+            }
+        }
+
+        // 文字数を制限する(.5が2つある)
+        if(count == 2){
+            if($(this).val().length > 9){
+                $(this).val(time.slice(0,9));
+            }
+        }
+
+        // 形式？を確認
+
     });
 })
 

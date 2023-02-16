@@ -29,8 +29,6 @@
 <!-- 給料調整 -->
 <div class="card my-4">
 
-    <!-- 調整金の後ろに給与形態も出す -->
-
     <!-- カードのタイトル -->
     <h2 class="card-header h5">給与計算</h2>
 
@@ -38,7 +36,6 @@
     <div class="card-body">
 
     <!-- フォームの開始 -->
-
     <!-- 予約が1件もない場合 -->
     @if(count($yoyakuList) === 0)
         {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/calculation2')]) }}
@@ -97,7 +94,7 @@
     {{ Form::submit('給料計算',["class"=>"btn btn-info"]) }}
 
     <!-- 戻る -->
-    <a href="{{ url("/i/".$mise->id) }}" class="btn btn-dark">戻る</a>
+    <a href="{{ url("/i/".$mise->id."/".$therapist->id) }}" class="btn btn-dark">戻る</a>
 
     <!-- フォームの終わり -->
     {{ Form::close() }}

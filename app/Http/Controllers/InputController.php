@@ -96,6 +96,7 @@ class InputController extends Controller{
         $kokyakuData = null;
         $formflag = 0;
         $inputTel = $request->input('telsearch');
+        $accesslevel = Auth::user()->access_level;
 
         // 権限チェック
         if($ng = $this->levelCheck()) return $ng;
@@ -113,7 +114,7 @@ class InputController extends Controller{
         $yoyakuList = yoyaku::yoyakuList($therapistId, date('Y-m-d H:i:s'));
 
         // 先行予約一覧
-        $yoyakuAfterList = yoyaku::yoyakuAfterList($therapistId, date('Y-m-d'));
+        $yoyakuAfterList = yoyaku::yoyakuAfterList($therapistId, date('Y-m-d H:i:s'));
 
         // 電話番号検索
         $telsearch = kokyaku::telSearch($request->input('telsearch'));
@@ -156,6 +157,7 @@ class InputController extends Controller{
             'mise' => $mise,
             'therapist' => $therapist,
             'kokyakuList' => $kokyakuList,
+            'accesslevel' => $accesslevel,
             'yoyakuList' => $yoyakuList,
             'yoyakuAfterList' => $yoyakuAfterList,
             'kokyakuData' => $kokyakuData,
@@ -186,6 +188,7 @@ class InputController extends Controller{
         $shift = '';
         $dailyPrice = 0;
         $day = $request->input('day');
+        $accesslevel = Auth::user()->access_level;
 
         // 権限チェック
         if($ng = $this->levelCheck()) return $ng;
@@ -235,6 +238,7 @@ class InputController extends Controller{
         return view ('input_befor', [
             'mise' => $mise,
             'therapist' => $therapist,
+            'accesslevel' => $accesslevel,
             'shift' => $shift,
             'kokyakuList' => $kokyakuList,
             'yoyakuList' => $yoyakuList,

@@ -47,7 +47,7 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/mypage/addresschange', "A
 Route::middleware(['auth:sanctum', 'verified'])->any('/mypage/telchange', "App\Http\Controllers\MypageController@telchange");
 Route::middleware(['auth:sanctum', 'verified'])->any('/mypage/mailchange', "App\Http\Controllers\MypageController@mailchange");
 Route::middleware(['auth:sanctum', 'verified'])->any('/mypage/birthdaychange', "App\Http\Controllers\MypageController@birthdaychange");
-Route::middleware(['auth:sanctum', 'verified'])->any('/mypage/profilechange', "App\Http\Controllers\MypageController@profilechange");
+Route::middleware(['auth:sanctum', 'verified'])->any('/mypage/linechange', "App\Http\Controllers\MypageController@linechange");
 
 //tiro
 Route::middleware(['auth:sanctum', 'verified'])->any('/tiro', "App\Http\Controllers\TiroController@top");

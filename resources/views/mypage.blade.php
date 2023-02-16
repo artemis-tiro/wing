@@ -124,19 +124,15 @@
                 </button>
             </label>
 
-        @endif
-
-        <!-- セラピストのみ編集する -->
-        @if( $accessLevel === 'therapist' )
-            <!-- 営業プロフィール -->
+            <!-- LINE ID -->
             <label class="row">
                 <!-- ラベル -->
-                <div class="mt-2 text-info text-end">営業プロフィール</div>
+                <div class="text-info text-end">LINE ID </div>
                 <div class="col-sm-3">
-                    <label for="">「営業プロフィール」を表示</label>
+                    <label class="mt-2">{{ $mydeta->line }}</label>
                 </div>
                 <!-- ボタン -->
-                <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#profileModal">
+                <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#lineModal">
                     編集
                 </button>
             </label>
@@ -444,11 +440,11 @@
         </div>
 
         <!-- セラピストのみ表示 -->
-        <!-- 営業プロフィール -->
-        @if ($errors->has('age') || $errors->has('3size') || $errors->has('cup') || $errors->has('line'))
-        <div class="modal show" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" data-bs-backdrop="static">
+        <!-- LINE ID -->
+        @if ($errors->has('line'))
+        <div class="modal show" id="lineModal" tabindex="-1" aria-labelledby="lineModalLabel" data-bs-backdrop="static">
         @else
-        <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" data-bs-backdrop="static">
+        <div class="modal fade" id="lineModal" tabindex="-1" aria-labelledby="lineModalLabel" data-bs-backdrop="static">
         @endif
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -456,65 +452,14 @@
                     <!-- モーダルのヘッダー -->
                     <div class="modal-header">
                         <!-- モーダルタイトル -->
-                        <h1 class="modal-title h4" id="profileModalLabel">営業プロフィール編集</h1>
+                        <h1 class="modal-title h4" id="lineModalLabel">LINE IDを変更</h1>
                     </div>
 
                     <!-- フォームの開始 -->
-                    {{ Form::open(['url' => url('/mypage/profilechange')]) }}
+                    {{ Form::open(['url' => url('/mypage/linechange')]) }}
                     
                     <!-- モーダルの内容 -->
                     <div class="modal-body">
-
-                        <!-- 営業年齢入力 -->
-                        <label class="row">
-
-                            <!-- ラベルにエラーメッセージを出す -->
-                            @if ($errors->has('age'))
-                                <div class="mt-2 text-danger text-end">{{ $errors->first('age') }}</div>
-                            @else
-                                <div class="mt-2 text-info text-end">営業年齢</div>
-                            @endif
-
-                            <div class="col-sm-12">
-
-                                <!-- 半角などのチェック -->
-                                <!-- Form::タイプ -->
-                                <!-- 第一引数は「name=""」 -->
-                                {{ Form::number('age', $mydeta->age, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'(例) 21']) }}
-                            </div>
-                        </label>
-
-                        <!-- 源氏名 -->
-
-
-                        <!-- 3サイズ入力 -->
-                        <label class="row">
-                            @if ($errors->has('3size'))
-                                <div class="mt-2 text-danger text-end">{{ $errors->first('3size') }}</div>
-                            @else
-                                <div class="mt-2 text-info text-end">3サイズ</div>
-                            @endif
-                            <div class="col-sm-12">
-
-                                <!-- 上のパスワードと同じかの確認をする -->
-                                {{ Form::text('3size', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'(例) 81-63-87']) }}
-                            </div>
-                        </label>
-
-                        <!-- カップ数入力 -->
-                        <label class="row">
-                            @if ($errors->has('cup'))
-                                <div class="mt-2 text-danger text-end">{{ $errors->first('cup') }}</div>
-                            @else
-                                <div class="mt-2 text-info text-end">カップ</div>
-                            @endif
-                            <div class="col-sm-12">
-
-                                <!-- 上のパスワードと同じかの確認をする -->
-                                {{ Form::text('cup', $mydeta->cup, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'(例) A']) }}
-                            </div>
-                        </label>
-
                         <!-- LINE ID入力 -->
                         <label class="row">
                             @if ($errors->has('line'))
@@ -524,7 +469,6 @@
                             @endif
                             <div class="col-sm-12">
 
-                                <!-- 上のパスワードと同じかの確認をする -->
                                 {{ Form::text('line', $mydeta->line, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'(例) anya0121']) }}
                             </div>
                         </label>

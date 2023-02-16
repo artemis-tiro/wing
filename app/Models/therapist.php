@@ -170,7 +170,7 @@ class Therapist extends Model
         $therapist = therapist::find($id);
 
         $therapist->id = $id;
-        $therapist->mail = $input['birthday'];
+        $therapist->birthday = $input['birthday'];
         $result = $therapist->save();
 
         //インサート失敗時
@@ -179,15 +179,12 @@ class Therapist extends Model
         return true;
     }
 
-    //  アカウント情報変更(営業プロフィール)
-    public static function therapistProfileEdit($id, $input){
+    //  アカウント情報変更(LINE ID)
+    public static function therapistLineEdit($id, $input){
         //インサート
         $therapist = therapist::find($id);
 
         $therapist->id = $id;
-        $therapist->business_age = $input['age'];
-        // $therapist->3size = $input['3size'];
-        $therapist->cup = $input['cup'];
         $therapist->line = $input['line'];
         $result = $therapist->save();
 

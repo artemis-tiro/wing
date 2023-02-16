@@ -16,10 +16,8 @@ class MypageController extends Controller{
 
     // ページの表示
     public function mypage(){
-
         // アクセス情報取得
         $accessLevel = Auth::user()->access_level;
-        Log::channel('daily')->info('');
 
         switch ($accessLevel) {
             case 'therapist':
@@ -272,11 +270,11 @@ class MypageController extends Controller{
 
     }
 
-    // 営業プロフィールの変更
-    public function profilechange(Request $request){
+    // LINE IDの変更
+    public function linechange(Request $request){
 
         // DB更新
-        $result = therapist::therapistProfileEdit(Auth::user()->id,$request);
+        $result = therapist::therapistLineEdit(Auth::user()->id,$request);
 
         if($result){
             return back()->with(['message' => '変更されました。']);

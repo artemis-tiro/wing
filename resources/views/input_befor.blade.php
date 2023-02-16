@@ -10,10 +10,17 @@
 @stop
 
 @section('content')
+
+@php
+// シフトを入力できる日数
+$week = ['日', '月', '火', '水', '木', '金', '土']
+@endphp
+
 <?php 
     $teamName = App\Models\user::teamName(auth()->user()->team);
 ?>
 
+<!-- タイトル -->
 <h1 class="h2">{{ $therapist->business_name }}さん過去予約一覧</h1>
 
 
@@ -55,7 +62,9 @@
                         <th scope="col">指名</th>
                         <th scope="col">顧客名</th>
                         <th scope="col">電話番号</th>
-                        <th scope="col">給料</th>
+                        @if($accesslevel != 'therapist')
+                            <th scope="col">給料</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -65,35 +74,51 @@
 
                         <!-- 終了時間を来店日時＋コース時間で表示 -->
                         <td>
-                            {{ date('Y-m-d H:i',strtotime(" $y->visit_day")) }} ~ 
-                            {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min ")) }}
+                            @if($accesslevel != 'therapist')
+                                {{ date('Y-m-d H:i',strtotime(" $y->visit_day")) }} ~ 
+                                {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min ")) }}
+                            @else
+                                {{ date('Y-m-d H:i',strtotime(" $y->visit_day")) }}
+                            @endif
                         </td>
-
+                        
+                        
                         <td>{{ $y->courseName }}</td>
                             
                         <td>{{ $y->courseShimei }}</td>
 
-                        <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
+                        @if($accesslevel != 'therapist')
+                            <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
+                        @else
+                            <td>{{ $kokyakuList[$y->kokyaku_id]->name }} 様</td>
+                        @endif
                         
                         <td>
-                            <!-- mb_strlen()文字数カウント -->
-                            @if(mb_strlen($kokyakuList[$y->kokyaku_id]->tel) === 11)
-                            {{ 
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 0, 3).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                            }}
+                            @if($accesslevel != 'therapist')
+                                <!-- mb_strlen()文字数カウント -->
+                                @if(mb_strlen($kokyakuList[$y->kokyaku_id]->tel) === 11)
+                                {{ 
+                                    substr($kokyakuList[$y->kokyaku_id]->tel, 0, 3).'-'.
+                                    substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
+                                    substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
+                                }}
+                                @else
+                                {{ 
+                                    substr($kokyakuList[$y->kokyaku_id]->tel, 0, 2).'-'.
+                                    substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
+                                    substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
+                                }}
+                                @endif
                             @else
-                            {{ 
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 0, 2).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                            }}
+                                {{
+                                    substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
+                                }}
                             @endif
-                            
                         </td>
 
-                        <td>{{ number_format($y->totalBack) }}円</td>
+                        @if($accesslevel != 'therapist')
+                            <td>{{ number_format($y->totalBack) }}円</td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>
@@ -110,7 +135,20 @@
     <!-- 過去予約リスト -->
     <div class="card my-4">
         <!-- カードのタイトル -->
-        <h2 class="card-header h5">{{ $day }} ( {{ number_format($dailyPrice) }}円 )</h2>
+        @if($accesslevel != 'therapist')
+            <h2 class="card-header h5">{{ $day }} ( {{ number_format($dailyPrice) }}円 )</h2>
+        @else
+                @switch(date('N', date('Y-m-d', strtotime($day))))
+                    @case (6)
+            <h2 class="text-primary" style="text-align: center">{{ $day.'('.$week[date('w', $day)].')' }}</h2>
+                        @break
+                    @case (7)
+            <h2 class="text-danger" style="text-align: center">{{ $day.'('.$week[date('w', $day)].')' }}</h2>
+                        @break
+                    @default
+            <h2 style="text-align: center">{{ $day.'('.$week[date('w', $day)].')' }}</h2>
+                @endswitch
+        @endif
         <!-- カードの要素 -->
         <div class="card-body table-responsive text-nowrap">
             <!-- テーブル -->
@@ -124,7 +162,9 @@
                         <th scope="col">指名</th>
                         <th scope="col">顧客名</th>
                         <th scope="col">電話番号</th>
-                        <th scope="col">給料</th>
+                        @if($accesslevel != 'therapist')
+                            <th scope="col">給料</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -134,35 +174,49 @@
 
                         <!-- 終了時間を来店日時＋コース時間で表示 -->
                         <td>
-                            {{ date('H:i',strtotime(" $y->visit_day")) }} ~ 
-                            {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min ")) }}
+                            @if($accesslevel != 'therapist')
+                                {{ date('Y-m-d H:i',strtotime(" $y->visit_day")) }} ~ 
+                                {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min ")) }}
+                            @else
+                                {{ date('Y-m-d H:i',strtotime(" $y->visit_day")) }}
+                            @endif
                         </td>
 
                         <td>{{ $y->courseName }}</td>
                             
                         <td>{{ $y->courseShimei }}</td>
 
-                        <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
-                        
+                        @if($accesslevel != 'therapist')
+                            <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
+                        @else
+                            <td>{{ $kokyakuList[$y->kokyaku_id]->name }} 様</td>
+                        @endif
                         <td>
-                            <!-- mb_strlen()文字数カウント -->
-                            @if(mb_strlen($kokyakuList[$y->kokyaku_id]->tel) === 11)
-                            {{ 
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 0, 3).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                            }}
+                            @if($accesslevel != 'therapist')
+                                <!-- mb_strlen()文字数カウント -->
+                                @if(mb_strlen($kokyakuList[$y->kokyaku_id]->tel) === 11)
+                                {{ 
+                                    substr($kokyakuList[$y->kokyaku_id]->tel, 0, 3).'-'.
+                                    substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
+                                    substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
+                                }}
+                                @else
+                                {{ 
+                                    substr($kokyakuList[$y->kokyaku_id]->tel, 0, 2).'-'.
+                                    substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
+                                    substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
+                                }}
+                                @endif
                             @else
-                            {{ 
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 0, 2).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                            }}
+                                {{
+                                    substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
+                                }}
                             @endif
-                            
                         </td>
 
-                        <td>{{ number_format($y->totalBack) }}円</td>
+                        @if($accesslevel != 'therapist')
+                            <td>{{ number_format($y->totalBack) }}円</td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>
@@ -179,7 +233,11 @@
     <!-- 過去予約リスト -->
     <div class="card my-4">
         <!-- カードのタイトル -->
-        <h2 class="card-header h5">{{ $day }} ( {{ number_format($dailyPrice) }}円 )</h2>
+        @if($accesslevel != 'therapist')
+            <h2 class="card-header h5">{{ $day }} ( {{ number_format($dailyPrice) }}円 )</h2>
+        @else
+            <h2 class="card-header h5">{{ $day }}</h2>
+        @endif
         <!-- カードの要素 -->
         <div class="card-body table-responsive text-nowrap">
             @if(count($adjustList) != 0)
@@ -190,7 +248,9 @@
                         <tr>
                             <th></th>
                             <th scope="col">お茶名</th>
-                            <th scope="col">給料</th>
+                            @if($accesslevel != 'therapist')
+                                <th scope="col">給料</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -203,7 +263,9 @@
                                 <th>{{ $a->adjust_name }}</th>
 
                                 <!-- 金額 -->
-                                <th>{{ number_format($a->adjust_many) }}円</th>
+                                @if($accesslevel != 'therapist')
+                                    <th>{{ number_format($a->adjust_many) }}円</th>
+                                @endif
                             @endforeach
 
                     </tbody>
