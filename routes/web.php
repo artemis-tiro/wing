@@ -108,6 +108,11 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/shift/{clientId}/{miseId}
 
 //therapist
 Route::middleware(['auth:sanctum', 'verified'])->any('/t', "App\Http\Controllers\TherapistController@top");
+Route::middleware(['auth:sanctum', 'verified'])->any('/t/{miseId}/{therapistId}/befor', "App\Http\Controllers\TherapistController@befor");
+Route::middleware(['auth:sanctum', 'verified'])->any('/t/{miseId}/{therapistId}/befor_day', "App\Http\Controllers\TherapistController@befor");
+Route::middleware(['auth:sanctum', 'verified'])->any('/t/{miseId}/{therapistId}/kyuryo', "App\Http\Controllers\TherapistController@kyuryo");
+Route::middleware(['auth:sanctum', 'verified'])->any('/t/{miseId}/{therapistId}/calculation', "App\Http\Controllers\TherapistController@calculation");
+Route::middleware(['auth:sanctum', 'verified'])->any('/t/{miseId}/{therapistId}/calculation2', "App\Http\Controllers\TherapistController@calculation2");
 
 //kokyaku
 Route::middleware(['auth:sanctum', 'verified'])->any('/k', "App\Http\Controllers\KokyakuController@top");

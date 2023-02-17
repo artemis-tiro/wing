@@ -64,14 +64,9 @@ $(function() {
 
         var time = $(this).val();
         var index = null;
-        var count = null;
         var selector = ".shiftTime";
 
         index = $(selector).index(this).selector;
-
-        if($(this).val().indexOf('.') != -1){
-            count = time.match(/\./g).length;
-        }
 
         // 「数字,バックスペース,矢印,delete,home,end,ctrl+a,ctrl+c,ctrl+v」以外の時は、イベントをキャンセルする  
         if(!(e.keyCode >= 13 && e.keyCode <= 17
@@ -132,55 +127,46 @@ $(function() {
             $(this).val(time);
         }
 
-        // 文字数を制限する(.5が無い)
-        if(count == null){
-            if($(this).val().length > 5){
-                $(this).val(time.slice(0,5));
-            }
-        }
-
-        // 文字数を制限する(.5が1つある)
-        if(count == 1){
-            if($(this).val().length > 7){
-                $(this).val(time.slice(0,7));
-            }
-        }
-
-        // 文字数を制限する(.5が2つある)
-        if(count == 2){
-            if($(this).val().length > 9){
-                $(this).val(time.slice(0,9));
-            }
+        if($(this).val().length > 9){
+            $(this).val(time.slice(0,9));
         }
 
         // 形式？を確認
-
+        
     });
 })
 
 // シフトformに文字を入力したとき
-$('[name=shift-4-20230214]').on('input', function(){
-    shiftTimeAjax();
+$('[name=/^shift/]').on('input', function(){
+// $('[name=shift-4-20230217]').on('input', function(){
+    shiftTimeAjax($(this).val());
 });
 
 // 非同期
-function shiftTimeAjax() {
-    var itemNumber = '555';
+function shiftTimeAjax($text) {
+
+    // 入力された値？
+    var itemNumber = 'yo';
 
     // データの形を定義
     $.ajax({
-            type: "get", //HTTP通信の種類
-            url: '/shift/ajax?item=' + itemNumber, //通信したいURL
+            // 通信のget or post
+            type: "get",
+            // 通信するURKに値を付与する？
+            url: '/shift/ajax?item=' + itemNumber,
             dataType: 'json'
         })
 
-        //通信が成功したとき
+        // True
         .done((res) => {
+            // resでDB更新？
             console.log(res);
             console.log(res.item);
         })
-        //通信が失敗したとき
+        // false
         .fail((error) => {
+            // 形式エラー？
+            // 赤枠にしてDB更新を市しない
             alert('error....');
         })
 };

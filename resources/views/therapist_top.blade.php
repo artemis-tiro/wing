@@ -70,26 +70,7 @@
                     <td>{{ $kokyakuList[$y->kokyaku_id]->name }} 様</td>
                     
                     <td>
-                        @if($accesslevel != 'therapist')
-                            <!-- mb_strlen()文字数カウント -->
-                            @if(mb_strlen($kokyakuList[$y->kokyaku_id]->tel) === 11)
-                                {{ 
-                                    substr($kokyakuList[$y->kokyaku_id]->tel, 0, 3).'-'.
-                                    substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                                    substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                                }}
-                            @else
-                                {{ 
-                                    substr($kokyakuList[$y->kokyaku_id]->tel, 0, 2).'-'.
-                                    substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                                    substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                                }}
-                            @endif
-                        @else
-                            {{ 
-                                substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                            }}
-                        @endif
+                        {{ substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4) }}
                     </td>
                     @php $kome = $y->option != null? '': '※'; @endphp
                     <td><a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#yoyakuOptionModal{{ $y->id }}">オプション{{ $kome }}</a></td>
@@ -381,16 +362,16 @@
         <!-- 直接営業の場合 -->
         @if($getOption->name === 'therapist')
             @if($optionfind)
-                <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" >給料計算へ</a>
-                <a class="m-2 btn btn-secondary" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/befor') }}" >過去の予約</a>
+                <a class="m-2 btn btn-info" href="{{ url('/t/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" >給料計算へ</a>
+                <a class="m-2 btn btn-secondary" href="{{ url('/t/'.$mise->id.'/'.$therapist->id.'/befor') }}" >過去の予約</a>
             @else
-                <a class="m-2 btn btn-info disabled" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" disabled>給料計算へ</a>
-                <a class="m-2 btn btn-secondary" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/befor') }}" >過去の予約</a>
+                <a class="m-2 btn btn-info disabled" href="{{ url('/t/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" disabled>給料計算へ</a>
+                <a class="m-2 btn btn-secondary" href="{{ url('/t/'.$mise->id.'/'.$therapist->id.'/befor') }}" >過去の予約</a>
                 <label class="text-danger">※オプションを選択してください</label>
             @endif
         @else
-            <a class="m-2 btn btn-info" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" >給料計算へ</a>
-            <a class="m-2 btn btn-secondary" href="{{ url('/i/'.$mise->id.'/'.$therapist->id.'/befor') }}" >過去の予約</a>
+            <a class="m-2 btn btn-info" href="{{ url('/t/'.$mise->id.'/'.$therapist->id.'/kyuryo') }}" >給料計算へ</a>
+            <a class="m-2 btn btn-secondary" href="{{ url('/t/'.$mise->id.'/'.$therapist->id.'/befor') }}" >過去の予約</a>
         @endif
         
     </div>
@@ -442,12 +423,7 @@
 
                         <td>{{ $kokyakuList[$ya->kokyaku_id]->name }} 様</td>
                         
-                        <td>
-                            {{ 
-                                substr($kokyakuList[$ya->kokyaku_id]->tel, 0, 3).'-'.
-                                substr($kokyakuList[$ya->kokyaku_id]->tel, 3, 4).'-'.
-                                substr($kokyakuList[$ya->kokyaku_id]->tel, -4, 4)
-                            }}
+                        <td>{{ substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4) }}
                         </td>
                         <td><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="">編集</a></td>
                         <td>

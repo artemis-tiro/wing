@@ -150,7 +150,7 @@ class ShiftController extends Controller{
     {
         $item = $request->input('item');
 
-        if($item==555) return false;
+        if($item==7) return false;
 
         return json_encode(['item'=>$item]); //resに入る。
 

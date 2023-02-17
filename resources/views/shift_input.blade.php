@@ -39,7 +39,7 @@ $week = ['日', '月', '火', '水', '木', '金', '土']
 <!-- シフト一覧 -->
 <div class="card my-4">
     <!-- カードのタイトル -->
-    <h2 class="card-header h5">{{ date('m-d') }}~</h2>
+    <h2 class="card-header h5">{{ date('Y-m-d') }}~</h2>
     <!-- カードの要素 -->
     <div class="card-body table-responsive text-nowrap">
 
