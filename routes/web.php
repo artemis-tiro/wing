@@ -79,6 +79,7 @@ Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}/
 Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}/calculation2', "App\Http\Controllers\InputController@calculation2");
 Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}/{id}/del', "App\Http\Controllers\InputController@yoyakudel");
 Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}/{id}/yoyakuedit', "App\Http\Controllers\InputController@yoyakuedit");
+Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}/{id}/yoyakuafteredit', "App\Http\Controllers\InputController@yoyakuafteredit");
 Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}/{id}/yoyakuencho', "App\Http\Controllers\InputController@yoyakuencho");
 Route::middleware(['auth:sanctum', 'verified'])->any('/i/{miseId}/{therapistId}/{id}/yoyakuoption', "App\Http\Controllers\InputController@yoyakuoption");
 

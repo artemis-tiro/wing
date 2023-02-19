@@ -346,6 +346,47 @@ class Yoyaku extends Model
         return true;
     }
 
+    // 延長編集
+    public static function yoyakuafteredit($input,$id){
+        
+        $yoyaku = yoyaku::find($input['yoyakuId']);
+
+        $input_price_id = '';
+
+        $priceid = explode('P', $yoyaku->price_id_list);
+
+        
+        // course,shimei,waribiki以外でprice_id_listを作成
+        foreach($priceid as $p){
+            $courseName = price::withTrashed()->find($p);
+            if(!$courseName) continue;
+            // 編集で入力する項目以外
+            if(!($courseName->type == 'course'||$courseName->type == 'shimei'||$courseName->type == 'waribiki')){
+                $input_price_id .= 'P'.$p;
+            }
+        }
+
+        // 作成したprice_id_listにinputのidを足して更新
+        $input_array = ['courseEx',
+                        'shimeiEx',
+                        'waribikiEx'];
+
+        foreach($input_array as $arr){
+            if(!(isset($input[$arr]))) continue;
+            if(is_numeric($input[$arr])){
+                $input_price_id .= 'P'.$input[$arr];
+            }
+        }
+
+        $yoyaku->price_id_list = $input_price_id;
+        $result = $yoyaku->save();
+
+        //インサート失敗時
+        if(!$result) return false;
+
+        return true;
+    }
+
     // オプション編集
     public static function yoyakuoption($input,$id){
 

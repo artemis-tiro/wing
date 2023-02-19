@@ -449,6 +449,21 @@ class InputController extends Controller{
         return back();
     }
 
+    // 先行予約編集
+    public function yoyakuafteredit(Request $request, $miseId, $therapistId, $id){
+
+        // DB更新
+        $result = yoyaku::yoyakuafteredit($request,$id);
+
+        if($result){
+            return back()->with(['message' => '予約が変更されました。']);
+        }else{
+            return back()->with(['error' => '予約が変更されませんでした。']);
+        }
+
+        return back();
+    }
+
     // 予約編集(オプション)
     public function yoyakuoption(Request $request, $miseId, $therapistId, $id){
 
