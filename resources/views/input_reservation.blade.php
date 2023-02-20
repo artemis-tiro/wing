@@ -484,7 +484,7 @@
                                 </div>
 
                                 <!-- フォームの開始 -->
-                                {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/'.$ya->id.'/yoyakuafteredit')]) }}
+                                {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/'.$ya->id.'/yoyakuedit')]) }}
                                 {{ Form::hidden('yoyakuId', $ya->id) }}
                                 
                                 <!-- モーダルの内容 -->

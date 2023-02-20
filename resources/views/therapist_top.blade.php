@@ -425,7 +425,7 @@
                         
                         <td>{{ substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4) }}
                         </td>
-                        <td><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="">編集</a></td>
+                        <td><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#yoyakuAfterEditModal{{ $ya->id }}">編集</a></td>
                         <td>
                             @component('componets.modal')
                                 @slot('type', 'del')
@@ -436,6 +436,119 @@
                             @endcomponent
                         </td>
                     </tr>
+                    <!-- モーダル設定 -->
+                    <!-- 編集ボタン -->
+                    <div class="modal fade" id="yoyakuAfterEditModal{{ $ya->id }}" tabindex="-1" aria-labelledby="yoyakuAfterEditModal{{ $ya->id }}" data-bs-backdrop="static">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                
+                                <!-- モーダルのヘッダー -->
+                                <div class="modal-header">
+                                    <!-- モーダルタイトル -->
+                                    <h1 class="modal-title h4" id="yoyakuAfterEditModal{{ $ya->id }}Label">予約編集</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
+                                </div>
+
+                                <!-- フォームの開始 -->
+                                {{ Form::open(['url' => url('/i/'.$mise->id.'/'.$therapist->id.'/'.$ya->id.'/yoyakuedit')]) }}
+                                {{ Form::hidden('yoyakuId', $ya->id) }}
+                                
+                                <!-- モーダルの内容 -->
+                                <div class="modal-body">
+
+                                    <!-- コース -->
+                                    <div class="row text-nowrap mb-2 text-end">
+                                        <div class="col-sm-3 text-end">コース<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
+                                        
+                                        @foreach($courseList  as $c)
+                                            @php $check = $ya->courseId == $c->id? true: false; @endphp
+                                            @if($loop->index != 0)
+                                    <div class="row text-nowrap mb-2 text-end">
+                                                <!-- 項目の場所合わせ -->
+                                                <div class="col-sm-3"></div>
+                                            @endif
+                                    
+                                                <label class="col-sm-3">
+                                                    {{ Form::radio('courseEx', $c->id, $check, ['class'=>'form-check-input', 'required']) }}
+                                                    {{ $c->name }}
+                                                </label>
+                                                <label class="col-sm-2">
+                                                    <span class="mx-2 badge rounded-pill bg-info">{{ number_format($c->price) }}円</span>
+                                                </label>
+                                    </div>
+                                        @endforeach
+
+                                    <!-- 指名 -->
+                                    <div class="row text-nowrap mb-2 text-end">
+                                        <div class="col-sm-3 text-end">指名<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
+                                        
+                                        @foreach($shimeiList  as $s)
+                                            @php $check = $ya->shimeiId == $s->id? true: false; @endphp
+                                            @if($loop->index != 0)
+                                    <div class="row text-nowrap mb-2 text-end">
+                                                <!-- 項目の場所合わせ -->
+                                                <div class="col-sm-3"></div>
+                                            @endif
+
+                                                <label class="col-sm-3">
+                                                    {{ Form::radio('shimeiEx', $s->id, $check, ['class'=>'form-check-input', 'required']) }}
+                                                    {{ $s->name }}
+                                                </label>
+                                                <label class="col-sm-2">
+                                                    <span class="mx-2 badge rounded-pill bg-info">{{ number_format($s->price) }}円</span>
+                                                </label>
+                                    </div>
+                                        @endforeach
+
+                                    <!-- 追加割引 -->
+                                    <div class="row text-nowrap mb-2 text-end">
+                                        <div class="col-sm-3 text-end">追加割引<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
+                                        @foreach($waribikiList  as $w)
+                                            @php $check = $ya->waribikiId == $w->id? true: false; @endphp
+                                            @if($loop->index != 0)
+                                        <div class="row text-nowrap mb-2 text-end">
+                                                <!-- 項目の場所合わせ -->
+                                                <div class="col-sm-3"></div>
+                                            @endif
+                                                <label class="col-sm-3">
+                                                    {{ Form::radio('waribikiEx', $w->id, $check, ['class'=>'form-check-input', 'required']) }}
+                                                    {{ $w->name }}
+                                                </label>
+                                                <label class="col-sm-2">
+                                                    <span class="mx-2 badge rounded-pill bg-danger">{{ number_format($w->price) }}円</span>
+                                                </label>
+                                    </div>
+                                        @endforeach
+                                    <div class="row text-nowrap mt-2 text-end">
+                                        <!-- 項目の場所合わせ -->
+                                        <div class="col-sm-3"></div>
+
+                                        <label class="col-sm-3">
+                                            @php $WAnothing = $ya->waribikiId == $w->id? false: true; @endphp
+                                            {{ Form::radio('waribikiEx', null, $WAnothing, ['class'=>'form-check-input', 'required']) }}
+                                            割引無し
+                                        </label>
+                                        <label class="col-sm-2">
+                                            <span class="mx-2 badge rounded-pill bg-danger">0円</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- モーダルのフッター -->
+                                <div class="modal-footer">
+
+                                    <!-- 各ボタン -->
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                                    {{ Form::submit('更新',["class"=>"btn btn-info"])}}
+
+                                </div>
+
+                                <!-- フォームの終わり -->
+                                {{ Form::close() }}
+
+                            </div>
+                        </div>
+                    </div>
                     @endforeach
                 </tbody>
             </table>

@@ -148,19 +148,20 @@ class ShiftController extends Controller{
     // 非同期
     public function itemApi(Request $request)
     {
-        $item = $request->input('item');
+        $input = $request->input('item');
+        $length = mb_strlen($input);
+        
 
-        if($item==7) return false;
-
-        return json_encode(['item'=>$item]); //resに入る。
-
-
-        // //アイテム取得
-        // $itemNumber = $request->input('item');
-        // $item = Item::numberToItem($itemNumber);
-        // if(!$item) return false; //errorに入る。
-        // //アイテムをjson形式で返す
-        // $message = ['item'=>$item];
-        // return json_encode($message); //resに入る。
-    } 
+        // 「数字,バックスペース,矢印,delete,home,end,ctrl+a,ctrl+c,ctrl+v」以外の時は、falseを返す 
+        if(4 <= $length || $length >= 9){
+            // jqueryにjson形式でres?に格納して返す
+            return json_encode(['item'=>$input]);
+        }
+        if(preg_match('/^[0-9\.\-]+$/',$input)){
+            // jqueryにjson形式でres?に格納して返す
+            return json_encode(['item'=>$input]);
+        }
+          
+        return false;
+    }
 }
