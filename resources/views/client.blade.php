@@ -124,7 +124,7 @@
         </label>
 
         <label class="row text-nowrap mb-4 text-end">
-            <div class="col-sm-2 lh2 text-end">フリガナ</div>
+            <div class="col-sm-2 lh2 text-end">フリガナ<span class="mx-2 badge rounded-pill bg-secondary">任意</span></div>
             <div class="col-sm-10">
                 {{ Form::text('yomi', null, ['class'=>'form-control', 'autocomplete'=>'off',]) }}
             </div>

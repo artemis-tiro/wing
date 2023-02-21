@@ -119,16 +119,21 @@ class ShiftController extends Controller{
 
     // シフト登録
     public function addshift(Request $request, $clientId, $miseId){
+
+        // シフト入力できる日数
+        $days = 10;
+
+
         ///////     バリデーション      ///////
         // shift  : 半角英数,ハイフン,ドットのみ
         $rulus = [
             // 'shift' => ['regex:/^([0-9]|[01][0-9]|2[0-4])(|\.5)-([0-9]|[01][0-9]|2[0-4])(|\.5)$/'],
 
-            'shift-\d?\D?\d?' => ['max:9, regex:/^\d?\D?\d?$/'],
+            'shift-\d+-\d+' => ['max:9, regex:/[^0-9\.\-]+/i'],
         ];
         $message = [
-            'shift-\d?\D?\d?.max' => '9文字(ハイフン、ドット含め)以下で入力してください。',
-            'shift-\d?\D?\d?.regex' => '半角英数字(ハイフン、ドット含め)で入力してください。',
+            'shift-\d+-\d+.max' => '9文字(ハイフン、ドット含め)以下で入力してください。',
+            'shift-\d+-\d+.regex' => '半角英数字(ハイフン、ドット含め)で入力してください。',
         ];
         $validator = Validator::make($request->all(), $rulus, $message);
         if($validator->fails()) return back()->withErrors($validator)->withInput();
@@ -146,14 +151,13 @@ class ShiftController extends Controller{
     }
 
     // 非同期
-    public function itemApi(Request $request)
-    {
+    public function itemApi(Request $request){
         $input = $request->input('item');
         $length = mb_strlen($input);
         
 
         // 「数字,バックスペース,矢印,delete,home,end,ctrl+a,ctrl+c,ctrl+v」以外の時は、falseを返す 
-        if(4 <= $length || $length >= 9){
+        if($length <= 9){
             // jqueryにjson形式でres?に格納して返す
             return json_encode(['item'=>$input]);
         }

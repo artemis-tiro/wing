@@ -155,7 +155,7 @@
         </label>
 
         <label class="row text-nowrap mb-4">
-            <span class="col-sm-2 lh2">パスワード<span class="mx-2 badge rounded-pill bg-danger">必須</span></span>
+            <span class="col-sm-2 lh2">パスワード<span class="mx-2 badge rounded-pill bg-danger">自動入力</span></span>
             <div class="col-sm-10">
                 {{ Form::text('pass', null, ['class'=>'form-control pass', 'required'=>'required', 'disabled'=>'disabled']) }}
                 <div class="form-text">初期値はログインIDと同じ。</div>
@@ -170,21 +170,21 @@
         </label>
 
         <label class="row text-nowrap mb-4">
-            <span class="col-sm-2 lh2">年齢</span>
+            <span class="col-sm-2 lh2">年齢<span class="mx-2 badge rounded-pill bg-secondary">任意</span></span>
             <div class="col-sm-10">
                 {{ Form::text('age', null, ['class'=>'form-control pass', 'pattern'=>'^([0-9][0-9]|[0-9])$', 'style'=>'width:70px;display:inline;', 'title'=>'0～99']) }} 歳
             </div>
         </label>
 
         <label class="row text-nowrap mb-4">
-            <span class="col-sm-2 lh2">カップ数</span>
+            <span class="col-sm-2 lh2">カップ数<span class="mx-2 badge rounded-pill bg-secondary">任意</span></span>
             <div class="col-sm-10">
                 {{ Form::text('cup', null, ['class'=>'form-control pass', 'pattern'=>'^[A-Za-z]$', 'style'=>'width:70px;display:inline;', 'title'=>'アルファベット一文字']) }} カップ
             </div>
         </label>
 
         <label class="row text-nowrap mb-4">
-            <span class="col-sm-2 lh2">身長</span>
+            <span class="col-sm-2 lh2">身長<span class="mx-2 badge rounded-pill bg-secondary">任意</span></span>
             <div class="col-sm-10">
                 {{ Form::text('tall', null, ['class'=>'form-control pass', 'pattern'=>'^([12][0-9][0-9])$', 'style'=>'width:70px;display:inline;', 'title'=>'100～299']) }} cm
             </div>

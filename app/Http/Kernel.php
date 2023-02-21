@@ -34,7 +34,19 @@ class Kernel extends HttpKernel
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+
+
+
+
+            // 2023/02/21/ogura
+            // CSRFトークンを確認するものを無効化
             \App\Http\Middleware\VerifyCsrfToken::class,
+
+
+
+
+
+
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 

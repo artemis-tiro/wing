@@ -94,7 +94,7 @@
         </label>
 
         <label class="row text-nowrap mb-4">
-            <span class="col-sm-2 lh2">パスワード<span class="mx-2 badge rounded-pill bg-danger">必須</span></span>
+            <span class="col-sm-2 lh2">パスワード<span class="mx-2 badge rounded-pill bg-danger">自動入力</span></span>
             <div class="col-sm-10">
                 {{ Form::text('pass', null, ['class'=>'form-control', 'autocomplete'=>'off', 'required'=>'required', 'disabled'=>'disabled']) }}
                 <div class="form-text">初期値はログインIDと同じ。</div>

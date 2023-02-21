@@ -84,6 +84,9 @@ $week = ['日', '月', '火', '水', '木', '金', '土']
             </tbody>
         </table>
 
+
+        {{ Form::submit('あ',["class"=>"m-2 btn btn-info"]) }}
+
         <!-- 戻るボタン -->
         <a class="btn btn-dark" href="{{ url('/shift/'.$client->id) }}" >戻る</a>
 

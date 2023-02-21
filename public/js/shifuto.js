@@ -135,7 +135,12 @@ $(function() {
         // 入力文字制限
         if($(this).val().length > 9){
             $(this).val(time.slice(0,9));
-        }        
+        }
+        
+        // 入力文字制限
+        if($(this).val() == "-"){
+            $(this).val().replace("-","");
+        } 
     });
 
     // フォーカスが外れたとき
@@ -145,22 +150,27 @@ $(function() {
 })
 
 // シフトformに文字を入力したとき
-// $('[name=/^shift/]').on('input', function(){
-$('[name=shift-4-20230225]').on('input', function(){
-// $(document).on("input", ".shiftTime", function(){
-    shiftTimeAjax($(this).attr('name'),$(this).val());
-});
+$(document).on("input", ".shiftTime", function(){
+    var url = $(location).attr('href').replace('http://localhost/','');
+
+    // id[0] = 'shift'
+    // id[1] = 'クライアントID'
+    // id[2] = '店ID'
+    var id = url.split('\/');
+
+    // 非同期処理関数呼び出し
+    // 引数
+    shiftTimeAjax($(this).attr('name'),$(this).val(),id);
+}); 
 
 // 非同期
-function shiftTimeAjax($name, $input) {
-    // 入力された値？
-    var formName = $name;
-
+// $name  = formのname属性名
+// $input = 入力された値
+function shiftTimeAjax($name, $input, $id) {
     // データの形を定義
     $.ajax({
-            // 通信のget or post
             type: "get",
-            // 通信するURKに値を付与する？
+            // 通信するURLに値を付与する？
             url: '/shift/ajax?item=' + $input,
             dataType: 'json'
         })
@@ -169,26 +179,30 @@ function shiftTimeAjax($name, $input) {
         .done((res) => {
             // resでDB更新？
             $('[name='+$name+']').attr('class', 'form-control shiftTime')
+            console.log($name);
+            // console.log($url);
+            console.log(res.item);
             console.log('更新');
 
-            const file_name = "sample"; //読みだすtxtファイル名
-            const element = document.getElementById('txt_field');
-            
-            jQuery.ajax({
-                
-                type: 'post',
-                url: 'https://~/php/function.php', //送信先PHPファイル
-                data: {'func' : 'get_txt_content', 'argument': file_name }, //POSTするデータ
-                success: function(content){ //正常に処理が完了した時
-                    
-                    element.innerHTML = "<p>" + content + "</p>";
-                    
-                }
+            $.ajax({
+                type: "POST",
+                url: "http://localhost/shift/"+$id[1]+"/"+$id[2]+"/addshift",
+                data: { "id" : $input },
+                dataType : "json"
+                // True
+            }).done(function(data){
+                // 追記する内容
+                $("#return").append('{{ Form::submit(\'新規作成\',["class"=>"m-2 btn btn-info"]) }}')
+              // false
+            }).fail(function(XMLHttpRequest, status, e){
+                console.log(e);
             });
         })
         // false
         .fail((error) => {
             $('[name='+$name+']').attr('class', 'border-danger form-control shiftTime')
+            console.log($name);
+            console.log(error.item);
             console.log('エラー');
         })
 };

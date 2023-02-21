@@ -630,7 +630,7 @@
 <!-- 予約フォーム -->
 <div class="card my-4">
     <!-- カードのタイトル -->
-    <h2 class="card-header h5">予約フォーム　<span class="text-danger">{{ $ng }}</span></h2>
+    <h2 class="card-header h5">予約フォーム <span class="text-danger">{{ $ng }}</span></h2>
 
     <!-- カードの要素 -->
     <div class="card-body">
