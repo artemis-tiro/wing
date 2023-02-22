@@ -17,44 +17,79 @@ class Shifuto extends Model
     protected $guarded = [''];
 
     // シフト新規作成
-    public static function shiftCreate($input, $miseId){
-        // foreachで１行ずつ取得して
-        foreach($input as $key =>$i){
-            // shiftの名前がついてないなら次
-            if(strpos($key, 'shift-')===false) continue;
+    // public static function shiftCreate($input, $miseId){
+    //     // foreachで１行ずつ取得して
+    //     foreach($input as $key =>$i){
+    //         // shiftの名前がついてないなら次
+    //         if(strpos($key, 'shift-')===false) continue;
 
-            $arry = explode('-', $key);
-            $therapistId = $arry[1]; 
-            $day = $arry[2];
+    //         $arry = explode('-', $key);
+    //         $therapistId = $arry[1]; 
+    //         $day = $arry[2];
             
-            $aaa = shifuto::where('mise_id', $miseId)
-                    ->where('therapist_id', $therapistId)
-                    ->where('working_day', $day)
-                    ->first();
+    //         $aaa = shifuto::where('mise_id', $miseId)
+    //                 ->where('therapist_id', $therapistId)
+    //                 ->where('working_day', $day)
+    //                 ->first();
 
-            // 日付が空の場合
-            // DBのworking_dayを検索してレコードが存在していれば物理削除する
-            if(!$i) {
-                shifuto::where('mise_id', $miseId)
-                    ->where('therapist_id', $therapistId)
-                    ->where('working_day', $day)
-                    ->forceDelete();
-                continue;
-            }
+    //         // 日付が空の場合
+    //         // DBのworking_dayを検索してレコードが存在していれば物理削除する
+    //         if(!$i) {
+    //             shifuto::where('mise_id', $miseId)
+    //                 ->where('therapist_id', $therapistId)
+    //                 ->where('working_day', $day)
+    //                 ->forceDelete();
+    //             continue;
+    //         }
 
-            // インサート
-            // $shift = new shifuto();
-            $shift = $aaa?? new shifuto(); // $shift = $aaa? $aaa: new shifuto();
-            $shift->mise_id = $miseId;
-            $shift->therapist_id = $therapistId;
-            $shift->user_id = Auth::user()->id;
-            $shift->working_day = $day;
-            $shift->time = $i;
-            $result = $shift->save();
+    //         // インサート
+    //         $shift = $aaa?? new shifuto(); // $shift = $aaa? $aaa: new shifuto();
+    //         $shift->mise_id = $miseId;
+    //         $shift->therapist_id = $therapistId;
+    //         $shift->user_id = Auth::user()->id;
+    //         $shift->working_day = $day;
+    //         $shift->time = $i;
+    //         $result = $shift->save();
 
-            // インサート失敗時
-            if(!$result) return false;
+    //         // インサート失敗時
+    //         if(!$result) return false;
+    //     }
+
+    //     return true;
+    // }
+
+    // シフト新規作成(非同期)
+    public static function shiftCreate($input, $name, $miseId){
+
+        $arr = explode('-', $name);
+        $therapistId = $arr[1]; 
+        $day = $arr[2];
+        
+        $shifuto = shifuto::where('mise_id', $miseId)
+                ->where('therapist_id', $therapistId)
+                ->where('working_day', $day)
+                ->first();
+
+        // 日付が空の場合
+        // DBのworking_dayを検索してレコードが存在していれば物理削除する
+        if(!$input) {
+            shifuto::where('mise_id', $miseId)
+                ->where('therapist_id', $therapistId)
+                ->where('working_day', $day)
+                ->forceDelete();
         }
+
+        // インサート
+        $shift = $shifuto?? new shifuto();
+        $shift->mise_id = $miseId;
+        $shift->therapist_id = $therapistId;
+        $shift->user_id = Auth::user()->id;
+        $shift->working_day = $day;
+        $shift->time = $input;
+        $result = $shift->save();
+
+        // インサート失敗時
+        if(!$result) return false;
 
         return true;
     }

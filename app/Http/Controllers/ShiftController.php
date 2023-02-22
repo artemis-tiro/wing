@@ -117,51 +117,23 @@ class ShiftController extends Controller{
        ]);
     }
 
-    // シフト登録
-    public function addshift(Request $request, $clientId, $miseId){
-
-        // シフト入力できる日数
-        $days = 10;
-
-
-        ///////     バリデーション      ///////
-        // shift  : 半角英数,ハイフン,ドットのみ
-        $rulus = [
-            // 'shift' => ['regex:/^([0-9]|[01][0-9]|2[0-4])(|\.5)-([0-9]|[01][0-9]|2[0-4])(|\.5)$/'],
-
-            'shift-\d+-\d+' => ['max:9, regex:/[^0-9\.\-]+/i'],
-        ];
-        $message = [
-            'shift-\d+-\d+.max' => '9文字(ハイフン、ドット含め)以下で入力してください。',
-            'shift-\d+-\d+.regex' => '半角英数字(ハイフン、ドット含め)で入力してください。',
-        ];
-        $validator = Validator::make($request->all(), $rulus, $message);
-        if($validator->fails()) return back()->withErrors($validator)->withInput();
-
-        // shift作成
-        $shift = Shifuto::shiftCreate($request->input(), $miseId);
-
-        if($shift){
-            return back()->with(['message' => 'シフト入力が完了しました。']);
-        }else{
-            return back()->with(['error' => 'シフト入力に失敗しました。']);
-        }
-
-        return back();
-    }
-
     // 非同期
     public function itemApi(Request $request){
         $input = $request->input('item');
-        $length = mb_strlen($input);
+        $name = $request->input('name');
+        $miseid = $request->input('id');
         
-
-        // 「数字,バックスペース,矢印,delete,home,end,ctrl+a,ctrl+c,ctrl+v」以外の時は、falseを返す 
-        if($length <= 9){
+        if($input == null){
+            // shift作成
+            $shift = Shifuto::shiftCreate($input, $name, $miseid);
             // jqueryにjson形式でres?に格納して返す
             return json_encode(['item'=>$input]);
         }
-        if(preg_match('/^[0-9\.\-]+$/',$input)){
+
+        // if(preg_match('/^[0-9\.\-]*$/',$input)){
+        if(preg_match('/^([0-9]|1[0-9]|2[0-4])(\.5)?-([0-9]|1[0-9]|2[0-4])(\.5)?$/',$input)){
+            // shift作成
+            $shift = Shifuto::shiftCreate($input, $name, $miseid);
             // jqueryにjson形式でres?に格納して返す
             return json_encode(['item'=>$input]);
         }

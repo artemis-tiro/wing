@@ -72,20 +72,17 @@ $week = ['日', '月', '火', '水', '木', '金', '土']
                     <tr>
                         <td>{{ $t->business_name }}</td>
                         @for($i=0; $i<$days; $i++)
-                        @php 
-                            $date = date('Ymd', strtotime("+".$i." day"));
-                            $key = 'shiftTime'.$date;
-                            $shifuto = isset($t->$key) ? $t->$key : null;
-                        @endphp
-                        <td>{{ Form::text('shift-'.$t->id.'-'.$date, $shifuto, ['class'=>'form-control shiftTime','autocomplete'=>'off']) }}</td>
+                            @php 
+                                $date = date('Ymd', strtotime("+".$i." day"));
+                                $key = 'shiftTime'.$date;
+                                $shifuto = isset($t->$key) ? $t->$key : null;
+                            @endphp
+                            <td>{{ Form::text('shift-'.$t->id.'-'.$date, $shifuto, ['class'=>'form-control shiftTime','autocomplete'=>'off']) }}</td>
                         @endfor
                     </tr>
                 @endforeach
             </tbody>
         </table>
-
-
-        {{ Form::submit('あ',["class"=>"m-2 btn btn-info"]) }}
 
         <!-- 戻るボタン -->
         <a class="btn btn-dark" href="{{ url('/shift/'.$client->id) }}" >戻る</a>

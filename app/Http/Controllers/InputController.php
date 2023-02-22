@@ -217,7 +217,7 @@ class InputController extends Controller{
             if(count($yoyakuList) === 0) $card = 2;
             
             // 予約コース総額　＋　調整金
-            $dailyPrice =kyuryo::dailyPriceCul($yoyakuList, $adjustList);
+            $dailyPrice = kyuryo::dailyPriceCul($yoyakuList, $adjustList);
         }else{
             // シフト一覧
             $shifutotList = shifuto::getshiftList($miseId, $therapistId, date('Y-m-d'));
