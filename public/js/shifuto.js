@@ -1,6 +1,10 @@
 $(function() {
-
-    // return false;
+    // 入力制限(数字,ハイフン,ドットのみ)
+    $(".shiftTime").on("input", function(){
+        if( !(/[0-9\.\-]/.test(this.value)) ){
+            this.value = '';
+        }
+    });
 
     // キーボードを押したとき
     $(document).on("keydown", ".shiftTime", function(e){
@@ -11,19 +15,19 @@ $(function() {
         index = $(selector).index(this);
 
         // 「数字,バックスペース,矢印,delete,home,end,ctrl+a,ctrl+c,ctrl+v」以外の時は、イベントをキャンセルする  
-        // if(!(e.keyCode >= 13
-        //     || e.keyCode <= 17
-        //     || e.keyCode >= 35 && e.keyCode <= 40
-        //     || e.keyCode >= 48 && e.keyCode <= 57
-        //     || e.keyCode >= 96 && e.keyCode <= 105
-        //     || e.keyCode == 8
-        //     || e.keyCode == 46
-        //     || e.keyCode == 110
-        //     || e.keyCode == 190
-        //     || e.keyCode == 17 && e.keyCode == 67
-        //     || e.keyCode == 17 && e.keyCode == 86)){
-        //     return false;
-        // }
+        if(!(e.keyCode >= 13
+            || e.keyCode <= 17
+            || e.keyCode >= 35 && e.keyCode <= 40
+            || e.keyCode >= 48 && e.keyCode <= 57
+            || e.keyCode >= 96 && e.keyCode <= 105
+            || e.keyCode == 8
+            || e.keyCode == 46
+            || e.keyCode == 110
+            || e.keyCode == 190
+            || e.keyCode == 17 && e.keyCode == 67
+            || e.keyCode == 17 && e.keyCode == 86)){
+            return false;
+        }
 
         // 「shift」を押しながら矢印でフォーカス移動
         if(e.shiftKey){
@@ -69,23 +73,28 @@ $(function() {
         var time = $(this).val();
         var index = null;
         var selector = ".shiftTime";
+        var url = $(location).attr('href').replace('http://localhost/','');
+
+        // id[0] = 'shift'
+        // id[1] = 'クライアントID'
+        // id[2] = '店ID'
+        var id = url.split('\/');
 
         index = $(selector).index(this).selector;
 
         // 「数字,バックスペース,矢印,delete,home,end,ctrl+a,ctrl+c,ctrl+v」以外の時は、イベントをキャンセルする  
-        // if(!(e.keyCode >= 13
-        //     || e.keyCode <= 17
-        //     || e.keyCode >= 35 && e.keyCode <= 40
-        //     || e.keyCode >= 48 && e.keyCode <= 57
-        //     || e.keyCode >= 96 && e.keyCode <= 105
-        //     || e.keyCode == 8
-        //     || e.keyCode == 46
-        //     || e.keyCode == 110
-        //     || e.keyCode == 190
-        //     || e.keyCode == 17 && e.keyCode == 67
-        //     || e.keyCode == 17 && e.keyCode == 86)){
-        //     return false;
-        // }
+        if(!(e.keyCode >= 3 && e.keyCode <= 17
+            || e.keyCode >= 35 && e.keyCode <= 40
+            || e.keyCode >= 48 && e.keyCode <= 57
+            || e.keyCode >= 96 && e.keyCode <= 105
+            || e.keyCode == 8
+            || e.keyCode == 46
+            || e.keyCode == 110
+            || e.keyCode == 190
+            || e.keyCode == 17 && e.keyCode == 67
+            || e.keyCode == 17 && e.keyCode == 86)){
+            return false;
+        }
 
         // 「.」の場合
         if( e.keyCode == 110 || e.keyCode == 190){
@@ -132,38 +141,29 @@ $(function() {
             $(this).val(time);
         }
 
-        // 入力文字制限
+        // 入力文字制限(9文字以下)
         if($(this).val().length > 9){
             $(this).val(time.slice(0,9));
         }
         
-        // 入力文字制限
+        // 入力文字制限(ハイフンだけ)
         if($(this).val() == "-"){
             $(this).val().replace("-","");
-        } 
+        }
+
+        shiftTimeAjax($(this).attr('name'),$(this).val(),id[2]);
+    });
+
+    // フォーカスが外れたとき
+    $(document).on('blur', '.shiftTime',function(){
+        $(this).val().replace(/[0-9\.\-]/,'');
     });
 })
 
-// シフトformに文字を入力したとき
-$(document).on("input", ".shiftTime", function(e){
-    var url = $(location).attr('href').replace('http://localhost/','');
-
-    // id[0] = 'shift'
-    // id[1] = 'クライアントID'
-    // id[2] = '店ID'
-    var id = url.split('\/');
-
-    // 非同期処理関数呼び出し
-    shiftTimeAjax($(this).attr('name'),$(this).val(),id[2]);
-
-    if($(this).val().match('/^([0-9]|1[0-9]|2[0-4])(\.5)?-([0-9]|1[0-9]|2[0-4])(\.5)?$/')){
-        shiftTimeAjax($(this).attr('name'),$(this).val(),id[2]);
-    }
-}); 
-
 // 非同期
-// $name  = formのname属性名
-// $input = 入力された値
+// $name   = formのname属性名
+// $input  = 入力された値
+// $miseid = 店舗ID
 function shiftTimeAjax($name, $input, $miseid) {
     // データの形を定義
     $.ajax({
@@ -177,49 +177,9 @@ function shiftTimeAjax($name, $input, $miseid) {
         .done((res) => {
             // resでDB更新？
             $('[name='+$name+']').attr('class', 'form-control shiftTime')
-            console.log($name);
-            console.log(res.item);
-            console.log('更新');
         })
         // false
         .fail((error) => {
             $('[name='+$name+']').attr('class', 'border-danger form-control shiftTime')
-            console.log($name);
-            console.log(error.item);
-            console.log('エラー');
         })
 };
-(function($){
-    $(function(){
-        $("[with]").off(".inputcontrol")
-    
-        /**
-         * 半角数値のみ
-         */
-        $("[with='numeric']")
-            .off(".inputcontrol.numeric")
-            .on("keyup.inputcontrol.numeric", function(){
-                $(this).val($(this).val().replace(/[^0-9]/g,""));
-            })
-    
-    
-        /**
-         * 半角英字のみ
-         */
-        $("[with='alpha']")
-            .off(".inputcontrol.alpha")
-            .on("keyup.inputcontrol.alpha", function(){
-                $(this).val($(this).val().replace(/[^a-zA-Z]/g,""));
-            })
-    
-    
-        /**
-         * 半角英数のみ
-         */
-        $("[with='alphanum']")
-            .off(".inputcontrol.alphanum")
-            .on("keyup.inputcontrol.alphanum", function(){
-                $(this).val($(this).val().replace(/[/^([0-9]|1[0-9]|2[0-4])(\.5)?-([0-9]|1[0-9]|2[0-4])(\.5)?$/]/g,""));
-            })
-    });
-}

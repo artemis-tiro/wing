@@ -74,6 +74,28 @@ class Yoyaku extends Model
         return $yoyakuList;
     }
 
+    // 過去予約一覧(過去10日)
+    public static function yoyakuBeforDaysList($therapistId,$time){
+        $yoyakuListDays = yoyaku::where('therapist_id', $therapistId)
+            ->whereBetween('visit_day', [date('Y-m-d', strtotime('-2 month', strtotime($time))).' 06:00:00', $time.' 05:59:59'])
+            ->orderByDesc('visit_day')
+            ->limit(30)
+            ->get();
+
+        // $yoyakuListDays2 = yoyaku::where('therapist_id', $therapistId)
+        // ->whereBetween('visit_day', [date('Y-m-d', strtotime('-2 month', strtotime($time))).' 06:00:00', $time.' 05:59:59'])
+        // ->orderByDesc('visit_day')
+        // ->limit(30)
+        // ->groupby('visit_day')
+        // ->get();
+
+
+        // dd($yoyakuListDays2);
+
+
+        return $yoyakuListDays;
+    }
+
     // 店ごと顧客一覧
     public static function yoyakuMiseKokyakuList($miseId){
         $yoyakuList = yoyaku::where('mise_id', $miseId)

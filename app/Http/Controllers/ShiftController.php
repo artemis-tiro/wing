@@ -130,7 +130,7 @@ class ShiftController extends Controller{
             return json_encode(['item'=>$input]);
         }
 
-        // if(preg_match('/^[0-9\.\-]*$/',$input)){
+        // 0~9 or 1(0~9) or 2(0~4) and .5が0個以上 - 0~9 or 1(0~9) or 2(0~4) and .5が0個以上
         if(preg_match('/^([0-9]|1[0-9]|2[0-4])(\.5)?-([0-9]|1[0-9]|2[0-4])(\.5)?$/',$input)){
             // shift作成
             $shift = Shifuto::shiftCreate($input, $name, $miseid);
