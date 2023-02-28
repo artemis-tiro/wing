@@ -76,21 +76,24 @@ class Yoyaku extends Model
 
     
 
-    public static function yoyakuBeforList3($therapistId,$time,$days){
+    public static function yoyakuBeforList3($therapistId,$time){
 
         // 日付だけを取得
-        $yoyakuListDays = yoyaku::where('therapist_id', $therapistId)
-            ->whereBetween('visit_day', [date('Y-m-d', strtotime('-2 month', strtotime($time))).' 06:00:00', $time.' 05:59:59'])
-            ->limit(30)
-            ->orderbydesc('visit_day')
-            ->pluck('visit_day');
-
         $yoyakuList = yoyaku::where('therapist_id', $therapistId)
-            ->whereIn('visit_day', $yoyakuListDays)
-            ->orderByDesc('visit_day')
+            ->whereBetween('visit_day', [date('Y-m-d', strtotime('-1 month', strtotime($time))).' 06:00:00', $time.' 05:59:59'])
+            ->orderbydesc('visit_day')
             ->get();
 
-        // dd($yoyakuListDays,$yoyakuList);
+        // dd($yoyakuList);
+
+        foreach($yoyakuList as $y){
+            if($y->visit_day < date('Y-m-d', strtotime($y->visit_day)).' 06:00:00'){
+                $y->working_day = date('Y-m-d', strtotime('-1 day', strtotime($y->visit_day)));
+            }else{
+                $y->working_day = date('Y-m-d', strtotime($y->visit_day));
+            }
+        }
+
         return $yoyakuList;
     }
 
@@ -99,9 +102,6 @@ class Yoyaku extends Model
 
         // 「Y-m-d」だけの配列
         $days = array();
-
-        // indexカウント配列
-        // $indexCnt = array();
         
         // 日付だけを取得
         $yoyakuListDays = yoyaku::where('therapist_id', $therapistId)
@@ -109,14 +109,15 @@ class Yoyaku extends Model
             ->limit(30)
             ->orderbydesc('visit_day')
             ->pluck('visit_day');
-
-        // dd($yoyakuListDays);
+            // ->get();
 
         // 「visit_day」のY-m-dだけ取る
         foreach($yoyakuListDays as $y){
             // 2021-12-28
             array_push($days,date('Y-m-d', strtotime($y)));
         }
+
+        // dd($yoyakuListDays);
 
         // 重複した日付を削除
         for($i = 0; $i < count($days); $i++){
@@ -129,31 +130,6 @@ class Yoyaku extends Model
         }
 
         // dd($days);
-        
-        // 同じならTrue違うならfalse(疑似的にGROUPBYをする)indexcnt配列
-        // for($i = 0; $i < 30; $i++){
-        //     if($i + 1 == 30) break;
-        //     if(!($days[$i] == $days[$i + 1])){
-        //         array_push($indexCnt, $i);
-        //     }
-        // }
-
-        // dd($days, $indexCnt, count($indexCnt));
-
-        // for分で「indexcnt」分までオブジェクトをとる
-        // 「$days[indexcnt]」で取得
-        // 取得した日付を営業日にして = $days[indexcnt] + ' 06:00:00' ~ date('Y-m-d', strtotime('+1 day', $days[indexcnt]) + ' 05:59:59'
-        // for($i = 0; $i < count($indexCnt); $i++){
-        //     $after = yoyaku::where('therapist_id', $therapistId)
-        //         ->whereBetween('visit_day', [$days[$i].' 06:00:00', date('Y-m-d', strtotime('+1 day', strtotime($days[$i]))).' 05:59:59'])
-        //         ->get();
-        // }
-
-        // dd($after);
-
-        // $yoyakuListDays2 = yoyaku::where('visit_day', $yoyakuListDays)
-        //     ->orderByDesc('visit_day')
-        //     ->get();
 
         return $days;
     }

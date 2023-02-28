@@ -12,9 +12,10 @@
 @section('content')
 
 @php
-// シフトを入力できる日数
-$week = ['日', '月', '火', '水', '木', '金', '土']
-@endphp
+$week = ['日', '月', '火', '水', '木', '金', '土'];
+$daysidx = 0;
+$days = $yoyakuDaysList[0];
+@endphp 
 
 <?php 
     $teamName = App\Models\user::teamName(auth()->user()->team);
@@ -45,11 +46,31 @@ $week = ['日', '月', '火', '水', '木', '金', '土']
 
 <!-- 初期表示(過去10日) -->
 @if($card === 0)
-    @foreach($yoyakuDaysList  as $yd)
+    
+
+
+
+
+
+
+    <!-- 一個前の日付を定義 -->
+
+
+
+
+    @foreach($yoyakuList  as $y)
+
+
+
+    <!-- ifで前の日付と同じなら表示 -->
+    @if($days == $y->working_day)
+
+
+
         <!-- 過去予約リスト -->
         <div class="card my-4">
             <!-- カードのタイトル -->
-            <h2 class="card-header h5">{{ date('Y-m-d',strtotime(" $yd")) }}</h2>
+            <h2 class="card-header h5">{{ $y->working_day }}</h2>
             <!-- カードの要素 -->
             <div class="card-body table-responsive text-nowrap">
                 <!-- テーブル -->
@@ -66,8 +87,8 @@ $week = ['日', '月', '火', '水', '木', '金', '土']
                             <th scope="col">給料</th>
                         </tr>
                     </thead>
-                        @foreach($yoyakuList  as $y)
-                            @if($yd == date('Y-m-d',strtotime("$y->visit_day")))
+                        {{-- @foreach($yoyakuList  as $y) --}}
+                            {{-- @if($yd == date('Y-m-d',strtotime("$y->visit_day"))) --}}
                             <tbody>
                                 <tr>
                                     <th>{{ $loop->index+1 }}</th>
@@ -105,11 +126,14 @@ $week = ['日', '月', '火', '水', '木', '金', '土']
                                     <td>{{ number_format($y->totalBack) }}円</td>
                                 </tr>
                             </tbody>
-                            @endif
-                        @endforeach
+                            {{-- @endif --}}
+                        {{-- @endforeach --}}
                 </table>            
             </div>
         </div>
+    @else
+        @php days = $y->working_day @endphp
+    @endif
     @endforeach
 @endif
 

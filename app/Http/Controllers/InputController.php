@@ -226,7 +226,7 @@ class InputController extends Controller{
             $yoyakuDaysList = yoyaku::yoyakuBeforDaysList($therapistId, date('Y-m-d'));
 
             // 過去予約一覧
-            $yoyakuList = yoyaku::yoyakuBeforList3($therapistId, date('Y-m-d'), $yoyakuDaysList);
+            $yoyakuList = yoyaku::yoyakuBeforList3($therapistId, date('Y-m-d'));
 
             foreach($yoyakuList as $y){
                 $day = $y->visit_day;
