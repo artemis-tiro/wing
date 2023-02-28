@@ -45,11 +45,11 @@ $week = ['日', '月', '火', '水', '木', '金', '土']
 
 <!-- 初期表示(過去10日) -->
 @if($card === 0)
-    @foreach($yoyakuList  as $y)
+    @foreach($yoyakuDaysList  as $yd)
         <!-- 過去予約リスト -->
         <div class="card my-4">
             <!-- カードのタイトル -->
-            <h2 class="card-header h5">{{ date('Y-m-d',strtotime(" $y->visit_day")) }}</h2>
+            <h2 class="card-header h5">{{ date('Y-m-d',strtotime(" $yd")) }}</h2>
             <!-- カードの要素 -->
             <div class="card-body table-responsive text-nowrap">
                 <!-- テーブル -->
@@ -66,48 +66,47 @@ $week = ['日', '月', '火', '水', '木', '金', '土']
                             <th scope="col">給料</th>
                         </tr>
                     </thead>
-                    {{-- @foreach($yoyakuList  as $y2) --}}
-                    {{-- @foreach($yoyakuList  as $y) --}}
-                        {{-- @if(date('Y-m-d',strtotime("$y->visit_day")) == date('Y-m-d',strtotime("$y2->visit_day"))) @endif --}}
-                        <tbody>
-                            <tr>
-                                <th>{{ $loop->index+1 }}</th>
+                        @foreach($yoyakuList  as $y)
+                            @if($yd == date('Y-m-d',strtotime("$y->visit_day")))
+                            <tbody>
+                                <tr>
+                                    <th>{{ $loop->index+1 }}</th>
 
-                                <!-- 終了時間を来店日時＋コース時間で表示 -->
-                                <td>
-                                    {{ date('Y-m-d H:i',strtotime(" $y->visit_day")) }} ~ 
-                                    {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min ")) }}
-                                </td>
-                                
-                                
-                                <td>{{ $y->courseName }}</td>
+                                    <!-- 終了時間を来店日時＋コース時間で表示 -->
+                                    <td>
+                                        {{ date('Y-m-d H:i',strtotime(" $y->visit_day")) }} ~ 
+                                        {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min ")) }}
+                                    </td>
                                     
-                                <td>{{ $y->courseShimei }}</td>
+                                    
+                                    <td>{{ $y->courseName }}</td>
+                                        
+                                    <td>{{ $y->courseShimei }}</td>
 
-                                <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
-                                
-                                <td>
-                                    <!-- mb_strlen()文字数カウント -->
-                                    @if(mb_strlen($kokyakuList[$y->kokyaku_id]->tel) === 11)
-                                    {{ 
-                                        substr($kokyakuList[$y->kokyaku_id]->tel, 0, 3).'-'.
-                                        substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                                        substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                                    }}
-                                    @else
-                                    {{ 
-                                        substr($kokyakuList[$y->kokyaku_id]->tel, 0, 2).'-'.
-                                        substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                                        substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                                    }}
-                                    @endif
-                                </td>
+                                    <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
+                                    
+                                    <td>
+                                        <!-- mb_strlen()文字数カウント -->
+                                        @if(mb_strlen($kokyakuList[$y->kokyaku_id]->tel) === 11)
+                                        {{ 
+                                            substr($kokyakuList[$y->kokyaku_id]->tel, 0, 3).'-'.
+                                            substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
+                                            substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
+                                        }}
+                                        @else
+                                        {{ 
+                                            substr($kokyakuList[$y->kokyaku_id]->tel, 0, 2).'-'.
+                                            substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
+                                            substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
+                                        }}
+                                        @endif
+                                    </td>
 
-                                <td>{{ number_format($y->totalBack) }}円</td>
-                            </tr>
-                        </tbody>
-                    {{-- @endforeach --}}
-                    {{-- @endforeach --}}
+                                    <td>{{ number_format($y->totalBack) }}円</td>
+                                </tr>
+                            </tbody>
+                            @endif
+                        @endforeach
                 </table>            
             </div>
         </div>

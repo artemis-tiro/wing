@@ -65,45 +65,78 @@ class Yoyaku extends Model
     }
 
     // 過去予約一覧(過去10日)
-    public static function yoyakuBeforList3($therapistId,$time){
-        $yoyakuList = yoyaku::where('therapist_id', $therapistId)
+    // public static function yoyakuBeforList3($therapistId,$time){
+    //     $yoyakuList = yoyaku::where('therapist_id', $therapistId)
+    //         ->whereBetween('visit_day', [date('Y-m-d', strtotime('-2 month', strtotime($time))).' 06:00:00', $time.' 05:59:59'])
+    //         ->orderByDesc('visit_day')
+    //         ->limit(30)
+    //         ->get();
+    //     return $yoyakuList;
+    // }
+
+    
+
+    public static function yoyakuBeforList3($therapistId,$time,$days){
+
+        // 日付だけを取得
+        $yoyakuListDays = yoyaku::where('therapist_id', $therapistId)
             ->whereBetween('visit_day', [date('Y-m-d', strtotime('-2 month', strtotime($time))).' 06:00:00', $time.' 05:59:59'])
-            ->orderByDesc('visit_day')
             ->limit(30)
+            ->orderbydesc('visit_day')
+            ->pluck('visit_day');
+
+        $yoyakuList = yoyaku::where('therapist_id', $therapistId)
+            ->whereIn('visit_day', $yoyakuListDays)
+            ->orderByDesc('visit_day')
             ->get();
+
+        // dd($yoyakuListDays,$yoyakuList);
         return $yoyakuList;
     }
 
-    // 過去予約一覧(過去10日)
+    // 過去予約一覧(日付のみ)
     public static function yoyakuBeforDaysList($therapistId,$time){
 
         // 「Y-m-d」だけの配列
         $days = array();
 
         // indexカウント配列
-        $indexCnt = array();
+        // $indexCnt = array();
         
         // 日付だけを取得
         $yoyakuListDays = yoyaku::where('therapist_id', $therapistId)
             ->whereBetween('visit_day', [date('Y-m-d', strtotime('-2 month', strtotime($time))).' 06:00:00', $time.' 05:59:59'])
             ->limit(30)
+            ->orderbydesc('visit_day')
             ->pluck('visit_day');
 
         // dd($yoyakuListDays);
 
+        // 「visit_day」のY-m-dだけ取る
         foreach($yoyakuListDays as $y){
             // 2021-12-28
-            // 「visit_day」のY-m-dだけ取る
             array_push($days,date('Y-m-d', strtotime($y)));
         }
+
+        // 重複した日付を削除
+        for($i = 0; $i < count($days); $i++){
+            // 配列の要素削除
+            // unset(配列名[要素番号])
+            unset($days[$i]);
+
+            // 配列の要素を詰める
+            $days = array_values($days);
+        }
+
+        // dd($days);
         
         // 同じならTrue違うならfalse(疑似的にGROUPBYをする)indexcnt配列
-        for($i = 0; $i < 30; $i++){
-            if($i + 1 == 30) break;
-            if(!($days[$i] == $days[$i + 1])){
-                array_push($indexCnt, $i);
-            }
-        }
+        // for($i = 0; $i < 30; $i++){
+        //     if($i + 1 == 30) break;
+        //     if(!($days[$i] == $days[$i + 1])){
+        //         array_push($indexCnt, $i);
+        //     }
+        // }
 
         // dd($days, $indexCnt, count($indexCnt));
 
@@ -122,24 +155,7 @@ class Yoyaku extends Model
         //     ->orderByDesc('visit_day')
         //     ->get();
 
-        // 一日まとめ
-        $oneday = yoyaku::where('therapist_id', $therapistId)
-            ->whereBetween('visit_day', [$days[0].' 06:00:00', date('Y-m-d', strtotime('+1 day', strtotime($days[0]))).' 05:59:59'])
-            ->orderByDesc('visit_day')
-            ->pluck('visit_day');
-
-        // dd($oneday);
-
-        foreach($oneday as $o){
-            $oneday2 = yoyaku::where('therapist_id', $therapistId)
-                ->whereIn('visit_day', $oneday)
-                ->orderByDesc('visit_day')
-                ->get();
-        }
-
-        // dd($oneday2);
-
-        return $oneday2;
+        return $days;
     }
 
     // 店ごと顧客一覧

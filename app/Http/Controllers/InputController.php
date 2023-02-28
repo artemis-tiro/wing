@@ -222,12 +222,11 @@ class InputController extends Controller{
             // シフト一覧
             $shifutotList = shifuto::getshiftList($miseId, $therapistId, date('Y-m-d'));
 
-            // 過去予約一覧
-            // $yoyakuListDays = yoyaku::yoyakuBeforDaysList($therapistId, date('Y-m-d'));
-            $yoyakuList = yoyaku::yoyakuBeforDaysList($therapistId, date('Y-m-d'));
+            // 過去予約一覧(日付)
+            $yoyakuDaysList = yoyaku::yoyakuBeforDaysList($therapistId, date('Y-m-d'));
 
             // 過去予約一覧
-            // $yoyakuList = yoyaku::yoyakuBeforList3($therapistId, date('Y-m-d'));
+            $yoyakuList = yoyaku::yoyakuBeforList3($therapistId, date('Y-m-d'), $yoyakuDaysList);
 
             foreach($yoyakuList as $y){
                 $day = $y->visit_day;
@@ -246,6 +245,7 @@ class InputController extends Controller{
             'shift' => $shift,
             'kokyakuList' => $kokyakuList,
             'yoyakuList' => $yoyakuList,
+            'yoyakuDaysList' => $yoyakuDaysList,
             'adjustList' => $adjustList,
             'card' => $card,
             'day' => $day,
