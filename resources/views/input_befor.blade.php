@@ -66,8 +66,9 @@ $week = ['日', '月', '火', '水', '木', '金', '土']
                             <th scope="col">給料</th>
                         </tr>
                     </thead>
-                    @foreach($yoyakuList  as $y2)
-                        @if($y->visit_day == $y->visit_day) return @endif
+                    {{-- @foreach($yoyakuList  as $y2) --}}
+                    {{-- @foreach($yoyakuList  as $y) --}}
+                        {{-- @if(date('Y-m-d',strtotime("$y->visit_day")) == date('Y-m-d',strtotime("$y2->visit_day"))) @endif --}}
                         <tbody>
                             <tr>
                                 <th>{{ $loop->index+1 }}</th>
@@ -105,7 +106,8 @@ $week = ['日', '月', '火', '水', '木', '金', '土']
                                 <td>{{ number_format($y->totalBack) }}円</td>
                             </tr>
                         </tbody>
-                    @endforeach
+                    {{-- @endforeach --}}
+                    {{-- @endforeach --}}
                 </table>            
             </div>
         </div>
