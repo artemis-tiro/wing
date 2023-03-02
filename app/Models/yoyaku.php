@@ -22,10 +22,12 @@ class Yoyaku extends Model
         if($time < date('Y-m-d').' 06:00:00'){
             $yoyakuList = yoyaku::where('therapist_id', $therapistId)
             ->whereBetween('visit_day', [date('Y-m-d', strtotime("-1 day")).' 06:00:00', date('Y-m-d').' 05:59:59'] )
+            ->orderby('visit_day')
             ->get();
         }else{
             $yoyakuList = yoyaku::where('therapist_id', $therapistId)
             ->whereBetween('visit_day', [date('Y-m-d').' 06:00:00', date('Y-m-d', strtotime("+1 day")).' 05:59:59'] )
+            ->orderby('visit_day')
             ->get();
         }        
         return $yoyakuList;
@@ -38,10 +40,12 @@ class Yoyaku extends Model
         if($time < date('Y-m-d').' 06:00:00'){
             $yoyakuList = yoyaku::where('therapist_id', $therapistId)
             ->whereBetween('visit_day', [date('Y-m-d').' 06:00:00', date('Y-m-d', strtotime("+10 year")).' 05:59:59'] )
+            ->orderby('visit_day')
             ->get();
         }else{
             $yoyakuList = yoyaku::where('therapist_id', $therapistId)
             ->whereBetween('visit_day', [date('Y-m-d', strtotime("+1 day")).' 06:00:00', date('Y-m-d', strtotime("+10 year")).' 05:59:59'] )
+            ->orderby('visit_day')
             ->get();
         }        
         return $yoyakuList;
@@ -51,6 +55,7 @@ class Yoyaku extends Model
     public static function yoyakuBeforList($kokyakuId){
         $yoyakuList = yoyaku::where('kokyaku_id', $kokyakuId)
             ->whereBetween('visit_day', [date('Y-m-d', strtotime("-10 year")).' 05:59:59', date('Y-m-d', strtotime("-1 day")).' 05:59:59'] )
+            ->orderbydesc('visit_day')
             ->get();
         return $yoyakuList;
     }
@@ -59,33 +64,20 @@ class Yoyaku extends Model
     public static function yoyakuBeforList2($therapistId,$time){
         $yoyakuList = yoyaku::where('therapist_id', $therapistId)
             ->whereBetween('visit_day', [$time.' 06:00:00', date('Y-m-d', strtotime('+1 day', strtotime($time))).' 05:59:59'])
+            ->orderbydesc('visit_day')
             ->get();
-
         return $yoyakuList;
     }
 
-    // 過去予約一覧(過去10日)
-    // public static function yoyakuBeforList3($therapistId,$time){
-    //     $yoyakuList = yoyaku::where('therapist_id', $therapistId)
-    //         ->whereBetween('visit_day', [date('Y-m-d', strtotime('-2 month', strtotime($time))).' 06:00:00', $time.' 05:59:59'])
-    //         ->orderByDesc('visit_day')
-    //         ->limit(30)
-    //         ->get();
-    //     return $yoyakuList;
-    // }
-
-    
-
+    // 過去予約一覧
     public static function yoyakuBeforList3($therapistId,$time){
 
-        // 日付だけを取得
         $yoyakuList = yoyaku::where('therapist_id', $therapistId)
             ->whereBetween('visit_day', [date('Y-m-d', strtotime('-1 month', strtotime($time))).' 06:00:00', $time.' 05:59:59'])
             ->orderbydesc('visit_day')
             ->get();
 
-        // dd($yoyakuList);
-
+        // 時間で営業日を設定する
         foreach($yoyakuList as $y){
             if($y->visit_day < date('Y-m-d', strtotime($y->visit_day)).' 06:00:00'){
                 $y->working_day = date('Y-m-d', strtotime('-1 day', strtotime($y->visit_day)));
@@ -105,31 +97,21 @@ class Yoyaku extends Model
         
         // 日付だけを取得
         $yoyakuListDays = yoyaku::where('therapist_id', $therapistId)
-            ->whereBetween('visit_day', [date('Y-m-d', strtotime('-2 month', strtotime($time))).' 06:00:00', $time.' 05:59:59'])
-            ->limit(30)
+            ->whereBetween('visit_day', [date('Y-m-d', strtotime('-1 month', strtotime($time))).' 06:00:00', $time.' 05:59:59'])
             ->orderbydesc('visit_day')
             ->pluck('visit_day');
-            // ->get();
 
         // 「visit_day」のY-m-dだけ取る
         foreach($yoyakuListDays as $y){
-            // 2021-12-28
-            array_push($days,date('Y-m-d', strtotime($y)));
+            if($y > date('Y-m-d',strtotime($y)). ' 05:59:59'){
+                array_push($days,date('Y-m-d', strtotime($y)));
+            }else{
+                array_push($days,date('Y-m-d', strtotime('-1 day', strtotime($y))));
+            }
         }
 
-        // dd($yoyakuListDays);
-
-        // 重複した日付を削除
-        for($i = 0; $i < count($days); $i++){
-            // 配列の要素削除
-            // unset(配列名[要素番号])
-            unset($days[$i]);
-
-            // 配列の要素を詰める
-            $days = array_values($days);
-        }
-
-        // dd($days);
+        // 重複した要素を削除する
+        $days = array_unique($days);
 
         return $days;
     }

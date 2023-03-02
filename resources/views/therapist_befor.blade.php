@@ -12,7 +12,8 @@
 
 @php
 // シフトを入力できる日数
-$week = ['日', '月', '火', '水', '木', '金', '土']
+$week = ['日', '月', '火', '水', '木', '金', '土'];
+$valueCnt = 1;
 @endphp
 
 <?php 
@@ -42,54 +43,58 @@ $week = ['日', '月', '火', '水', '木', '金', '土']
 <!-- フォームの終わり -->
 {{ Form::close() }}
 
-<!-- 初期表示(過去10日) -->
+<!-- 初期表示 -->
 @if($card === 0)
-    <!-- 過去予約リスト -->
-    <div class="card my-4">
-        <!-- カードのタイトル -->
-        <h2 class="card-header h5">最近の出勤</h2>
-        <!-- カードの要素 -->
-        <div class="card-body table-responsive text-nowrap">
-            <!-- テーブル -->
-            <table class="table table-hover">
-                <thead>
-                    <!-- カテゴリ -->
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">日付</th>
-                        <th scope="col">コース</th>
-                        <th scope="col">指名</th>
-                        <th scope="col">顧客名</th>
-                        <th scope="col">電話番号</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($yoyakuList  as $y)
-                    <tr>
-                        <th>{{ $loop->index+1 }}</th>
+    @foreach($yoyakuDaysList  as $yd)
+        @php $valueCnt = 1; @endphp
+        <!-- 過去予約リスト -->
+        <div class="card my-4">
+            <!-- カードのタイトル -->
+            <h2 class="card-header h5">{{ date('Y-m-d', strtotime($yd)).'('.$week[date('w', strtotime(date('Y-m-d', strtotime($yd))))].')' }}</h2>
+            <!-- カードの要素 -->
+            <div class="card-body table-responsive text-nowrap">
+                <!-- テーブル -->
+                <table class="table table-hover">
+                    <thead>
+                        <!-- カテゴリ -->
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">日付</th>
+                            <th scope="col">コース</th>
+                            <th scope="col">指名</th>
+                            <th scope="col">顧客名</th>
+                            <th scope="col">電話番号</th>
+                        </tr>
+                    </thead>
+                        @foreach($yoyakuList  as $y)
+                            @if($yd == $y->working_day)
+                                <tbody>
+                                    <tr>
+                                        <th>{{ $valueCnt }}</th>
 
-                        <!-- 終了時間を来店日時＋コース時間で表示 -->
-                        <td>
-                            {{ date('Y-m-d H:i',strtotime(" $y->visit_day")) }}
-                        </td>
-                        
-                        
-                        <td>{{ $y->courseName }}</td>
-                            
-                        <td>{{ $y->courseShimei }}</td>
+                                        <!-- 終了時間を来店日時＋コース時間で表示 -->
+                                        <td>
+                                            {{ date('Y-m-d H:i',strtotime(" $y->visit_day")) }} ~ 
+                                            {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min ")) }}
+                                        </td>
+                                        
+                                        
+                                        <td>{{ $y->courseName }}</td>
+                                            
+                                        <td>{{ $y->courseShimei }}</td>
 
-                        <td>{{ $kokyakuList[$y->kokyaku_id]->name }} 様</td>
-                        
-                        <td>{{ substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4) }}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-
-            <a class="m-2 btn btn-dark" href="{{ url('/t/') }}" >戻る</a>
-            
+                                        <td>{{ $kokyakuList[$y->kokyaku_id]->name }} 様</td>
+                                        
+                                        <td>{{ substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4) }}</td>
+                                    </tr>
+                                </tbody>
+                                @php $valueCnt += 1; @endphp
+                            @endif
+                        @endforeach
+                </table>            
+            </div>
         </div>
-    </div>
+    @endforeach
 @endif
 
 <!-- 日付選択(予約あり) -->

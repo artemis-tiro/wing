@@ -83,6 +83,20 @@ class Kokyaku extends Model
             ->first();
 
         return $kokyaku;
+
+        // if(!($input)){
+        //     return null;
+        // }
+
+        // if(mb_strlen($input) >= 10 && mb_strlen($input) <= 11){
+        //     $kokyaku = kokyaku::where('tel',$input)
+        //     ->first();
+        // }else{
+        //     return back()->with(['error' => '電話番号は10文字または11文字でで入力してください。']);
+        //     // return null;
+        // }
+
+        // return $kokyaku;
     }
 
     // NGセラピスト取得

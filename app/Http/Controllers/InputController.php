@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Validator; 
+use Validator;
 use App\Rules\Hankaku;
 use Log;
 use Illuminate\Validation\Rule;
@@ -29,6 +29,7 @@ class InputController extends Controller{
             //アクセスできる権限
             "tiro",
             "admin",
+            "client",
             "inputer",
             "therapist"
         ])) return redirect('/');
@@ -205,6 +206,9 @@ class InputController extends Controller{
         // 過去予約一覧
         $yoyakuList = yoyaku::yoyakuBeforList2($therapistId, $request->input('day'));
 
+        // 過去予約一覧(日付)
+        $yoyakuDaysList = yoyaku::yoyakuBeforDaysList($therapistId, date('Y-m-d'));
+
         // 調整金予約一覧
         $adjustList = kyuryo::adjustList($miseId, $therapistId, $request->input('day'));
 
@@ -222,11 +226,10 @@ class InputController extends Controller{
             // シフト一覧
             $shifutotList = shifuto::getshiftList($miseId, $therapistId, date('Y-m-d'));
 
-            // 過去予約一覧(日付)
-            $yoyakuDaysList = yoyaku::yoyakuBeforDaysList($therapistId, date('Y-m-d'));
-
             // 過去予約一覧
             $yoyakuList = yoyaku::yoyakuBeforList3($therapistId, date('Y-m-d'));
+
+            $dailyPrice = kyuryo::dailyPriceCul($yoyakuList, $adjustList);
 
             foreach($yoyakuList as $y){
                 $day = $y->visit_day;

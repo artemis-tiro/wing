@@ -53,10 +53,16 @@
                 <tr>
                     <th>{{ $loop->index+1 }}</th>
 
-                    <!-- 非同期処理 -->
-                    <!-- で来店日時とコース時間を参照してステータスを変動 -->
-
-                    <td>未実装</td>
+                    <!-- 現在時間がコース時間内の場合「施術中」 -->
+                    <!-- 現在時間がコース時間後の場合「完了」 -->
+                    <!-- 現在時間がコース時間前の場合「予約」 -->
+                    @if(date('Y-m-d H:i:s') >= $y->visit_day && date('Y-m-d H:i:s') <= date('Y-m-d H:i:s',strtotime(" $y->visit_day +$y->courseTime min ")))
+                        <td>施術中</td>
+                    @elseif(date('Y-m-d H:i:s') > $y->visit_day)
+                        <td>完了</td>
+                    @elseif(date('Y-m-d H:i:s') < $y->visit_day)
+                        <td>予約</td>
+                    @endif
 
                     <!-- 終了時間を来店日時＋コース時間で表示 -->
                     <td>
@@ -103,8 +109,24 @@
                     @if($enchoList)
                     <td><a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#yoyakuEnchoModal{{ $y->id }}">延長</a></td>
                     @endif
-                </tr>
 
+                </tr>
+                
+                
+                
+                
+                
+                
+                <!-- ｔｒをもうひとつ加える -->
+                <!-- メモ表示用 -->
+
+
+
+
+
+
+
+                
                 <!-- モーダル設定 -->
                 <!-- オプションボタン -->
                 <div class="modal fade" id="yoyakuOptionModal{{ $y->id }}" tabindex="-1" aria-labelledby="yoyakuOptionModal{{ $y->id }}" data-bs-backdrop="static">
@@ -408,7 +430,6 @@
                     <!-- カテゴリ -->
                     <tr>
                         <th scope="col"></th>
-                        <th scope="col">ステータス</th>
                         <th scope="col">時間</th>
                         <th scope="col">コース</th>
                         <th scope="col">指名</th>
@@ -423,10 +444,6 @@
                     @foreach($yoyakuAfterList  as $ya)
                     <tr>
                         <th>{{ $loop->index+1 }}</th>
-
-                        <!-- 非同期処理 -->
-                        <!-- で来店日時とコース時間を参照してステータスを変動 -->
-                        <td>未実装</td>
 
                         <!-- 終了時間を来店日時＋コース時間で表示 -->
                         <td>

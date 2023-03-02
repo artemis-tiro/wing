@@ -138,6 +138,9 @@ class TherapistController extends Controller{
         // 過去予約一覧
         $yoyakuList = yoyaku::yoyakuBeforList2($therapistId, $request->input('day'));
 
+        // 過去予約一覧(日付)
+        $yoyakuDaysList = yoyaku::yoyakuBeforDaysList($therapistId, date('Y-m-d'));
+
         // 調整金予約一覧
         $adjustList = kyuryo::adjustList($miseId, $therapistId, $request->input('day'));
 
@@ -175,6 +178,7 @@ class TherapistController extends Controller{
             'shift' => $shift,
             'kokyakuList' => $kokyakuList,
             'yoyakuList' => $yoyakuList,
+            'yoyakuDaysList' => $yoyakuDaysList,
             'adjustList' => $adjustList,
             'card' => $card,
             'day' => $day,

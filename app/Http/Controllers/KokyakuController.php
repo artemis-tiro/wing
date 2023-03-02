@@ -28,6 +28,7 @@ class KokyakuController extends Controller{
             //アクセスできる権限
             "tiro",
             "admin",
+            "client",
             "inputer",
             "therapist"
         ])) return redirect('/');

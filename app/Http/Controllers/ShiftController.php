@@ -31,6 +31,7 @@ class ShiftController extends Controller{
             //アクセスできる権限
             "tiro",
             "admin",
+            "client",
             "inputer",
             "therapist"
         ])) return redirect('/');
@@ -53,6 +54,11 @@ class ShiftController extends Controller{
 
     // クライアント一覧
     public function top(){
+
+        // クライアントでログイン時選択をスキップ
+        if(Auth::user()->access_level == "client"){
+            redirect("shift/".Auth::user()->id, 301);
+        }
 
         //権限チェック
         if($ng = $this->levelCheck()) return $ng;
