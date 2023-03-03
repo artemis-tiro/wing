@@ -23,7 +23,7 @@
     </div>
 <script src="{{url("js/main.js")}}"></script>
 <script src="{{ url("js/displayMany.js") }}"></script>
-<script src="{{ url("js/shifuto.js") }}"></script>
+<script src="{{ url("js/number.js") }}"></script>
 </body>
 </html>
 

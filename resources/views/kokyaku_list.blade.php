@@ -5,7 +5,7 @@
 @include('common.pan')
 @section('pan2')
 <li class="breadcrumb-item"><a href="{{url("/k")}}">店舗一覧</a></li>
-<li class="breadcrumb-item active">顧客一覧</li>
+<li class="breadcrumb-item active">{{ $mise->name }} 顧客一覧</li>
 
 @stop
 
@@ -40,22 +40,7 @@
                 <tr>
                     <th>{{ $loop->index+1 }}</th>
                     <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id) }}">{{ $y->kokyakuName }}</a> 様</td>
-                    <td>
-                        <!-- mb_strlen()文字数カウント -->
-                        @if(mb_strlen($y->kokyakuTel) === 11)
-                        {{ 
-                            substr($y->kokyakuTel, 0, 3).'-'.
-                            substr($y->kokyakuTel, 3, 4).'-'.
-                            substr($y->kokyakuTel, -4, 4)
-                        }}
-                        @else
-                        {{ 
-                            substr($y->kokyakuTel, 0, 2).'-'.
-                            substr($y->kokyakuTel, 3, 4).'-'.
-                            substr($y->kokyakuTel, -4, 4)
-                        }}
-                        @endif
-                    </td>
+                    <td>{{ $y->kokyakuTel }}</td>
                     <td>{{ $y->kokyakuMail }}</td>
                     <td>{{ $y->kokyakuNg }}</td>
                     <td>{{ $y->kokyakuMemo }}</td>

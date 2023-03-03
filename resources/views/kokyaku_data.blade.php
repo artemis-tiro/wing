@@ -5,7 +5,7 @@
 @include('common.pan')
 @section('pan2')
 <li class="breadcrumb-item"><a href="{{url("/k")}}">店舗一覧</a></li>
-<li class="breadcrumb-item"><a href="{{ url("/k/".$mise->id) }}">顧客一覧</a></li>
+<li class="breadcrumb-item"><a href="{{ url("/k/".$mise->id) }}">{{ $mise->name }} 顧客一覧</a></li>
 <li class="breadcrumb-item active">{{ $kokyaku->name }}</li>
 
 @stop

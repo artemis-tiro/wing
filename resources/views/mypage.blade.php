@@ -115,9 +115,10 @@
                     編集
                 </button>
             </label>
-
+        @endif
+        @if( $accessLevel == 'therapist' )
             <!-- LINE ID -->
-            <label class="row">
+                    <label class="row">
                 <!-- ラベル -->
                 <div class="text-info text-end">LINE ID </div>
                 <div class="col-sm-3">
@@ -433,6 +434,7 @@
 
         <!-- セラピストのみ表示 -->
         <!-- LINE ID -->
+        @if($accessLevel == 'therapist')
         @if ($errors->has('line'))
         <div class="modal show" id="lineModal" tabindex="-1" aria-labelledby="lineModalLabel" data-bs-backdrop="static">
         @else
@@ -481,6 +483,7 @@
                 </div>
             </div>
         </div>
+        @endif
 
         <!-- パスワード -->
         @if($errors->has('newpassword') || $errors->has('checkpassword') || $error)

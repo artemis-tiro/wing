@@ -514,7 +514,7 @@ class Yoyaku extends Model
                 ->first();
             $y->kokyakuid = $kokyaku->id;
             $y->kokyakuName = $kokyaku->name;
-            $y->kokyakuTel = $kokyaku->tel;
+            $y->kokyakuTel = user::format_phone_number($kokyaku->tel);
             $y->kokyakuMail = $kokyaku->mail;
 
             // 顧客のNGセラピストリスト取得

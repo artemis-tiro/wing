@@ -263,6 +263,13 @@
                                         <span class="mx-2 badge rounded-pill bg-danger">0円</span>
                                     </label>
                                 </div>
+
+                                <!-- コース -->
+                                <div class="row text-nowrap mb-2 text-end">
+                                    <div class="col-sm-3 text-end">メモ<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
+                                    <label class="col-sm-3">
+                                        {{ Form::text('memoEx', null, ['class'=>'form-control']) }}
+                                    </label>
                             </div>
 
                             <!-- モーダルのフッター -->
@@ -633,7 +640,7 @@
         <label class="row text-nowrap text-end">
             <div class="mt-2 col-sm-2 text-end">電話番号<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
             <div class="col-sm-2">
-                {{ Form::number('telsearch', null, ['class'=>'form-control', 'autocomplete'=>'off', 'min'=>'10', 'required']) }}
+                {{ Form::text('telsearch', null, ['class'=>'form-control', 'id'=>'telserch', 'autocomplete'=>'off', 'min'=>'10', 'max'=>'11', 'required']) }}
             </div>
             <div class="col-sm-1">{{ Form::submit('検索',["class"=>"btn btn-info"]) }}</div>
         </label>
