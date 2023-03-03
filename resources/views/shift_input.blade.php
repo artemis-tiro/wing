@@ -5,7 +5,9 @@
 @include('common.pan')
 
 @section('pan2')
+@if($level != 'client')
 <li class="breadcrumb-item"><a href="{{ url("/shift") }}">クライアント一覧</a></li>
+@endif
 <li class="breadcrumb-item"><a href="{{ url('/shift/'.$client->id) }}">{{ $client->name }}様店舗一覧</a></li>
 
 <li class="breadcrumb-item active" aria-current="page">{{ $mise->name }}シフト入力</li>

@@ -295,6 +295,8 @@ class Yoyaku extends Model
         $yoyaku->encho_id_list = null;
 
         $yoyaku->visit_day = $input['start_day'].' '.$input['start_time'];
+        $yoyaku->memo = $input['memo'];
+
         
         // 削除されるカラム
         $yoyaku->shimei = null;

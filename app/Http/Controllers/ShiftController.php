@@ -36,6 +36,11 @@ class ShiftController extends Controller{
             "therapist"
         ])) return redirect('/');
 
+        // if(!in_array(Auth::user()->access_level, [
+        //     //アクセスできる権限
+        //     "client"
+        // ])) return redirect('/shift/'.Auth::user()->id);
+
         // 他teamのデータ参照
         if($id && !user::teamCheck($id, Auth::user()->team)) return redirect('/');
 
@@ -57,7 +62,27 @@ class ShiftController extends Controller{
 
         // クライアントでログイン時選択をスキップ
         if(Auth::user()->access_level == "client"){
-            redirect("shift/".Auth::user()->id, 301);
+            // アクセスレベル
+            $level = Auth::user()->access_level;
+            
+            // client詳細
+            $client = client::detail(Auth::user()->id);
+
+            // マイmise一覧
+            $myMiseList = mise::myMiseList(Auth::user()->id);
+
+            // room情報添付
+            room::addDetail($myMiseList);
+
+            // therapist情報添付
+            therapist::addDetail($myMiseList);
+
+            return view ('shift_mise', [
+                'client' => $client,
+                'myMiseList' => $myMiseList,
+                'level' => $level,
+                'error' => session('error'),
+            ]);
         }
 
         //権限チェック
@@ -75,7 +100,9 @@ class ShiftController extends Controller{
 
     // 店舗一覧
     public function miselist($id){
-
+        // アクセスレベル
+        $level = Auth::user()->access_level;
+        
         // 権限チェック
         if($ng = $this->levelCheck($id)) return $ng;
 
@@ -93,6 +120,7 @@ class ShiftController extends Controller{
 
         return view ('shift_mise', [
             'client' => $client,
+            'level' => $level,
             'myMiseList' => $myMiseList,
             'error' => session('error'),
        ]);
@@ -100,6 +128,8 @@ class ShiftController extends Controller{
 
     // シフト入力
     public function shift($clientId, $miseId){
+        // アクセスレベル
+        $level = Auth::user()->access_level;
 
         // 権限チェック
         if($ng = $this->levelCheck($clientId, $miseId)) return $ng;
@@ -117,6 +147,7 @@ class ShiftController extends Controller{
         return view ('shift_input', [
             'mise' => $mise,
             'client' => $client,
+            'level' => $level,
             'therapistList' => $therapistList,
             'message' => session('message'),
             'error' => session('error'),

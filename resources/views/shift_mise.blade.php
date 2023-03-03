@@ -4,7 +4,9 @@
 @include('common.sidemenu')
 @include('common.pan')
 @section('pan2')
+@if($level != 'client')
 <li class="breadcrumb-item"><a href="{{ url("/shift") }}">クライアント一覧</a></li>
+@endif
 
 <li class="breadcrumb-item active" aria-current="page">{{ $client->name }}様店舗一覧</li>
 @stop
@@ -53,8 +55,10 @@
             </tbody>
         </table>
 
+        @if($level != 'client')
         <a class="btn btn-dark" href="{{ url('/shift') }}" >戻る</a>
-        
+        @endif
+
     </div>    
 </div>
 

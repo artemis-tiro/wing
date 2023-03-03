@@ -43,14 +43,14 @@ $valueCnt = 1;
 <!-- フォームの終わり -->
 {{ Form::close() }}
 
-<!-- 初期表示 -->
+<!-- 初期表示 -->ｘ
 @if($card === 0)
     @foreach($yoyakuDaysList  as $yd)
         @php $valueCnt = 1; @endphp
         <!-- 過去予約リスト -->
         <div class="card my-4">
             <!-- カードのタイトル -->
-            <h2 class="card-header h5">{{ $yd }} ( {{ number_format($dailyPrice) }}円 )</h2>
+            <h2 class="card-header h5">{{ $yd }}</h2>
             <!-- カードの要素 -->
             <div class="card-body table-responsive text-nowrap">
                 <!-- テーブル -->

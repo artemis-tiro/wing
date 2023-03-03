@@ -57,9 +57,9 @@
                     <!-- 現在時間がコース時間後の場合「完了」 -->
                     <!-- 現在時間がコース時間前の場合「予約」 -->
                     @if(date('Y-m-d H:i:s') >= $y->visit_day && date('Y-m-d H:i:s') <= date('Y-m-d H:i:s',strtotime(" $y->visit_day +$y->courseTime min ")))
-                        <td>施術中</td>
+                        <td class="text-info">施術中</td>
                     @elseif(date('Y-m-d H:i:s') > $y->visit_day)
-                        <td>完了</td>
+                        <td class="text-black-50">完了</td>
                     @elseif(date('Y-m-d H:i:s') < $y->visit_day)
                         <td>予約</td>
                     @endif
@@ -111,22 +111,7 @@
                     @endif
 
                 </tr>
-                
-                
-                
-                
-                
-                
-                <!-- ｔｒをもうひとつ加える -->
-                <!-- メモ表示用 -->
-
-
-
-
-
-
-
-                
+                                
                 <!-- モーダル設定 -->
                 <!-- オプションボタン -->
                 <div class="modal fade" id="yoyakuOptionModal{{ $y->id }}" tabindex="-1" aria-labelledby="yoyakuOptionModal{{ $y->id }}" data-bs-backdrop="static">
@@ -388,9 +373,18 @@
                         </div>
                     </div>
                 </div>
-
+                
+                @if($y->memo != null)
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td colspan="9"><span class="text-danger">{{ $y->memo }}</span></td>
+                    </tr>
+                @endif
                 @endforeach
             </tbody>
+
+            
         </table>   
         @else
             <h2>※予約がありません</h2>
