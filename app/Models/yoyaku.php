@@ -184,6 +184,14 @@ class Yoyaku extends Model
                 $y->waribikiId = '';
             }
 
+            // $yoyakuListに「phone」を追加
+            $kokyaku = kokyaku::detail($y->kokyaku_id);
+            if($kokyaku){
+                $y->phone = user::format_phone_number($kokyaku->tel);
+            }else{
+                $y->phone = '';
+            }
+
             // $yoyakuListに「coursePrice」を追加
             // コース金額を取得
             $y->coursePrice =  price::getCoursePrice($priceId);
@@ -285,12 +293,6 @@ class Yoyaku extends Model
         $yoyaku->inputer_id = Auth::user()->id;
         
         $yoyaku->price_id_list = $input_price_id;
-
-        // if(price::getOption($miseId,$therapist->back_name) != "therapist"){
-        //     $yoyaku->option = 1;  
-        // }
-
-
 
         $yoyaku->encho_id_list = null;
 

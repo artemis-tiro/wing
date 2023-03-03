@@ -104,15 +104,7 @@
             <!-- ラベル -->
             <div class="mt-2 text-info text-end">電話番号</div>
             <div class="col-sm-3">
-                <label >
-                    @if($inputerDetail->tel)
-                        {{ 
-                            substr($inputerDetail->tel, 0, 3).'-'.
-                            substr($inputerDetail->tel, 3, 4).'-'.
-                            substr($inputerDetail->tel, -4, 4)
-                        }}
-                    @endif
-                </label>
+                <label >{{ $phone }}</label>
             </div>
         </label>
 

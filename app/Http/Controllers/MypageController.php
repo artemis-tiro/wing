@@ -36,9 +36,12 @@ class MypageController extends Controller{
                 $mydeta = user::detail(Auth::user()->id);
         }
 
+        $phone = user::format_phone_number($mydeta->tel);
+
         return view ('mypage', [
             'accessLevel' => $accessLevel,
             'mydeta' => $mydeta,
+            'phone' => $phone,
             'error' => session('error'),
             'message' => session('message'),
        ]);

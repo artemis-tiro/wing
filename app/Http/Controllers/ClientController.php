@@ -132,10 +132,13 @@ class ClientController extends Controller{
         //price作成確認
         $courseExist = price::courseExist($miseId);
 
+        // 電話番号フォーマット
+        $phone = user::format_phone_number($mise->tel);
 
         return view ('mise', [
             'client' => $client,
             'mise' => $mise,
+            'phone' => $phone,
             'therapistList' => $therapistList,
             'backList' => $backList,
             'backList2' => $backList2,

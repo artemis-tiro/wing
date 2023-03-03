@@ -156,8 +156,12 @@ class AdminController extends Controller{
         if($ng = $this->levelCheck()) return $ng;
 
         $inputerDetail = inputer::detail($id);
+
+        $phone = user::format_phone_number($inputerDetail->tel);
+
         return view ('admin_inputer_detail', [
             'inputerDetail' => $inputerDetail,
+            'phone' => $phone,
             'user' => user::find($id),
        ]);
     }

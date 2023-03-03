@@ -75,7 +75,7 @@ $valueCnt = 1;
                                         <!-- 終了時間を来店日時＋コース時間で表示 -->
                                         <td>
                                             {{ date('Y-m-d H:i',strtotime(" $y->visit_day")) }} ~ 
-                                            {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min ")) }}
+                                            {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min +5 min")) }}
                                         </td>
                                         
                                         

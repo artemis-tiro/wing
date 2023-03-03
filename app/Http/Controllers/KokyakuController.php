@@ -120,6 +120,9 @@ class KokyakuController extends Controller{
         // セラピスト取得
         $selectNg = therapist::ngTherapist($kokyakuId, $therapistList);
 
+        // 電話番号フォーマット
+        $phone = user::format_phone_number($kokyaku->tel);
+
         // NGセラピスト名取得
         therapist::getTherapistName($kokyaku);
 
@@ -129,6 +132,7 @@ class KokyakuController extends Controller{
         return view ('kokyaku_data', [
             'mise' => $mise,
             'kokyaku' => $kokyaku,
+            'phone' => $phone,
             'yoyakuList' => $yoyakuList,
             'selectNg' => $selectNg,
             'error' => session('error'),

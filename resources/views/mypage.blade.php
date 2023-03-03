@@ -73,15 +73,7 @@
                 <!-- ラベル -->
                 <div class="mt-2 text-info text-end">電話番号</div>
                 <div class="col-sm-3">
-                    <label class="mt-2">
-                        @if($mydeta->tel)
-                            {{ 
-                                substr($mydeta->tel, 0, 3).'-'.
-                                substr($mydeta->tel, 3, 4).'-'.
-                                substr($mydeta->tel, -4, 4)
-                            }}
-                        @endif
-                    </label>
+                    <label class="mt-2">{{ $phone }}</label>
                 </div>
                 <!-- ボタン -->
                 <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#telModal">

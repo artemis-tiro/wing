@@ -39,18 +39,17 @@ $valueCnt = 1;
     </div>
     <div class="col-sm-1">{{ Form::submit('検索',["class"=>"btn btn-info"]) }}</div>
 </label>
-
 <!-- フォームの終わり -->
 {{ Form::close() }}
 
-<!-- 初期表示 -->ｘ
+<!-- 初期表示 -->
 @if($card === 0)
     @foreach($yoyakuDaysList  as $yd)
         @php $valueCnt = 1; @endphp
         <!-- 過去予約リスト -->
         <div class="card my-4">
             <!-- カードのタイトル -->
-            <h2 class="card-header h5">{{ $yd }}</h2>
+            <h2 class="card-header h5">{{ date('Y-m-d', strtotime($yd)).'('.$week[date('w', strtotime(date('Y-m-d', strtotime($yd))))].')' }}</h2>
             <!-- カードの要素 -->
             <div class="card-body table-responsive text-nowrap">
                 <!-- テーブル -->
@@ -86,22 +85,7 @@ $valueCnt = 1;
 
                                         <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
                                         
-                                        <td>
-                                            <!-- mb_strlen()文字数カウント -->
-                                            @if(mb_strlen($kokyakuList[$y->kokyaku_id]->tel) === 11)
-                                            {{ 
-                                                substr($kokyakuList[$y->kokyaku_id]->tel, 0, 3).'-'.
-                                                substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                                                substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                                            }}
-                                            @else
-                                            {{ 
-                                                substr($kokyakuList[$y->kokyaku_id]->tel, 0, 2).'-'.
-                                                substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                                                substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                                            }}
-                                            @endif
-                                        </td>
+                                        <td>{{ $y->phone }}</td>
 
                                         <td>{{ number_format($y->totalBack) }}円</td>
                                     </tr>
@@ -156,22 +140,7 @@ $valueCnt = 1;
 
                         <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
 
-                        <td>
-                            <!-- mb_strlen()文字数カウント -->
-                            @if(mb_strlen($kokyakuList[$y->kokyaku_id]->tel) === 11)
-                            {{ 
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 0, 3).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                            }}
-                            @else
-                            {{ 
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 0, 2).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                            }}
-                            @endif
-                        </td>
+                        <td>{{ $y->phone }}</td>
 
                         <td>{{ number_format($y->totalBack) }}円</td>
                     </tr>

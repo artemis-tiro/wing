@@ -47,13 +47,7 @@
             <!-- ラベル -->
             <div class="mt-2 text-info text-end">電話番号</div>
             <div class="col-sm-3">
-                <label class="mt-2">
-                    {{ 
-                        substr($kokyaku->tel, 0, 3).'-'.
-                        substr($kokyaku->tel, 3, 4).'-'.
-                        substr($kokyaku->tel, -4, 4)
-                    }}
-                </label>
+                <label class="mt-2">{{ $phone }}</label>
             </div>
             <!-- ボタン -->
             <button type="button" class="col-sm-1 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#telModal">

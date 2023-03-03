@@ -56,7 +56,7 @@
                     <!-- 現在時間がコース時間内の場合「施術中」 -->
                     <!-- 現在時間がコース時間後の場合「完了」 -->
                     <!-- 現在時間がコース時間前の場合「予約」 -->
-                    @if(date('Y-m-d H:i:s') >= $y->visit_day && date('Y-m-d H:i:s') <= date('Y-m-d H:i:s',strtotime(" $y->visit_day +$y->courseTime min ")))
+                    @if(date('Y-m-d H:i:s') >= $y->visit_day && date('Y-m-d H:i:s') <= date('Y-m-d H:i:s',strtotime(" $y->visit_day +$y->courseTime min +5 min")))
                         <td class="text-info">施術中</td>
                     @elseif(date('Y-m-d H:i:s') > $y->visit_day)
                         <td class="text-black-50">完了</td>
@@ -67,7 +67,7 @@
                     <!-- 終了時間を来店日時＋コース時間で表示 -->
                     <td>
                         {{ \Carbon\Carbon::createFromTimeString($y->visit_day)->format('m/d H:i') }} ~ 
-                        {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min ")) }}
+                        {{ date('H:i',strtotime(" $y->visit_day +$y->courseTime min")) }}
                     </td>
 
                     <!-- priceテーブル作成まで仮 -->
@@ -77,22 +77,7 @@
 
                     <td><a href="{{ url('/k/'.$mise->id.'/'.$y->kokyaku_id.'/') }}">{{ $kokyakuList[$y->kokyaku_id]->name }}</a> 様</td>
 
-                    <td>
-                        <!-- mb_strlen()文字数カウント -->
-                        @if(mb_strlen($kokyakuList[$y->kokyaku_id]->tel) === 11)
-                            {{ 
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 0, 3).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                            }}
-                        @else
-                            {{ 
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 0, 2).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, 3, 4).'-'.
-                                substr($kokyakuList[$y->kokyaku_id]->tel, -4, 4)
-                            }}
-                        @endif
-                    </td>
+                    <td>{{ $y->phone }}</td>
 
                     @php $kome = $y->option != null? '': '※'; @endphp
                     <td><a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#yoyakuOptionModal{{ $y->id }}">オプション{{ $kome }}</a></td>
@@ -458,15 +443,9 @@
                         
                         <td>
                             @if($accesslevel != 'therapist')
-                                {{ 
-                                    substr($kokyakuList[$ya->kokyaku_id]->tel, 0, 3).'-'.
-                                    substr($kokyakuList[$ya->kokyaku_id]->tel, 3, 4).'-'.
-                                    substr($kokyakuList[$ya->kokyaku_id]->tel, -4, 4)
-                                }}
+                                {{ $y->phone }}
                             @else
-                                {{
-                                    substr($kokyakuList[$ya->kokyaku_id]->tel, -4, 4)
-                                }}
+                                {{ substr($kokyakuList[$ya->kokyaku_id]->tel, -4, 4) }}
                             @endif
                         </td>
                         <td><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#yoyakuAfterEditModal{{ $ya->id }}">編集</a></td>
