@@ -352,7 +352,9 @@ class Yoyaku extends Model
 
     // 延長編集
     public static function yoyakuedit($input,$id){
-        
+
+        // dd($input);
+
         $yoyaku = yoyaku::find($input['yoyakuId']);
 
         $input_price_id = '';
@@ -383,6 +385,7 @@ class Yoyaku extends Model
         }
 
         $yoyaku->price_id_list = $input_price_id;
+        $yoyaku->memo = $input['memoEx'];
         $result = $yoyaku->save();
 
         //インサート失敗時

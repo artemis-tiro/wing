@@ -1,27 +1,27 @@
 $(function() {
 
 
-    $('#telserch').on('keydown', function(event) {
-        // 半角数字(0-9)以外はキャンセル
-        if ((event.keyCode < 48) || (event.keyCode > 57)) {
-            // backspace, delete, enter, tab, escapeは許可
-            if ((event.keyCode == 8) || (event.keyCode == 46) || (event.keyCode == 13) || (event.keyCode == 9) || (event.keyCode == 27)) {
-            return true;
-            } else {
-            return false;
-            }
-        }
-    });
+    // $('#telserch').on('keydown', function(event) {
+    //     // 半角数字(0-9)以外はキャンセル
+    //     if ((event.keyCode < 48) || (event.keyCode > 57)) {
+    //         // backspace, delete, enter, tab, escapeは許可
+    //         if ((event.keyCode == 8) || (event.keyCode == 46) || (event.keyCode == 13) || (event.keyCode == 9) || (event.keyCode == 27)) {
+    //         return true;
+    //         } else {
+    //         return false;
+    //         }
+    //     }
+    // });
       
-    $('#telserch').on('input', function() {
-        // 入力値が10桁以上11桁以内の半角数字でない場合は、末尾を切り捨てる
-        var telserch = $(this).val();
-        telserch = telserch.replace(/[^0-9]/g, '');
-        if (telserch.length > 11) {
-            telserch = telserch.substring(0, 11);
-        }
-        $(this).val(telserch);
-    });
+    // $('#telserch').on('input', function() {
+    //     // 入力値が10桁以上11桁以内の半角数字でない場合は、末尾を切り捨てる
+    //     var telserch = $(this).val();
+    //     telserch = telserch.replace(/[^0-9]/g, '');
+    //     if (telserch.length > 11) {
+    //         telserch = telserch.substring(0, 11);
+    //     }
+    //     $(this).val(telserch);
+    // });
 
     // 入力制限(数字,ハイフン,ドットのみ)
     $(".shiftTime").on("input", function(){

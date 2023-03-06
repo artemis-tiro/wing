@@ -264,11 +264,11 @@
                                     </label>
                                 </div>
 
-                                <!-- コース -->
-                                <div class="row text-nowrap mb-2 text-end">
+                                <!-- メモ -->
+                                <div class="row text-nowrap mt-2 text-end">
                                     <div class="col-sm-3 text-end">メモ<span class="mx-2 badge rounded-pill bg-danger">必須</span></div>
-                                    <label class="col-sm-3">
-                                        {{ Form::text('memoEx', null, ['class'=>'form-control']) }}
+                                    <label class="col-sm-6">
+                                        {{ Form::textarea('memoEx', null, ['rows'=>4, 'class'=>'form-control']) }}
                                     </label>
                             </div>
 
