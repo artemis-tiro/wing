@@ -141,6 +141,7 @@ class InputController extends Controller{
 
 
         if($request->input('telsearch')){
+            if(strlen($request->input('telsearch')) < 10) return back()->with('error','10文字以上11文字以内で入力してください。');
             $kokyakuData = $telsearch;
             $formflag = 1;
             

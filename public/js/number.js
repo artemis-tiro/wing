@@ -1,27 +1,36 @@
 $(function() {
-
-
-    // $('#telserch').on('keydown', function(event) {
-    //     // 半角数字(0-9)以外はキャンセル
-    //     if ((event.keyCode < 48) || (event.keyCode > 57)) {
-    //         // backspace, delete, enter, tab, escapeは許可
-    //         if ((event.keyCode == 8) || (event.keyCode == 46) || (event.keyCode == 13) || (event.keyCode == 9) || (event.keyCode == 27)) {
-    //         return true;
-    //         } else {
-    //         return false;
-    //         }
-    //     }
-    // });
-      
-    // $('#telserch').on('input', function() {
-    //     // 入力値が10桁以上11桁以内の半角数字でない場合は、末尾を切り捨てる
-    //     var telserch = $(this).val();
-    //     telserch = telserch.replace(/[^0-9]/g, '');
-    //     if (telserch.length > 11) {
-    //         telserch = telserch.substring(0, 11);
-    //     }
-    //     $(this).val(telserch);
-    // });
+    $(document).on('keydown', '#telserch', function(event) {
+        // 制御キーの場合は無視する
+        if (event.ctrlKey || event.altKey || event.metaKey) {
+            return;
+        }
+    
+        // 許容するキーの場合は無視する
+        if (event.which == 8 
+            || event.which == 9 
+            || event.which == 13
+            || event.which == 35 
+            || event.which == 36
+            || event.which == 46 
+            || (event.which == 65 && event.ctrlKey === true) 
+            || (event.which == 67 && event.ctrlKey === true) 
+            || (event.which == 86 && event.ctrlKey === true)) {
+            return;
+        }
+    
+        // 数字以外は無視する
+        if (!(event.which >= 48 && event.which <= 57
+            || event.which >= 96 && event.which <= 105)) {            
+            event.preventDefault();
+            return;
+        }
+    
+        // 11文字以上の場合キャンセル
+        if (this.value.length >= 11) {
+            event.preventDefault();
+            return;
+        }
+    });
 
     // 入力制限(数字,ハイフン,ドットのみ)
     $(".shiftTime").on("input", function(){

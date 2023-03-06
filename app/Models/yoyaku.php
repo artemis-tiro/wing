@@ -352,9 +352,6 @@ class Yoyaku extends Model
 
     // 延長編集
     public static function yoyakuedit($input,$id){
-
-        // dd($input);
-
         $yoyaku = yoyaku::find($input['yoyakuId']);
 
         $input_price_id = '';
